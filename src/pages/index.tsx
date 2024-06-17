@@ -12,9 +12,9 @@ export default function Home() {
         initial={{ opacity: 0, filter: "blur(16px)" }}
         animate={{ opacity: 1, filter: "blur(0px)" }}
         transition={{ type: "spring", duration: 1.5 }}
-        className="pb-9"
+        className="flex justify-center items-center min-h-screen"
       >
-        <div className="md:pl-48 md:pt-20 pl-9 pt-9 space-y-3 text-wrap md:w-[50rem] w-72">
+        <div className="md:pt-20 pt-9 space-y-3 text-wrap md:w-[50rem] w-72">
           <Header />
           <Image
             src="/valley.png"
