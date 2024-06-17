@@ -1,26 +1,40 @@
-import { useEffect, useState, useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 import { ParallaxScroll } from "../components/ui/photos";
-import { motion } from "framer-motion";
+import Header from "@/components/header";
 
 export default function Photos() {
-  const staticImages = useMemo(() => ["/houseabove.png", "/valley.png"], []);
+  const [imagecount, setImageCount] = useState(0);
+
+  useEffect(() => {
+    const fetchImageCount = async () => {
+      const response = await fetch("/api/imagecount");
+      const data = await response.json();
+      setImageCount(data.count);
+    };
+
+    fetchImageCount();
+  }, []);
+
+  const staticImages = useMemo(() => {
+    const images = [];
+    for (let i = 1; i <= imagecount; i++) {
+      images.push(`/images/${i}.png`);
+    }
+    return images;
+  }, [imagecount]);
+
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0, filter: "blur(16px)" }}
-        animate={{ opacity: 1, filter: "blur(0px)" }}
-        transition={{ type: "spring", duration: 1.25 }}
-        className="max-h-screen"
-      >
-        <div className="md:pl-48 md:pt-5 pl-9 text-wrap md:w-[50rem]">
-          <p className="font-medium text-2xl">
-            Photos
-          </p>
+      <div className="deletescrollbar">
+        <div className="md:pl-48 md:pt-9 pt-5 pl-9 text-wrap md:w-[50rem]">
+          <Header />
+          <p className="font-medium text-xl pt-9">Photos</p>
           <ParallaxScroll
+            className="max-h-screen"
             images={staticImages.length ? staticImages : staticImages}
           />
         </div>
-      </motion.div>
+      </div>
     </>
   );
 }

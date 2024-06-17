@@ -6,13 +6,13 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { IoMdPhotos } from "react-icons/io";
+import { FaCamera } from "react-icons/fa6";
 
 export default function Header() {
   return (
-    <div className="flex items-center justify-between px-4 py-2">
-      <div />
-      <div className="flex items-center space-x-4">
+    <div className="flex items-center justify-between py-2">
+      <Link href="/" className="text-xl">Jasper Mayone</Link>
+      <div className="flex items-center space-x-4 px-4">
         <TooltipProvider>
           <Tooltip>
             <TooltipTrigger>
@@ -77,7 +77,7 @@ export default function Header() {
                 aria-label="Photos"
                 className="text-gray-400 text-2xl"
               >
-                <IoMdPhotos />
+                <FaCamera />
               </Link>
             </TooltipTrigger>
             <TooltipContent>
