@@ -11,7 +11,9 @@ import { FaCamera } from "react-icons/fa6";
 export default function Header() {
   return (
     <div className="flex items-center justify-between py-2">
-      <Link href="/" className="text-xl">Jasper Mayone</Link>
+      <Link href="/" className="text-xl">
+        Jasper Mayone
+      </Link>
       <div className="flex items-center space-x-4 px-4">
         <TooltipProvider>
           <Tooltip>

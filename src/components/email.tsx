@@ -35,24 +35,26 @@ export default function Email() {
         <p className="text-gray-500">
           Join my newsletter to get updates on new projects.
         </p>
-      {!submitted ? (
-        <form onSubmit={onSubmit}>
-          <div className="flex flex-row space-x-5 pt-5">
-            <Input
-              type="email"
-              placeholder="example@example.com"
-              className="w-48"
-              value={email}
-              onChange={handleInputChange}
-            />
-            <Button type="submit" className="w-24">
-              Submit
-            </Button>
-          </div>
-        </form>
-      ) : (
-        <p className="text-green-400 pt-2">Submitted! Be sure to look out for emails in the future!</p>
-      )}
+        {!submitted ? (
+          <form onSubmit={onSubmit}>
+            <div className="flex flex-row space-x-5 pt-5">
+              <Input
+                type="email"
+                placeholder="example@example.com"
+                className="w-48"
+                value={email}
+                onChange={handleInputChange}
+              />
+              <Button type="submit" className="w-24">
+                Submit
+              </Button>
+            </div>
+          </form>
+        ) : (
+          <p className="text-green-400 pt-2">
+            Submitted! Be sure to look out for emails in the future!
+          </p>
+        )}
       </div>
     </>
   );

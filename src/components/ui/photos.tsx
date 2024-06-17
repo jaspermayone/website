@@ -29,7 +29,10 @@ export const ParallaxScroll = ({
 
   return (
     <div
-      className={cn("h-[40rem] items-start overflow-y-auto hidescrollbar", className)}
+      className={cn(
+        "h-[40rem] items-start overflow-y-auto hidescrollbar",
+        className,
+      )}
       ref={gridRef}
     >
       <div

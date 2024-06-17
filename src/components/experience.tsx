@@ -25,7 +25,7 @@ export default function Experience() {
       role: "Student Assistant",
       date: "Sep 2021 - Present",
       link: "https://huusd.org/",
-    }
+    },
   ];
 
   return (

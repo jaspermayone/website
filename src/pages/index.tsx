@@ -16,12 +16,29 @@ export default function Home() {
       >
         <div className="md:pl-48 md:pt-20 pl-9 pt-9 space-y-3 text-wrap md:w-[50rem] w-72">
           <Header />
-          <Image src="/valley.png" width={1000} height={500} alt="Jasper Mayone" className="rounded-lg" />
+          <Image
+            src="/valley.png"
+            width={1000}
+            height={500}
+            alt="Jasper Mayone"
+            className="rounded-lg"
+          />
           <p className="font-medium text-2xl">
             Jasper Mayone{" "}
             <span className="text-gray-500 font-normal">
               is a 17-year-old high school student from Vermont. He is a circus
-              performer, a <Link className="underline" href="https://github.com/jaspermayone">coder</Link>, and a <Link href="/photos" className="underline">photographer</Link>.{"  "}—{"  "}
+              performer, a{" "}
+              <Link
+                className="underline"
+                href="https://github.com/jaspermayone"
+              >
+                coder
+              </Link>
+              , and a{" "}
+              <Link href="/photos" className="underline">
+                photographer
+              </Link>
+              .{"  "}—{"  "}
               He currently works at Hack Club where he is taking an gap year.
             </span>
           </p>
@@ -36,9 +53,9 @@ export default function Home() {
             outdoors, photography, computer programming, cooking, and running
             away to join the circus.
           </p>
-          <div className="py-5"/>
+          <div className="py-5" />
           <Experience />
-          <div className="py-5"/>
+          <div className="py-5" />
           <Email />
         </div>
       </motion.div>
