@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Experience from "@/components/experience";
 import Email from "@/components/email";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -12,7 +13,8 @@ export default function Home() {
         transition={{ type: "spring", duration: 1.5 }}
         className="pb-9"
       >
-        <div className="md:pl-48 md:pt-20 pl-9 pt-9 space-y-3 text-wrap md:w-[50rem]">
+        <div className="md:pl-48 md:pt-20 pl-9 pt-9 space-y-3 text-wrap md:w-[50rem] w-72">
+          <Image src="/valley.png" width={1000} height={500} alt="Jasper Mayone" className="rounded-lg" />
           <p className="font-medium text-2xl">
             Jasper Mayone{" "}
             <span className="text-gray-500 font-normal">
