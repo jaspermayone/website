@@ -25,8 +25,8 @@ export default function Photos() {
 
   return (
     <>
-      <div className="deletescrollbar">
-        <div className="md:pl-48 md:pt-9 pt-5 pl-9 text-wrap md:w-[50rem]">
+      <div className="deletescrollbar flex justify-center">
+        <div className="md:pl-0 pl-5 md:pt-9 pt-5 text-wrap md:w-[50rem]">
           <Header />
           <p className="font-medium text-xl pt-9">Photos</p>
           <ParallaxScroll

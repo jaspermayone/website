@@ -13,7 +13,7 @@ export default function Home() {
         initial={{ opacity: 0, filter: "blur(16px)" }}
         animate={{ opacity: 1, filter: "blur(0px)" }}
         transition={{ type: "spring", duration: 1.5 }}
-        className="flex justify-center items-center min-h-screen"
+        className="flex justify-center items-center min-h-screen pb-9"
       >
         <div className="md:pt-20 pt-9 space-y-3 text-wrap md:w-[50rem] w-72">
           <Header />
