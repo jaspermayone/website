@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 
-
 export default function Home() {
   return (
     <>
@@ -58,6 +57,9 @@ export default function Home() {
           <Experience />
           <div className="py-5" />
           <Email />
+          <div className="pt-5">
+          <p className="text-gray-400 text-sm">Made by <Link className="underline" href="https://github.com/aramshiva/website">Aram</Link>. <Link className="underline" href="https://github.com/jaspermayone/website">Open Source</Link></p>
+        </div>
         </div>
       </motion.div>
     </>
