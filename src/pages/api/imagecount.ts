@@ -8,9 +8,7 @@ export default function handler(req, res) {
       return res.status(500).json({ error: "Failed to read directory" });
     }
 
-    const imageCount = files.filter((file) =>
-      file.endsWith(".png" || ".jpg" || ".JPG")
-    ).length;
+    const imageCount = files.filter((file) => file.endsWith(".jpg")).length;
     res.status(200).json({ count: imageCount });
   });
 }
