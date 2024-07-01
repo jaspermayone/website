@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
       <Component {...pageProps} />
-      <Script src="https://umami.purplebubble.org/script.js" data-website-id="dcf09d4f-b160-4686-b316-66caa38ffb89" />
+      <Script src="https://umami.jaspermayone.com/script.js" data-website-id={process.env.UMAMI_PROJECT_ID} />
     </>
   )
 }
