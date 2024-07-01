@@ -49,13 +49,12 @@ export default function Home() {
             </p>
             <p className="text-gray-400 text-sm pt-9">
               Introduced to Hack Club through the circus, and a native Vermonter,
-              Jasper is currently a Junior in high school, on track for graduating
-              a full year early! While in high school, Jasper led a Hack Club at
-              his school. Jasper tries to live by the quote “We’ve all got both
-              light and dark inside us. What matters is the part we choose to act
-              on...that’s who we really are.” from one of his favorite books,
-              Harry Potter. Jasper’s hobbies include reading, being in the great
-              outdoors, photography, computer programming, cooking, and running
+              Jasper is a high school graduate from the class of 2024! Graduating
+              a full year early, he is currently taking a gap year to explore.
+              Jasper tries to live by the quote “We’ve all got both light and dark inside
+               us. What matters is the part we choose to act on...that’s who we really are.”
+              from one of his favorite books, Harry Potter. Jasper’s hobbies include reading,
+              being in the great outdoors, photography, computer programming, cooking, and running
               away to join the circus.
             </p>
             <div className="py-5" />
