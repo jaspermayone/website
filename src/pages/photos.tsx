@@ -1,9 +1,9 @@
-import { useMemo, useEffect, useState } from "react";
+import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
 import { ParallaxScroll } from "../components/ui/photos";
-import Header from "@/components/header";
 
 export default function Photos() {
-  const [imagecount, setImageCount] = useState(0);
+  const [imageCount, setImageCount] = useState(0);
 
   useEffect(() => {
     const fetchImageCount = async () => {
@@ -17,21 +17,26 @@ export default function Photos() {
 
   const staticImages = useMemo(() => {
     const images = [];
-    for (let i = 1; i <= imagecount; i++) {
+    for (let i = 1; i <= imageCount; i++) {
       images.push(`/images/${i}.jpg`);
     }
     return images;
-  }, [imagecount]);
+  }, [imageCount]);
 
   return (
     <>
-      <div className="deletescrollbar flex justify-center">
-        <div className="md:pl-0 pl-5 md:pt-9 pt-5 text-wrap md:w-[50rem]">
-          <Header />
-          <p className="font-medium text-xl pt-9">Photos</p>
+      <div className="min-h-screen flex flex-col items-center px-5">
+        <div className="bg-white rounded-lg shadow-lg p-6 md:w-full w-full mt-12 mb-6">
+          <div className="flex items-center justify-between">
+            <Link href="/" className="text-xl text-slate-600">
+              &larr; Back to Home
+            </Link>
+          </div>
+        </div>
+        <div className="w-full flex justify-center">
           <ParallaxScroll
-            className="max-h-screen"
-            images={staticImages.length ? staticImages : staticImages}
+            className="max-h-screen w-full"
+            images={staticImages.length ? staticImages : []}
           />
         </div>
       </div>
