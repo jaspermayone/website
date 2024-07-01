@@ -18,7 +18,7 @@ export default function Photos() {
   const staticImages = useMemo(() => {
     const images = [];
     for (let i = 1; i <= imagecount; i++) {
-      images.push(`/images/${i}.png`);
+      images.push(`/images/${i}.jpg`);
     }
     return images;
   }, [imagecount]);
