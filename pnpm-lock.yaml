@@ -39,8 +39,8 @@ importers:
         specifier: ^11.2.12
         version: 11.2.12(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       loops:
-        specifier: ^2.0.0
-        version: 2.0.0
+        specifier: ^3.0.0
+        version: 3.0.0
       next:
         specifier: 14.2.3
         version: 14.2.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -1368,8 +1368,8 @@ packages:
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
 
-  loops@2.0.0:
-    resolution: {integrity: sha512-9kgk4FgGZ8lDlX65AppVJH/Z63mWTjcBCmq8Dw064Q9EIPi6PaNY8XmBfKKBKO+DpcQB4Hnxz4w8g67XSUPUnA==}
+  loops@3.0.0:
+    resolution: {integrity: sha512-LVXHkxHqhHujZlgM0IADitGyEo3lT4e8DG/ltAU58Z4Ik0EMoj0wz+vzrtiH7Jv9tGshMQPnpBIDhzcgw5srbg==}
     engines: {node: '>=18'}
 
   loose-envify@1.4.0:
@@ -3315,7 +3315,7 @@ snapshots:
 
   lodash.merge@4.6.2: {}
 
-  loops@2.0.0: {}
+  loops@3.0.0: {}
 
   loose-envify@1.4.0:
     dependencies:
