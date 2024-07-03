@@ -29,7 +29,7 @@ export default function Home() {
             </div>
           <br></br>
             <p className="font-medium text-2xl">
-              Jasper Mayone{" "}
+              Jasper Mayone{" "} (he/they)
               <span className="text-gray-500 font-normal">
                 is a 17-year-old high school student from Vermont. They are a circus
                 performer, a{" "}
