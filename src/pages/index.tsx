@@ -31,7 +31,7 @@ export default function Home() {
             <p className="font-medium text-2xl">
               Jasper Mayone{" "}
               <span className="text-gray-500 font-normal">
-                is a 17-year-old high school student from Vermont. He is a circus
+                is a 17-year-old high school student from Vermont. They are a circus
                 performer, a{" "}
                 <Link
                   className="underline"
@@ -43,14 +43,16 @@ export default function Home() {
                 <Link href="/photos" className="underline">
                   photographer
                 </Link>
+                .
               </span>
             </p>
             <p className="text-gray-400 text-sm pt-9">
               A circus artist and a native Vermonter, Jasper is a high school graduate from the class of 2024! 
-              Graduating a full year early, he is currently taking a gap year to explore. Jasper tries to live by the quote 
-              “We’ve all got both light and dark inside us. What matters is the part we choose to act on...that’s who we really are.” 
-              from one of his favorite books, Harry Potter. Jasper’s hobbies include reading, being in the great outdoors, photography, 
-              computer programming, cooking, and running away to join the circus.
+              Graduating a full year early, they are currently taking a gap year to explore. 
+              Jasper tries to live by the quote “We’ve all got both light and dark inside us. 
+              What matters is the part we choose to act on...that’s who we really are.” from one of their favorite books, Harry Potter. 
+              Jasper’s hobbies include reading, being in the great outdoors, photography, computer programming, cooking, 
+              and running away to join the circus.
             </p>
             <div className="py-5" />
             <Experience />
