@@ -1,0 +1,21 @@
+/* Home.module.css */
+.container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentBox {
+    position: relative;
+    width: 85vw; /* Fixed width */
+    height: 90vh; /* Fixed height */
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1); /* More transparent background */
+    border-radius: 10px;
+    backdrop-filter: blur(10px); /* Apply blur effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add shadow for better contrast */
+    text-align: left;
+}
