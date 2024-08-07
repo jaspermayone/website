@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import styles from "./DotsBackground.module.css";
+import styles from "@/styles/DotsBackground.module.css";
 
 const colors: string[] = [
   "#78cbf2",
