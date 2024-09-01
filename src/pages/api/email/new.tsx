@@ -17,7 +17,8 @@ export default async function handler(
 
     const mailingLists = {
   cm0jn176000w10ll52vow4jf4: true,
-  cm0jn1xdu01ny0ll94dhq7puy: false,
+  cm0jn1xdu01ny0ll94dhq7puy: true,
+  cm0jsbqcv00rq0mldg90307xj: false,
 };
     
     const resp = await loops.createContact(email, properties, mailingLists);
