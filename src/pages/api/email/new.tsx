@@ -9,11 +9,19 @@ export default async function handler(
 
   const loops = new LoopsClient(process.env.LOOPS_API_KEY);
   try {
+    
     const properties = {
       source: "jaspermayone.com",
       acquisitionMethod: "jaspermayone.com",
     };
-    const resp = await loops.createContact(email, properties);
+
+    const mailingLists = {
+  cm0jn176000w10ll52vow4jf4: true,
+  cm0jn1xdu01ny0ll94dhq7puy: false,
+};
+    
+    const resp = await loops.createContact(email, properties, mailingLists);
+    
     if (resp.success) {
       res.status(200).json({ success: true });
     } else {
