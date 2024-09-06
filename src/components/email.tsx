@@ -1,61 +1,57 @@
-import React, { useState } from "react";
-import { Input } from "./ui/input";
-import { Button } from "./ui/button";
-import { LoopsClient } from "loops";
+"use client";
+import { useState, type FormEvent } from "react";
 
-export default function Email() {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+export default function Page() {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const [success, setSuccess] = useState<boolean>(false);
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
+  async function onSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setIsLoading(true);
+    setError(null); // Clear previous errors
+    setSuccess(false); // Reset success state
 
-    fetch("/api/email/new", {
-      method: "POST",
-      body: JSON.stringify({ email }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.success) {
-          setSubmitted(true);
-        }
+    try {
+      const formData = new FormData(event.currentTarget);
+      const response = await fetch("/api/email/new", {
+        method: "POST",
+        body: JSON.stringify(Object.fromEntries(formData)),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
-  };
-  const handleInputChange = (e) => {
-    setEmail(e.target.value);
-  };
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(
+          `${response.status} ${response.statusText}: ${
+            error.reason || error.message
+          }`
+        );
+      }
+
+      setSuccess(true); // Mark as success if no errors
+    } catch (error: any) {
+      // Capture and display error message
+      setError(error.message);
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
 
   return (
-    <>
-      <div className="space-y">
-        <p className="font-[450]">Newsletter</p>
-        <p className="text-gray-500">
-          Join my newsletter to get updates on new projects.
-        </p>
-        {!submitted ? (
-          <form onSubmit={onSubmit}>
-            <div className="flex flex-row space-x-5 pt-5">
-              <Input
-                type="email"
-                placeholder="example@example.com"
-                className="w-48"
-                value={email}
-                onChange={handleInputChange}
-              />
-              <Button type="submit" className="w-24">
-                Submit
-              </Button>
-            </div>
-          </form>
-        ) : (
-          <p className="text-green-400 pt-2">
-            Submitted! Be sure to look out for emails in the future!
-          </p>
-        )}
-      </div>
-    </>
+    <div>
+      {error && <div style={{ color: "red" }}>{error}</div>}
+      {success && <div style={{ color: "green" }}>Submitted successfully!</div>}
+      <form onSubmit={onSubmit}>
+        <label htmlFor="email">Email</label>
+        <input type="email" name="email" id="email" required />
+        <button type="submit" disabled={isLoading}>
+          {isLoading ? "Submitting..." : "Submit"}
+        </button>
+      </form>
+    </div>
   );
 }
