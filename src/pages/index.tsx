@@ -22,6 +22,74 @@ export default function Home() {
     "@jasperdoescircus",
   ];
 
+  // Function to render content based on selectedTab
+  const renderContent = () => {
+    switch (selectedTab) {
+      case "Homepage":
+        return (
+          <>
+            <p className="font-medium text-xl">
+              Jasper Mayone (<i>he/they</i>){" "}
+              <span className="text-gray-500 font-normal">
+                is a 17-year-old high school student from Vermont. They are a
+                circus performer, a{" "}
+                <Link
+                  className="underline"
+                  href="https://github.com/jaspermayone"
+                >
+                  coder
+                </Link>
+                , and a{" "}
+                <Link href="/photos" className="underline">
+                  photographer
+                </Link>
+                .
+              </span>
+            </p>
+            <p className="text-gray-400 text-sm pt-9">
+              A circus artist and a native Vermonter, Jasper is a high school
+              graduate from the class of 2024! Graduating a full year early,
+              they are currently taking a gap year to explore. Jasper tries to
+              live by the quote “We’ve all got both light and dark inside us.
+              What matters is the part we choose to act on...that’s who we
+              really are.” from one of their favorite books, Harry Potter.
+              Jasper’s hobbies include reading, being in the great outdoors,
+              photography, computer programming, cooking, and running away to
+              join the circus.
+            </p>
+            <div className="py-5" />
+            <Email />
+          </>
+        );
+      case "Portfolio":
+        return (
+          <>
+            <p>Hi</p>
+          </>
+        );
+      case "Resume":
+        return (
+          <>
+            <p>Hi</p>
+          </>
+        );
+      case "Photos":
+        return (
+          <>
+            <p>Hi</p>
+          </>
+        );
+      case "@jasperdoescircus":
+        return (
+          <>
+            <p>Hi</p>
+          </>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <motion.div
       initial={{ opacity: 0, filter: "blur(16px)" }}
@@ -46,36 +114,7 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.contentBox}>
-          <p className="font-medium text-xl">
-            Jasper Mayone (<i>he/they</i>){" "}
-            <span className="text-gray-500 font-normal">
-              is a 17-year-old high school student from Vermont. They are a
-              circus performer, a{" "}
-              <Link
-                className="underline"
-                href="https://github.com/jaspermayone"
-              >
-                coder
-              </Link>
-              , and a{" "}
-              <Link href="/photos" className="underline">
-                photographer
-              </Link>
-              .
-            </span>
-          </p>
-          <p className="text-gray-400 text-sm pt-9">
-            A circus artist and a native Vermonter, Jasper is a high school
-            graduate from the class of 2024! Graduating a full year early, they
-            are currently taking a gap year to explore. Jasper tries to live by
-            the quote “We’ve all got both light and dark inside us. What matters
-            is the part we choose to act on...that’s who we really are.” from
-            one of their favorite books, Harry Potter. Jasper’s hobbies include
-            reading, being in the great outdoors, photography, computer
-            programming, cooking, and running away to join the circus.
-          </p>
-          <div className="py-5" />
-          <Email />
+          {renderContent()} {/* Display content based on selected menu */}
         </div>
       </div>
     </motion.div>
