@@ -2,22 +2,48 @@
 .container {
     position: relative;
     height: 100vh;
-    width: 100%;
+    width: 90vw;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column; /* Stack children vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
 }
 
 .contentBox {
-    position: relative;
-    width: 85vw; /* Fixed width */
-    height: 90vh; /* Fixed height */
-    padding: 2rem;
-    background: rgba(255, 255, 255, 0.1); /* More transparent background */
-    border-radius: 10px;
-    backdrop-filter: blur(10px); /* Apply blur effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: add shadow for better contrast */
-    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: left; /* Center content horizontally within the contentBox */
+    border-width: 5px;
+    border-style: solid;
+    /* set border color to red */
+    border-color: #ff0000;
+    background-color: rgba(255, 255, 255, 0.8);
+    /* blur the background */
+    backdrop-filter: blur(100px);
+    z-index: 10;
+}
+
+.top {
+    position: absolute; /* Position it at the top of the container */
+    top: 0;
+    width: 100%; /* Ensure it spans the full width */
+    text-align: center; /* Center text horizontally */
+    padding: 20px; /* Optional padding for spacing */
+    margin-bottom: 10px;
+}
+
+.title {
+    margin: 0; /* Remove default margin if needed */
+}
+
+.menu {
+    display: flex; /* Arrange items horizontally */
+    justify-content: center; /* Center menu items horizontally */
+    gap: 20px; /* Space between menu items, adjust as needed */
+    margin-top: -12px; /* Space between title and menu */
+    font-size: 0.8em;
+    font-style: italic;
+    text-decoration: underline;
 }
 
 .profilePhoto {
@@ -27,4 +53,9 @@
 .overlay {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
+}
+
+.title {
+    font-size: 3.5em;
+    font-family: "Cute Notes", sans-serif;
 }
