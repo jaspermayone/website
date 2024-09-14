@@ -6,7 +6,7 @@ import { Input } from "./ui/input";
 export default function Email() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [success, setSuccess] = useState<boolean>(false);
 
@@ -36,7 +36,7 @@ export default function Email() {
       });
   }
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: any) => {
     setEmail(e.target.value);
   };
 

@@ -17,9 +17,9 @@ const DotsBackground: React.FC = () => {
   useEffect(() => {
     const numDots = 20;
 
-    if (containerRef.current) {
-      const container = containerRef.current;
+    const container = containerRef.current;
 
+    if (container) {
       // Cleanup existing dots
       while (container.firstChild) {
         container.removeChild(container.firstChild);
@@ -47,8 +47,7 @@ const DotsBackground: React.FC = () => {
     }
 
     return () => {
-      if (containerRef.current) {
-        const container = containerRef.current;
+      if (container) {
         while (container.firstChild) {
           container.removeChild(container.firstChild);
         }

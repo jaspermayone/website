@@ -16,7 +16,9 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ photos }) => {
   return (
     <div className={styles.grid}>
       {photos.map((photo, index) => (
-        <div className={styles.photo}>
+        <div key={index} className={styles.photo}>
+          {" "}
+          {/* Add key here */}
           <Image
             src={photo.src}
             alt={photo.alt}
