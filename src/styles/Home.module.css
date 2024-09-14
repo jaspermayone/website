@@ -42,7 +42,25 @@
     margin-top: -12px; /* Space between title and menu */
     font-size: 0.8em;
     font-style: italic;
-    text-decoration: underline;
+}
+
+.menu p {
+    position: relative;
+    cursor: pointer;
+    padding-bottom: 5px; /* Add space for the underline */
+    transition:
+        color 0.3s ease,
+        text-decoration 0.3s ease;
+}
+
+.menu p:hover {
+    /* #87adbc  #4a856b */
+    color: #78cbf2; /* Change text color when hovered (adjust to desired color) */
+}
+
+.menu p.selected {
+    text-decoration: underline wavy;
+    text-decoration-color: #78cbf2; /* Wavy underline for selected items */
 }
 
 .profilePhoto {

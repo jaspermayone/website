@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useState } from "react";
 
 import DotsBackground from "@/components/DotsBackground";
 import styles from "@/styles/Home.module.css";
@@ -11,6 +12,16 @@ import Email from "@/components/email";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const [selectedTab, setSelectedTab] = useState("Homepage"); // Default selected tab
+
+  const menuItems = [
+    "Homepage",
+    "Portfolio",
+    "Resume",
+    "Photos",
+    "@jasperdoescircus",
+  ];
+
   return (
     <motion.div
       initial={{ opacity: 0, filter: "blur(16px)" }}
@@ -23,10 +34,15 @@ export default function Home() {
         <div className={styles.top}>
           <h1 className={styles.title}>Jasper Mayone</h1>
           <div className={styles.menu}>
-            <p>Portfolio</p>
-            <p>Resume</p>
-            <p>Photos</p>
-            <p>@jasperdoescircus</p>
+            {menuItems.map((item) => (
+              <p
+                key={item}
+                className={item === selectedTab ? styles.selected : ""}
+                onClick={() => setSelectedTab(item)} // Set the selected tab
+              >
+                {item}
+              </p>
+            ))}
           </div>
         </div>
         <div className={styles.contentBox}>
