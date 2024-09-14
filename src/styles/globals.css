@@ -25,6 +25,8 @@
 
 body {
     /* font-family: "Cute Notes", sans-serif; */
+    width: 100vw;
+    height: 100vh;
 }
 
 @layer utilities {
