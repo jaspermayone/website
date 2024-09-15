@@ -1,26 +1,25 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import Email from "@/components/email"; // Assuming you have an Email component
-import DotsBackground from "@/components/DotsBackground"; // Assuming you have a DotsBackground component
-import styles from "@/styles/Home.module.css"; // Your CSS module
+import Email from "@/components/email";
+import DotsBackground from "@/components/DotsBackground";
+import styles from "@/styles/Home.module.css";
+import Image from "next/image";
 
 export default function Home() {
-  const [selectedTab, setSelectedTab] = useState("Homepage"); // Default selected tab
+  const [selectedTab, setSelectedTab] = useState("Homepage");
 
   const menuItems = [
     "Homepage",
-    "Portfolio",
-    "Resume",
+    "Portfolio & Resume",
     "Photos",
     "@jasperdoescircus",
   ];
 
-  // Framer Motion animation variants for a fade effect
   const fadeVariants = {
-    hidden: { opacity: 0, filter: "blur(10px)" }, // Set a positive blur value
-    visible: { opacity: 1, filter: "blur(0px)" }, // Set blur to 0 when visible
-    exit: { opacity: 0, filter: "blur(10px)" }, // Ensure blur is non-negative on exit
+    hidden: { opacity: 0, filter: "blur(10px)" },
+    visible: { opacity: 1, filter: "blur(0px)" },
+    exit: { opacity: 0, filter: "blur(10px)" },
   };
 
   useEffect(() => {
@@ -28,9 +27,8 @@ export default function Home() {
       "%cWOWY! A real life developer or code enthusiast? I'm so glad you're here! \nI'm GitHub at @jaspermayone! \nIf you're interested in circus arts, photography, or just want to chat, feel free to reach out to me at me@jaspermayone.com. \nI can't wait to meet you!",
       "background: #222; color: #bada55",
     );
-  }, []); // The empty dependency array ensures this runs only once when the component mounts
+  }, []);
 
-  // Function to render content based on selectedTab
   const renderContent = () => {
     switch (selectedTab) {
       case "Homepage":
@@ -69,10 +67,15 @@ export default function Home() {
             <Email />
           </>
         );
-      case "Portfolio":
-        return <p>Portfolio content will go here.</p>;
-      case "Resume":
-        return <p>Resume content will go here.</p>;
+      case "Portfolio & Resume":
+        return (
+          <>
+            <p className="text-gray-500 text-sm pt-9">
+              {" "}
+              Thank you for your interest in my professional work!{" "}
+            </p>
+          </>
+        );
       case "Photos":
         return <p>Photos content will go here.</p>;
       case "@jasperdoescircus":
@@ -93,32 +96,80 @@ export default function Home() {
         <DotsBackground />
         <div className={styles.top}>
           <h1 className={styles.title}>Jasper Mayone</h1>
-          <div className={styles.menu}>
-            {menuItems.map((item) => (
-              <p
-                key={item}
-                className={item === selectedTab ? styles.selected : ""}
-                onClick={() => setSelectedTab(item)} // Set the selected tab
-              >
-                {item}
-              </p>
-            ))}
+          <div className={styles.menuContainer}>
+            <div className={styles.menu}>
+              {menuItems.map((item) => (
+                <p
+                  key={item}
+                  className={`${styles.menuItem} ${item === selectedTab ? styles.selected : ""}`}
+                  onClick={() => setSelectedTab(item)}
+                >
+                  {item}
+                </p>
+              ))}
+            </div>
+            <div className={styles.menu2}>
+              <a href="https://www.instagram.com/jasper.mayone/">
+                <Image
+                  src="/images/instagram.webp"
+                  alt="X Logo"
+                  width={20}
+                  height={20}
+                  style={{ borderRadius: "15%" }}
+                />
+              </a>
+              <a href="https://x.com/jaspermayone">
+                <Image
+                  src="/images/x.png"
+                  alt="X Logo"
+                  width={20}
+                  height={20}
+                  style={{ borderRadius: "15%" }}
+                />
+              </a>
+              <a href="https://github.com/jaspermayone/">
+                <Image
+                  src="/images/github.png"
+                  alt="Github Logo"
+                  width={20}
+                  height={20}
+                  style={{ borderRadius: "15%" }}
+                />
+              </a>
+              <a href="https://www.linkedin.com/in/jaspermayone/">
+                <Image
+                  src="/images/linkedin.png"
+                  alt="Linkedin Logo"
+                  width={20}
+                  height={20}
+                  style={{ borderRadius: "15%" }}
+                />
+              </a>
+              <a href="https://dev.to/jaspermayone">
+                <Image
+                  src="/images/devto.png"
+                  alt="Dev.to Logo"
+                  width={20}
+                  height={20}
+                  style={{ borderRadius: "15%" }}
+                />
+              </a>
+            </div>
           </div>
         </div>
 
         <div className={styles.contentBox}>
-          {/* Use AnimatePresence for smooth transitions between content */}
           <AnimatePresence mode="wait">
             <motion.div
-              key={selectedTab} // key to animate between different content
-              variants={fadeVariants} // Use fade variants for animation
+              key={selectedTab}
+              variants={fadeVariants}
               initial="hidden"
               animate="visible"
               exit="exit"
               transition={{
                 opacity: { duration: 0.5 },
                 filter: { duration: 0.5 },
-              }} // Adjust as needed
+              }}
             >
               {renderContent()}
             </motion.div>

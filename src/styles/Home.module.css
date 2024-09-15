@@ -25,9 +25,9 @@
 .top {
     position: absolute; /* Position it at the top of the container */
     top: 0;
-    width: 100%; /* Ensure it spans the full width */
+    width: 100vw; /* Ensure it spans the full width */
     text-align: center; /* Center text horizontally */
-    padding: 20px; /* Optional padding for spacing */
+    padding-top: 20px;
     margin-bottom: 10px;
 }
 
@@ -38,8 +38,8 @@
 .menu {
     display: flex; /* Arrange items horizontally */
     justify-content: center; /* Center menu items horizontally */
-    gap: 20px; /* Space between menu items, adjust as needed */
-    margin-top: -12px; /* Space between title and menu */
+    gap: 1.5vw; /* Space between menu items, adjust as needed */
+    margin-top: -1vh; /* Space between title and menu */
     font-size: 0.8em;
     font-style: italic;
 }
@@ -47,7 +47,7 @@
 .menu p {
     position: relative;
     cursor: pointer;
-    padding-bottom: 5px; /* Add space for the underline */
+    padding-bottom: 1vh; /* Add space for the underline */
     transition:
         color 0.3s ease,
         text-decoration 0.3s ease;
@@ -78,4 +78,17 @@
 
 .hidden {
     display: none;
+}
+
+.menuContainer {
+    display: flex;
+    align-items: center; /* Vertically centers the items */
+    justify-content: center; /* Centers items horizontally */
+}
+
+.menu2 {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 3.5vh;
+    margin-top: -2vh;
 }
