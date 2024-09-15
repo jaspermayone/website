@@ -1,15 +1,9 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
-
-import DotsBackground from "@/components/DotsBackground";
-import styles from "@/styles/Home.module.css";
-import Experience from "@/components/experience";
-import Email from "@/components/email";
-
-const inter = Inter({ subsets: ["latin"] });
+import Email from "@/components/email"; // Assuming you have an Email component
+import DotsBackground from "@/components/DotsBackground"; // Assuming you have a DotsBackground component
+import styles from "@/styles/Home.module.css"; // Your CSS module
 
 export default function Home() {
   const [selectedTab, setSelectedTab] = useState("Homepage"); // Default selected tab
@@ -21,6 +15,17 @@ export default function Home() {
     "Photos",
     "@jasperdoescircus",
   ];
+
+  // Framer Motion animation variants for a fade effect
+  const fadeVariants = {
+    hidden: { opacity: 0, filter: "blur(10px)" }, // Set a positive blur value
+    visible: { opacity: 1, filter: "blur(0px)" }, // Set blur to 0 when visible
+    exit: { opacity: 0, filter: "blur(10px)" }, // Ensure blur is non-negative on exit
+  };
+
+  useEffect(() => {
+    console.log("Page has fully loaded!");
+  }, []); // The empty dependency array ensures this runs only once when the component mounts
 
   // Function to render content based on selectedTab
   const renderContent = () => {
@@ -62,29 +67,13 @@ export default function Home() {
           </>
         );
       case "Portfolio":
-        return (
-          <>
-            <p>Hi</p>
-          </>
-        );
+        return <p>Portfolio content will go here.</p>;
       case "Resume":
-        return (
-          <>
-            <p>Hi</p>
-          </>
-        );
+        return <p>Resume content will go here.</p>;
       case "Photos":
-        return (
-          <>
-            <p>Hi</p>
-          </>
-        );
+        return <p>Photos content will go here.</p>;
       case "@jasperdoescircus":
-        return (
-          <>
-            <p>Hi</p>
-          </>
-        );
+        return <p>Follow Jasper’s circus journey on Instagram.</p>;
       default:
         return null;
     }
@@ -113,8 +102,24 @@ export default function Home() {
             ))}
           </div>
         </div>
+
         <div className={styles.contentBox}>
-          {renderContent()} {/* Display content based on selected menu */}
+          {/* Use AnimatePresence for smooth transitions between content */}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={selectedTab} // key to animate between different content
+              variants={fadeVariants} // Use fade variants for animation
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              transition={{
+                opacity: { duration: 0.5 },
+                filter: { duration: 0.5 },
+              }} // Adjust as needed
+            >
+              {renderContent()}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
     </motion.div>

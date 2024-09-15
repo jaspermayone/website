@@ -17,7 +17,7 @@
 .contentBox {
     display: flex;
     flex-direction: column;
-    align-items: left; /* Center content horizontally within the contentBox */
+    align-items: flex-start; /* Align items to the start (left) */
     margin-left: 4vw;
     margin-right: 4vw;
 }
