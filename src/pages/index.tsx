@@ -24,7 +24,10 @@ export default function Home() {
   };
 
   useEffect(() => {
-    console.log("Page has fully loaded!");
+    console.log(
+      "%cWOWY! A real life developer or code enthusiast? I'm so glad you're here! \nI'm GitHub at @jaspermayone! \nIf you're interested in circus arts, photography, or just want to chat, feel free to reach out to me at me@jaspermayone.com. \nI can't wait to meet you!",
+      "background: #222; color: #bada55",
+    );
   }, []); // The empty dependency array ensures this runs only once when the component mounts
 
   // Function to render content based on selectedTab

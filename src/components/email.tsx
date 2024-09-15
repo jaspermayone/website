@@ -3,10 +3,23 @@ import { useState, type FormEvent } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 
+const predefinedEmails = [
+  "jaspermayone@gmail.com",
+  "jasperphoenixmayone@gmail.com",
+  "me@jaspermayone.com",
+  "jasper@jaspermayone.com",
+  "jasper.mayone@jaspermayone.com",
+  "jasper@singlefeather.com",
+  "jasper.mayone@singlefeather.com",
+  "jasper@purplebubble.org",
+  "jasper@phish.directory",
+];
+
 export default function Email() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [woahThere, setWoahThere] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [success, setSuccess] = useState<boolean>(false);
 
@@ -14,7 +27,15 @@ export default function Email() {
     event.preventDefault();
     setIsLoading(true);
     setError(null); // Clear previous error
+    setWoahThere(false); // Reset "Woah there!" state
     setSuccess(false); // Reset success state
+
+    // Check if the email is in the predefined array
+    if (predefinedEmails.includes(email)) {
+      setWoahThere(true);
+      setIsLoading(false);
+      return;
+    }
 
     fetch("/api/email/new", {
       method: "POST",
@@ -62,6 +83,11 @@ export default function Email() {
                 Submit
               </Button>
             </div>
+            {woahThere && (
+              <p className="text-purple-500 pt-2">
+                Slow down cowboy! You&apos;re not Jasper!
+              </p>
+            )}
             {error && <p className="text-red-500 pt-2">{error}</p>}
           </form>
         ) : (
