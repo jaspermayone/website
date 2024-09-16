@@ -12,6 +12,8 @@ const aj = arcjet({
       // configured with a list of bots to allow from
       // https://arcjet.com/bot-list
       allow: [
+        "VERCEL_CRAWLER",
+        "VERCEL_MONITOR_PREVIEW",
         "GOOGLE_ADSBOT",
         "GOOGLE_ADSBOT_MOBILE",
         "GOOGLE_ADSENSE",
