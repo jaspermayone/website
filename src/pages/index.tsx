@@ -9,6 +9,7 @@ import {
   SiGithub,
   SiInstagram,
   SiLinkedin,
+  SiThreads,
   SiX,
 } from "react-icons/si";
 
@@ -33,7 +34,7 @@ export default function Home() {
   useEffect(() => {
     console.log(
       "%cWOWY! A real life developer or code enthusiast? I'm so glad you're here! \nI'm GitHub at @jaspermayone! \nIf you're interested in circus arts, photography, or just want to chat, feel free to reach out to me at me@jaspermayone.com. \nI can't wait to meet you!",
-      "background: #222; color: #bada55",
+      "background: #222; color: #bada55"
     );
   }, []);
 
@@ -130,21 +131,24 @@ export default function Home() {
               ))}
             </div>
             <div className={styles.menu2}>
-              <a href="https://www.instagram.com/jasper.mayone/">
+              <Link href="https://www.instagram.com/jasper.mayone/">
                 <SiInstagram width={20} height={20} />
-              </a>
-              <a href="https://x.com/jaspermayone">
+              </Link>
+              <Link href="https://x.com/jaspermayone">
                 <SiX width={20} height={20} />
-              </a>
-              <a href="https://github.com/jaspermayone/">
+              </Link>
+              <Link href="https://github.com/jaspermayone/">
                 <SiGithub width={20} height={20} />
-              </a>
-              <a href="https://www.linkedin.com/in/jaspermayone/">
+              </Link>
+              <Link href="https://www.linkedin.com/in/jaspermayone/">
                 <SiLinkedin width={20} height={20} />
-              </a>
-              <a href="https://dev.to/jaspermayone">
+              </Link>
+              <Link href="https://dev.to/jaspermayone">
                 <SiDevdotto width={20} height={20} />
-              </a>
+              </Link>
+              <Link href="threads.net/@jasper.mayone">
+                <SiThreads width={20} height={20} />
+              </Link>
             </div>
           </div>
         </div>

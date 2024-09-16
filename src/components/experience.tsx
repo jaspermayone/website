@@ -35,16 +35,16 @@ export default function Experience() {
         {experience.map((item, index) => (
           <>
             <div key={index} className="pb-5 w-72">
-              <Accordion type="single" collapsible>
-                <AccordionItem value={index.toString()}>
-                  <AccordionTrigger>{item.title}</AccordionTrigger>
-                  <AccordionContent>
+              <Linkccordion type="single" collapsible>
+                <LinkccordionItem value={index.toString()}>
+                  <LinkccordionTrigger>{item.title}</LinkccordionTrigger>
+                  <LinkccordionContent>
                     <p>{item.role}</p>
                     <br />
                     <p className="text-sm text-gray-500">{item.date}</p>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+                  </LinkccordionContent>
+                </LinkccordionItem>
+              </Linkccordion>
             </div>
           </>
         ))}
