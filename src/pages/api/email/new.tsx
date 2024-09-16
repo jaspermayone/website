@@ -85,7 +85,7 @@ export default async function handler(
   }
 
   // Loops client for contact creation
-  const loops = new LoopsClient(process.env.LOOPS_API_KEY);
+  const loops = new LoopsClient(process.env.LOOPS_API_KEY!);
   try {
     const properties = {
       source: "jaspermayone.com",
