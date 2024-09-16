@@ -17,15 +17,15 @@ export default function Home() {
   ];
 
   const fadeVariants = {
-    hidden: { opacity: 0, filter: "blur(10px)" },
-    visible: { opacity: 1, filter: "blur(0px)" },
-    exit: { opacity: 0, filter: "blur(10px)" },
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+    exit: { opacity: 0 },
   };
 
   useEffect(() => {
     console.log(
       "%cWOWY! A real life developer or code enthusiast? I'm so glad you're here! \nI'm GitHub at @jaspermayone! \nIf you're interested in circus arts, photography, or just want to chat, feel free to reach out to me at me@jaspermayone.com. \nI can't wait to meet you!",
-      "background: #222; color: #bada55",
+      "background: #222; color: #bada55"
     );
   }, []);
 
@@ -87,8 +87,8 @@ export default function Home() {
 
   return (
     <motion.div
-      initial={{ opacity: 0, filter: "blur(16px)" }}
-      animate={{ opacity: 1, filter: "blur(0px)" }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ type: "spring", duration: 1.5 }}
       className="flex justify-center items-center min-h-screen"
     >
@@ -101,7 +101,9 @@ export default function Home() {
               {menuItems.map((item) => (
                 <p
                   key={item}
-                  className={`${styles.menuItem} ${item === selectedTab ? styles.selected : ""}`}
+                  className={`${styles.menuItem} ${
+                    item === selectedTab ? styles.selected : ""
+                  }`}
                   onClick={() => setSelectedTab(item)}
                 >
                   {item}
