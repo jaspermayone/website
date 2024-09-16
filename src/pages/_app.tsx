@@ -64,9 +64,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="msapplication-TileColor" content="#603cba" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <LinknimatePresence>
+      <AnimatePresence>
         <Component {...pageProps} />
-      </LinknimatePresence>
+      </AnimatePresence>
     </>
   );
 }
