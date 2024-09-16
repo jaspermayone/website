@@ -7,6 +7,102 @@
   resolved "https://registry.yarnpkg.com/@alloc/quick-lru/-/quick-lru-5.2.0.tgz#7bf68b20c0a350f936915fcae06f58e32007ce30"
   integrity sha512-UrcABB+4bUrFABwbluTIBErXwvbsU/V7TZWfmbgJfbkwiBuziS9gxdODUyuiecfdGQ85jglMW6juS3+z5TsKLw==
 
+"@arcjet/analyze@1.0.0-alpha.25":
+  version "1.0.0-alpha.25"
+  resolved "https://registry.yarnpkg.com/@arcjet/analyze/-/analyze-1.0.0-alpha.25.tgz#bb204a9a06c6bc6c5918bd84326cf54913aad8c3"
+  integrity sha512-/JG+Vwffd+w1+ecWCasfIcv7Kp+33/dFNktuComND+kEZQ0cc8xN+Wmfz30nniQeP4pUcC9XNx7k3N2fpPbPnA==
+  dependencies:
+    "@arcjet/protocol" "1.0.0-alpha.25"
+
+"@arcjet/duration@1.0.0-alpha.25":
+  version "1.0.0-alpha.25"
+  resolved "https://registry.yarnpkg.com/@arcjet/duration/-/duration-1.0.0-alpha.25.tgz#77f09a6e0adc607b6c3b603db80d23a988b60eca"
+  integrity sha512-2DpxFPRfjwHcZeOIwykrgPigdDXwL3L2Vv7bR4CI2EmDLc5da5qSCro/B+sv5qRYHzQt4R7DbwmHnJEPGGvJBA==
+
+"@arcjet/env@1.0.0-alpha.25":
+  version "1.0.0-alpha.25"
+  resolved "https://registry.yarnpkg.com/@arcjet/env/-/env-1.0.0-alpha.25.tgz#abb7c7cd0a7d754766813b38450fad573d0dc037"
+  integrity sha512-r394BN04W+9S8hYMiBFkJltS66+hOgGXbuWdkojIw9fmeTwPO+rS5QNQSjDOXbFRSXln7J9JLAcj57x93IvsUg==
+
+"@arcjet/headers@1.0.0-alpha.25":
+  version "1.0.0-alpha.25"
+  resolved "https://registry.yarnpkg.com/@arcjet/headers/-/headers-1.0.0-alpha.25.tgz#1ae7bec2163c368765568d7fb1accd86494d6103"
+  integrity sha512-KKaQ3jqZXGjLSk7SrXzbgdmG5xgejam7YHuGgyC/XAIqYhVQ5q+1UaB0MDYWoHS+u55wQiDFElVxxq6j4xznLw==
+
+"@arcjet/ip@1.0.0-alpha.25":
+  version "1.0.0-alpha.25"
+  resolved "https://registry.yarnpkg.com/@arcjet/ip/-/ip-1.0.0-alpha.25.tgz#af1a94729a0ee1fe51c7ec0d437fe9dd04cc7bac"
+  integrity sha512-WaCh39QQ4zFxglZ9m2tmx2Fp+LfFR32gj5MG3GaweQoLG4KJcjZr2hnSa7U9vchQgczfBGC4KQxp7U+SZyZZjQ==
+
+"@arcjet/logger@1.0.0-alpha.25":
+  version "1.0.0-alpha.25"
+  resolved "https://registry.yarnpkg.com/@arcjet/logger/-/logger-1.0.0-alpha.25.tgz#183ec307c38245ed4a7b4c32034743f5a2cb4c39"
+  integrity sha512-ySgGlO6DyU/CKMeBC63CY+5o823fQa+F7gF1eH8rZSn5NULUDxdJZLZaEuZO5vIJOxF/IxQ3vtPt60YYO4DFVA==
+  dependencies:
+    "@arcjet/sprintf" "1.0.0-alpha.25"
+
+"@arcjet/next@1.0.0-alpha.25":
+  version "1.0.0-alpha.25"
+  resolved "https://registry.yarnpkg.com/@arcjet/next/-/next-1.0.0-alpha.25.tgz#2ba739ff3ac6594beeda2f327651c55250bab727"
+  integrity sha512-YqRueHniozsiEoU5D82eKF9MT+bS0LZ1rBzxxdl5gHonFLZbZaZNA/kBgXSXlWTM2SspY6FkwxaGln6OJApisQ==
+  dependencies:
+    "@arcjet/env" "1.0.0-alpha.25"
+    "@arcjet/headers" "1.0.0-alpha.25"
+    "@arcjet/ip" "1.0.0-alpha.25"
+    "@arcjet/logger" "1.0.0-alpha.25"
+    "@arcjet/protocol" "1.0.0-alpha.25"
+    "@arcjet/transport" "1.0.0-alpha.25"
+    arcjet "1.0.0-alpha.25"
+
+"@arcjet/protocol@1.0.0-alpha.25":
+  version "1.0.0-alpha.25"
+  resolved "https://registry.yarnpkg.com/@arcjet/protocol/-/protocol-1.0.0-alpha.25.tgz#b75ef2c3142d1df15cae5716c3e5a4e8d55a7dce"
+  integrity sha512-LTtS9AG+vt6LwJGWauTK1zwy3geIGdi5eS+9w6nethpxKNhbitBpRwWF7cKZBkhSHiMWHyzItpVfq6rSRA2KZA==
+  dependencies:
+    "@bufbuild/protobuf" "1.10.0"
+    "@connectrpc/connect" "1.4.0"
+    typeid-js "1.0.0"
+
+"@arcjet/runtime@1.0.0-alpha.25":
+  version "1.0.0-alpha.25"
+  resolved "https://registry.yarnpkg.com/@arcjet/runtime/-/runtime-1.0.0-alpha.25.tgz#401091a4d9d50f07cba536db8e646b8d3f273b8e"
+  integrity sha512-Oqb8Lz1qFtz1z3raLowL4ZScPW/gLVSQNrcP3NTfgNJsnB019b9ShpDMRDtu7m/ub4kxbWMQ8FA2pGrKRFsRmw==
+
+"@arcjet/sprintf@1.0.0-alpha.25":
+  version "1.0.0-alpha.25"
+  resolved "https://registry.yarnpkg.com/@arcjet/sprintf/-/sprintf-1.0.0-alpha.25.tgz#b5e9c338ad16520c87c5370ff8a1c9058ec27f41"
+  integrity sha512-sEG5POAwhEbktuZLT4wQitztDFcUcXh5p2SGftMbL4eTHx7OvGRui8gM4zcLmwJRBlO63zw52XWNiyorvNCIig==
+
+"@arcjet/transport@1.0.0-alpha.25":
+  version "1.0.0-alpha.25"
+  resolved "https://registry.yarnpkg.com/@arcjet/transport/-/transport-1.0.0-alpha.25.tgz#b4d64482a1ac706cdd8e7b58af8f5b0be6858edc"
+  integrity sha512-kJKW2FIhPoItSuQbSR6NbcHFkN0ws+jM7CXqnCNuqYEo32uBt6mmdpXK0mvnqIkqilUBsTMkvkKjTqamCNhUQw==
+  dependencies:
+    "@connectrpc/connect-node" "1.4.0"
+    "@connectrpc/connect-web" "1.4.0"
+
+"@bufbuild/protobuf@1.10.0":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@bufbuild/protobuf/-/protobuf-1.10.0.tgz#1a67ac889c2d464a3492b3e54c38f80517963b16"
+  integrity sha512-QDdVFLoN93Zjg36NoQPZfsVH9tZew7wKDKyV5qRdj8ntT4wQCOradQjRaTdwMhWUYsgKsvCINKKm87FdEk96Ag==
+
+"@connectrpc/connect-node@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@connectrpc/connect-node/-/connect-node-1.4.0.tgz#9edd22fd7bc812b4692f228d2ff6bbd549cbb032"
+  integrity sha512-0ANnrr6SvsjevsWEgdzHy7BaHkluZyS6s4xNoVt7RBHFR5V/kT9lPokoIbYUOU9JHzdRgTaS3x5595mwUsu15g==
+  dependencies:
+    undici "^5.28.3"
+
+"@connectrpc/connect-web@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@connectrpc/connect-web/-/connect-web-1.4.0.tgz#4f46a6728251244e9fc837bcdbf0911b0b0def15"
+  integrity sha512-13aO4psFbbm7rdOFGV0De2Za64DY/acMspgloDlcOKzLPPs0yZkhp1OOzAQeiAIr7BM/VOHIA3p8mF0inxCYTA==
+
+"@connectrpc/connect@1.4.0":
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/@connectrpc/connect/-/connect-1.4.0.tgz#4a987d6c9fc78ea61bce7d19e27b2de4d14c658f"
+  integrity sha512-vZeOkKaAjyV4+RH3+rJZIfDFJAfr+7fyYr6sLDKbYX3uuTVszhFe9/YKf5DNqrDb5cKdKVlYkGn6DTDqMitAnA==
+
 "@eslint-community/eslint-utils@^4.2.0":
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/@eslint-community/eslint-utils/-/eslint-utils-4.4.0.tgz#a23514e8fb9af1269d5f7788aa556798d61c6b59"
@@ -38,6 +134,11 @@
   version "8.57.0"
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
+
+"@fastify/busboy@^2.0.0":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@fastify/busboy/-/busboy-2.1.1.tgz#b9da6a878a371829a0502c9b6c1c143ef6663f4d"
+  integrity sha512-vBZP4NlzfOlerQTnba4aqZoMhE/a9HY7HRqoOPaETQcSQuWEIyZMHGfVu6w9wGtGK5fED5qRs2DteVCjOH60sA==
 
 "@floating-ui/core@^1.6.0":
   version "1.6.8"
@@ -585,6 +686,17 @@ anymatch@~3.1.2:
   dependencies:
     normalize-path "^3.0.0"
     picomatch "^2.0.4"
+
+arcjet@1.0.0-alpha.25:
+  version "1.0.0-alpha.25"
+  resolved "https://registry.yarnpkg.com/arcjet/-/arcjet-1.0.0-alpha.25.tgz#07baab1a8ec346364c78911e5c4906aa4f5f402c"
+  integrity sha512-RYgSw0kLXPMTM6Z5lV3aKeoLaOj7AgSE4CQoi+/wm5Tmm9KRQ5z0XZgCwN4Pf4NpWJ2QHHKLGiOv2M+Hu2ZOTw==
+  dependencies:
+    "@arcjet/analyze" "1.0.0-alpha.25"
+    "@arcjet/duration" "1.0.0-alpha.25"
+    "@arcjet/headers" "1.0.0-alpha.25"
+    "@arcjet/protocol" "1.0.0-alpha.25"
+    "@arcjet/runtime" "1.0.0-alpha.25"
 
 arg@^5.0.2:
   version "5.0.2"
@@ -2914,6 +3026,13 @@ typed-array-length@^1.0.6:
     is-typed-array "^1.1.13"
     possible-typed-array-names "^1.0.0"
 
+typeid-js@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/typeid-js/-/typeid-js-1.0.0.tgz#11c31e067ae68f665baf92f76e2419086af0675d"
+  integrity sha512-E2RIw0FDKCNnUKrm5KSgtOtBXC8lvv98EHGL+XZfFPFvHnOnQyljxPs9ZxcIMhrxIyywxZqIDD/DGEZMEuGJ5w==
+  dependencies:
+    uuidv7 "^0.6.2"
+
 typescript@^5.6.2:
   version "5.6.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.6.2.tgz#d1de67b6bef77c41823f822df8f0b3bcff60a5a0"
@@ -2934,6 +3053,13 @@ undici-types@~6.19.2:
   resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-6.19.8.tgz#35111c9d1437ab83a7cdc0abae2f26d88eda0a02"
   integrity sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==
 
+undici@^5.28.3:
+  version "5.28.4"
+  resolved "https://registry.yarnpkg.com/undici/-/undici-5.28.4.tgz#6b280408edb6a1a604a9b20340f45b422e373068"
+  integrity sha512-72RFADWFqKmUb2hmmvNODKL3p9hcB6Gt2DOQMis1SEBaV6a4MH8soBvzg+95CYhCKPFedut2JY9bMfrDl9D23g==
+  dependencies:
+    "@fastify/busboy" "^2.0.0"
+
 uri-js@^4.2.2:
   version "4.4.1"
   resolved "https://registry.yarnpkg.com/uri-js/-/uri-js-4.4.1.tgz#9b1a52595225859e55f669d928f88c6c57f2a77e"
@@ -2945,6 +3071,11 @@ util-deprecate@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/util-deprecate/-/util-deprecate-1.0.2.tgz#450d4dc9fa70de732762fbd2d4a28981419a0ccf"
   integrity sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==
+
+uuidv7@^0.6.2:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/uuidv7/-/uuidv7-0.6.3.tgz#2abcfa683b4ad4a0cbbbaedffc3ef940c110cf10"
+  integrity sha512-zV3eW2NlXTsun/aJ7AixxZjH/byQcH/r3J99MI0dDEkU2cJIBJxhEWUHDTpOaLPRNhebPZoeHuykYREkI9HafA==
 
 which-boxed-primitive@^1.0.2:
   version "1.0.2"
