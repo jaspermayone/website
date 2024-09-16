@@ -74,7 +74,7 @@ export default function Email() {
               <Input
                 type="email"
                 placeholder="example@example.com"
-                className="w-48"
+                className="w-48 z-10 relative" // Adjust z-index or add relative positioning
                 value={email}
                 onChange={handleInputChange}
                 required
