@@ -79,15 +79,26 @@ export default function Home() {
         return (
           <>
             <p className="text-gray-500 text-sm pt-9">
-              {" "}
-              Thank you for your interest in my professional work!{" "}
+              <i> Content coming soon.</i>
             </p>
           </>
         );
       case "Photos":
-        return <p>Photos content will go here.</p>;
+        return (
+          <>
+            <p className="text-gray-500 text-sm pt-9">
+              <i> Content coming soon.</i>
+            </p>
+          </>
+        );
       case "@jasperdoescircus":
-        return <p>Follow Jasper’s circus journey on Instagram.</p>;
+        return (
+          <>
+            <p className="text-gray-500 text-sm pt-9">
+              <i> Content coming soon.</i>
+            </p>
+          </>
+        );
       default:
         return null;
     }

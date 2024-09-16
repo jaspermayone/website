@@ -1,5 +1,3 @@
-/* Home.module.css */
-
 .container {
     position: relative;
     height: 100vh;
@@ -20,6 +18,15 @@
     align-items: flex-start; /* Align items to the start (left) */
     margin-left: 4vw;
     margin-right: 4vw;
+    /* background: rgba(
+        255,
+        255,
+        255,
+        0.2
+    ); /* Slight white background for text area */
+    /* backdrop-filter: blur(10px); /* Blur the background behind the text */
+    border-radius: 10px; /* Rounded corners for the box */
+    padding: 20px; /* Add padding for better readability */
 }
 
 .top {
