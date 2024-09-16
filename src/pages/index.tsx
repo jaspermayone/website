@@ -12,6 +12,8 @@ import {
   SiX,
 } from "react-icons/si";
 
+/* Reference https://nextjs.org/learn/dashboard-app/adding-metadata when adding new metadata. */
+
 export default function Home() {
   const [selectedTab, setSelectedTab] = useState("Homepage");
 
@@ -31,7 +33,7 @@ export default function Home() {
   useEffect(() => {
     console.log(
       "%cWOWY! A real life developer or code enthusiast? I'm so glad you're here! \nI'm GitHub at @jaspermayone! \nIf you're interested in circus arts, photography, or just want to chat, feel free to reach out to me at me@jaspermayone.com. \nI can't wait to meet you!",
-      "background: #222; color: #bada55"
+      "background: #222; color: #bada55",
     );
   }, []);
 
