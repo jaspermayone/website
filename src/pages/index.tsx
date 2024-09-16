@@ -44,7 +44,7 @@ export default function Home() {
           <>
             <p className="font-medium text-xl">
               Jasper Mayone (<i>he/they</i>){" "}
-              <span className="text-gray-500 font-normal">
+              <span className="text-gray-700 font-normal">
                 is a 17-year-old high school student from Vermont. They are a
                 circus performer, a{" "}
                 <Link
@@ -60,7 +60,7 @@ export default function Home() {
                 .
               </span>
             </p>
-            <p className="text-gray-400 text-sm pt-9">
+            <p className="text-gray-600 text-sm pt-9">
               A circus artist and a native Vermonter, Jasper is a high school
               graduate from the class of 2024! Graduating a full year early,
               they are currently taking a gap year to explore. Jasper tries to
@@ -111,8 +111,8 @@ export default function Home() {
       transition={{ type: "spring", duration: 1.5 }}
       className="flex justify-center items-center min-h-screen"
     >
+      <DotsBackground />
       <div className={styles.container}>
-        <DotsBackground />
         <div className={styles.top}>
           <h1 className={styles.title}>Jasper Mayone</h1>
           <div className={styles.menuContainer}>
@@ -164,6 +164,25 @@ export default function Home() {
             {renderContent()}
           </motion.div>
         </div>
+        <footer className="w-full flex justify-center py-4">
+          <span>
+            {/* className="text-gray-600 text-sm pt-9" */}
+            <div className="px-4 py-2 text-gray-500 text-center text-xs">
+              📻 Now Playing: INSERT SONG. Made with ❤️ by Jasper Mayone &amp;{" "}
+              <a className={styles.footerLink} href="/friends">
+                Friends.
+              </a>{" "}
+              Open Source on{" "}
+              <a
+                className={styles.footerLink}
+                href="https://github.com/jaspermayone"
+              >
+                GitHub
+              </a>
+              . &copy; {new Date().getFullYear()}
+            </div>
+          </span>
+        </footer>
       </div>
     </motion.div>
   );

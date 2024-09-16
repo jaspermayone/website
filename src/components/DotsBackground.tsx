@@ -29,7 +29,8 @@ const DotsBackground: React.FC = () => {
         const dot = document.createElement("div");
         dot.className = styles.dot;
 
-        const size = Math.random() * 30 + 10;
+        // Increase the size range for larger dots
+        const size = Math.random() * 50 + 20; // Dots are now between 20px and 70px
         const colorIndex = Math.floor(Math.random() * colors.length);
         const duration = Math.random() * 10 + 10;
         const top = Math.random() * 100;
