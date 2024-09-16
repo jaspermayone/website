@@ -1,10 +1,16 @@
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import Email from "@/components/email";
 import DotsBackground from "@/components/DotsBackground";
 import styles from "@/styles/Home.module.css";
-import Image from "next/image";
+import {
+  SiDevdotto,
+  SiGithub,
+  SiInstagram,
+  SiLinkedin,
+  SiX,
+} from "react-icons/si";
 
 export default function Home() {
   const [selectedTab, setSelectedTab] = useState("Homepage");
@@ -112,70 +118,38 @@ export default function Home() {
             </div>
             <div className={styles.menu2}>
               <a href="https://www.instagram.com/jasper.mayone/">
-                <Image
-                  src="/images/instagram.webp"
-                  alt="X Logo"
-                  width={20}
-                  height={20}
-                  style={{ borderRadius: "15%" }}
-                />
+                <SiInstagram width={20} height={20} />
               </a>
               <a href="https://x.com/jaspermayone">
-                <Image
-                  src="/images/x.png"
-                  alt="X Logo"
-                  width={20}
-                  height={20}
-                  style={{ borderRadius: "15%" }}
-                />
+                <SiX width={20} height={20} />
               </a>
               <a href="https://github.com/jaspermayone/">
-                <Image
-                  src="/images/github.png"
-                  alt="Github Logo"
-                  width={20}
-                  height={20}
-                  style={{ borderRadius: "15%" }}
-                />
+                <SiGithub width={20} height={20} />
               </a>
               <a href="https://www.linkedin.com/in/jaspermayone/">
-                <Image
-                  src="/images/linkedin.png"
-                  alt="Linkedin Logo"
-                  width={20}
-                  height={20}
-                  style={{ borderRadius: "15%" }}
-                />
+                <SiLinkedin width={20} height={20} />
               </a>
               <a href="https://dev.to/jaspermayone">
-                <Image
-                  src="/images/devto.png"
-                  alt="Dev.to Logo"
-                  width={20}
-                  height={20}
-                  style={{ borderRadius: "15%" }}
-                />
+                <SiDevdotto width={20} height={20} />
               </a>
             </div>
           </div>
         </div>
 
         <div className={styles.contentBox}>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={selectedTab}
-              variants={fadeVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              transition={{
-                opacity: { duration: 0.5 },
-                filter: { duration: 0.5 },
-              }}
-            >
-              {renderContent()}
-            </motion.div>
-          </AnimatePresence>
+          <motion.div
+            key={selectedTab}
+            variants={fadeVariants}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            transition={{
+              opacity: { duration: 0.5 },
+              filter: { duration: 0.5 },
+            }}
+          >
+            {renderContent()}
+          </motion.div>
         </div>
       </div>
     </motion.div>
