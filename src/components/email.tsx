@@ -79,7 +79,7 @@ export default function Email() {
                 onChange={handleInputChange}
                 required
               />
-              <Button type="submit" className="w-24">
+              <Button type="submit" className="w-24 z-10 relative">
                 Submit
               </Button>
             </div>
