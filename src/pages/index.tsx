@@ -34,7 +34,7 @@ export default function Home() {
   useEffect(() => {
     console.log(
       "%cWOWY! A real life developer or code enthusiast? I'm so glad you're here! \nI'm GitHub at @jaspermayone! \nIf you're interested in circus arts, photography, or just want to chat, feel free to reach out to me at me@jaspermayone.com. \nI can't wait to meet you!",
-      "background: #222; color: #bada55"
+      "background: #222; color: #bada55",
     );
   }, []);
 
@@ -174,9 +174,9 @@ export default function Home() {
             <div className="px-4 py-2 text-gray-500 text-center text-xs">
               📻 Now Playing: <i>INSERT NEW RECCORD</i>. Made with ❤️ by Jasper
               Mayone &amp;{" "}
-              <a className={styles.footerLink} href="/friends">
+              <Link className={styles.footerLink} href="/friends">
                 Friends.
-              </a>{" "}
+              </Link>{" "}
               Open Source on{" "}
               <a
                 className={styles.footerLink}

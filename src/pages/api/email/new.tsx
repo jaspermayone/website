@@ -2,6 +2,10 @@ import arcjet, { protectSignup } from "@arcjet/next";
 import { LoopsClient } from "loops";
 import { NextApiRequest, NextApiResponse } from "next";
 
+export const config = {
+  runtime: "nodejs",
+};
+
 // Arcjet setup for signup protection with multiple rules
 const aj = arcjet({
   key: process.env.ARCJET_KEY!,
@@ -58,7 +62,7 @@ const aj = arcjet({
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   if (req.method !== "POST") {
     return res
