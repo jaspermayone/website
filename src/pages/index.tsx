@@ -172,7 +172,8 @@ export default function Home() {
           <span>
             {/* className="text-gray-600 text-sm pt-9" */}
             <div className="px-4 py-2 text-gray-500 text-center text-xs">
-              📻 Now Playing: INSERT SONG. Made with ❤️ by Jasper Mayone &amp;{" "}
+              📻 Now Playing: <i>INSERT NEW RECCORD</i>. Made with ❤️ by Jasper
+              Mayone &amp;{" "}
               <a className={styles.footerLink} href="/friends">
                 Friends.
               </a>{" "}

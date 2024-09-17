@@ -18,7 +18,7 @@ const RoundedImage: React.FC<RoundedImageProps> = ({
       alt={alt}
       width={size}
       height={size}
-      style={{ borderRadius: "15%" }}
+      style={{ borderRadius: "10%" }}
     />
   );
 };
