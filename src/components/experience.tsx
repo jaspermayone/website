@@ -37,7 +37,7 @@ export default function Experience() {
             <div key={index} className="pb-5 w-72">
               <Accordion type="single" collapsible>
                 <AccordionItem value={index.toString()}>
-                  <AccordionTrigger>{item.title}</LinkccordionTrigger>
+                  <AccordionTrigger>{item.title}</AccordionTrigger>
                   <AccordionContent>
                     <p>{item.role}</p>
                     <br />
