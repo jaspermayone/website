@@ -6,45 +6,30 @@ type Friend = {
 };
 
 /*
-  Ben Dixon - https://malted.dev
-  Aram Shiva - https://aram.sh/
-  Sam Poder - https://sampoder.com/
-  Deven Jadhav - https://devenjadhav.com/
   Aarya Narula - https://github.com/radioblahaj
   Alex Deforest - https://defo.one
-  Manitej Boorgu - https://github.com/techpixel
-  Ruien Luo - https://rluo.dev/
-  Reese Armstrong - https://reeseric.ci/
-  Rhys Panopio - https://www.linkedin.com/in/rhys-panopio/
+  Aram Shiva - https://aram.sh/
+  Ben Dixon - https://malted.dev
+  Cisco Wallace-Hurtado - https://jaspermayone.com/404
+  Deven Jadhav - https://devenjadhav.com/
   Ian Madden - https://github.com/YodaLightsabr
   Kieran Klukas - https://kieranklukas.com/
-  Ryan Di Lorenzo - https://github.com/LimesKey
-  Samuel Fernandez - https://sfernandez.dev/
   Luke Oldenburg - https://github.com/Luke-Oldenburg
+  Manitej Boorgu - https://github.com/techpixel
+  Milo Heintz - https://www.instagram.com/milo_heintz
+  Reese Armstrong - https://reeseric.ci/
+  Rhys Panopio - https://www.linkedin.com/in/rhys-panopio/
+  Robert Goll - https://rgoll.com/
+  Ryan Di Lorenzo - https://github.com/LimesKey
   Ryan Rudes - https://ryanrudes.com/
+  Samuel Fernandez - https://sfernandez.dev/
+  Sam Poder - https://sampoder.com/
+  Ruien Luo - https://rluo.dev/
+  Samantha Miel - https://www.instagram.com/cirque_du_samantha/
+  Théo Reid - https://www.instagram.com/theointheair/
 */
 
 const friends: Friend[] = [
-  {
-    name: "Ben Dixon",
-    bio: "INSERT BIO SOON",
-    link: "https://malted.dev",
-  },
-  {
-    name: "Aram Shiva",
-    bio: "INSERT BIO SOON",
-    link: "https://aram.sh/",
-  },
-  {
-    name: "Sam Poder",
-    bio: "INSERT BIO SOON",
-    link: "https://sampoder.com/",
-  },
-  {
-    name: "Deven Jadhav",
-    bio: "INSERT BIO SOON",
-    link: "https://devenjadhav.com/",
-  },
   {
     name: "Aarya Narula",
     bio: "INSERT BIO SOON",
@@ -56,24 +41,24 @@ const friends: Friend[] = [
     link: "https://defo.one",
   },
   {
-    name: "Manitej Boorgu",
+    name: "Aram Shiva",
     bio: "INSERT BIO SOON",
-    link: "https://github.com/techpixel",
+    link: "https://aram.sh/",
   },
   {
-    name: "Ruien Luo",
+    name: "Ben Dixon",
     bio: "INSERT BIO SOON",
-    link: "https://rluo.dev/",
+    link: "https://malted.dev",
   },
   {
-    name: "Reese Armstrong",
+    name: "Cisco Wallace-Hurtado",
     bio: "INSERT BIO SOON",
-    link: "https://reeseric.ci/",
+    link: "https://jaspermayone.com/404",
   },
   {
-    name: "Rhys Panopio",
+    name: "Deven Jadhav",
     bio: "INSERT BIO SOON",
-    link: "https://www.linkedin.com/in/rhys-panopio/",
+    link: "https://devenjadhav.com/",
   },
   {
     name: "Ian Madden",
@@ -86,9 +71,44 @@ const friends: Friend[] = [
     link: "https://kieranklukas.com/",
   },
   {
+    name: "Luke Oldenburg",
+    bio: "INSERT BIO SOON",
+    link: "https://github.com/Luke-Oldenburg",
+  },
+  {
+    name: "Manitej Boorgu",
+    bio: "INSERT BIO SOON",
+    link: "https://github.com/techpixel",
+  },
+  {
+    name: "Milo Heintz",
+    bio: "INSERT BIO SOON",
+    link: "https://www.instagram.com/milo_heintz",
+  },
+  {
+    name: "Reese Armstrong",
+    bio: "INSERT BIO SOON",
+    link: "https://reeseric.ci/",
+  },
+  {
+    name: "Rhys Panopio",
+    bio: "INSERT BIO SOON",
+    link: "https://www.linkedin.com/in/rhys-panopio/",
+  },
+  {
+    name: "Robert Goll",
+    bio: "INSERT BIO SOON",
+    link: "https://rgoll.com/",
+  },
+  {
     name: "Ryan Di Lorenzo",
     bio: "INSERT BIO SOON",
     link: "https://github.com/LimesKey",
+  },
+  {
+    name: "Ryan Rudes",
+    bio: "INSERT BIO SOON",
+    link: "https://ryanrudes.com/",
   },
   {
     name: "Samuel Fernandez",
@@ -96,14 +116,24 @@ const friends: Friend[] = [
     link: "https://sfernandez.dev/",
   },
   {
-    name: "Luke Oldenburg",
+    name: "Sam Poder",
     bio: "INSERT BIO SOON",
-    link: "https://github.com/Luke-Oldenburg",
+    link: "https://sampoder.com/",
   },
   {
-    name: "Ryan Rudes",
+    name: "Samantha Miel",
     bio: "INSERT BIO SOON",
-    link: "https://ryanrudes.com/",
+    link: "https://www.instagram.com/cirque_du_samantha/",
+  },
+  {
+    name: "Théo Reid",
+    bio: "INSERT BIO SOON",
+    link: "https://www.instagram.com/theointheair/",
+  },
+  {
+    name: "Ruien Luo",
+    bio: "INSERT BIO SOON",
+    link: "https://rluo.dev/",
   },
 ];
 

@@ -54,10 +54,11 @@ export const ParallaxScroll = ({
           <Image
             src={image}
             className="!m-0 gap-10 rounded-lg object-cover object-center !p-0 transition-all duration-500 ease-in-out group-hover:brightness-50"
-            height="400"
-            width="400"
+            height={400} // The aspect ratio will be maintained
+            width={400} // The aspect ratio will be maintained
             alt="thumbnail"
             loading="lazy"
+            layout="responsive" // Use layout="responsive" to maintain aspect ratio
           />
           <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
             <h3 className="text-white text-lg font-semibold mb-2">{name}</h3>
