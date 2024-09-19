@@ -1,7 +1,5 @@
-import SquareImage from "@/components/SquareImage";
-import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { ParallaxScroll } from "@/components/ui/photos";
+import { ParallaxScroll } from "@/components/ui/friends";
 
 /*
   Ben Dixon - https://malted.dev
@@ -22,41 +20,64 @@ import { ParallaxScroll } from "@/components/ui/photos";
   Ryan Rudes - https://ryanrudes.com/
 */
 
+function shuffleArray<T>(array: T[]): T[] {
+  let currentIndex = array.length,
+    randomIndex;
+
+  // While there remain elements to shuffle...
+  while (currentIndex !== 0) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+}
+
 export default function Friends() {
-  const [imageCount, setImageCount] = useState(0);
+  const [friends, setFriends] = useState<any[]>([]);
 
   useEffect(() => {
-    const fetchImageCount = async () => {
-      const response = await fetch("/api/friends/imagecount");
+    const fetchFriends = async () => {
+      const response = await fetch("/api/friends");
       const data = await response.json();
-      setImageCount(data.count);
+      setFriends(data); // Store the friends data
     };
 
-    fetchImageCount();
+    fetchFriends();
   }, []);
 
-  const staticImages = useMemo(() => {
-    const images = [];
-    for (let i = 1; i <= imageCount; i++) {
-      images.push(`/images/friends/${i}.jpg`);
-    }
-    return images;
-  }, [imageCount]);
+  const staticFriends = useMemo(() => {
+    const shuffledFriends = shuffleArray(
+      friends.map((friend) => ({
+        ...friend,
+        image: `/images/friends/${friend.file_name}`,
+      })),
+    );
+    return shuffledFriends;
+  }, [friends]);
 
   return (
     <>
       <div className="min-h-screen flex flex-col items-center px-5">
         <div className="bg-white rounded-lg shadow-lg p-6 md:w-full w-full mt-12 mb-6">
           <div className="flex items-center justify-between">
-            <Link href="/" className="text-xl text-slate-600">
-              &larr; Back to Home
-            </Link>
+            {/*  <Link href="/" className="text-xl text-slate-600">
+             &larr; Back to Home
+             </Link> */}
+            <p>I have some super cool friends, check them out!</p>
           </div>
         </div>
         <div className="w-full flex justify-center">
           <ParallaxScroll
             className="max-h-screen w-full"
-            images={staticImages.length ? staticImages : []}
+            friends={staticFriends}
           />
         </div>
       </div>
