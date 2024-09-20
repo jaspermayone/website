@@ -13,6 +13,7 @@ import {
   SiThreads,
   SiX,
 } from "react-icons/si";
+import Experience from "@/components/experience";
 
 /* Reference https://nextjs.org/learn/dashboard-app/adding-metadata when adding new metadata. */
 
@@ -21,7 +22,7 @@ export default function Home() {
 
   const menuItems = [
     "Homepage",
-    "Portfolio",
+    // "Portfolio",
     "Resume",
     "Photos",
     "@jasperdoescircus",
@@ -97,22 +98,6 @@ export default function Home() {
             </p>
           </>
         );
-      case "Photos":
-        return (
-          <>
-            <p className="text-gray-500 text-sm pt-9" title="Photos section">
-              <i> Content coming soon.</i>
-            </p>
-          </>
-        );
-      case "@jasperdoescircus":
-        return (
-          <>
-            <p className="text-gray-500 text-sm pt-9" title="Circus section">
-              <i> Content coming soon.</i>
-            </p>
-          </>
-        );
       default:
         return null;
     }
@@ -127,6 +112,12 @@ export default function Home() {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+    } else if (item === "Photos") {
+      window.location.href = "/photos";
+    } else if (item === "@jasperdoescircus") {
+      // open https://www.instagram.com/jasper.does.circus/ in a new window
+
+      window.open("https://www.instagram.com/jasper.does.circus/", "_blank");
     } else {
       setSelectedTab(item);
     }

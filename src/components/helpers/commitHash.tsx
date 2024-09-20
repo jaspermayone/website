@@ -5,7 +5,6 @@ const Tooltip = dynamic(
   { ssr: false },
 );
 
-// import { Tooltip } from "@material-tailwind/react";
 import { formatDistanceToNow, isWeekend } from "date-fns";
 
 export default function CommitHash() {
