@@ -1,5 +1,7 @@
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { ParallaxScroll } from "@/components/ui/friends";
+import DotsBackground from "@/components/DotsBackground";
+import Link from "next/link";
 
 /*
   Ben Dixon - https://malted.dev
@@ -40,6 +42,11 @@ function shuffleArray<T>(array: T[]): T[] {
   return array;
 }
 
+// Create a fallback component for Suspense loading state
+function LoadingFallback() {
+  return <div className="text-lg text-center mt-10">Loading...</div>;
+}
+
 export default function Friends() {
   const [friends, setFriends] = useState<any[]>([]);
 
@@ -60,25 +67,24 @@ export default function Friends() {
         image: `/images/friends/${friend.file_name}`,
       })),
     );
-    return shuffledFriends;
+    return [
+      {
+        name: "I have some super cool friends, check them all out! 🌟 (btw, shoot me a message if you want to be added here, I definitely missed some people lol.)",
+        type: "text", // Define it as text to handle separately in the parallax scroll
+      },
+      ...shuffledFriends,
+    ];
   }, [friends]);
 
   return (
     <>
+      <DotsBackground />
       <div className="min-h-screen flex flex-col items-center px-5">
-        <div className="bg-white rounded-lg shadow-lg p-6 md:w-full w-full mt-12 mb-6">
-          <div className="flex items-center justify-between">
-            {/*  <Link href="/" className="text-xl text-slate-600">
-             &larr; Back to Home
-             </Link> */}
-            <p>I have some super cool friends, check them out!</p>
-          </div>
-        </div>
-        <div className="w-full flex justify-center">
-          <ParallaxScroll
-            className="max-h-screen w-full"
-            friends={staticFriends}
-          />
+        {/* Friends Parallax Scroll with Suspense */}
+        <div className="w-full flex justify-center mt-5">
+          <Suspense fallback={<LoadingFallback />}>
+            <ParallaxScroll className="h-full w-full" friends={staticFriends} />
+          </Suspense>
         </div>
       </div>
     </>

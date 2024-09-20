@@ -24,6 +24,7 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ photos }) => {
             alt={photo.alt}
             width={photo.width}
             height={photo.height}
+            aria-label={photo.alt}
             sizes="100vw"
             style={{
               position: "absolute",

@@ -63,7 +63,7 @@ export default function Email() {
 
   return (
     <>
-      <div className="space-y">
+      <div className="space-y" aria-label="Jasper's Newsletter Signup">
         <p className="font-[450]">Newsletter</p>
         <p className="text-gray-500">
           Join my newsletter to get updates on new projects.
@@ -77,9 +77,14 @@ export default function Email() {
                 className="w-48 z-10 relative" // Adjust z-index or add relative positioning
                 value={email}
                 onChange={handleInputChange}
+                aria-label="email"
                 required
               />
-              <Button type="submit" className="w-24 z-10 relative">
+              <Button
+                type="submit"
+                className="w-24 z-10 relative"
+                aria-label="submit"
+              >
                 Submit
               </Button>
             </div>

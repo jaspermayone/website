@@ -12,7 +12,9 @@ const SquareImage: React.FC<SquareImageImageProps> = ({
   alt,
   size = 150,
 }) => {
-  return <Image src={src} alt={alt} width={size} height={size} />;
+  return (
+    <Image src={src} alt={alt} width={size} height={size} aria-label={alt} />
+  );
 };
 
 export default SquareImage;

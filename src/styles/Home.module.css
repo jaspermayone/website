@@ -102,6 +102,7 @@
     display: flex;
     gap: 0.5rem;
     margin-top: 0.2vh;
+    align-items: center; /* Add this line */
 }
 
 .footerLink {

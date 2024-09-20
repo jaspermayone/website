@@ -6,6 +6,7 @@
     width: 100vw; /* Full viewport width */
     height: 100vh; /* Full viewport height */
     overflow: hidden;
+    z-index: -10;
 }
 
 .dot {

@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import Script from "next/script";
 import { AnimatePresence } from "framer-motion";
 
 import "@/styles/globals.css";
@@ -7,6 +8,10 @@ import "@/styles/globals.css";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Script
+        src="https://kit.fontawesome.com/96163f3b63.js"
+        crossOrigin="anonymous"
+      />
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,6 +20,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="manifest" href="/manifest.json" />
         <meta name="application-name" content="jaspermayone.com" />
 
+        <title>Jasper Mayone</title>
         <meta name="description" content="Personal Website of Jasper Mayone" />
         <meta name="keywords" content="Jasper, Mayone, Jasper Mayone" />
 
