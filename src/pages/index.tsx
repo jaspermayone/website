@@ -4,6 +4,7 @@ import Link from "next/link";
 import Email from "@/components/email";
 import DotsBackground from "@/components/DotsBackground";
 import styles from "@/styles/Home.module.css";
+import CommitHash from "@/components/helpers/commitHash";
 import {
   SiDevdotto,
   SiGithub,
@@ -159,6 +160,58 @@ export default function Home() {
                 </p>
               ))}
             </div>
+            <div className={styles.menu2}>
+              <div className="flex items-center justify-center">
+                <Link
+                  href="https://www.instagram.com/jasper.mayone/"
+                  aria-label="Jasper's Instagram profile"
+                  title="@jasper.mayone on Instagram"
+                  className="mx-1" // Added margin to the left and right
+                >
+                  <SiInstagram width={20} height={20} />
+                </Link>
+                <Link
+                  href="https://x.com/jaspermayone"
+                  aria-label="Jasper's X (Twitter) profile"
+                  title="@jaspermayone on X (formerly Twitter)"
+                  className="mx-1" // Added margin to the left and right
+                >
+                  <SiX width={20} height={20} />
+                </Link>
+                <Link
+                  href="https://github.com/jaspermayone/"
+                  aria-label="Jasper's Github profile"
+                  title="@jaspermayone on GitHub"
+                  className="mx-1" // Added margin to the left and right
+                >
+                  <SiGithub width={20} height={20} />
+                </Link>
+                <Link
+                  href="https://www.linkedin.com/in/jaspermayone/"
+                  aria-label="Jasper's Linkedin profile"
+                  title="Jasper Mayone on LinkedIn"
+                  className="mx-1" // Added margin to the left and right
+                >
+                  <SiLinkedin width={20} height={20} />
+                </Link>
+                <Link
+                  href="https://dev.to/jaspermayone"
+                  aria-label="Jasper's Dev.to profile"
+                  title="Jasper Mayone on Dev.to"
+                  className="mx-1" // Added margin to the left and right
+                >
+                  <SiDevdotto width={20} height={20} />
+                </Link>
+                <Link
+                  href="https://threads.net/@jasper.mayone"
+                  aria-label="Jasper's Threads profile"
+                  title="@jasper.mayone on Threads"
+                  className="mx-1" // Added margin to the left and right
+                >
+                  <SiThreads width={20} height={20} />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -183,9 +236,21 @@ export default function Home() {
           title="Page footer"
         >
           <div className="flex items-center justify-center">
+            <p className="text-xs mr-1.5">
+              <i className="fa-regular fa-copyright"></i>{" "}
+              {new Date().getFullYear()} Jasper Mayone
+            </p>
+            <i className="fa-solid fa-code-branch fa-xs mr-1.5 mt-0.5"></i>
+            <CommitHash />
+            <p className="text-xs mr-1.5">. </p>
+            <i className="fa-solid fa-brush fa-xs mr-1.5 mt-0.5"></i>{" "}
             <span className="text-xs">
-              📻 Now Playing: <i>INSERT NEW RECORD</i>. Made with ❤️ by Jasper
-              Mayone &amp;{" "}
+              Made with{" "}
+              <i
+                className="fa-solid fa-heart mt-0.5"
+                style={{ color: "#ee4444" }}
+              ></i>{" "}
+              by Jasper Mayone &amp;{" "}
               <Link
                 className={styles.footerLink}
                 href="/friends"
@@ -203,58 +268,8 @@ export default function Home() {
               >
                 GitHub
               </a>
-              . &copy; {new Date().getFullYear()}
+              .
             </span>
-            <div className="ml-2 flex items-center justify-center">
-              <Link
-                href="https://www.instagram.com/jasper.mayone/"
-                aria-label="Jasper's Instagram profile"
-                title="@jasper.mayone on Instagram"
-                className="mx-1" // Added margin to the left and right
-              >
-                <SiInstagram width={20} height={20} />
-              </Link>
-              <Link
-                href="https://x.com/jaspermayone"
-                aria-label="Jasper's X (Twitter) profile"
-                title="@jaspermayone on X (formerly Twitter)"
-                className="mx-1" // Added margin to the left and right
-              >
-                <SiX width={20} height={20} />
-              </Link>
-              <Link
-                href="https://github.com/jaspermayone/"
-                aria-label="Jasper's Github profile"
-                title="@jaspermayone on GitHub"
-                className="mx-1" // Added margin to the left and right
-              >
-                <SiGithub width={20} height={20} />
-              </Link>
-              <Link
-                href="https://www.linkedin.com/in/jaspermayone/"
-                aria-label="Jasper's Linkedin profile"
-                title="Jasper Mayone on LinkedIn"
-                className="mx-1" // Added margin to the left and right
-              >
-                <SiLinkedin width={20} height={20} />
-              </Link>
-              <Link
-                href="https://dev.to/jaspermayone"
-                aria-label="Jasper's Dev.to profile"
-                title="Jasper Mayone on Dev.to"
-                className="mx-1" // Added margin to the left and right
-              >
-                <SiDevdotto width={20} height={20} />
-              </Link>
-              <Link
-                href="https://threads.net/@jasper.mayone"
-                aria-label="Jasper's Threads profile"
-                title="@jasper.mayone on Threads"
-                className="mx-1" // Added margin to the left and right
-              >
-                <SiThreads width={20} height={20} />
-              </Link>
-            </div>
           </div>
         </footer>
       </div>

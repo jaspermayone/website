@@ -49,7 +49,7 @@
 .menu {
     display: flex;
     justify-content: center;
-    gap: 1.5vw; /* Space between menu items */
+    gap: 1vw; /* Space between menu items */
     font-size: 0.8em;
     font-style: italic;
     margin-top: 10px; /* Add space below the title */
