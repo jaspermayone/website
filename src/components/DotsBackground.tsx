@@ -11,12 +11,15 @@ const colors: string[] = [
   "#4c8c91",
 ];
 
-const DotsBackground: React.FC = () => {
+interface DotsBackgroundProps {
+  move?: boolean; // Optional prop to control movement
+}
+
+const DotsBackground: React.FC<DotsBackgroundProps> = ({ move = true }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const numDots = 20;
-
     const container = containerRef.current;
 
     if (container) {
@@ -32,14 +35,14 @@ const DotsBackground: React.FC = () => {
         // Increase the size range for larger dots
         const size = Math.random() * 50 + 20; // Dots are now between 20px and 70px
         const colorIndex = Math.floor(Math.random() * colors.length);
-        const duration = Math.random() * 10 + 10;
+        const duration = move ? `${Math.random() * 10 + 10}s` : "0s"; // No animation if move is false
         const top = Math.random() * 100;
         const left = Math.random() * 100;
 
         dot.style.width = `${size}px`;
         dot.style.height = `${size}px`;
         dot.style.backgroundColor = colors[colorIndex];
-        dot.style.animationDuration = `${duration}s`;
+        dot.style.animationDuration = duration;
         dot.style.top = `${top}%`;
         dot.style.left = `${left}%`;
 
@@ -54,7 +57,7 @@ const DotsBackground: React.FC = () => {
         }
       }
     };
-  }, []);
+  }, [move]); // Dependency array includes move
 
   return <div ref={containerRef} className={styles.container}></div>;
 };

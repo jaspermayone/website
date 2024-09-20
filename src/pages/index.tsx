@@ -52,7 +52,7 @@ export default function Home() {
                 is a 17-year-old high school student from Vermont. They are a
                 circus performer, a{" "}
                 <Link
-                  className="underline"
+                  className={styles.lnk}
                   href="https://github.com/jaspermayone"
                   aria-label="Link to Jasper's Github profile"
                   title="View Jasper's GitHub profile"
@@ -62,7 +62,7 @@ export default function Home() {
                 , and a{" "}
                 <Link
                   href="/photos"
-                  className="underline"
+                  className={styles.lnk}
                   aria-label="Link to Jasper's photography page."
                   title="View Jasper's photography"
                 >

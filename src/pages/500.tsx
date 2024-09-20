@@ -1,19 +1,18 @@
 import DotsBackground from "@/components/DotsBackground";
-import styles from "@/styles/404.module.css";
+import styles from "@/styles/500.module.css";
 import Link from "next/link";
 
-const Custom404 = () => {
+const Custom500 = () => {
   return (
     <>
       <div className={styles.body}>
         <div
           className={`bg-gray-800 text-white p-4 rounded-lg shadow-lg ${styles.codeArea}`}
         >
-          <span className={styles.comment}>// 404 page not found.</span>
+          <span className={styles.comment}>// 500 internal server error.</span>
           <span>
             <span className={styles.keyword}>if</span>(
-            <span className={styles.operator}>!</span>
-            <span className={styles.variable}>found</span>){" {"}
+            <span className={styles.variable}>serverError</span>){" {"}
           </span>
           <span>
             <span className={styles.indent}>throw</span>(
@@ -33,4 +32,4 @@ const Custom404 = () => {
   );
 };
 
-export default Custom404;
+export default Custom500;
