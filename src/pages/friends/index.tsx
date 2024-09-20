@@ -1,7 +1,6 @@
 import { Suspense, useEffect, useMemo, useState } from "react";
 import { ParallaxScroll } from "@/components/ui/friends";
 import DotsBackground from "@/components/DotsBackground";
-import Link from "next/link";
 
 /*
   Ben Dixon - https://malted.dev

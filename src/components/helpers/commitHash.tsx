@@ -1,4 +1,11 @@
-import { Tooltip } from "@material-tailwind/react";
+import dynamic from "next/dynamic";
+
+const Tooltip = dynamic(
+  () => import("@material-tailwind/react/components/Tooltip"),
+  { ssr: false },
+);
+
+// import { Tooltip } from "@material-tailwind/react";
 import { formatDistanceToNow, isWeekend } from "date-fns";
 
 export default function CommitHash() {
