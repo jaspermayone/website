@@ -16,6 +16,5 @@ type Camera = ["iPhone 6", "iPhone 12 mini", "DJI Mavic Mini", "iPhone 15 Pro"];
 
 export type Photo = {
   file_name: string;
-  camera: Camera;
-  location: string;
+  metadata?; // Make sure metadata is optional
 };

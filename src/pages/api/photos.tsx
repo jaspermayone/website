@@ -4,10 +4,7 @@ import path from "path";
 import sharp from "sharp";
 import { ExifImage } from "exif";
 
-export type Photo = {
-  file_name: string;
-  metadata?: any; // Define the type based on your needs
-};
+import type { Photo } from "@/lib/types";
 
 export default async function handler(
   req: NextApiRequest,

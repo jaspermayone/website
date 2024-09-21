@@ -8,6 +8,7 @@ export interface Project {
 
 export interface Photo {
   file_name: string;
+  metadata?; // Make sure metadata is optional
 }
 
 export interface Friend {
