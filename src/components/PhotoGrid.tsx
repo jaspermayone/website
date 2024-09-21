@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import styles from "@/styles/PhotoGrid.module.css";
 
 interface Photo {
@@ -33,8 +33,9 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ photos }) => {
               width: "100%",
               height: "auto",
               objectFit: "cover",
-            }}
-          />
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </div>
       ))}
     </div>

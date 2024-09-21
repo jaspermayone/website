@@ -12,8 +12,10 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       "public/images/photography/",
     );
 
-    // Read all files in the photos directory
-    const fileNames = fs.readdirSync(photosDirectory);
+    // Read all files in the photos directory and filter out .DS_Store files
+    const fileNames = fs
+      .readdirSync(photosDirectory)
+      .filter((fileName) => fileName !== ".DS_Store");
 
     // Create an array of Photo objects
     const photos: Photo[] = fileNames.map((fileName) => ({

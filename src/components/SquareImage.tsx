@@ -1,5 +1,5 @@
 // components/RoundedImage.tsx
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 interface SquareImageImageProps {
   src: string;
@@ -13,7 +13,16 @@ const SquareImage: React.FC<SquareImageImageProps> = ({
   size = 150,
 }) => {
   return (
-    <Image src={src} alt={alt} width={size} height={size} aria-label={alt} />
+    <Image
+      src={src}
+      alt={alt}
+      width={size}
+      height={size}
+      aria-label={alt}
+      style={{
+        maxWidth: "100%",
+        height: "auto"
+      }} />
   );
 };
 

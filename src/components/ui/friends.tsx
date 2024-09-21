@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link"; // Import Link for navigation
 import { cn } from "../../lib/utils";
 import { FriendOrText, Friend } from "@/lib/interfaces";
@@ -67,13 +67,18 @@ export const ParallaxScroll = ({
               <Image
                 src={friend.image!}
                 className="!m-0 gap-10 rounded-lg object-cover object-center !p-0 transition-all duration-500 ease-in-out group-hover:brightness-50 drop-shadow-lg"
-                height={400} // The aspect ratio will be maintained
-                width={400} // The aspect ratio will be maintained
+                // The aspect ratio will be maintained
+                height={400}
+                // The aspect ratio will be maintained
+                width={400}
                 alt="thumbnail"
                 loading="lazy"
-                layout="responsive" // Use layout="responsive" to maintain aspect ratio
                 aria-label={name}
-              />
+                sizes="100vw"
+                style={{
+                  width: "100%",
+                  height: "auto"
+                }} />
               <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
                 <h3 className="text-white text-lg font-semibold mb-2">
                   {name}

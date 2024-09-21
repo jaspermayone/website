@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import { cn } from "../../lib/utils";
 import { PhotoOrText, Photo } from "@/lib/interfaces";
@@ -67,12 +67,18 @@ export const ParallaxScroll = ({
               <Image
                 src={photo.image!}
                 className="!m-0 gap-10 rounded-lg object-cover object-center !p-0 transition-all duration-500 ease-in-out drop-shadow-lg"
-                height={400} // The aspect ratio will be maintained
-                width={400} // The aspect ratio will be maintained
+                // The aspect ratio will be maintained
+                height={400}
+                // The aspect ratio will be maintained
+                width={400}
                 alt="thumbnail"
                 loading="lazy"
-                layout="responsive"
                 aria-label={name}
+                sizes="100vw"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                }}
               />
             </>
           ) : null}

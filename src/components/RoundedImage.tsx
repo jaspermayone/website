@@ -1,5 +1,5 @@
 // components/RoundedImage.tsx
-import Image from "next/legacy/image";
+import Image from "next/image";
 
 interface RoundedImageProps {
   src: string;
@@ -19,8 +19,11 @@ const RoundedImage: React.FC<RoundedImageProps> = ({
       width={size}
       height={size}
       aria-label={alt}
-      style={{ borderRadius: "10%" }}
-    />
+      style={{
+        borderRadius: "10%",
+        maxWidth: "100%",
+        height: "auto"
+      }} />
   );
 };
 
