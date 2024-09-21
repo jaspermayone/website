@@ -34,8 +34,8 @@ const PhotoGrid: React.FC<PhotoGridProps> = ({ photos }) => {
               height: "auto",
               objectFit: "cover",
               maxWidth: "100%",
-              height: "auto"
-            }} />
+            }}
+          />
         </div>
       ))}
     </div>
