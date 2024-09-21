@@ -1,9 +1,4 @@
-type Friend = {
-  name: string;
-  bio: string;
-  // image_name: string;
-  link: string;
-};
+import type { Friend } from "@/lib/types";
 
 /*
   Aarya Narula - https://github.com/radioblahaj

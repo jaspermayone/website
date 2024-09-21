@@ -1,25 +1,7 @@
 import { Suspense, useEffect, useMemo, useState } from "react";
 import { ParallaxScroll } from "@/components/ui/friends";
 import DotsBackground from "@/components/DotsBackground";
-
-/*
-  Ben Dixon - https://malted.dev
-  Aram Shiva - https://aram.sh/
-  Sam Poder - https://sampoder.com/
-  Deven Jadhav - https://devenjadhav.com/
-  Aarya - https://github.com/radioblahaj
-  Alex Deforest - https://defo.one
-  Manitej - https://github.com/techpixel
-  Ruien Luo - https://rluo.dev/
-  Reese Armstrong - https://reeseric.ci/
-  Rhys Panopio - https://www.linkedin.com/in/rhys-panopio/
-  Ian Madden - https://github.com/YodaLightsabr
-  Kieran - https://kieranklukas.com/
-  Ryan Di Lorenzo - https://github.com/LimesKey
-  Samuel F. - https://sfernandez.dev/
-  Luke O - https://github.com/Luke-Oldenburg
-  Ryan Rudes - https://ryanrudes.com/
-*/
+import { FriendOrText, Friend, TextEntry } from "@/lib/interfaces";
 
 function shuffleArray<T>(array: T[]): T[] {
   let currentIndex = array.length,
@@ -47,12 +29,16 @@ function LoadingFallback() {
 }
 
 export default function Friends() {
-  const [friends, setFriends] = useState<any[]>([]);
+  const [friends, setFriends] = useState<FriendOrText[]>([]);
+
+  function isFriend(friend: FriendOrText): friend is Friend {
+    return (friend as Friend).file_name !== undefined;
+  }
 
   useEffect(() => {
     const fetchFriends = async () => {
       const response = await fetch("/api/friends");
-      const data = await response.json();
+      const data: FriendOrText[] = await response.json();
       setFriends(data); // Store the friends data
     };
 
@@ -61,10 +47,15 @@ export default function Friends() {
 
   const staticFriends = useMemo(() => {
     const shuffledFriends = shuffleArray(
-      friends.map((friend) => ({
-        ...friend,
-        image: `/images/friends/${friend.file_name}`,
-      })),
+      friends.map((friend) => {
+        if (isFriend(friend)) {
+          return {
+            ...friend,
+            image: `/images/friends/${friend.file_name}`,
+          };
+        }
+        return friend; // Return TextEntry objects unchanged
+      }),
     );
     return [
       {

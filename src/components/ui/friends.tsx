@@ -1,22 +1,15 @@
-import { useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link"; // Import Link for navigation
 import { cn } from "../../lib/utils";
-
-interface Friend {
-  name: string;
-  link: string;
-  image?: string; // Make image optional for text items
-  type?: "text"; // Add type to identify text items
-}
+import { FriendOrText, Friend } from "@/lib/interfaces";
 
 export const ParallaxScroll = ({
   friends,
   className,
 }: {
-  friends: Friend[];
+  friends: FriendOrText[];
   className?: string;
 }) => {
   const gridRef = useRef<any>(null);
@@ -35,13 +28,18 @@ export const ParallaxScroll = ({
   const secondPart = friends.slice(third, 2 * third);
   const thirdPart = friends.slice(2 * third);
 
+  // Helper function to check if an entry is a Friend
+  const isFriend = (friend: FriendOrText): friend is Friend => {
+    return (friend as Friend).link !== undefined;
+  };
+
   const renderImageGrid = (
-    friendsPart: Friend[],
+    friendsPart: FriendOrText[],
     translateValue: any,
     partIndex: number,
   ) =>
     friendsPart.map((friend, idx) => {
-      const { name, link, image, type } = friend;
+      const { name, type } = friend;
 
       return (
         <motion.div
@@ -64,10 +62,10 @@ export const ParallaxScroll = ({
               <br />
               <p className="text-lg font-light mb-4">{name}</p>
             </div>
-          ) : (
+          ) : isFriend(friend) ? ( // Only try to access 'link' for Friend types
             <>
               <Image
-                src={image!}
+                src={friend.image!}
                 className="!m-0 gap-10 rounded-lg object-cover object-center !p-0 transition-all duration-500 ease-in-out group-hover:brightness-50 drop-shadow-lg"
                 height={400} // The aspect ratio will be maintained
                 width={400} // The aspect ratio will be maintained
@@ -81,7 +79,7 @@ export const ParallaxScroll = ({
                   {name}
                 </h3>
                 <a
-                  href={link}
+                  href={friend.link} // Safe to access 'link' now
                   className="text-blue-400 hover:underline"
                   target="_blank"
                   rel="noopener"
@@ -91,7 +89,7 @@ export const ParallaxScroll = ({
                 </a>
               </div>
             </>
-          )}
+          ) : null}
         </motion.div>
       );
     });

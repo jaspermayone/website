@@ -13,11 +13,10 @@ import {
   SiThreads,
   SiX,
 } from "react-icons/si";
-import Experience from "@/components/experience";
 
 /* Reference https://nextjs.org/learn/dashboard-app/adding-metadata when adding new metadata. */
 
-export default function Home() {
+export default function Home({ toggleDarkMode, darkMode }) {
   const [selectedTab, setSelectedTab] = useState("Homepage");
 
   const menuItems = [
@@ -49,8 +48,8 @@ export default function Home() {
             <p className="font-medium text-xl">
               Jasper Mayone (<i>he/they</i>){" "}
               <span className="text-gray-700 font-normal">
-                is a 17-year-old high school student from Vermont. They are a
-                circus performer, a{" "}
+                is a 18-year-old post high school graduate from rural Vermont.
+                They are a circus performer, a{" "}
                 <Link
                   className={styles.lnk}
                   href="https://github.com/jaspermayone"
@@ -77,14 +76,14 @@ export default function Home() {
               title="Jasper's biography"
             >
               A circus artist and a native Vermonter, Jasper is a high school
-              graduate from the class of 2024! Graduating a full year early,
-              they are currently taking a gap year to explore. Jasper tries to
-              live by the quote “We’ve all got both light and dark inside us.
-              What matters is the part we choose to act on...that’s who we
-              really are.” from one of their favorite books, Harry Potter.
-              Jasper’s hobbies include reading, being in the great outdoors,
-              photography, computer programming, cooking, and running away to
-              join the circus.
+              graduate from the class of 2024! Having completed high school in
+              just 3 years, they are currently taking a gap year to explore.
+              Jasper tries to live by the quote “We’ve all got both light and
+              dark inside us. What matters is the part we choose to act
+              on...that’s who we really are.” from one of their favorite books,
+              Harry Potter. Jasper’s hobbies include reading, being in the great
+              outdoors, photography, computer programming, cooking, and running
+              away to join the circus.
             </p>
             <div className="py-5" />
             <Email />

@@ -1,43 +1,84 @@
-import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { ParallaxScroll } from "@/components/ui/photos";
+import DotsBackground from "@/components/DotsBackground";
+import { PhotoOrText, Photo, TextEntry } from "@/lib/interfaces";
+
+function shuffleArray<T>(array: T[]): T[] {
+  let currentIndex = array.length,
+    randomIndex;
+
+  // While there remain elements to shuffle...
+  while (currentIndex !== 0) {
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array;
+}
+
+// Create a fallback component for Suspense loading state
+function LoadingFallback() {
+  return <div className="text-lg text-center mt-10">Loading...</div>;
+}
 
 export default function Photos() {
-  const [imageCount, setImageCount] = useState(0);
+  const [photos, setPhotos] = useState<PhotoOrText[]>([]);
+
+  function isPhoto(photo: PhotoOrText): photo is Photo {
+    return (photo as Photo).file_name !== undefined;
+  }
 
   useEffect(() => {
-    const fetchImageCount = async () => {
-      const response = await fetch("/api/imagecount");
-      const data = await response.json();
-      setImageCount(data.count);
+    const fetchPhotos = async () => {
+      const response = await fetch("/api/photos");
+      const data: PhotoOrText[] = await response.json();
+      setPhotos(data); // Store the photos data
     };
 
-    fetchImageCount();
+    fetchPhotos();
   }, []);
 
-  const staticImages = useMemo(() => {
-    const images = [];
-    for (let i = 1; i <= imageCount; i++) {
-      images.push(`/images/${i}.jpg`);
-    }
-    return images;
-  }, [imageCount]);
+  const staticPhotos = useMemo(() => {
+    const shuffledPhotos = shuffleArray(
+      photos.map((photo) => {
+        if (isPhoto(photo)) {
+          return {
+            ...photo,
+            image: `/images/photography/${photo.file_name}`,
+          };
+        }
+        return photo; // Return TextEntry objects unchanged
+      }),
+    );
+    return [
+      {
+        name: "Here's a galery of some of my photos i've taken. You can view them all on my Instagram @jasper.mayone.photography",
+        type: "text", // Define it as text to handle separately in the parallax scroll
+      },
+      ...shuffledPhotos,
+    ];
+  }, [photos]);
+
+  useEffect(() => {
+    console.log(staticPhotos); // Add this to log the staticPhotos array
+  }, [staticPhotos]);
 
   return (
     <>
+      <DotsBackground />
       <div className="min-h-screen flex flex-col items-center px-5">
-        <div className="bg-white rounded-lg shadow-lg p-6 md:w-full w-full mt-12 mb-6">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="text-xl text-slate-600">
-              &larr; Back to Home
-            </Link>
-          </div>
-        </div>
-        <div className="w-full flex justify-center">
-          <ParallaxScroll
-            className="max-h-screen w-full"
-            images={staticImages.length ? staticImages : []}
-          />
+        {/* Photos Parallax Scroll with Suspense */}
+        <div className="w-full flex justify-center mt-5">
+          <Suspense fallback={<LoadingFallback />}>
+            <ParallaxScroll className="h-full w-full" photos={staticPhotos} />
+          </Suspense>
         </div>
       </div>
     </>
