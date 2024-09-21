@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { motion } from "framer-motion";
 import styles from "@/styles/Projects.module.css";
 import type { Project } from "@/lib/types";

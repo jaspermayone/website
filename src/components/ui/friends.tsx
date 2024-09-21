@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "next/link"; // Import Link for navigation
 import { cn } from "../../lib/utils";
 import { FriendOrText, Friend } from "@/lib/interfaces";

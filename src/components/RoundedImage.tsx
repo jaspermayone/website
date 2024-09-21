@@ -1,5 +1,5 @@
 // components/RoundedImage.tsx
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 interface RoundedImageProps {
   src: string;
