@@ -21,13 +21,16 @@ export default function Photos() {
       {
         name: "Here's a gallery of some of my photos I've taken. You can view them all on my Instagram @jasper.mayone.photography",
         type: "text",
-      },
+      } as TextEntry, // Ensure it's treated as a TextEntry
       ...photos.map((photo) => {
-        return {
-          ...photo,
-          image: `/images/photography/${photo.file_name}`,
-          // No need to add blurDataURL here, it's already included in the photo object
-        };
+        if ("file_name" in photo) {
+          // Check if it's a Photo
+          return {
+            ...photo,
+            image: `/images/photography/${photo.file_name}`, // Ensure this has a leading slash
+          } as Photo; // Ensure TypeScript understands this is a Photo
+        }
+        return photo; // Return TextEntry objects unchanged
       }),
     ];
   }, [photos]);

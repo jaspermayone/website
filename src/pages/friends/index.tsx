@@ -57,11 +57,12 @@ export default function Friends() {
         return friend; // Return TextEntry objects unchanged
       }),
     );
+
     return [
       {
         name: "I have some super cool friends, check them all out! 🌟 (btw, shoot me a message if you want to be added here, I definitely missed some people lol.)",
-        type: "text", // Define it as text to handle separately in the parallax scroll
-      },
+        type: "text" as const, // Use 'as const' to ensure this is typed as 'text'
+      } as TextEntry, // Explicitly type as TextEntry
       ...shuffledFriends,
     ];
   }, [friends]);

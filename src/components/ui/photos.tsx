@@ -39,19 +39,19 @@ export const ParallaxScroll = ({
     partIndex: number,
   ) =>
     photosPart.map((photo, idx) => {
-      const { name, type } = photo;
-
-      return (
-        <motion.div
-          className="relative group"
-          style={{ y: translateValue }}
-          key={`grid-${partIndex}-${idx}`}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          viewport={{ once: true }}
-        >
-          {type === "text" ? (
+      if ("type" in photo && photo.type === "text") {
+        // It's a TextEntry
+        const { name } = photo; // Safe to destructure name
+        return (
+          <motion.div
+            className="relative group"
+            style={{ y: translateValue }}
+            key={`grid-${partIndex}-${idx}`}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            viewport={{ once: true }}
+          >
             <div className="flex flex-col items-center justify-center p-6 bg-slate-100 rounded-lg shadow-md relative">
               <Link
                 href="/"
@@ -62,28 +62,40 @@ export const ParallaxScroll = ({
               <br />
               <p className="text-lg font-light mb-4">{name}</p>
             </div>
-          ) : isPhoto(photo) ? (
-            <>
-              <Image
-                src={photo.image!}
-                className="!m-0 gap-10 rounded-lg object-cover object-center !p-0 transition-all duration-500 ease-in-out drop-shadow-lg"
-                // The aspect ratio will be maintained
-                height={400}
-                // The aspect ratio will be maintained
-                width={400}
-                alt="thumbnail"
-                loading="lazy"
-                aria-label={name}
-                sizes="100vw"
-                style={{
-                  width: "100%",
-                  height: "auto",
-                }}
-              />
-            </>
-          ) : null}
-        </motion.div>
-      );
+          </motion.div>
+        );
+      } else if (isPhoto(photo)) {
+        // Check if it's a Photo
+        // It's a Photo
+        return (
+          <motion.div
+            className="relative group"
+            style={{ y: translateValue }}
+            key={`grid-${partIndex}-${idx}`}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <Image
+              // src={photo.file_name} // Assuming 'file_name' contains the image path
+              src={`/images/photography/${photo.file_name}`} // Ensure this has a leading slash
+              className="!m-0 gap-10 rounded-lg object-cover object-center !p-0 transition-all duration-500 ease-in-out drop-shadow-lg"
+              height={400}
+              width={400}
+              alt="thumbnail"
+              loading="lazy"
+              aria-label={photo.file_name} // Assuming file_name is descriptive
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "auto",
+              }}
+            />
+          </motion.div>
+        );
+      }
+      return null; // Return null for unexpected types
     });
 
   return (

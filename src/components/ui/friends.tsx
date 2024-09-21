@@ -39,19 +39,18 @@ export const ParallaxScroll = ({
     partIndex: number,
   ) =>
     friendsPart.map((friend, idx) => {
-      const { name, type } = friend;
-
-      return (
-        <motion.div
-          className="relative group"
-          style={{ y: translateValue }}
-          key={`grid-${partIndex}-${idx}`}
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-          viewport={{ once: true }}
-        >
-          {type === "text" ? (
+      if ("type" in friend && friend.type === "text") {
+        // Handle TextEntry
+        return (
+          <motion.div
+            className="relative group"
+            style={{ y: translateValue }}
+            key={`grid-${partIndex}-${idx}`}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            viewport={{ once: true }}
+          >
             <div className="flex flex-col items-center justify-center p-6 bg-slate-100 rounded-lg shadow-md relative">
               <Link
                 href="/"
@@ -60,43 +59,55 @@ export const ParallaxScroll = ({
                 &larr; Back
               </Link>
               <br />
-              <p className="text-lg font-light mb-4">{name}</p>
+              <p className="text-lg font-light mb-4">{friend.name}</p>
             </div>
-          ) : isFriend(friend) ? ( // Only try to access 'link' for Friend types
-            <>
-              <Image
-                src={friend.image!}
-                className="!m-0 gap-10 rounded-lg object-cover object-center !p-0 transition-all duration-500 ease-in-out group-hover:brightness-50 drop-shadow-lg"
-                // The aspect ratio will be maintained
-                height={400}
-                // The aspect ratio will be maintained
-                width={400}
-                alt="thumbnail"
-                loading="lazy"
-                aria-label={name}
-                sizes="100vw"
-                style={{
-                  width: "100%",
-                  height: "auto"
-                }} />
-              <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
-                <h3 className="text-white text-lg font-semibold mb-2">
-                  {name}
-                </h3>
-                <a
-                  href={friend.link} // Safe to access 'link' now
-                  className="text-blue-400 hover:underline"
-                  target="_blank"
-                  rel="noopener"
-                  aria-label={`Visit ${name}'s website`}
-                >
-                  Visit Website
-                </a>
-              </div>
-            </>
-          ) : null}
-        </motion.div>
-      );
+          </motion.div>
+        );
+      } else if ("link" in friend) {
+        // Check if it's a Friend
+        // Handle Friend
+        return (
+          <motion.div
+            className="relative group"
+            style={{ y: translateValue }}
+            key={`grid-${partIndex}-${idx}`}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <Image
+              src={friend.image}
+              className="!m-0 gap-10 rounded-lg object-cover object-center !p-0 transition-all duration-500 ease-in-out group-hover:brightness-50 drop-shadow-lg"
+              height={400}
+              width={400}
+              alt="thumbnail"
+              loading="lazy"
+              aria-label={friend.name}
+              sizes="100vw"
+              style={{
+                width: "100%",
+                height: "auto",
+              }}
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+              <h3 className="text-white text-lg font-semibold mb-2">
+                {friend.name}
+              </h3>
+              <a
+                href={friend.link}
+                className="text-blue-400 hover:underline"
+                target="_blank"
+                rel="noopener"
+                aria-label={`Visit ${friend.name}'s website`}
+              >
+                Visit Website
+              </a>
+            </div>
+          </motion.div>
+        );
+      }
+      return null; // Return null for unexpected types
     });
 
   return (
