@@ -1,3 +1,4 @@
+/* eslint-disable */
 import DotsBackground from "@/components/DotsBackground";
 import styles from "@/styles/404.module.css";
 import Link from "next/link";
@@ -17,7 +18,7 @@ const Custom404 = () => {
           </span>
           <span>
             <span className={styles.indent}>throw</span>(
-            <span className={styles.string}>"(╯°□°)╯︵ ┻━┻"</span>);
+            <span className={styles.string}>&quot;(╯°□°)╯︵ ┻━┻&quot;</span>);
           </span>
           <span>{"}"}</span>
           <span className={styles.comment}>

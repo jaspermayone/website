@@ -23,50 +23,37 @@ export const ParallaxScroll = ({
   const translateThird = useTransform(scrollYProgress, [0, 1], [0, -200]);
 
   const third = Math.ceil(photos.length / 3);
-
   const firstPart = photos.slice(0, third);
   const secondPart = photos.slice(third, 2 * third);
   const thirdPart = photos.slice(2 * third);
 
-  // Helper function to check if an entry is a photo or text
   const isPhoto = (photo: PhotoOrText): photo is Photo => {
     return (photo as Photo).file_name !== undefined;
   };
 
+  const parseDate = (dateString: string | undefined) => {
+    if (!dateString) return ""; // Return empty string if dateString is undefined
+
+    const parts = dateString.split(/[: ]/);
+    if (parts.length < 6) return ""; // Return empty string if parts are not enough
+
+    const year = parseInt(parts[0]);
+    const month = parseInt(parts[1]) - 1; // Months are 0-indexed
+    const day = parseInt(parts[2]);
+    const hours = parseInt(parts[3]);
+    const minutes = parseInt(parts[4]);
+    const seconds = parseInt(parts[5]);
+
+    const date = new Date(year, month, day, hours, minutes, seconds);
+    return date.toLocaleDateString(); // Format as needed
+  };
   const renderImageGrid = (
     photosPart: PhotoOrText[],
     translateValue: any,
     partIndex: number,
   ) =>
     photosPart.map((photo, idx) => {
-      if ("type" in photo && photo.type === "text") {
-        // It's a TextEntry
-        const { name } = photo; // Safe to destructure name
-        return (
-          <motion.div
-            className="relative group"
-            style={{ y: translateValue }}
-            key={`grid-${partIndex}-${idx}`}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex flex-col items-center justify-center p-6 bg-slate-100 rounded-lg shadow-md relative">
-              <Link
-                href="/"
-                className="absolute top-4 left-4 hover:underline font-extralight"
-              >
-                &larr; Back
-              </Link>
-              <br />
-              <p className="text-lg font-light mb-4">{name}</p>
-            </div>
-          </motion.div>
-        );
-      } else if (isPhoto(photo)) {
-        // Check if it's a Photo
-        // It's a Photo
+      if (isPhoto(photo)) {
         return (
           <motion.div
             className="relative group"
@@ -78,20 +65,33 @@ export const ParallaxScroll = ({
             viewport={{ once: true }}
           >
             <Image
-              // src={photo.file_name} // Assuming 'file_name' contains the image path
-              src={`/images/photography/${photo.file_name}`} // Ensure this has a leading slash
-              className="!m-0 gap-10 rounded-lg object-cover object-center !p-0 transition-all duration-500 ease-in-out drop-shadow-lg"
+              src={`/images/photography/${photo.file_name}`}
+              className="!m-0 gap-10 rounded-lg object-cover object-center !p-0 transition-all duration-500 ease-in-out group-hover:brightness-50 drop-shadow-lg"
               height={400}
               width={400}
               alt="thumbnail"
               loading="lazy"
-              aria-label={photo.file_name} // Assuming file_name is descriptive
+              aria-label={photo.file_name}
               sizes="100vw"
               style={{
                 width: "100%",
                 height: "auto",
               }}
             />
+            <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out bg-black bg-opacity-50 p-4">
+              <h3 className="text-white text-lg font-semibold mb-2">
+                {photo.metadata?.image?.ImageDescription}
+              </h3>
+              <p className="text-white">
+                {`Camera: ${photo.metadata?.image?.Make} ${photo.metadata?.image?.Model}`}
+              </p>
+              <p className="text-white">
+                {`Date: ${parseDate(photo.metadata?.exif?.DateTimeOriginal)}`}
+              </p>
+              <p className="text-white">
+                {`Exposure: ${photo.metadata?.exif?.ExposureTime} sec`}
+              </p>
+            </div>
           </motion.div>
         );
       }

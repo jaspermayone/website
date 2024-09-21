@@ -12,6 +12,10 @@ export type Project = {
   techStack: string[];
 };
 
+type Camera = ["iPhone 6", "iPhone 12 mini", "DJI Mavic Mini", "iPhone 15 Pro"];
+
 export type Photo = {
   file_name: string;
+  camera: Camera;
+  location: string;
 };
