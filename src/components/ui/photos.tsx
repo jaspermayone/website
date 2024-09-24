@@ -1,7 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { cn } from "../../lib/utils";
 import { PhotoOrText, Photo } from "@/lib/interfaces";
 
@@ -47,6 +46,7 @@ export const ParallaxScroll = ({
     const date = new Date(year, month, day, hours, minutes, seconds);
     return date.toLocaleDateString(); // Format as needed
   };
+
   const renderImageGrid = (
     photosPart: PhotoOrText[],
     translateValue: any,
@@ -54,6 +54,10 @@ export const ParallaxScroll = ({
   ) =>
     photosPart.map((photo, idx) => {
       if (isPhoto(photo)) {
+        const exifData = photo.metadata?.exifMetadata?.image || {};
+        const sharpData = photo.metadata?.sharpMetadata || {};
+        const exifDate = photo.metadata?.exifMetadata?.exif?.DateTimeOriginal;
+
         return (
           <motion.div
             className="relative group"
@@ -79,23 +83,20 @@ export const ParallaxScroll = ({
               }}
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out bg-black bg-opacity-50 p-4">
-              <h3 className="text-white text-lg font-semibold mb-2">
-                {photo.metadata?.image?.ImageDescription}
-              </h3>
               <p className="text-white">
-                {`Camera: ${photo.metadata?.image?.Make} ${photo.metadata?.image?.Model}`}
+                {`Camera: ${exifData.Make || "Unknown"} ${exifData.Model || ""}`}
               </p>
               <p className="text-white">
-                {`Date: ${parseDate(photo.metadata?.exif?.DateTimeOriginal)}`}
+                {`Date: ${parseDate(exifDate) || "Unknown"}`}
               </p>
               <p className="text-white">
-                {`Exposure: ${photo.metadata?.exif?.ExposureTime} sec`}
+                {`Exposure: ${photo.metadata?.exifMetadata?.exif?.ExposureTime || "Unknown"} sec`}
               </p>
             </div>
           </motion.div>
         );
       }
-      return null; // Return null for unexpected types
+      return null;
     });
 
   return (

@@ -1,4 +1,4 @@
-import { Suspense, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { ParallaxScroll } from "@/components/ui/photos";
 import DotsBackground from "@/components/DotsBackground";
 import { PhotoOrText, Photo, TextEntry } from "@/lib/interfaces";
@@ -8,9 +8,40 @@ export default function Photos() {
 
   useEffect(() => {
     const fetchPhotos = async () => {
-      const response = await fetch("/api/photos");
-      const data: PhotoOrText[] = await response.json();
-      setPhotos(data); // Store the photos data
+      try {
+        const response = await fetch("/api/photos");
+        const data: string[] = await response.json();
+
+        const photosWithMetadata = await Promise.all(
+          data.map(async (file_name) => {
+            try {
+              const metaResponse = await fetch(
+                `/api/photos/metadata/${file_name}`,
+              );
+              const metadata = await metaResponse.json();
+
+              return {
+                file_name,
+                metadata, // Include the metadata here
+                image: `/images/photography/${file_name}`,
+              } as Photo;
+            } catch (error) {
+              console.error(
+                `Failed to fetch metadata for ${file_name}:`,
+                error,
+              );
+              return {
+                file_name,
+                image: `/images/photography/${file_name}`,
+              } as Photo;
+            }
+          }),
+        );
+
+        setPhotos(photosWithMetadata);
+      } catch (error) {
+        console.error("Error fetching photos:", error);
+      }
     };
 
     fetchPhotos();
@@ -21,17 +52,8 @@ export default function Photos() {
       {
         name: "Here's a gallery of some of my photos I've taken. You can view them all on my Instagram @jasper.mayone.photography",
         type: "text",
-      } as TextEntry, // Ensure it's treated as a TextEntry
-      ...photos.map((photo) => {
-        if ("file_name" in photo) {
-          // Check if it's a Photo
-          return {
-            ...photo,
-            image: `/images/photography/${photo.file_name}`, // Ensure this has a leading slash
-          } as Photo; // Ensure TypeScript understands this is a Photo
-        }
-        return photo; // Return TextEntry objects unchanged
-      }),
+      } as TextEntry,
+      ...photos,
     ];
   }, [photos]);
 
