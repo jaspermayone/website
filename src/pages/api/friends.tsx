@@ -1,7 +1,7 @@
 import type { Friend } from "@/lib/types";
 
 /*
-  Aarya Narula - https://github.com/radioblahaj
+  Arav Narula - https://github.com/radioblahaj
   Alex Deforest - https://defo.one
   Aram Shiva - https://aram.sh/
   Ben Dixon - https://malted.dev
