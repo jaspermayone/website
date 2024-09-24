@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import fs from "fs";
 import path from "path";
-import sharp from "sharp";
 import { ExifImage } from "exif";
 
 export default async function handler(
@@ -22,9 +21,6 @@ export default async function handler(
       return res.status(404).json({ message: "File not found." });
     }
 
-    // Get metadata using Sharp
-    const sharpData = await sharp(filePath).metadata();
-
     // Get EXIF data using ExifImage
     const meta = await new Promise((resolve, reject) => {
       new ExifImage({ image: filePath }, (error, exifData) => {
@@ -42,7 +38,6 @@ export default async function handler(
 
     res.status(200).json({
       file_name: filename,
-      sharpMetadata: sharpData,
       exifMetadata: meta,
     });
   } catch (error) {
