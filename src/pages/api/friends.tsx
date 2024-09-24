@@ -26,7 +26,7 @@ import type { Friend } from "@/lib/types";
 
 const friends: Friend[] = [
   {
-    name: "Aarya Narula",
+    name: "Arav Narula",
     bio: "INSERT BIO SOON",
     link: "https://github.com/radioblahaj",
   },
