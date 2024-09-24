@@ -82,7 +82,7 @@ export const ParallaxScroll = ({
                 height: "auto",
               }}
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out bg-black bg-opacity-50 p-4 text-center">
+            <div className="absolute inset-0 flex flex-col items-center justify-center rounded-lg overflow-hidden opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out bg-black bg-opacity-50 p-4 text-center">
               <p className="text-white">
                 {`Camera: ${exifData?.Make || "Unknown"} ${exifData?.Model || "Unknown"}`}
               </p>
