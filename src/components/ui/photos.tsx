@@ -82,15 +82,77 @@ export const ParallaxScroll = ({
                 height: "auto",
               }}
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out bg-black bg-opacity-50 p-4">
+            <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 ease-in-out bg-black bg-opacity-50 p-4 text-center">
               <p className="text-white">
-                {`Camera: ${exifData.Make || "Unknown"} ${exifData.Model || ""}`}
+                {`Camera: ${exifData?.Make || "Unknown"} ${exifData?.Model || "Unknown"}`}
               </p>
+
               <p className="text-white">
-                {`Date: ${parseDate(exifDate) || "Unknown"}`}
+                {`F-Stop: ${
+                  photo.metadata?.exifMetadata?.exif?.FNumber
+                    ? photo.metadata.exifMetadata.exif.FNumber
+                    : "Unknown"
+                }`}
               </p>
+
               <p className="text-white">
-                {`Exposure: ${photo.metadata?.exifMetadata?.exif?.ExposureTime || "Unknown"} sec`}
+                {`Focal Length: ${
+                  photo.metadata?.exifMetadata?.exif?.FocalLength
+                    ? photo.metadata.exifMetadata.exif.FocalLength
+                    : "Unknown"
+                }`}
+              </p>
+
+              <p className="text-white">
+                {`ISO: ${
+                  photo.metadata?.exifMetadata?.exif?.ISO
+                    ? photo.metadata.exifMetadata.exif.ISO
+                    : "Unknown"
+                }`}
+              </p>
+
+              <p className="text-white">
+                {`Shutter Speed: ${
+                  photo.metadata?.exifMetadata?.exif?.ShutterSpeedValue
+                    ? photo.metadata.exifMetadata.exif.ShutterSpeedValue
+                    : "Unknown"
+                }`}
+              </p>
+
+              <p className="text-white">
+                {`Aperture: ${
+                  photo.metadata?.exifMetadata?.exif?.ApertureValue
+                    ? photo.metadata.exifMetadata.exif.ApertureValue
+                    : "Unknown"
+                }`}
+              </p>
+
+              <p className="text-white">
+                {`Brightness: ${
+                  photo.metadata?.exifMetadata?.exif?.BrightnessValue
+                    ? photo.metadata.exifMetadata.exif.BrightnessValue
+                    : "Unknown"
+                }`}
+              </p>
+
+              <p className="text-white">
+                {`Lens: ${
+                  photo.metadata?.exifMetadata?.exif?.LensMake
+                    ? photo.metadata.exifMetadata.exif.LensMake
+                    : "Unknown"
+                } ${
+                  photo.metadata?.exifMetadata?.exif?.LensModel
+                    ? photo.metadata.exifMetadata.exif.LensModel
+                    : "Unknown"
+                }`}
+              </p>
+
+              <p className="text-white">
+                {`Exposure Time: ${
+                  photo.metadata?.exifMetadata?.exif?.ExposureTime
+                    ? photo.metadata.exifMetadata.exif.ExposureTime
+                    : "Unknown"
+                }`}
               </p>
             </div>
           </motion.div>
