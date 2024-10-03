@@ -3,6 +3,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { cn } from "../../lib/utils";
 import { PhotoOrText, Photo } from "@/lib/interfaces";
+import Link from "next/link";
 
 export const ParallaxScroll = ({
   photos,
@@ -53,6 +54,31 @@ export const ParallaxScroll = ({
     partIndex: number,
   ) =>
     photosPart.map((photo, idx) => {
+      if (!isPhoto(photo)) {
+        return (
+          <motion.div
+            className="relative group"
+            style={{ y: translateValue }}
+            key={`grid-${partIndex}-${idx}`}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <div className="flex flex-col items-center justify-center p-6 bg-slate-100 rounded-lg shadow-md relative">
+              <Link
+                href="/"
+                className="absolute top-4 left-4 hover:underline font-extralight"
+              >
+                &larr; Back
+              </Link>
+              <br />
+              <p className="text-lg font-light mb-4">{photo.name}</p>
+            </div>
+          </motion.div>
+        );
+      }
+
       if (isPhoto(photo)) {
         const exifData = photo.metadata?.exifMetadata?.image || {};
         const sharpData = photo.metadata?.sharpMetadata || {};
