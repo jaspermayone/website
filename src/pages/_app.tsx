@@ -8,6 +8,11 @@ import "@/styles/globals.css";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      <script
+        defer
+        src="https://umami.jaspermayone.com/script.js"
+        data-website-id="3f757e82-5140-4634-9098-82223741ef08"
+      ></script>
       <Script
         src="https://kit.fontawesome.com/96163f3b63.js"
         crossOrigin="anonymous"
