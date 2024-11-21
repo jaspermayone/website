@@ -23,7 +23,7 @@ export default function Home({ toggleDarkMode, darkMode }) {
     "Homepage",
     // "Portfolio",
     "Resume",
-    "Photos",
+    // "Photos",
     "@jasperdoescircus",
   ];
 
@@ -58,15 +58,15 @@ export default function Home({ toggleDarkMode, darkMode }) {
                 >
                   coder
                 </Link>
-                , and a{" "}
-                <Link
+                , and a photographer
+                {/* <Link
                   href="/photos"
                   className={styles.lnk}
                   aria-label="Link to Jasper's photography page."
                   title="View Jasper's photography"
                 >
                   photographer
-                </Link>
+                </Link> */}
                 .
               </span>
             </p>
