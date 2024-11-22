@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Accordion,
   AccordionContent,
@@ -12,97 +13,48 @@ interface ExperienceItem {
   link: string;
 }
 
+import { experience } from "@/lib/experience";
+
 export default function Experience() {
-  const experience: ExperienceItem[] = [
-    {
-      title: "Jewish Community of Greater Stowe (JCOGS), Stowe, VT",
-      role: "Part Time Technology Coordinator",
-      date: "September 2023 - Present",
-      link: "https://www.jcogs.org/",
-    },
-    {
-      title: "The Hack Foundation, Shelburne, VT",
-      role: "Gap Year Software Engineer",
-      date: "September 2023 - July 2024",
-      link: "https://www.hackclub.com/",
-    },
-    {
-      title: "Harwood Union High School, Duxbury, VT",
-      role: "Student Tech Assistant",
-      date: "September 2021 - June 2024",
-      link: "https://huusd.org/",
-    },
-    {
-      title: "Three Mountain Associates, Waitsfield, VT",
-      role: "Rep in training/Intern",
-      date: "June 2018 - Present",
-      link: "https://threemountainassociates.com/",
-    },
-    {
-      title: "Signal Kitchen, Burlington, VT",
-      role: "Event Registration Coordinator & Assistant to Event Director, Bookshop Manager",
-      date: "February 2023 - February 2024",
-      link: "https://signalkitchen.com/",
-    },
-    {
-      title: "Sugarbush Resort, Warren VT",
-      role: "F&B Waitstaff and Utility Worker",
-      date: "December 2020 - February 2024",
-      link: "https://sugarbush.com/",
-    },
-    {
-      title: "Sadie Dog LLC, Warren, VT",
-      role: "Busser / Event Staff",
-      date: "November 2022 - December 2023",
-      link: "https://www.pitcherinn.com/",
-    },
-    {
-      title: "Valley Players Theater, Waitsfield, VT",
-      role: "Lighting Designer & Operator",
-      date: "December 2019 - November 2023",
-      link: "https://valleyplayers.com/",
-    },
-    {
-      title: "DeJames Hospitality, Waitsfield, VT",
-      role: "Busser / Event Staff",
-      date: "May 2022 - May 2023",
-      link: "https://theroundbarn.com/",
-    },
-    {
-      title: "Sugarbush Soaring Association, Warren, VT",
-      role: "Line Crew Member",
-      date: "July 2021 - September 2021",
-      link: "https://sugarbushsoaring.com/",
-    },
-    {
-      title: "Mad River Valley Television, Waitsfield, VT",
-      role: "Media Intern",
-      date: "May 2020 - October 2020",
-      link: "https://mrvtv.com/",
-    },
-  ];
+  const midpoint = Math.ceil(experience.length / 2);
+  const leftColumn = experience.slice(0, midpoint);
+  const rightColumn = experience.slice(midpoint);
+
+  const ExperienceColumn = ({
+    items,
+    columnId,
+  }: {
+    items: ExperienceItem[];
+    columnId: string;
+  }) => (
+    <div className="flex-1">
+      <Accordion type="single" collapsible>
+        {items.map((item, index) => (
+          <AccordionItem
+            key={item.title}
+            value={`item-${index}`}
+            className="mb-2 last:mb-0 border-b-0"
+          >
+            <AccordionTrigger className="py-2 hover:no-underline hover:bg-gray-50 rounded-lg px-3 text-sm">
+              <div className="text-left">{item.title}</div>
+            </AccordionTrigger>
+            <AccordionContent className="px-3 py-2">
+              <p className="text-gray-700 text-sm">{item.role}</p>
+              <p className="text-xs text-gray-500 mt-1">{item.date}</p>
+            </AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </div>
+  );
 
   return (
-    <>
-      <div>
-        <p className="font-medium text-xl pb-5">Experience</p>
-        {experience.map((item, index) => (
-          <>
-            <div key={index} className="pb-5 w-72">
-              <Accordion type="single" collapsible>
-                <AccordionItem value={index.toString()}>
-                  <AccordionTrigger>{item.title}</AccordionTrigger>
-                  <AccordionContent>
-                    <p>{item.role}</p>
-                    <br />
-                    <p className="text-sm text-gray-500">{item.date}</p>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-            </div>
-          </>
-        ))}
+    <div className="w-full max-w-6xl mx-auto">
+      <h2 className="font-medium text-xl pb-4">Experience</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <ExperienceColumn items={leftColumn} columnId="left" />
+        <ExperienceColumn items={rightColumn} columnId="right" />
       </div>
-    </>
+    </div>
   );
 }

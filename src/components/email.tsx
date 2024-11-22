@@ -64,7 +64,7 @@ export default function Email() {
   return (
     <>
       <div className="space-y" aria-label="Jasper's Newsletter Signup">
-        <p className="font-[450]">Newsletter</p>
+        <p className="font-medium text-xl">Newsletter</p>
         <p className="text-gray-500">
           Join my newsletter to get updates on new projects.
         </p>
