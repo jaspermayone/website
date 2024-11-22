@@ -1,27 +1,37 @@
 import React, { useState, useEffect } from "react";
-import styles from "@/styles/AnimatedTitle.module.css";
 
 const AnimatedTitle = () => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const firstWord = "Jasper";
   const secondWord = "Mayone";
   const totalLength = firstWord.length + secondWord.length;
+  const LETTER_DELAY = 300;
+  const CYCLE_PAUSE = 2000;
 
   useEffect(() => {
-    const animate = () => {
-      let currentIndex = -1;
-      const interval = setInterval(() => {
-        currentIndex = (currentIndex + 1) % (totalLength + 1);
-        setActiveIndex(currentIndex === totalLength ? -1 : currentIndex);
-      }, 300);
-      return () => clearInterval(interval);
+    const animate = async () => {
+      while (true) {
+        for (let i = 0; i <= totalLength; i++) {
+          setActiveIndex(i === totalLength ? -1 : i);
+          await new Promise((resolve) => setTimeout(resolve, LETTER_DELAY));
+        }
+        await new Promise((resolve) => setTimeout(resolve, CYCLE_PAUSE));
+      }
     };
-    const animation = animate();
-    return () => animation();
+
+    animate();
+    return () => setActiveIndex(-1);
   }, []);
 
   return (
-    <h1 className={styles.title} title="Jasper Mayone's website">
+    <h1
+      style={{
+        margin: 0,
+        fontSize: "3.5em",
+        fontFamily: '"Cute Notes", sans-serif',
+      }}
+      title="Jasper Mayone's website"
+    >
       {firstWord.split("").map((letter, index) => (
         <span
           key={`first-${index}`}
