@@ -1,16 +1,20 @@
 import { ImageResponse } from "next/og";
 import { base64Image } from "../../../lib/jasper";
+import { join } from "path";
+import { readFileSync } from "fs";
 
-export const runtime = "nodejs"; // Switch from 'edge' to 'nodejs'
+export const runtime = "edge"; // Switch back to edge runtime for better performance
 export const dynamic = "force-dynamic";
 
-// Load custom font
-const customFont = fetch(
-  new URL(
-    "/fonts/CuteNotes.ttf",
-    process.env.NEXT_PUBLIC_URL || "http://localhost:3000",
-  ),
-).then((res) => res.arrayBuffer());
+// Font loading using fs instead of fetch for production
+let customFont: ArrayBuffer;
+try {
+  customFont = readFileSync(join(process.cwd(), "public/fonts/CuteNotes.ttf"));
+} catch (e) {
+  console.error("Failed to load font:", e);
+  // Fallback to a system font if custom font fails to load
+  customFont = new ArrayBuffer(0);
+}
 
 export async function GET(request: Request) {
   try {
@@ -20,9 +24,6 @@ export async function GET(request: Request) {
     const title = searchParams.get("title")?.slice(0, 100) || "Jasper Mayone";
     const subtitle = searchParams.get("subtitle")?.slice(0, 150) || "";
     const theme = searchParams.get("theme") || "dark";
-
-    // Load font
-    const fontData = await customFont;
 
     // Theme configurations
     const themes = {
@@ -36,7 +37,7 @@ export async function GET(request: Request) {
         text: "black",
         accent: "#2563EB",
       },
-    };
+    } as const;
 
     const activeTheme = themes[theme as keyof typeof themes] || themes.dark;
 
@@ -51,7 +52,7 @@ export async function GET(request: Request) {
             alignItems: "center",
             justifyContent: "center",
             padding: "4rem",
-            fontFamily: '"Cute Notes", sans-serif',
+            fontFamily: customFont.byteLength ? '"Cute Notes"' : "system-ui",
           }}
         >
           {/* Container */}
@@ -87,7 +88,9 @@ export async function GET(request: Request) {
                   lineHeight: 1.1,
                   margin: 0,
                   textAlign: "left",
-                  fontFamily: '"Cute Notes", sans-serif',
+                  fontFamily: customFont.byteLength
+                    ? '"Cute Notes"'
+                    : "system-ui",
                 }}
               >
                 {title}
@@ -100,7 +103,9 @@ export async function GET(request: Request) {
                     opacity: 0.8,
                     margin: 0,
                     textAlign: "left",
-                    fontFamily: '"Cute Notes", sans-serif',
+                    fontFamily: customFont.byteLength
+                      ? '"Cute Notes"'
+                      : "system-ui",
                   }}
                 >
                   {subtitle}
@@ -148,14 +153,16 @@ export async function GET(request: Request) {
       {
         width: 1200,
         height: 630,
-        fonts: [
-          {
-            name: "Cute Notes",
-            data: fontData,
-            style: "normal",
-            weight: 400,
-          },
-        ],
+        fonts: customFont.byteLength
+          ? [
+              {
+                name: "Cute Notes",
+                data: customFont,
+                style: "normal",
+                weight: 400,
+              },
+            ]
+          : undefined,
       },
     );
   } catch (e: any) {
