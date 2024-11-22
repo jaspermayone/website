@@ -8,7 +8,7 @@ interface ExperienceItem {
 export const experience: ExperienceItem[] = [
   {
     title: "Jewish Community of Greater Stowe (JCOGS), Stowe, VT",
-    role: "Part Time Technology Coordinator",
+    role: "Part-Time Technology Coordinator",
     date: "September 2023 - Present",
     link: "https://www.jcogs.org/",
   },
@@ -25,22 +25,10 @@ export const experience: ExperienceItem[] = [
     link: "https://huusd.org/",
   },
   {
-    title: "Three Mountain Associates, Waitsfield, VT",
-    role: "Rep in training/Intern",
-    date: "June 2018 - Present",
-    link: "https://threemountainassociates.com/",
-  },
-  {
     title: "Signal Kitchen, Burlington, VT",
-    role: "Event Registration Coordinator & Assistant to Event Director, Bookshop Manager",
+    role: "Bookshop Manager & Assistant to Events Director",
     date: "February 2023 - February 2024",
     link: "https://signalkitchen.com/",
-  },
-  {
-    title: "Sadie Dog LLC, Warren, VT",
-    role: "Busser / Event Staff",
-    date: "November 2022 - December 2023",
-    link: "https://www.pitcherinn.com/",
   },
   {
     title: "Valley Players Theater, Waitsfield, VT",
