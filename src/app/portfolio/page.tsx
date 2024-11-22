@@ -30,14 +30,13 @@ export default function Portfolio() {
         console.error("Failed to fetch projects:", error);
       }
     };
-
     fetchProjects();
   }, []);
 
   return (
-    <>
-      {/* &larr; Back */}
-      <div className="min-h-screen py-1 px-4 bg-gray-50">
+    <div className="h-screen flex flex-col bg-gray-50">
+      {/* Fixed Header Section */}
+      <div className="flex-none px-4">
         <h1 className={styles.title}>Projects</h1>
         <div className="-mt-10">
           <MainMenu selectedTab={selectedTab} onMenuClick={setSelectedTab} />
@@ -51,8 +50,11 @@ export default function Portfolio() {
           className="min-w-screen"
           color="#4299e1"
         />
-
         <div className="py-2" />
+      </div>
+
+      {/* Scrollable Projects Section */}
+      <div className="flex-1 overflow-y-auto px-4 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
             <motion.div
@@ -100,6 +102,6 @@ export default function Portfolio() {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }

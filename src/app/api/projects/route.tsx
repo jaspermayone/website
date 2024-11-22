@@ -59,7 +59,6 @@ const projects: Project[] = [
       "Typescript",
       "Bun",
       "Prisma",
-      "Postgres",
     ],
   },
   // {
