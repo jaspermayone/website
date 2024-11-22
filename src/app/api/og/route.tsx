@@ -1,7 +1,8 @@
 import { ImageResponse } from "next/og";
 import { base64Image } from "@/lib/jasper";
 
-export const runtime = "edge";
+export const runtime = "nodejs"; // Switch from 'edge' to 'nodejs'
+export const dynamic = "force-dynamic";
 
 // Load custom font
 const customFont = fetch(
