@@ -31,7 +31,7 @@ export default function Home() {
     );
   }, []);
 
-  const menuItems = ["Homepage", "Resume", "@jasperdoescircus"];
+  const menuItems = ["Homepage", "Resume", "Portfolio", "@jasperdoescircus"];
 
   const fadeVariants = {
     hidden: { opacity: 0 },
@@ -123,12 +123,6 @@ export default function Home() {
               <Email />
             </div>
           </>
-        );
-      case "Portfolio":
-        return (
-          <p className="text-gray-500 text-sm pt-9">
-            <i>Content coming soon.</i>
-          </p>
         );
       default:
         return null;

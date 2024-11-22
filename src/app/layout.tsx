@@ -30,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <meta property="og:image" content="https://jaspermayone.com/api/og" />
         <link rel="icon" href="/icon" sizes="any" />
         <script
           defer
