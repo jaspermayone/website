@@ -43,7 +43,7 @@ export default function RootLayout({
           src="https://kit.fontawesome.com/96163f3b63.js"
           crossOrigin="anonymous"
         />
-        <AnimatePresence>{children}</AnimatePresence>
+        <AnimatePresence mode="wait">{children}</AnimatePresence>
         <SpeedInsights />
       </body>
     </html>

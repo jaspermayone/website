@@ -1,67 +1,113 @@
-// components/SquigglyLine.tsx
 "use client";
 
-import { FC, useMemo } from "react";
+import { FC, useMemo, useEffect, useState } from "react";
+
+/*
+// Medium waves
+<SquigglyLine
+  height={20}
+  frequency={25}
+  amplitude={1.2}
+  strokeWidth={2}
+/>
+
+// Larger waves
+<SquigglyLine
+  height={40}
+  frequency={15}
+  amplitude={2}
+  strokeWidth={3}
+/>
+
+// Very large waves
+<SquigglyLine
+  height={60}
+  frequency={10}
+  amplitude={3}
+  strokeWidth={4}
+/>
+
+*/
 
 interface SquigglyLineProps {
-  width?: string | number;
   height?: string | number;
   color?: string;
   className?: string;
-  frequency?: number; // How many waves
-  amplitude?: number; // Height of waves
+  frequency?: number;
+  amplitude?: number;
+  strokeWidth?: number;
 }
 
 const SquigglyLine: FC<SquigglyLineProps> = ({
-  width = "100%",
-  height = "8",
-  color = "#4299e1",
+  height = "20", // Increased default height
+  color = "#60A5FA",
   className = "",
-  frequency = 6, // Default number of waves
-  amplitude = 1, // Default wave height
+  frequency = 25, // Reduced frequency for larger waves
+  amplitude = 1.2, // Increased amplitude for taller waves
+  strokeWidth = 2, // Thicker stroke for larger waves
 }) => {
+  const [screenWidth, setScreenWidth] = useState<number>(0);
+
+  useEffect(() => {
+    const updateWidth = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
+
   const generatePath = useMemo(() => {
-    // Convert width to number if it's a string with units
-    const numWidth =
-      typeof width === "string" ? parseFloat(width) || 100 : width;
+    if (screenWidth === 0) return "";
 
+    // Create a smooth sine wave
     const points = [];
-    const segments = frequency * 2; // Two control points per wave
-    const segmentWidth = numWidth / segments;
+    const steps = screenWidth;
+    const waveLength = screenWidth / frequency;
 
-    for (let i = 0; i <= segments; i++) {
-      const x = i * segmentWidth;
-      const y = i % 2 === 0 ? 0.5 : i % 4 === 1 ? -amplitude : amplitude;
+    for (let x = 0; x <= screenWidth; x++) {
+      const y = amplitude * Math.sin((2 * Math.PI * x) / waveLength);
       // @ts-expect-error
       points.push(`${x},${y}`);
     }
 
-    // Create the path using quadratic curves
-    let path = `M${points[0]}`;
-    for (let i = 1; i < points.length; i++) {
+    // Create the path with smooth curves
+    const path = points.reduce((acc, point, i) => {
+      if (i === 0) return `M ${point}`;
       // @ts-expect-error
-      const [x, y] = points[i].split(",");
-      path += ` Q${x},${y} ${x},${y}`;
-    }
+      const [prevX, prevY] = points[i - 1].split(",");
+      // @ts-expect-error
+      const [x, y] = point.split(",");
+
+      // Calculate control points for smooth curve
+      const cp1x = Number(prevX) + (Number(x) - Number(prevX)) / 3;
+      const cp2x = Number(prevX) + (2 * (Number(x) - Number(prevX))) / 3;
+
+      return `${acc} C ${cp1x},${prevY} ${cp2x},${y} ${x},${y}`;
+    }, "");
 
     return path;
-  }, [width, frequency, amplitude]);
+  }, [screenWidth, frequency, amplitude]);
 
   return (
     <svg
-      width={width}
+      width="100%"
       height={height}
       className={`overflow-visible ${className}`}
       preserveAspectRatio="none"
-      viewBox={`0 -${amplitude} ${typeof width === "number" ? width : 100} ${amplitude * 2}`}
+      viewBox={`0 -${amplitude * 1.5} ${screenWidth} ${amplitude * 3}`}
+      style={{ maxWidth: "100%" }}
     >
       <path
         d={generatePath}
         style={{
           stroke: color,
-          strokeWidth: "1.5px",
+          strokeWidth: `${strokeWidth}px`,
           vectorEffect: "non-scaling-stroke",
           fill: "none",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
         }}
       />
     </svg>

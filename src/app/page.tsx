@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/navigation"; // Add this import
 import Email from "@/components/email";
 import styles from "@/styles/Home.module.css";
 import CommitHash from "@/components/helpers/commitHash";
@@ -18,9 +19,12 @@ import RoundedImage from "@/components/RoundedImage";
 import Experience from "@/components/experience";
 import AnimatedTitle from "@/components/AnimatedTitle";
 
+type MenuItemType = "Homepage" | "Resume" | "Portfolio" | "@jasperdoescircus";
+
 export default function Home() {
-  const [selectedTab, setSelectedTab] = useState("Homepage");
+  const router = useRouter(); // Add this line
   const [currentYear, setCurrentYear] = useState("");
+  const [selectedTab, setSelectedTab] = useState<MenuItemType>("Homepage");
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear().toString());
@@ -53,11 +57,13 @@ export default function Home() {
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  const handleMenuClick = (item) => {
+  const handleMenuClick = async (item) => {
     if (item === "Resume") {
       handleDownload(new Event("click"));
     } else if (item === "@jasperdoescircus") {
       handleExternalLink("https://www.instagram.com/jasper.does.circus/");
+    } else if (item === "Portfolio") {
+      router.push("/portfolio");
     } else {
       setSelectedTab(item);
     }
@@ -67,7 +73,11 @@ export default function Home() {
     switch (selectedTab) {
       case "Homepage":
         return (
-          <>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ type: "spring", duration: 1.5 }}
+          >
             <div className="flex flex-col md:flex-row gap-8 items-center -mt-8">
               <div className="w-64 flex-shrink-0">
                 <RoundedImage
@@ -112,17 +122,17 @@ export default function Home() {
             </div>
             <div className="py-2.5" />
             <SquigglyLine
-              width="104%"
-              frequency={175}
-              amplitude={1}
-              className="-ml-10"
+              frequency={50} // Fewer, wider waves
+              amplitude={0.4} // Slightly taller waves
+              className="min-w-screen"
+              color="#4299e1"
             />
             <div className="py-1.5" />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-2">
               <Experience />
               <Email />
             </div>
-          </>
+          </motion.div>
         );
       default:
         return null;
