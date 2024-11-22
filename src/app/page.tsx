@@ -31,8 +31,8 @@ export default function Home({}) {
 
   useEffect(() => {
     console.log(
-      "%cCheck out the code over on github at https://github.com/jaspermayone/website. \nIf you're interested in circus arts, photography, or just want to chat, feel free to reach out to me at me@jaspermayone.com. \nI can't wait to meet you!",
-      "background: #222; color: #bada55",
+      "%cCheck out the code over on github at https://github.com/jaspermayone/website. \n\nIf you're interested in circus arts, photography, or just want to chat, feel free to reach out to me at me@jaspermayone.com. \n\nI can't wait to meet you!",
+      "background: #fff; color: #4299e1",
     );
   }, []);
 
