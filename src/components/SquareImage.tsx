@@ -21,8 +21,9 @@ const SquareImage: React.FC<SquareImageImageProps> = ({
       aria-label={alt}
       style={{
         maxWidth: "100%",
-        height: "auto"
-      }} />
+        height: "auto",
+      }}
+    />
   );
 };
 

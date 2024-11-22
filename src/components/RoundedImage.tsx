@@ -4,14 +4,10 @@ import Image from "next/image";
 interface RoundedImageProps {
   src: string;
   alt: string;
-  size?: number; // Optional: diameter of the rounded image in pixels
+  size: number;
 }
 
-const RoundedImage: React.FC<RoundedImageProps> = ({
-  src,
-  alt,
-  size = 150,
-}) => {
+const RoundedImage: React.FC<RoundedImageProps> = ({ src, alt, size }) => {
   return (
     <Image
       src={src}
@@ -22,8 +18,9 @@ const RoundedImage: React.FC<RoundedImageProps> = ({
       style={{
         borderRadius: "10%",
         maxWidth: "100%",
-        height: "auto"
-      }} />
+        height: "auto",
+      }}
+    />
   );
 };
 
