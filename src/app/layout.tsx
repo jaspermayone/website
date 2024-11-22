@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AnimatePresence } from "framer-motion";
 import Script from "next/script";
@@ -12,10 +12,14 @@ export const metadata: Metadata = {
   description: "Personal Website of Jasper Mayone",
   applicationName: "jaspermayone.com",
   keywords: ["Jasper", "Mayone", "Jasper Mayone"],
-  viewport: "width=device-width, initial-scale=1",
   other: {
     "msapplication-TileColor": "#603cba",
   },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -26,6 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="icon" href="/icon" sizes="any" />
         <script
           defer
           src="https://umami.jaspermayone.com/script.js"
