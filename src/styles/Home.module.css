@@ -64,12 +64,12 @@
 }
 
 .menu p:hover {
-    color: #78cbf2; /* Change text color when hovered (adjust to desired color) */
+    color: #4299e1; /* Change text color when hovered (adjust to desired color) */
 }
 
 .menu p.selected {
     text-decoration: underline wavy;
-    text-decoration-color: #78cbf2; /* Wavy underline for selected items */
+    text-decoration-color: #4299e1; /* Wavy underline for selected items */
 }
 
 .profilePhoto {
@@ -105,21 +105,21 @@
 }
 
 .footerLink {
-    color: #78cbf2; /* Link color */
+    color: #4299e1; /* Link color */
     text-decoration: underline wavy; /* Add an underline */
     transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
 .lnk {
-    color: #78cbf2; /* Link color */
+    color: #4299e1; /* Link color */
     text-decoration: underline wavy; /* Add an underline */
     transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
 .lnk:hover {
-    color: #408da3; /* Change color on hover */
+    color: #003e73; /* Change color on hover */
 }
 
 .footerLink:hover {
-    color: #408da3; /* Change color on hover */
+    color: #003e73; /* Change color on hover */
 }

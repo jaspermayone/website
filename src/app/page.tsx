@@ -5,6 +5,7 @@ import Link from "next/link";
 import Email from "@/components/email";
 import styles from "@/styles/Home.module.css";
 import CommitHash from "@/components/helpers/commitHash";
+import SquigglyLine from "@/components/SquigglyLine";
 import {
   SiGithub,
   SiInstagram,
@@ -14,6 +15,8 @@ import {
   SiBluesky,
 } from "react-icons/si";
 import RoundedImage from "@/components/RoundedImage";
+import Experience from "@/components/experience";
+import AnimatedTitle from "@/components/AnimatedTitle";
 
 export default function Home({}) {
   const [selectedTab, setSelectedTab] = useState("Homepage");
@@ -38,7 +41,7 @@ export default function Home({}) {
       case "Homepage":
         return (
           <>
-            <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="flex flex-col md:flex-row gap-8 items-center -mt-8">
               <div className="w-64 flex-shrink-0">
                 <RoundedImage
                   src="/images/jmdark-min.jpg"
@@ -83,8 +86,18 @@ export default function Home({}) {
                 </div>
               </div>
             </div>
-            <div className="py-5" />
-            <Email />
+            <div className="py-2.5" />
+            <SquigglyLine
+              width="104%"
+              frequency={175}
+              amplitude={1}
+              className="-ml-10"
+            />
+            <div className="py-1.5" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-2">
+              <Experience />
+              <Email />
+            </div>
           </>
         );
       case "Portfolio":
@@ -122,9 +135,7 @@ export default function Home({}) {
     >
       <div className={styles.container}>
         <div className={styles.top}>
-          <h1 className={styles.title} title="Jasper Mayone's website">
-            Jasper Mayone
-          </h1>
+          <AnimatedTitle />
           <div className={styles.menuContainer}>
             <div className={styles.menu} aria-label="main menu">
               {menuItems.map((item) => (
@@ -210,7 +221,7 @@ export default function Home({}) {
             {renderContent()}
           </motion.div>
         </div>
-        <footer className="flex flex-col items-center mb-3.5">
+        <footer className="flex flex-col items-center mb-3.5 -mt-4">
           <div className="flex items-center justify-center">
             <p className="text-xs mr-1.5">
               © {new Date().getFullYear()} Jasper Mayone
