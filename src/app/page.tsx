@@ -18,8 +18,19 @@ import RoundedImage from "@/components/RoundedImage";
 import Experience from "@/components/experience";
 import AnimatedTitle from "@/components/AnimatedTitle";
 
-export default function Home({}) {
+export default function Home() {
   const [selectedTab, setSelectedTab] = useState("Homepage");
+  const [currentYear, setCurrentYear] = useState("");
+
+  // Move dynamic content initialization to useEffect
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear().toString());
+
+    console.log(
+      "%cCheck out the code over on github at https://github.com/jaspermayone/website. \n\nIf you're interested in circus arts, photography, or just want to chat, feel free to reach out to me at me@jaspermayone.com. \n\nI can't wait to meet you!",
+      "background: #fff; color: #4299e1",
+    );
+  }, []);
 
   const menuItems = ["Homepage", "Resume", "@jasperdoescircus"];
 
@@ -29,12 +40,29 @@ export default function Home({}) {
     exit: { opacity: 0 },
   };
 
-  useEffect(() => {
-    console.log(
-      "%cCheck out the code over on github at https://github.com/jaspermayone/website. \n\nIf you're interested in circus arts, photography, or just want to chat, feel free to reach out to me at me@jaspermayone.com. \n\nI can't wait to meet you!",
-      "background: #fff; color: #4299e1",
-    );
-  }, []);
+  const handleDownload = (e) => {
+    e.preventDefault();
+    const link = document.createElement("a");
+    link.href = "/resume.pdf";
+    link.download = "Jasper Mayone's Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleExternalLink = (url) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  const handleMenuClick = (item) => {
+    if (item === "Resume") {
+      handleDownload(new Event("click"));
+    } else if (item === "@jasperdoescircus") {
+      handleExternalLink("https://www.instagram.com/jasper.does.circus/");
+    } else {
+      setSelectedTab(item);
+    }
+  };
 
   const renderContent = () => {
     switch (selectedTab) {
@@ -59,19 +87,16 @@ export default function Home({}) {
                       <Link
                         className={styles.lnk}
                         href="https://github.com/jaspermayone"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         aria-label="Link to Jasper's Github profile"
-                        title="View Jasper's GitHub profile"
                       >
                         coder
                       </Link>
                       , and a photographer.
                     </span>
                   </p>
-                  <p
-                    className="text-gray-600 text-sm"
-                    aria-label="Main bio text"
-                    title="Jasper's biography"
-                  >
+                  <p className="text-gray-600 text-sm">
                     A circus artist and a native Vermonter, Jasper is a high
                     school graduate from the class of 2024! Having completed
                     high school in just 3 years, they are currently taking a gap
@@ -102,27 +127,12 @@ export default function Home({}) {
         );
       case "Portfolio":
         return (
-          <p className="text-gray-500 text-sm pt-9" title="Portfolio section">
+          <p className="text-gray-500 text-sm pt-9">
             <i>Content coming soon.</i>
           </p>
         );
       default:
         return null;
-    }
-  };
-
-  const handleMenuClick = (item) => {
-    if (item === "Resume") {
-      const link = document.createElement("a");
-      link.href = "/resume.pdf";
-      link.download = "Jasper Mayone's Resume.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } else if (item === "@jasperdoescircus") {
-      window.open("https://www.instagram.com/jasper.does.circus/", "_blank");
-    } else {
-      setSelectedTab(item);
     }
   };
 
@@ -137,70 +147,65 @@ export default function Home({}) {
         <div className={styles.top}>
           <AnimatedTitle />
           <div className={styles.menuContainer}>
-            <div className={styles.menu} aria-label="main menu">
+            <div className={styles.menu} role="navigation">
               {menuItems.map((item) => (
-                <p
+                <button
                   key={item}
                   className={`${styles.menuItem} ${
                     item === selectedTab ? styles.selected : ""
                   }`}
                   onClick={() => handleMenuClick(item)}
-                  title={`Go to ${item}`}
+                  aria-label={`Go to ${item}`}
                 >
                   {item}
-                </p>
+                </button>
               ))}
             </div>
             <div className={styles.menu2}>
               <div className="flex items-center justify-center">
-                <Link
-                  href="https://github.com/jaspermayone/"
-                  aria-label="Jasper's Github profile"
-                  title="@jaspermayone on GitHub"
-                  className="mx-1 transition-colors duration-200 hover:text-blurre"
-                >
-                  <SiGithub width={20} height={20} />
-                </Link>
-                <Link
-                  href="https://www.linkedin.com/in/jaspermayone/"
-                  aria-label="Jasper's Linkedin profile"
-                  title="Jasper Mayone on LinkedIn"
-                  className="mx-1 transition-colors duration-200 hover:text-blurre"
-                >
-                  <SiLinkedin width={20} height={20} />
-                </Link>
-                <Link
-                  href="https://www.instagram.com/jasper.mayone/"
-                  aria-label="Jasper's Instagram profile"
-                  title="@jasper.mayone on Instagram"
-                  className="mx-1 transition-colors duration-200 hover:text-blurre"
-                >
-                  <SiInstagram width={20} height={20} />
-                </Link>
-                <Link
-                  href="https://threads.net/@jasper.mayone"
-                  aria-label="Jasper's Threads profile"
-                  title="@jasper.mayone on Threads"
-                  className="mx-1 transition-colors duration-200 hover:text-blurre"
-                >
-                  <SiThreads width={20} height={20} />
-                </Link>
-                <Link
-                  href="https://bsky.app/profile/jaspermayone.com"
-                  aria-label="Jasper's Bsky profile"
-                  title="@jaspermayone.com on Bsky"
-                  className="mx-1 transition-colors duration-200 hover:text-blurre"
-                >
-                  <SiBluesky width={20} height={20} />
-                </Link>
-                <Link
-                  href="https://x.com/jaspermayone"
-                  aria-label="Jasper's X (Twitter) profile"
-                  title="@jaspermayone on X (formerly Twitter)"
-                  className="mx-1 transition-colors duration-200 hover:text-blurre"
-                >
-                  <SiX width={20} height={20} />
-                </Link>
+                {[
+                  {
+                    href: "https://github.com/jaspermayone/",
+                    label: "GitHub",
+                    Icon: SiGithub,
+                  },
+                  {
+                    href: "https://www.linkedin.com/in/jaspermayone/",
+                    label: "LinkedIn",
+                    Icon: SiLinkedin,
+                  },
+                  {
+                    href: "https://www.instagram.com/jasper.mayone/",
+                    label: "Instagram",
+                    Icon: SiInstagram,
+                  },
+                  {
+                    href: "https://threads.net/@jasper.mayone",
+                    label: "Threads",
+                    Icon: SiThreads,
+                  },
+                  {
+                    href: "https://bsky.app/profile/jaspermayone.com",
+                    label: "Bluesky",
+                    Icon: SiBluesky,
+                  },
+                  {
+                    href: "https://x.com/jaspermayone",
+                    label: "X",
+                    Icon: SiX,
+                  },
+                ].map(({ href, label, Icon }) => (
+                  <Link
+                    key={label}
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Jasper's ${label} profile`}
+                    className="mx-1 transition-colors duration-200 hover:text-blurre"
+                  >
+                    <Icon width={20} height={20} />
+                  </Link>
+                ))}
               </div>
             </div>
           </div>
@@ -224,20 +229,19 @@ export default function Home({}) {
         <footer className="flex flex-col items-center mb-3.5 -mt-4">
           <div className="flex items-center justify-center">
             <p className="text-xs mr-1.5">
-              © {new Date().getFullYear()} Jasper Mayone
+              © {currentYear || "2024"} Jasper Mayone
             </p>
-            {/* commit hash - hidden on mobile */}
             <div className="hidden md:block">
               <CommitHash />
             </div>
-            {/* period - hidden on mobile */}
             <p className="text-xs mr-1.5 hidden md:block">.</p>
             <span className="text-xs">
               <Link
                 className={styles.footerLink}
                 href="https://github.com/jaspermayone/website"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="GitHub Repository for Jasper's Website"
-                title="Click me to view the source code!"
               >
                 <SiGithub />
               </Link>

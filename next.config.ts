@@ -53,6 +53,13 @@ function scanPages() {
 }
 
 const nextConfig = {
+  source: "/:path*",
+  headers: [
+    {
+      key: "Set-Cookie",
+      value: "Path=/; Secure; SameSite=Strict",
+    },
+  ],
   env: {
     APP_VERSION: pkg.version,
     COMMIT_HASH: commitHash,
