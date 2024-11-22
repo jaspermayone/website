@@ -157,7 +157,7 @@ export default function Home({}) {
                   href="https://github.com/jaspermayone/"
                   aria-label="Jasper's Github profile"
                   title="@jaspermayone on GitHub"
-                  className="mx-1"
+                  className="mx-1 transition-colors duration-200 hover:text-blurre"
                 >
                   <SiGithub width={20} height={20} />
                 </Link>
@@ -165,7 +165,7 @@ export default function Home({}) {
                   href="https://www.linkedin.com/in/jaspermayone/"
                   aria-label="Jasper's Linkedin profile"
                   title="Jasper Mayone on LinkedIn"
-                  className="mx-1"
+                  className="mx-1 transition-colors duration-200 hover:text-blurre"
                 >
                   <SiLinkedin width={20} height={20} />
                 </Link>
@@ -173,7 +173,7 @@ export default function Home({}) {
                   href="https://www.instagram.com/jasper.mayone/"
                   aria-label="Jasper's Instagram profile"
                   title="@jasper.mayone on Instagram"
-                  className="mx-1"
+                  className="mx-1 transition-colors duration-200 hover:text-blurre"
                 >
                   <SiInstagram width={20} height={20} />
                 </Link>
@@ -181,7 +181,7 @@ export default function Home({}) {
                   href="https://threads.net/@jasper.mayone"
                   aria-label="Jasper's Threads profile"
                   title="@jasper.mayone on Threads"
-                  className="mx-1"
+                  className="mx-1 transition-colors duration-200 hover:text-blurre"
                 >
                   <SiThreads width={20} height={20} />
                 </Link>
@@ -189,7 +189,7 @@ export default function Home({}) {
                   href="https://bsky.app/profile/jaspermayone.com"
                   aria-label="Jasper's Bsky profile"
                   title="@jaspermayone.com on Bsky"
-                  className="mx-1"
+                  className="mx-1 transition-colors duration-200 hover:text-blurre"
                 >
                   <SiBluesky width={20} height={20} />
                 </Link>
@@ -197,7 +197,7 @@ export default function Home({}) {
                   href="https://x.com/jaspermayone"
                   aria-label="Jasper's X (Twitter) profile"
                   title="@jaspermayone on X (formerly Twitter)"
-                  className="mx-1"
+                  className="mx-1 transition-colors duration-200 hover:text-blurre"
                 >
                   <SiX width={20} height={20} />
                 </Link>
