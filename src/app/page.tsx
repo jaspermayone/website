@@ -2,27 +2,19 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Add this import
 import Email from "@/components/email";
 import styles from "@/styles/Home.module.css";
 import CommitHash from "@/components/helpers/commitHash";
 import SquigglyLine from "@/components/SquigglyLine";
-import {
-  SiGithub,
-  SiInstagram,
-  SiLinkedin,
-  SiThreads,
-  SiX,
-  SiBluesky,
-} from "react-icons/si";
+import { SiGithub } from "react-icons/si";
 import RoundedImage from "@/components/RoundedImage";
 import Experience from "@/components/experience";
 import AnimatedTitle from "@/components/AnimatedTitle";
+import MainMenu from "@/components/MainMenu";
 
 type MenuItemType = "Homepage" | "Resume" | "Portfolio" | "@jasperdoescircus";
 
 export default function Home() {
-  const router = useRouter(); // Add this line
   const [currentYear, setCurrentYear] = useState("");
   const [selectedTab, setSelectedTab] = useState<MenuItemType>("Homepage");
 
@@ -35,38 +27,10 @@ export default function Home() {
     );
   }, []);
 
-  const menuItems = ["Homepage", "Resume", "Portfolio", "@jasperdoescircus"];
-
   const fadeVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
     exit: { opacity: 0 },
-  };
-
-  const handleDownload = (e) => {
-    e.preventDefault();
-    const link = document.createElement("a");
-    link.href = "/resume.pdf";
-    link.download = "Jasper Mayone's Resume.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-  const handleExternalLink = (url) => {
-    window.open(url, "_blank", "noopener,noreferrer");
-  };
-
-  const handleMenuClick = async (item) => {
-    if (item === "Resume") {
-      handleDownload(new Event("click"));
-    } else if (item === "@jasperdoescircus") {
-      handleExternalLink("https://www.instagram.com/jasper.does.circus/");
-    } else if (item === "Portfolio") {
-      router.push("/portfolio");
-    } else {
-      setSelectedTab(item);
-    }
   };
 
   const renderContent = () => {
@@ -122,8 +86,8 @@ export default function Home() {
             </div>
             <div className="py-2.5" />
             <SquigglyLine
-              frequency={50} // Fewer, wider waves
-              amplitude={0.4} // Slightly taller waves
+              frequency={50}
+              amplitude={0.4}
               className="min-w-screen"
               color="#4299e1"
             />
@@ -149,69 +113,7 @@ export default function Home() {
       <div className={styles.container}>
         <div className={styles.top}>
           <AnimatedTitle />
-          <div className={styles.menuContainer}>
-            <div className={styles.menu} aria-label="main menu">
-              {menuItems.map((item) => (
-                <p
-                  key={item}
-                  className={`${styles.menuItem} ${
-                    item === selectedTab ? styles.selected : ""
-                  }`}
-                  onClick={() => handleMenuClick(item)}
-                  title={`Go to ${item}`}
-                >
-                  {item}
-                </p>
-              ))}
-            </div>
-            <div className={styles.menu2}>
-              <div className="flex items-center justify-center">
-                {[
-                  {
-                    href: "https://github.com/jaspermayone/",
-                    label: "GitHub",
-                    Icon: SiGithub,
-                  },
-                  {
-                    href: "https://www.linkedin.com/in/jaspermayone/",
-                    label: "LinkedIn",
-                    Icon: SiLinkedin,
-                  },
-                  {
-                    href: "https://www.instagram.com/jasper.mayone/",
-                    label: "Instagram",
-                    Icon: SiInstagram,
-                  },
-                  {
-                    href: "https://threads.net/@jasper.mayone",
-                    label: "Threads",
-                    Icon: SiThreads,
-                  },
-                  {
-                    href: "https://bsky.app/profile/jaspermayone.com",
-                    label: "Bluesky",
-                    Icon: SiBluesky,
-                  },
-                  {
-                    href: "https://x.com/jaspermayone",
-                    label: "X",
-                    Icon: SiX,
-                  },
-                ].map(({ href, label, Icon }) => (
-                  <Link
-                    key={label}
-                    href={href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Jasper's ${label} profile`}
-                    className="mx-1 transition-colors duration-200 hover:text-blue-600"
-                  >
-                    <Icon width={20} height={20} />
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
+          <MainMenu selectedTab={selectedTab} onMenuClick={setSelectedTab} />
         </div>
 
         <div className={styles.contentBox}>

@@ -43,16 +43,25 @@ const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
   };
 
   const handleMenuClick = async (item: MenuItemType) => {
+    // Special cases that shouldn't trigger navigation or state updates
     if (item === "Resume") {
       handleDownload(new MouseEvent("click") as unknown as React.MouseEvent);
-    } else if (item === "@jasperdoescircus") {
+      return; // Exit early without updating state
+    }
+
+    if (item === "@jasperdoescircus") {
       handleExternalLink("https://www.instagram.com/jasper.does.circus/");
-    } else if (item === "Portfolio") {
+      return; // Exit early without updating state
+    }
+
+    // For other cases, update state and handle navigation
+    onMenuClick(item);
+
+    if (item === "Portfolio") {
       router.push("/portfolio");
     } else if (item === "Homepage") {
       router.push("/");
     }
-    onMenuClick(item);
   };
 
   const socialLinks = [
