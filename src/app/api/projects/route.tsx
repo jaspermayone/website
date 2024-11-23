@@ -1,3 +1,5 @@
+import { NextResponse } from "next/server";
+
 type Project = {
   title: string;
   description: string;
@@ -5,23 +7,6 @@ type Project = {
   link: string;
   techStack: string[];
 };
-
-/*
-https://github.com/hackclub/pizza-fund
-https://github.com/hackclub/professor-bloom
-https://github.com/hackclub/arcadius
-https://github.com/jaspermayone/ysws-api
-*/
-
-/*
-{
-   title: "",
-    description: "",
-    image: "/images/projects/.png",
-    link: "",
-    techStack: [],
-},
-*/
 
 const projects: Project[] = [
   {
@@ -61,40 +46,8 @@ const projects: Project[] = [
       "Prisma",
     ],
   },
-  // {
-  //   title: "",
-  //   description: "",
-  //   image: "/images/projects/.png",
-  //   link: "",
-  //   techStack: [],
-  // },
-  // {
-  //   title: "",
-  //   description: "",
-  //   image: "/images/projects/.png",
-  //   link: "",
-  //   techStack: [],
-  // },
-  // {
-  //   title: "",
-  //   description: "",
-  //   image: "/images/projects/.png",
-  //   link: "",
-  //   techStack: [],
-  // },
-  // {
-  //   title: "",
-  //   description: "",
-  //   image: "/images/projects/.png",
-  //   link: "",
-  //   techStack: [],
-  // },
 ];
 
-export async function GET(request: Request, res: Response) {
-  return new Response(JSON.stringify(projects), {
-    headers: {
-      "content-type": "application/json",
-    },
-  });
+export async function GET() {
+  return NextResponse.json(projects);
 }
