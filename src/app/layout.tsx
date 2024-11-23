@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AnimatePresence } from "framer-motion";
+import PageTransitionLayout from "@/components/PageTransitionLayout";
 import Script from "next/script";
 import "@/styles/globals.css"; // Add this line
 
@@ -43,7 +44,7 @@ export default function RootLayout({
           src="https://kit.fontawesome.com/96163f3b63.js"
           crossOrigin="anonymous"
         />
-        <AnimatePresence mode="wait">{children}</AnimatePresence>
+        <AnimatePresence>{children}</AnimatePresence>
         <SpeedInsights />
       </body>
     </html>

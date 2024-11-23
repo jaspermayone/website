@@ -38,7 +38,7 @@ export default function Portfolio() {
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-50 to-gray-100">
       {/* Fixed Header Section */}
       <div className="flex-none px-6 py-1">
-        <h1 className={styles.title}>Projects</h1>
+        <h1 className={styles.title}>Jasper's Projects</h1>
         <div className="-mt-10">
           <MainMenu selectedTab={selectedTab} onMenuClick={setSelectedTab} />
         </div>
