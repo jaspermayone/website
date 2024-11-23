@@ -53,6 +53,9 @@ function scanPages() {
 }
 
 const nextConfig = {
+  experimental: {
+    turbo: {},
+  },
   source: "/:path*",
   headers: [
     {
