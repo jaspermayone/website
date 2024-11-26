@@ -17,7 +17,7 @@ export default function robots(): MetadataRoute.Robots {
           "Applebot-Extended",
         ],
         disallow: ["/"],
-        allow: ["/api/og/*"],
+        allow: ["/api/og/*", "/sitemap.xml", "/robots.txt"],
       },
       {
         userAgent: [
@@ -27,7 +27,7 @@ export default function robots(): MetadataRoute.Robots {
           "AdsBot-Google-Mobile-Apps",
         ],
         disallow: ["/wp-admin/"],
-        allow: ["/", "/api/og/*"],
+        allow: ["/", "/api/og/*", "/sitemap.xml", "/robots.txt"],
       },
     ],
     sitemap: "https://jaspermayone.com/sitemap.xml",

@@ -7,6 +7,7 @@ import styles from "@/styles/Projects.module.css";
 import MainMenu from "@/components/MainMenu";
 import SquigglyLine from "@/components/SquigglyLine";
 import AnimatedProjectsTitle from "@/components/AnimatedProjectsTitle";
+// import { MenuItemType } from "@/lib/types";
 
 type Project = {
   title: string;

@@ -25,8 +25,10 @@ const AnimatedTitle = () => {
 
   return (
     <h1
+      className="m-0 text-5xl font-cute-notes"
       style={{
         margin: 0,
+        marginBottom: ".25rem",
         fontSize: "3.5em",
         fontFamily: '"Cute Notes", sans-serif',
       }}

@@ -6,3 +6,17 @@ export interface Newsletter {
   receivedAt: Date;
   fromEmail: string;
 }
+
+export type MenuItemType =
+  | "Homepage"
+  | "Resume"
+  | "Portfolio"
+  | "@jasperdoescircus";
+
+export type Project = {
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+  techStack: string[];
+};

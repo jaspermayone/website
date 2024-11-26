@@ -1,8 +1,5 @@
 /** @type {import('next').NextConfig} */
 const pkg = require("./package.json");
-const fs = require("fs");
-const path = require("path");
-const glob = require("glob");
 
 // Get git information
 const commitHash = require("child_process")
@@ -18,49 +15,11 @@ const commitDate = require("child_process")
   .toString()
   .trim();
 
-// Store routes in memory during build
-const ROUTES_FILE = path.join(process.cwd(), ".next", "routes.json");
-
-// Ensure routes directory exists
-fs.mkdirSync(path.dirname(ROUTES_FILE), { recursive: true });
-
-function scanPages() {
-  const appDir = path.join(process.cwd(), "src", "app");
-  const pages = glob.sync("**/page.{ts,tsx,js,jsx}", { cwd: appDir });
-  const routes = pages
-    .map((page) => {
-      const route = path.dirname(page) === "." ? "" : path.dirname(page);
-      return route
-        .replace(/\\/g, "/") // Normalize slashes
-        .replace(/^\.$/, ""); // Replace single dot with empty string
-    })
-    .filter(
-      (route) =>
-        !route.startsWith("api/") &&
-        !route.includes("[") &&
-        !route.includes("_") &&
-        route !== "sitemap.xml" &&
-        route !== "404" &&
-        route !== "500",
-    )
-    .sort();
-
-  fs.writeFileSync(ROUTES_FILE, JSON.stringify(routes, null, 2));
-  return routes;
-}
-
 const nextConfig = {
   plugins: [require("@tailwindcss/typography")],
   experimental: {
     turbo: {},
   },
-  source: "/:path*",
-  headers: [
-    {
-      key: "Set-Cookie",
-      value: "Path=/; Secure; SameSite=Strict",
-    },
-  ],
   env: {
     APP_VERSION: pkg.version,
     COMMIT_HASH: commitHash,
@@ -68,27 +27,6 @@ const nextConfig = {
     COMMIT_DATE: commitDate,
   },
   reactStrictMode: true,
-  webpack: (config, { dev, isServer }) => {
-    if (isServer) {
-      // Scan pages at the start of server compilation
-      config.plugins.push({
-        apply: (compiler) => {
-          compiler.hooks.beforeCompile.tap("RouteScanner", () => {
-            // Only execute scanPages() during the server-side build
-            scanPages();
-          });
-        },
-      });
-    }
-    return config;
-  },
-  /**
-   * Call scanPages() at the top level of the config
-   * to ensure it runs during the build process.
-   */
-  onPrerenderComplete: () => {
-    scanPages();
-  },
 };
 
 module.exports = nextConfig;
