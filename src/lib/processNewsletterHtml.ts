@@ -48,7 +48,7 @@ export function processNewsletterHtml(html: string): {
   const cleanHtml = html.replace(
     /<span class="opt-in-explanation"[\s\S]*?<\/span>[\s\S]*?$/,
     `<div style="text-align: center; padding: 20px 0; color: #666;">
-        <p>Subscribe to these newsletters via RSS at <a href="/newsletters/rss.xml" style="color: #0066cc;">jaspermayone.com/newsletters/rss.xml</a></p>
+        <p>Subscribe to the newsletter via RSS at <a href="/newsletter/rss.xml" style="color: #0066cc;">jaspermayone.com/newsletters/rss.xml</a></p>
       </div>`,
   );
 

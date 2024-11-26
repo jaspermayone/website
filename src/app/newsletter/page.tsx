@@ -41,7 +41,7 @@ export default async function Page() {
             fontFamily: '"Cute Notes", sans-serif',
           }}
         >
-          Newsletters
+          Jasper's Newsletter
         </h2>
       </div>
       {newsletters.length === 0 ? (
@@ -53,7 +53,7 @@ export default async function Page() {
       ) : (
         <div className="grid gap-6">
           {newsletters.map((newsletter) => (
-            <Link key={newsletter.id} href={`/newsletters/${newsletter.id}`}>
+            <Link key={newsletter.id} href={`/newsletter/${newsletter.id}`}>
               <Card className="border-2 border-gray-200 hover:border-gray-300 hover:shadow-lg transition-all duration-200">
                 <CardHeader className="p-6">
                   <CardTitle className="text-xl font-bold">

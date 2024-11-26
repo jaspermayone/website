@@ -37,7 +37,7 @@ export default async function NewsletterPage({
   return (
     <div className="w-full max-w-4xl mx-auto p-6 space-y-8">
       <div className="relative flex justify-center mb-10">
-        <Link href="/newsletters" className="absolute left-0">
+        <Link href="/newsletter" className="absolute left-0">
           <Button
             variant="ghost"
             size="sm"
