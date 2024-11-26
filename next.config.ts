@@ -9,12 +9,10 @@ const commitHash = require("child_process")
   .execSync('git log --pretty=format:"%h" -n1')
   .toString()
   .trim();
-
 const fullcommitHash = require("child_process")
   .execSync('git log --pretty=format:"%H" -n1')
   .toString()
   .trim();
-
 const commitDate = require("child_process")
   .execSync("git log -1 --format=%cd")
   .toString()
@@ -29,7 +27,6 @@ fs.mkdirSync(path.dirname(ROUTES_FILE), { recursive: true });
 function scanPages() {
   const appDir = path.join(process.cwd(), "src", "app");
   const pages = glob.sync("**/page.{ts,tsx,js,jsx}", { cwd: appDir });
-
   const routes = pages
     .map((page) => {
       const route = path.dirname(page) === "." ? "" : path.dirname(page);
@@ -77,12 +74,20 @@ const nextConfig = {
       config.plugins.push({
         apply: (compiler) => {
           compiler.hooks.beforeCompile.tap("RouteScanner", () => {
+            // Only execute scanPages() during the server-side build
             scanPages();
           });
         },
       });
     }
     return config;
+  },
+  /**
+   * Call scanPages() at the top level of the config
+   * to ensure it runs during the build process.
+   */
+  onPrerenderComplete: () => {
+    scanPages();
   },
 };
 
