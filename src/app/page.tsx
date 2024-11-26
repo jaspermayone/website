@@ -11,8 +11,7 @@ import RoundedImage from "@/components/RoundedImage";
 import Experience from "@/components/experience";
 import AnimatedTitle from "@/components/AnimatedTitle";
 import MainMenu from "@/components/MainMenu";
-
-type MenuItemType = "Homepage" | "Resume" | "Portfolio" | "@jasperdoescircus";
+import { MenuItemType } from "@/lib/types";
 
 export default function Home() {
   const [currentYear, setCurrentYear] = useState("");

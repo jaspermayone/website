@@ -7,17 +7,7 @@ import styles from "@/styles/Projects.module.css";
 import MainMenu from "@/components/MainMenu";
 import SquigglyLine from "@/components/SquigglyLine";
 import AnimatedProjectsTitle from "@/components/AnimatedProjectsTitle";
-// import { MenuItemType } from "@/lib/types";
-
-type Project = {
-  title: string;
-  description: string;
-  image: string;
-  link: string;
-  techStack: string[];
-};
-
-type MenuItemType = "Homepage" | "Resume" | "Portfolio" | "@jasperdoescircus";
+import { MenuItemType, Project } from "@/lib/types";
 
 export default function Portfolio() {
   const [selectedTab, setSelectedTab] = useState<MenuItemType>("Portfolio");

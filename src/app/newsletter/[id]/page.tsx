@@ -44,7 +44,7 @@ export default async function NewsletterPage({
             className="hover:bg-gray-100 gap-2 text-gray-600"
           >
             <ArrowLeft className="w-4 h-4" />
-            Back to Newsletters
+            Back to Newsletter Homepage
           </Button>
         </Link>
       </div>

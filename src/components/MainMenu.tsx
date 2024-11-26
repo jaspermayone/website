@@ -10,8 +10,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import styles from "@/styles/Home.module.css";
 import { IconType } from "react-icons";
-
-type MenuItemType = "Homepage" | "Resume" | "Portfolio" | "@jasperdoescircus";
+import { MenuItemType } from "@/lib/types";
+import { menuItems } from "@/lib/defs";
 
 interface MainMenuProps {
   selectedTab: MenuItemType;
@@ -20,13 +20,6 @@ interface MainMenuProps {
 
 const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
   const router = useRouter();
-
-  const menuItems: MenuItemType[] = [
-    "Homepage",
-    "Resume",
-    "Portfolio",
-    "@jasperdoescircus",
-  ];
 
   const handleDownload = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -47,9 +40,7 @@ const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
     if (item === "Resume") {
       handleDownload(new MouseEvent("click") as unknown as React.MouseEvent);
       return; // Exit early without updating state
-    }
-
-    if (item === "@jasperdoescircus") {
+    } else if (item === "@jasperdoescircus") {
       handleExternalLink("https://www.instagram.com/jasper.does.circus/");
       return; // Exit early without updating state
     }
@@ -59,6 +50,8 @@ const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
 
     if (item === "Portfolio") {
       router.push("/portfolio");
+    } else if (item === "Newsletter") {
+      router.push("/newsletter");
     } else if (item === "Homepage") {
       router.push("/");
     }

@@ -41,7 +41,7 @@ export default async function Page() {
             fontFamily: '"Cute Notes", sans-serif',
           }}
         >
-          Jasper's Newsletter
+          Newsletter
         </h2>
       </div>
       {newsletters.length === 0 ? (
