@@ -53,6 +53,7 @@ function scanPages() {
 }
 
 const nextConfig = {
+  plugins: [require("@tailwindcss/typography")],
   experimental: {
     turbo: {},
   },
