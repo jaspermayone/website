@@ -29,7 +29,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="light">
       <head>
         <meta property="og:image" content="https://jaspermayone.com/api/og" />
         <link rel="icon" href="/icon" sizes="any" />
