@@ -1,4 +1,5 @@
 // src/app/api/webhooks/postmark/route.ts
+import { processNewsletterHtml } from "@/lib/processNewsletterHtml";
 import { prisma } from "@/lib/db";
 import { NextResponse } from "next/server";
 
@@ -15,15 +16,17 @@ export async function POST(request: Request) {
     date: receivedDate,
   });
 
-  if (FromFull!.Email !== "me@jaspermayone.com") {
+  if (FromFull!.Email !== "jasper@jaspermayone.com") {
     console.error("Email not from Jasper, ignoring");
     return NextResponse.json(
       { message: "Email not from Jasper" },
-      { status: 403 },
+      { status: 200 },
     );
   }
 
   try {
+    const { cleanHtml, previewContent } = processNewsletterHtml(HtmlBody);
+
     const newsletter = await prisma.newsletter.create({
       data: {
         subject: Subject,
@@ -31,6 +34,8 @@ export async function POST(request: Request) {
         htmlContent: HtmlBody || "",
         fromEmail: FromFull.Email,
         receivedAt: new Date(receivedDate), // Fixed: use receivedDate instead of Date
+        cleanHtml: cleanHtml,
+        previewContent: previewContent,
       },
     });
 

@@ -36,8 +36,8 @@ export async function generateFeed() {
       title: newsletter.subject,
       id: newsletter.id,
       link: `https://jaspermayone.com/newsletter/${newsletter.id}`,
-      description: newsletter.content,
-      content: newsletter.htmlContent,
+      description: newsletter.previewContent,
+      content: newsletter.cleanHtml,
       author: [
         {
           name: "Jasper Mayone",

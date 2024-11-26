@@ -11,11 +11,13 @@ datasource db {
 }
 
 model Newsletter {
-  id          String   @id @default(cuid())
-  subject     String
-  content     String   @db.Text
-  htmlContent String   @db.Text
-  fromEmail   String
-  receivedAt  DateTime
-  createdAt   DateTime @default(now())
+  id             String   @id @default(cuid())
+  subject        String
+  content        String   @db.Text
+  htmlContent    String   @db.Text
+  previewContent String   @db.Text
+  cleanHtml      String   @db.Text
+  fromEmail      String
+  receivedAt     DateTime
+  createdAt      DateTime @default(now())
 }
