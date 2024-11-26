@@ -1,4 +1,3 @@
-// app/newsletters/[id]/page.tsx
 import { prisma } from "@/lib/db";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -17,26 +16,27 @@ async function getNewsletter(id: string) {
       cleanHtml: true,
     },
   });
-
   if (!newsletter) {
     notFound();
   }
-
   return {
     ...newsletter,
   };
 }
 
+// We need to explicitly type params as a Promise
 export default async function NewsletterPage({
   params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
-  const newsletter = await getNewsletter(params.id);
+  // We need to await the params
+  const { id } = await params;
+  const newsletter = await getNewsletter(id);
 
   return (
     <div className="w-full max-w-4xl mx-auto p-6 space-y-8">
-      <div className="relative flex justify-center mb-8">
+      <div className="relative flex justify-center mb-10">
         <Link href="/newsletters" className="absolute left-0">
           <Button
             variant="ghost"

@@ -16,7 +16,6 @@ const commitDate = require("child_process")
   .trim();
 
 const nextConfig = {
-  plugins: [require("@tailwindcss/typography")],
   experimental: {
     turbo: {},
   },
