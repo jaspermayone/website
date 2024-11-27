@@ -21,16 +21,13 @@ export default function Email() {
   const [error, setError] = useState<string | null>(null);
   const [woahThere, setWoahThere] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [success, setSuccess] = useState<boolean>(false);
 
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsLoading(true);
-    setError(null); // Clear previous error
-    setWoahThere(false); // Reset "Woah there!" state
-    setSuccess(false); // Reset success state
+    setError(null);
+    setWoahThere(false);
 
-    // Check if the email is in the predefined array
     if (predefinedEmails.includes(email)) {
       setWoahThere(true);
       setIsLoading(false);
@@ -54,53 +51,57 @@ export default function Email() {
       })
       .catch(() => {
         setError("An error occurred during submission.");
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
   }
 
-  const handleInputChange = (e: any) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
   };
 
   return (
-    <>
-      <div className="space-y" aria-label="Jasper's Newsletter Signup">
-        <p className="font-medium text-xl">Newsletter</p>
-        <p className="text-gray-500">
-          Join my newsletter to get updates on new projects.
+    <div className="w-full max-w-6xl mx-auto px-4">
+      <h2 className="font-medium text-xl mb-4">Newsletter</h2>
+      <p className="text-gray-700 text-sm mb-4">
+        Join my newsletter to get updates on new projects.
+      </p>
+
+      {!submitted ? (
+        <form onSubmit={onSubmit} className="w-full">
+          <div className="flex flex-col sm:flex-row gap-3 w-full">
+            <Input
+              type="email"
+              placeholder="example@example.com"
+              className="flex-1 text-sm"
+              value={email}
+              onChange={handleInputChange}
+              aria-label="email"
+              required
+            />
+            <Button
+              type="submit"
+              className="text-sm whitespace-nowrap"
+              aria-label="submit"
+              disabled={isLoading}
+            >
+              {isLoading ? "Submitting..." : "Submit"}
+            </Button>
+          </div>
+
+          {woahThere && (
+            <p className="text-purple-500 text-sm mt-2">
+              Slow down cowboy! You&apos;re not Jasper!
+            </p>
+          )}
+          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+        </form>
+      ) : (
+        <p className="text-green-400 text-sm">
+          Submitted! Be sure to look out for emails in the future!
         </p>
-        {!submitted ? (
-          <form onSubmit={onSubmit}>
-            <div className="flex flex-row space-x-5 pt-5">
-              <Input
-                type="email"
-                placeholder="example@example.com"
-                className="w-48 z-10 relative" // Adjust z-index or add relative positioning
-                value={email}
-                onChange={handleInputChange}
-                aria-label="email"
-                required
-              />
-              <Button
-                type="submit"
-                className="w-24 z-10 relative"
-                aria-label="submit"
-              >
-                Submit
-              </Button>
-            </div>
-            {woahThere && (
-              <p className="text-purple-500 pt-2">
-                Slow down cowboy! You&apos;re not Jasper!
-              </p>
-            )}
-            {error && <p className="text-red-500 pt-2">{error}</p>}
-          </form>
-        ) : (
-          <p className="text-green-400 pt-2">
-            Submitted! Be sure to look out for emails in the future!
-          </p>
-        )}
-      </div>
-    </>
+      )}
+    </div>
   );
 }

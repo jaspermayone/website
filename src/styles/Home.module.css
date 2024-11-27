@@ -28,8 +28,8 @@
 .top {
     width: 100vw; /* Full width */
     text-align: center; /* Center the header text */
-    padding-top: 5px;
-    margin-bottom: 20px; /* Add space below the header */
+    padding-top: 2vh;
+    margin-bottom: 3.5vh;
 }
 
 .footer {

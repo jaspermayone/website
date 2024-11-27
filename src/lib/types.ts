@@ -21,3 +21,11 @@ export type Project = {
   link: string;
   techStack: string[];
 };
+
+export interface ExperienceItem {
+  company: string;
+  location: string;
+  role: string;
+  date: string;
+  link: string;
+}

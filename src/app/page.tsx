@@ -41,7 +41,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ type: "spring", duration: 1.5 }}
           >
-            <div className="flex flex-col md:flex-row gap-8 items-center -mt-8">
+            <div className="flex flex-col md:flex-row gap-8 items-top -mt-8">
               <div className="w-64 flex-shrink-0">
                 <RoundedImage
                   src="/images/jmdark-min.jpg"
@@ -69,16 +69,35 @@ export default function Home() {
                     </span>
                   </p>
                   <p className="text-gray-600 text-sm">
-                    A circus artist and a native Vermonter, Jasper is a high
-                    school graduate from the class of 2024! Having completed
-                    high school in just 3 years, they are currently taking a gap
-                    year to explore. Jasper tries to live by the quote "We've
-                    all got both light and dark inside us. What matters is the
-                    part we choose to act on...that's who we really are." from
-                    one of their favorite books, Harry Potter. Jasper's hobbies
-                    include reading, being in the great outdoors, photography,
-                    computer programming, cooking, and running away to join the
-                    circus.
+                    A circus artist and a native Vermonter, Jasper is currently
+                    pursuing a gap year after their successful completion of
+                    high school a full year early. Jasper tries to live by the
+                    quote "We've all got both light and dark inside us. What
+                    matters is the part we choose to act on...that's who we
+                    really are." Jasper's hobbies include reading, being in the
+                    great outdoors, photography, computer programming, cooking,
+                    and running away to join the circus.
+                  </p>
+                  <p className="text-gray-600 text-sm">
+                    An avid organizer and big picture thinker, you can often
+                    find them scheming up some sort of business venture. From
+                    developing a small app to drafting large scale plans for a
+                    world domination scheme, Jasper is always looking for ways
+                    to combine their diverse interests and skills into
+                    enterprising projects. This knack for organization and
+                    leadership has opened doors for Jasper to take on exciting
+                    roles in various projects and adventures, both close to home
+                    and abroad.
+                  </p>
+                  <p className="text-gray-600 text-sm">
+                    Recently, Jasper's adventures include a month-long trip to
+                    Rwanda, where they filmed a documentary and managed
+                    production for his fellow students' films. They also played
+                    a key role in the Waitsfield Elementary PTA's Annual Ski &
+                    Skate sale, co-coordinated large scale climate conferences
+                    called “See Change Sessions” with thousands of attendees,
+                    enjoyed concerts by Sammy Rae & the Friends, AJR, and Lake
+                    Street Dive.
                   </p>
                 </div>
               </div>
@@ -90,10 +109,17 @@ export default function Home() {
               className="min-w-screen"
               color="#4299e1"
             />
-            <div className="py-1.5" />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-2">
-              <Experience />
-              <Email />
+            <div className="py-1" />
+            <div className="relative">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                <div className="md:col-span-2">
+                  <Experience />
+                </div>
+                <div className="hidden md:block w-px bg-slate-600 h-full absolute left-2/3 -translate-x-1/2" />
+                <div className="md:col-span-1">
+                  <Email />
+                </div>
+              </div>
             </div>
           </motion.div>
         );
