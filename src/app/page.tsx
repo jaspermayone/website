@@ -52,7 +52,7 @@ export default function Home() {
               <div className="flex flex-col justify-center">
                 <div className="space-y-4">
                   <p className="font-medium text-xl">
-                    Jasper Mayone (<i>he/they</i>){" "}
+                    Jasper Mayone [<i>he/they</i>]{" "}
                     <span className="text-gray-700 font-normal">
                       is a 18-year-old post high school graduate from rural
                       Vermont. They are a circus performer, a{" "}
