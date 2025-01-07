@@ -2,6 +2,7 @@
 import { useState, type FormEvent } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import styles from "@/styles/Misc.module.css";
 
 const predefinedEmails = [
   "jaspermayone@gmail.com",
@@ -63,9 +64,11 @@ export default function Email() {
 
   return (
     <div className="w-full max-w-6xl mx-auto px-4">
-      <h2 className="font-medium text-xl mb-4">Newsletter</h2>
+      {/* h2 with custom .ul class  */}
+      <h2 className={styles.lightUl}>Newsletter</h2>
       <p className="text-gray-700 text-sm mb-4">
-        Join my newsletter to get updates on new projects.
+        Subscribe to my newsletter to get <i>occasioal</i> updates on what I'm
+        up to.
       </p>
 
       {!submitted ? (

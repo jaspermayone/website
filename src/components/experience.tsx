@@ -6,14 +6,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { ExperienceItem } from "@/lib/types";
-
 import { experience } from "@/lib/experience";
+import styles from "@/styles/Misc.module.css";
 
 export default function Experience() {
-  const columnSize = Math.ceil(experience.length / 3);
+  const columnSize = Math.ceil(experience.length / 2);
   const firstColumn = experience.slice(0, columnSize);
   const secondColumn = experience.slice(columnSize, columnSize * 2);
-  const thirdColumn = experience.slice(columnSize * 2);
 
   const ExperienceColumn = ({
     items,
@@ -46,11 +45,10 @@ export default function Experience() {
 
   return (
     <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 className="font-medium text-xl pb-4">Experience</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <h2 className={styles.lightUl}>Experience</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <ExperienceColumn items={firstColumn} columnId="first" />
         <ExperienceColumn items={secondColumn} columnId="second" />
-        <ExperienceColumn items={thirdColumn} columnId="third" />
       </div>
     </div>
   );

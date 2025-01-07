@@ -96,8 +96,8 @@ export default function Home() {
                     a key role in the Waitsfield Elementary PTA's Annual Ski &
                     Skate sale, co-coordinated large scale climate conferences
                     called “See Change Sessions” with thousands of attendees,
-                    enjoyed concerts by Sammy Rae & the Friends, AJR, and Lake
-                    Street Dive.
+                    and enjoyed concerts by Sammy Rae & the Friends, AJR, and
+                    Lake Street Dive.
                   </p>
                 </div>
               </div>

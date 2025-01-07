@@ -25,7 +25,7 @@ export const experience: ExperienceItem[] = [
   {
     company: "Signal Kitchen",
     location: "Burlington, VT",
-    role: "Bookshop Manager & Assistant to Events Director",
+    role: "Logistics & Experience",
     date: "February 2023 - February 2024",
     link: "https://signalkitchen.com/",
   },
@@ -37,24 +37,10 @@ export const experience: ExperienceItem[] = [
     link: "https://valleyplayers.com/",
   },
   {
-    company: "The Round Barn Farm",
-    location: "Waitsfield, VT",
-    role: "Busser / Event Staff",
-    date: "May 2022 - May 2023",
-    link: "https://theroundbarn.com/",
-  },
-  {
     company: "Sugarbush Soaring Association",
     location: "Warren, VT",
     role: "Line Crew Member",
     date: "July 2021 - September 2021",
     link: "https://sugarbushsoaring.com/",
-  },
-  {
-    company: "Mad River Valley Television",
-    location: "Waitsfield, VT",
-    role: "Media Intern",
-    date: "May 2020 - October 2020",
-    link: "https://mrvtv.com/",
   },
 ];

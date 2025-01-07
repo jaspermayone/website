@@ -33,11 +33,6 @@ export default function RootLayout({
       <head>
         <meta property="og:image" content="https://jaspermayone.com/api/og" />
         <link rel="icon" href="/icon" sizes="any" />
-        <script
-          defer
-          src="https://umami.jaspermayone.com/script.js"
-          data-website-id="3f757e82-5140-4634-9098-82223741ef08"
-        />
       </head>
       <body>
         <Script
