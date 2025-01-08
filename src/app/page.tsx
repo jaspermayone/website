@@ -12,6 +12,7 @@ import Experience from "@/components/experience";
 import AnimatedTitle from "@/components/AnimatedTitle";
 import MainMenu from "@/components/MainMenu";
 import { MenuItemType } from "@/lib/types";
+import MusicPlayer from "@/components/MusicPlayer";
 
 export default function Home() {
   const [currentYear, setCurrentYear] = useState("");
@@ -100,6 +101,7 @@ export default function Home() {
                     Lake Street Dive.
                   </p>
                 </div>
+                <MusicPlayer />
               </div>
             </div>
             <div className="py-2.5" />

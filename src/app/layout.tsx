@@ -33,6 +33,11 @@ export default function RootLayout({
       <head>
         <meta property="og:image" content="https://jaspermayone.com/api/og" />
         <link rel="icon" href="/icon" sizes="any" />
+        <script
+          src="https://js-cdn.music.apple.com/musickit/v3/musickit.js"
+          data-web-components
+          async
+        ></script>
       </head>
       <body>
         <Script
