@@ -1,17 +1,17 @@
 "use client";
-import { useState, useEffect } from "react";
+import AnimatedTitle from "@/components/AnimatedTitle";
+import Email from "@/components/email";
+import Experience from "@/components/experience";
+import CommitHash from "@/components/helpers/commitHash";
+import MainMenu from "@/components/MainMenu";
+import RoundedImage from "@/components/RoundedImage";
+import SquigglyLine from "@/components/SquigglyLine";
+import { MenuItemType } from "@/lib/types";
+import styles from "@/styles/Home.module.css";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Email from "@/components/email";
-import styles from "@/styles/Home.module.css";
-import CommitHash from "@/components/helpers/commitHash";
-import SquigglyLine from "@/components/SquigglyLine";
+import { useEffect, useState } from "react";
 import { SiGithub } from "react-icons/si";
-import RoundedImage from "@/components/RoundedImage";
-import Experience from "@/components/experience";
-import AnimatedTitle from "@/components/AnimatedTitle";
-import MainMenu from "@/components/MainMenu";
-import { MenuItemType } from "@/lib/types";
 
 export default function Home() {
   const [currentYear, setCurrentYear] = useState("");
@@ -22,7 +22,7 @@ export default function Home() {
 
     console.log(
       "%cCheck out the code over on github at https://github.com/jaspermayone/website. \n\nIf you're interested in circus arts, photography, or just want to chat, feel free to reach out to me at me@jaspermayone.com. \n\nI can't wait to meet you!",
-      "background: #fff; color: #4299e1",
+      "background: #fff; color: #4299e1"
     );
   }, []);
 
@@ -159,7 +159,7 @@ export default function Home() {
         <footer className="flex flex-col items-center mb-3.5 -mt-4">
           <div className="flex items-center justify-center">
             <p className="text-xs mr-1.5">
-              © {currentYear || "2024"} Jasper Mayone
+              © 2024-{currentYear || "2025"} Jasper Mayone
             </p>
             <div className="hidden md:block">
               <CommitHash />
