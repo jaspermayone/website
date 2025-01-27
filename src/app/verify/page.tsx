@@ -21,9 +21,7 @@ interface CryptoKey {
 }
 
 const LetterBlock: React.FC<{ letter: string }> = ({ letter }) => (
-  <span className="inline-block border border-black px-2 py-1 mx-0.5">
-    {letter}
-  </span>
+  <span className="inline-block py-1 mx-0.5">{letter}</span>
 );
 
 const WavyDivider: React.FC = () => (
