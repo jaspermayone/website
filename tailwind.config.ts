@@ -12,6 +12,8 @@ export default {
         blurre: "#4299e1",
         linkBlue: "#4299e1",
         linkHover: "#003e73",
+        pinkk: "#ed68ab",
+        pinkkDark: "#ad2f6f",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },

@@ -5,5 +5,6 @@ export const menuItems: MenuItemType[] = [
   "Resume",
   "Portfolio",
   "Newsletter",
+  "Verify",
   "@jasperdoescircus",
 ];

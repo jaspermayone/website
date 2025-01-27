@@ -175,6 +175,15 @@ export default function Home() {
                 <SiGithub />
               </Link>
             </span>
+            <span className="text-xs ml-1.5">
+              Verify my identity{" "}
+              <Link
+                className="underline decoration-wavy text-blurre hover:text-linkHover transition-colors duration-300 ease-in-out"
+                href="/verify"
+              >
+                here
+              </Link>
+            </span>
           </div>
         </footer>
       </div>

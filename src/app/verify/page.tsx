@@ -130,7 +130,11 @@ const VerifyPage: React.FC = () => {
         >
           ← Back to homepage
         </Link>
-        <h1 className="text-5xl mb-2 font-cute-notes">{title}</h1>
+        <h1 className="text-5xl mb-2 font-cute-notes">
+          {title.split("").map((letter, index) => (
+            <LetterBlock key={index} letter={letter} />
+          ))}
+        </h1>
         <p className="text-neutral-500 text-xs">
           Inspired by{" "}
           <Link
@@ -174,7 +178,11 @@ const VerifyPage: React.FC = () => {
             <Link
               href={`mailto:${email.address}`}
               key={email.address}
-              className="inline-block mr-4 text-linkHover underline hover:text-linkBlue transition-colors duration-300 ease-in-out"
+              className={`inline-block mr-4 underline transition-colors duration-300 ease-in-out ${
+                email.primary
+                  ? "text-pinkkDark hover:text-pinkk"
+                  : "text-linkHover hover:text-linkBlue"
+              }`}
             >
               {email.address}
             </Link>
@@ -184,12 +192,12 @@ const VerifyPage: React.FC = () => {
 
       <WavyDivider />
 
-      {/* Accounts */}
+      {/* Accounts - Now in two columns */}
       <section className="mb-6">
         <h2 className="text-2xl mb-2">accounts</h2>
-        <ul className="space-y-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
           {accounts.map((account, index) => (
-            <li key={index} className="flex items-start">
+            <div key={index} className="flex items-start">
               <span className="text-neutral-700">
                 {account.platform}:{" "}
                 <Link
@@ -202,9 +210,9 @@ const VerifyPage: React.FC = () => {
                   <span className="text-neutral-500 ml-2">{account.note}</span>
                 )}
               </span>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </section>
 
       <WavyDivider />
