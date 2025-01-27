@@ -9,8 +9,8 @@ export async function generateFeed() {
     id: "https://jaspermayone.com/",
     link: "https://jaspermayone.com/",
     language: "en",
-    image: "https://jaspermayone.com/favicon.png",
-    favicon: "https://jaspermayone.com/favicon.ico",
+    image: "https://jaspermayone.com/icon.png",
+    favicon: "https://jaspermayone.com/icon.png",
     copyright: `All rights reserved ${new Date().getFullYear()}, Jasper Mayone`,
     feedLinks: {
       json: "https://jaspermayone.com/feed.json",
