@@ -50,7 +50,7 @@ const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
     if (item === "Portfolio") {
       router.push("/portfolio");
     } else if (item === "Newsletter") {
-      router.push("/newsletter");
+      router.push("/newsletter"); // Fixed to route to /newsletter
     } else if (item === "Verify") {
       router.push("/verify");
     } else if (item === "Homepage") {
