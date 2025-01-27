@@ -1,17 +1,16 @@
+import { menuItems } from "@/lib/defs";
+import { MenuItemType } from "@/lib/types";
+import styles from "@/styles/Home.module.css";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import {
+  SiBluesky,
   SiGithub,
   SiInstagram,
   SiLinkedin,
   SiThreads,
   SiX,
-  SiBluesky,
 } from "react-icons/si";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import styles from "@/styles/Home.module.css";
-import { IconType } from "react-icons";
-import { MenuItemType } from "@/lib/types";
-import { menuItems } from "@/lib/defs";
 
 interface MainMenuProps {
   selectedTab: MenuItemType;
@@ -52,6 +51,8 @@ const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
       router.push("/portfolio");
     } else if (item === "Newsletter") {
       router.push("/newsletter");
+    } else if (item === "Verify") {
+      router.push("/verify");
     } else if (item === "Homepage") {
       router.push("/");
     }

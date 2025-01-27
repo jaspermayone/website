@@ -11,6 +11,7 @@ export type MenuItemType =
   | "Homepage"
   | "Resume"
   | "Portfolio"
+  | "Verify"
   | "Newsletter"
   | "@jasperdoescircus";
 

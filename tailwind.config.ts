@@ -10,8 +10,16 @@ export default {
     extend: {
       colors: {
         blurre: "#4299e1",
+        linkBlue: "#4299e1",
+        linkHover: "#003e73",
         background: "var(--background)",
         foreground: "var(--foreground)",
+      },
+      fontFamily: {
+        "cute-notes": ['"Cute Notes"', "sans-serif"],
+      },
+      textDecorationStyle: {
+        wavy: "wavy",
       },
     },
   },

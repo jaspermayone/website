@@ -109,7 +109,6 @@ export default function Home() {
               className="min-w-screen"
               color="#4299e1"
             />
-            <div className="py-1" />
             <div className="relative">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
                 <div className="md:col-span-2">

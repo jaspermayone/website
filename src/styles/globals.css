@@ -3,34 +3,45 @@
 @tailwind utilities;
 
 :root {
-    --foreground-rgb: 0, 0, 0;
-    --background-start-rgb: 214, 219, 220;
-    --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-    :root {
-        --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 0, 0, 0;
-        --background-end-rgb: 0, 0, 0;
-    }
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
 }
 
 @font-face {
-    font-family: "Cute Notes";
-    src:
-        url("/fonts/CuteNotes.woff2") format("woff2"),
-        url("/fonts/CuteNotes.ttf") format("ttf");
+  font-family: "Cute Notes";
+  src: url("/fonts/CuteNotes.woff2") format("woff2"),
+    url("/fonts/CuteNotes.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
-    /* font-family: "Cute Notes", sans-serif; */
-    width: 100vw;
-    height: 100vh;
+  /* font-family: "Cute Notes", sans-serif; */
+  width: 100vw;
+  height: 100vh;
 }
 
 @layer utilities {
-    .text-balance {
-        text-wrap: balance;
-    }
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.lnk {
+  color: #4299e1; /* Link color */
+  text-decoration: underline wavy; /* Add an underline */
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.lnk:hover {
+  color: #003e73; /* Change color on hover */
 }
