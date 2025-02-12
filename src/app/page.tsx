@@ -4,6 +4,7 @@ import Email from "@/components/email";
 import Experience from "@/components/experience";
 import CommitHash from "@/components/helpers/commitHash";
 import MainMenu from "@/components/MainMenu";
+import ProfileEmailCard from "@/components/ProfileEmailCard";
 import RoundedImage from "@/components/RoundedImage";
 import SquigglyLine from "@/components/SquigglyLine";
 import { MenuItemType } from "@/lib/types";
@@ -48,6 +49,7 @@ export default function Home() {
                   alt="Jasper Mayone"
                   size={250}
                 />
+                <ProfileEmailCard email="me@jaspermayone.com" />
               </div>
               <div className="flex flex-col justify-center">
                 <div className="space-y-4">

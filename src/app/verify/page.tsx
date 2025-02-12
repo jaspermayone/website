@@ -20,7 +20,7 @@ const LetterBlock = ({ letter }) => (
 );
 
 const WavyDivider = () => (
-  <div className="my-4">
+  <div className="my-6">
     <svg
       className="w-full h-6"
       viewBox="0 0 1200 24"
@@ -36,8 +36,56 @@ const WavyDivider = () => (
   </div>
 );
 
+const SectionHeader = ({ children }) => (
+  <h2 className="text-4xl mb-2 font-cute-notes">
+    {children.split("").map((letter, index) => (
+      <LetterBlock key={index} letter={letter} />
+    ))}
+  </h2>
+);
+
 const VerifyPage = () => {
   const title = "/VERIFY";
+
+  enum domainType {
+    personal,
+    project,
+    work,
+    other,
+  }
+
+  type Domain = {
+    name: string;
+    type: domainType;
+    icon?: React.ReactNode;
+  };
+
+  const domains: Domain[] = [
+    {
+      name: "jaspermayone.com",
+      type: domainType.personal,
+    },
+    {
+      name: "hogwarts.dev",
+      type: domainType.personal,
+    },
+    {
+      name: "singlefeather.com",
+      type: domainType.work,
+    },
+    {
+      name: "phish.directory",
+      type: domainType.project,
+    },
+    {
+      name: "everywhere.pub",
+      type: domainType.project,
+    },
+    {
+      name: "dumpsterfire.icu",
+      type: domainType.other,
+    },
+  ];
 
   const emails = [
     { address: "me@jaspermayone.com", primary: true },
@@ -46,7 +94,6 @@ const VerifyPage = () => {
     { address: "mayonej@wit.edu", school: true },
     { address: "jasper.mayone@phish.directory" },
     { address: "jasper.mayone@everywhere.pub" },
-    { address: "jasper.mayone@dumpsterfire.icu" },
   ];
 
   const accounts = [
@@ -147,9 +194,9 @@ const VerifyPage = () => {
   };
 
   return (
-    <main className="max-w-4xl mx-auto px-4 py-6">
+    <main className="max-w-4xl mx-auto px-4 pt-6">
       {/* Header */}
-      <header className="mb-6">
+      <header className="mb-8">
         <Link
           href="/"
           className="inline-block mb-4 underline decoration-wavy text-linkHover hover:text-linkBlue transition-colors duration-300 ease-in-out"
@@ -161,7 +208,7 @@ const VerifyPage = () => {
             <LetterBlock key={index} letter={letter} />
           ))}
         </h1>
-        <p className="text-neutral-500 text-xs">
+        <p className="text-neutral-500 text-[0.60rem]">
           Inspired by{" "}
           <Link
             className="underline decoration-wavy hover:text-linkHover transition-colors duration-300 ease-in-out"
@@ -173,43 +220,75 @@ const VerifyPage = () => {
         </p>
       </header>
 
-      {/* Domains & Email
-      <section className="mb-6">
-        <h2 className="text-2xl mb-2">domains / email</h2>
-        <p className="mb-2">
-          I personally own and control this domain (jaspermayone.com) as well as
-          hogwarts.dev and maintain email addresses on both domains. I also have
-          several email addresses not published here for privacy reasons that I
-          have for organizations I am a part of. If you have questions about my
-          identity at these addresses, you can email me at any of the ones you
-          see above to verify it's me. I also sign my emails with my GPG key
-          (also listed here) whenever possible.
-        </p>
-        <div className="space-y-1">
-          {emails.map((email) => (
-            <Link
-              href={`mailto:${email.address}`}
-              key={email.address}
-              className={`inline-block mr-4 underline transition-colors duration-300 ease-in-out ${
-                email.primary
-                  ? "text-pinkkDark hover:text-pinkk"
-                  : "text-linkHover hover:text-linkBlue"
-              }`}
-            >
-              {email.address}
-            </Link>
-          ))}
-        </div>
-      </section> */}
+      <WavyDivider />
 
+      {/* Domains Section */}
       <section className="mb-6">
-        <h2 className="text-2xl mb-2">domains / email</h2>
+        <SectionHeader>domains</SectionHeader>
         <div className="bg-gradient-to-br from-blue-50 to-pink-50 p-6 rounded-xl border border-gray-200">
           <p className="mb-4 text-gray-700">
-            I personally own and control this domain (jaspermayone.com) as well
-            as hogwarts.dev and maintain email addresses on both domains. I also
-            have several email addresses not published here for privacy reasons
-            that I have for organizations I am a part of.
+            These are the domains I own and operate. I also operate a few other
+            domains for work and clients that are not listed here for privacy
+            reasons.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {domains.map((domain) => {
+              const getBadgeStyles = (type: domainType) => {
+                switch (type) {
+                  case domainType.personal:
+                    return "bg-indigo-100 text-indigo-800"; // Changed from blue
+                  case domainType.work:
+                    return "bg-emerald-100 text-emerald-800"; // Changed from green
+                  case domainType.project:
+                    return "bg-fuchsia-100 text-fuchsia-800"; // Changed from purple
+                  case domainType.other:
+                    return "bg-amber-100 text-amber-800"; // Changed from gray
+                  default:
+                    return "bg-slate-100 text-slate-800";
+                }
+              };
+
+              const getTypeLabel = (type: domainType) => {
+                return (
+                  domainType[type].charAt(0).toUpperCase() +
+                  domainType[type].slice(1)
+                );
+              };
+
+              return (
+                <div
+                  key={domain.name}
+                  className="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-sm transition-all duration-300"
+                >
+                  <h3 className="font-medium text-lg text-gray-800">
+                    {domain.name}
+                  </h3>
+                  <div className="mt-2 flex items-center gap-2">
+                    <span
+                      className={`text-xs px-2 py-1 rounded-full ${getBadgeStyles(
+                        domain.type
+                      )}`}
+                    >
+                      {getTypeLabel(domain.type)}
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <WavyDivider />
+
+      {/* Email Section */}
+      <section className="mb-12">
+        <SectionHeader>email</SectionHeader>
+        <div className="bg-gradient-to-br from-blue-50 to-pink-50 p-6 rounded-xl border border-gray-200">
+          <p className="mb-4 text-gray-700">
+            I maintain email addresses across various domains. Some addresses
+            for organizations I am a part of are not published here for privacy
+            reasons.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {emails.map((email) => (
@@ -234,8 +313,8 @@ const VerifyPage = () => {
       <WavyDivider />
 
       {/* Accounts */}
-      <section className="mb-6">
-        <h2 className="text-2xl mb-2">accounts</h2>
+      <section className="mb-12">
+        <SectionHeader>accounts</SectionHeader>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {accounts.map((account) => (
             <Link
@@ -265,9 +344,9 @@ const VerifyPage = () => {
       <WavyDivider />
 
       {/* Crypto Keys */}
-      <section className="mb-6">
-        <h2 className="text-2xl mb-2">crypto keys</h2>
-        <p className="mb-2 text-neutral-700">
+      <section className="mb-12">
+        <SectionHeader>crypto keys</SectionHeader>
+        <p className="mb-4 text-neutral-700">
           These are my current GPG and SSH keys. I will use these to sign my
           commits and emails, as well as authentication and signing elsewhere.
         </p>
@@ -275,30 +354,37 @@ const VerifyPage = () => {
           {cryptoKeys.map((key, index) => (
             <div
               key={index}
-              className="bg-blue-50 p-3 rounded-lg border border-blue-100"
+              className="bg-blue-50 p-4 rounded-lg border border-blue-100"
             >
-              <h3 className="text-lg font-medium mb-1">{key.type} Key</h3>
-              <div className="space-y-1 text-sm font-mono">
-                <p className="text-neutral-700">
-                  Fingerprint: {key.fingerprint}
+              <div>
+                <h3 className="text-lg font-medium mb-2">{key.type} Key</h3>
+                <p className="text-sm text-gray-500 mb-4">
+                  For secure communication and authentication.
                 </p>
-                {key.type === "GPG" ? (
+                <div className="space-y-1 text-sm font-mono">
                   <p className="text-neutral-700">
-                    <Link
-                      href={key.publicKey}
-                      className="text-linkHover underline hover:text-linkBlue transition-colors duration-300 ease-in-out"
-                    >
-                      Get my public key from keys.openpgp.org
-                    </Link>
+                    Fingerprint: {key.fingerprint}
                   </p>
-                ) : (
-                  <p className="text-neutral-700 break-all">{key.publicKey}</p>
-                )}
-                {key.note && (
-                  <p className="text-neutral-500 font-sans text-sm">
-                    {key.note}
-                  </p>
-                )}
+                  {key.type === "GPG" ? (
+                    <p className="text-neutral-700">
+                      <Link
+                        href={key.publicKey}
+                        className="text-blue-600 underline hover:text-blue-800 transition-colors duration-300"
+                      >
+                        Get my public key from keys.openpgp.org
+                      </Link>
+                    </p>
+                  ) : (
+                    <p className="text-neutral-700 break-all">
+                      {key.publicKey}
+                    </p>
+                  )}
+                  {key.note && (
+                    <p className="text-neutral-500 font-sans text-sm">
+                      {key.note}
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
           ))}

@@ -29,19 +29,19 @@ export const EmailCard = ({ email, isPrimary, work, school }) => {
         </div>
         <div className="flex gap-2">
           {isPrimary && (
-            <span className="flex items-center gap-1 bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded-full">
+            <span className="flex items-center gap-1 bg-rose-100 text-rose-800 text-xs px-2 py-1 rounded-full">
               <Star className="w-3 h-3" />
               Primary
             </span>
           )}
           {work && (
-            <span className="flex items-center gap-1 bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
+            <span className="flex items-center gap-1 bg-cyan-100 text-cyan-800 text-xs px-2 py-1 rounded-full">
               <Briefcase className="w-3 h-3" />
               Work
             </span>
           )}
           {school && (
-            <span className="flex items-center gap-1 bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded-full">
+            <span className="flex items-center gap-1 bg-violet-100 text-violet-800 text-xs px-2 py-1 rounded-full">
               <GraduationCap className="w-3 h-3" />
               School
             </span>
