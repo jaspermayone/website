@@ -16,6 +16,7 @@ const commitDate = require("child_process")
   .trim();
 
 const nextConfig = {
+  transpilePackages: ["@arcjet/runtime"],
   experimental: {
     turbo: {},
   },

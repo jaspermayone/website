@@ -39,9 +39,6 @@ const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
     if (item === "Resume") {
       handleDownload(new MouseEvent("click") as unknown as React.MouseEvent);
       return; // Exit early without updating state
-    } else if (item === "@jasperdoescircus") {
-      handleExternalLink("https://www.instagram.com/jasper.does.circus/");
-      return; // Exit early without updating state
     }
 
     // For other cases, update state and handle navigation

@@ -6,5 +6,4 @@ export const menuItems: MenuItemType[] = [
   "Portfolio",
   "Newsletter",
   "Verify",
-  "@jasperdoescircus",
 ];

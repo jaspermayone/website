@@ -12,8 +12,7 @@ export type MenuItemType =
   | "Resume"
   | "Portfolio"
   | "Newsletter"
-  | "Verify"
-  | "@jasperdoescircus";
+  | "Verify";
 
 export type Project = {
   title: string;
