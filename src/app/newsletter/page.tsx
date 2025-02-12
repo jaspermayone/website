@@ -2,7 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { prisma } from "@/lib/db";
 import { ArrowLeft } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Jasper Mayone | Newsletter",
+  description:
+    "A collection of my newsletters, fed via magic from loops.so my the newsletter service I use.",
+};
 
 async function getNewsletters() {
   const newsletters = await prisma.newsletter.findMany({

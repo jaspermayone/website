@@ -1,4 +1,5 @@
 import { AtSign } from "lucide-react";
+import { Metadata } from "next";
 import Link from "next/link";
 import {
   SiBluesky,
@@ -12,6 +13,12 @@ import {
   SiThreads,
   SiYoutube,
 } from "react-icons/si";
+
+export const metadata: Metadata = {
+  title: "Jasper Mayone | Verify",
+  description:
+    "A page to verify my identity across various platforms and domains.",
+};
 
 import { EmailCard } from "@/components/EmailCard";
 

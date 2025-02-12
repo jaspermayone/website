@@ -10,9 +10,16 @@ import SquigglyLine from "@/components/SquigglyLine";
 import { MenuItemType } from "@/lib/types";
 import styles from "@/styles/Home.module.css";
 import { motion } from "framer-motion";
+import { Metadata } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { SiGithub } from "react-icons/si";
+
+export const metadata: Metadata = {
+  title: "Jasper Mayone",
+  description:
+    "Jasper Mayone is a 18-year-old post high school graduate from rural Vermont. They are a circus performer, a coder, and a photographer.",
+};
 
 export default function Home() {
   const [currentYear, setCurrentYear] = useState("");

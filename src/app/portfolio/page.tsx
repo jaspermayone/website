@@ -1,13 +1,19 @@
 "use client";
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
-import styles from "@/styles/Projects.module.css";
+import AnimatedProjectsTitle from "@/components/AnimatedProjectsTitle";
 import MainMenu from "@/components/MainMenu";
 import SquigglyLine from "@/components/SquigglyLine";
-import AnimatedProjectsTitle from "@/components/AnimatedProjectsTitle";
 import { MenuItemType, Project } from "@/lib/types";
+import styles from "@/styles/Projects.module.css";
+import { motion } from "framer-motion";
+import { ExternalLink, Github } from "lucide-react";
+import { Metadata } from "next";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+
+export const metadata: Metadata = {
+  title: "Jasper Mayone | Portfolio",
+  description: "A showcase of my projects and accomplishments.",
+};
 
 export default function Portfolio() {
   const [selectedTab, setSelectedTab] = useState<MenuItemType>("Portfolio");
