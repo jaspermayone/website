@@ -6,7 +6,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Jasper Mayone | Newsletter",
+  title: "Newsletter",
   description:
     "A collection of my newsletters, fed via magic from loops.so my the newsletter service I use.",
 };

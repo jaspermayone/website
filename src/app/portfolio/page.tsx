@@ -11,7 +11,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 export const metadata: Metadata = {
-  title: "Jasper Mayone | Portfolio",
+  title: "Portfolio",
   description: "A showcase of my projects and accomplishments.",
 };
 

@@ -1,18 +1,29 @@
-import type { Metadata, Viewport } from "next";
+import "@/styles/globals.css"; // Add this line
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AnimatePresence } from "framer-motion";
-import PageTransitionLayout from "@/components/PageTransitionLayout";
+import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import "@/styles/globals.css"; // Add this line
 
 export const metadata: Metadata = {
   title: {
     template: "%s | Jasper Mayone",
     default: "Jasper Mayone",
   },
-  description: "Personal Website of Jasper Mayone",
+  description:
+    "Personal Website of Jasper Mayone. A circus performer, coder, and photographer.",
   applicationName: "jaspermayone.com",
   keywords: ["Jasper", "Mayone", "Jasper Mayone"],
+  authors: [
+    {
+      name: "Jasper Mayone",
+      url: "https://jaspermayone.com",
+    },
+  ],
+  creator: "Jasper Mayone",
+  publisher: "Jasper Mayone",
+  // verification: {
+  // google:
+  // },
   other: {
     "msapplication-TileColor": "#603cba",
   },

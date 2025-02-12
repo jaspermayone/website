@@ -15,7 +15,7 @@ import {
 } from "react-icons/si";
 
 export const metadata: Metadata = {
-  title: "Jasper Mayone | Verify",
+  title: "Verify",
   description:
     "A page to verify my identity across various platforms and domains.",
 };
