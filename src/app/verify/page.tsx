@@ -13,6 +13,8 @@ import {
   SiYoutube,
 } from "react-icons/si";
 
+import { EmailCard } from "@/components/EmailCard";
+
 const LetterBlock = ({ letter }) => (
   <span className="inline-block py-1 mx-0.5">{letter}</span>
 );
@@ -40,8 +42,8 @@ const VerifyPage = () => {
   const emails = [
     { address: "me@jaspermayone.com", primary: true },
     { address: "jaspermayone@gmail.com" },
-    { address: "jasper.mayone@singlefeather.com" },
-    { address: "mayonej@wit.edu" },
+    { address: "jasper.mayone@singlefeather.com", work: true },
+    { address: "mayonej@wit.edu", school: true },
     { address: "jasper.mayone@phish.directory" },
     { address: "jasper.mayone@everywhere.pub" },
     { address: "jasper.mayone@dumpsterfire.icu" },
@@ -171,7 +173,7 @@ const VerifyPage = () => {
         </p>
       </header>
 
-      {/* Domains & Email */}
+      {/* Domains & Email
       <section className="mb-6">
         <h2 className="text-2xl mb-2">domains / email</h2>
         <p className="mb-2">
@@ -197,6 +199,35 @@ const VerifyPage = () => {
               {email.address}
             </Link>
           ))}
+        </div>
+      </section> */}
+
+      <section className="mb-6">
+        <h2 className="text-2xl mb-2">domains / email</h2>
+        <div className="bg-gradient-to-br from-blue-50 to-pink-50 p-6 rounded-xl border border-gray-200">
+          <p className="mb-4 text-gray-700">
+            I personally own and control this domain (jaspermayone.com) as well
+            as hogwarts.dev and maintain email addresses on both domains. I also
+            have several email addresses not published here for privacy reasons
+            that I have for organizations I am a part of.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {emails.map((email) => (
+              <EmailCard
+                key={email.address}
+                email={email.address}
+                isPrimary={email.primary}
+                work={email.work}
+                school={email.school}
+              />
+            ))}
+          </div>
+          <p className="mt-4 text-sm text-gray-500">
+            If you have questions about my identity at these{" "}
+            <b>or any other addresses</b>, you can email me at any of the ones
+            you see above to verify it's me. I also sign my emails with my GPG
+            key (listed below) whenever possible.
+          </p>
         </div>
       </section>
 
