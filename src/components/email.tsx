@@ -1,19 +1,17 @@
 "use client";
+import styles from "@/styles/Misc.module.css";
 import { useState, type FormEvent } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import styles from "@/styles/Misc.module.css";
 
 const predefinedEmails = [
   "jaspermayone@gmail.com",
   "jasperphoenixmayone@gmail.com",
   "me@jaspermayone.com",
-  "jasper@jaspermayone.com",
   "jasper.mayone@jaspermayone.com",
-  "jasper@singlefeather.com",
   "jasper.mayone@singlefeather.com",
-  "jasper@purplebubble.org",
-  "jasper@phish.directory",
+  "jasper.mayone@phish.directory",
+  "jasper.mayone@everywhere.pub",
 ];
 
 export default function Email() {
@@ -77,7 +75,7 @@ export default function Email() {
             <Input
               type="email"
               placeholder="example@example.com"
-              className="flex-1 text-sm"
+              className="flex-1 text-sm outline-dashed outline-1.5 outline-blurre"
               value={email}
               onChange={handleInputChange}
               aria-label="email"
@@ -85,7 +83,7 @@ export default function Email() {
             />
             <Button
               type="submit"
-              className="text-sm whitespace-nowrap"
+              className="text-sm whitespace-nowrap bg-blue-400"
               aria-label="submit"
               disabled={isLoading}
             >

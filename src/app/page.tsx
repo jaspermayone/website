@@ -112,11 +112,11 @@ export default function Home() {
               color="#4299e1"
             />
             <div className="relative">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
                 <div className="md:col-span-2">
                   <Experience />
                 </div>
-                <div className="hidden md:block w-px bg-slate-600 h-full absolute left-2/3 -translate-x-1/2" />
+                <div className="hidden md:block w-px bg-linkHover h-full absolute left-2/3 -translate-x-1/2" />
                 <div className="md:col-span-1">
                   <Email />
                 </div>

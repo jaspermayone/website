@@ -1,12 +1,11 @@
-import React from "react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { ExperienceItem } from "@/lib/types";
 import { experience } from "@/lib/experience";
+import { ExperienceItem } from "@/lib/types";
 import styles from "@/styles/Misc.module.css";
 
 export default function Experience() {
@@ -29,8 +28,10 @@ export default function Experience() {
             value={`item-${index}`}
             className="mb-2 last:mb-0 border-b-0"
           >
-            <AccordionTrigger className="py-2 hover:no-underline hover:bg-gray-50 rounded-lg px-2 text-sm">
-              <div className="text-left">{item.company}</div>
+            <AccordionTrigger className="py-2 rounded-lg px-2 text-sm hover:bg-blue-50 hover:no-underline data-[state=open]:bg-blue-50">
+              <div className="text-left group-hover:bg-blue-50">
+                {item.company}
+              </div>
             </AccordionTrigger>
             <AccordionContent className="px-2 py-2">
               <p className="text-gray-700 text-sm">{item.role}</p>

@@ -25,14 +25,14 @@ const ProfileEmailCard = ({ email }) => {
       <div className="flex gap-2">
         <Link
           href={`mailto:${email}`}
-          className="flex items-center justify-center gap-1 px-2 py-1 rounded-md bg-blue-50 text-blue-600 hover:bg-blue-300 transition-colors duration-200 text-xs flex-1"
+          className="flex items-center justify-center gap-1 px-2 py-1 rounded-md bg-blue-50 text-blue-600 hover:bg-blue-50 transition-colors duration-200 text-xs flex-1"
         >
           <Mail className="w-3 h-3" />
           Email
         </Link>
         <button
           onClick={copyToClipboard}
-          className="flex items-center justify-center gap-1 px-2 py-1 rounded-md bg-gray-50 text-gray-600 hover:bg-gray-300 transition-colors duration-200 text-xs flex-1"
+          className="flex items-center justify-center space-x-2 px-3 py-2 rounded bg-gray-200 text-gray-600 hover:bg-gray-300 transition-colors duration-200 outline outline-1 outline-gray-300 text-sm w-full"
         >
           {copied ? (
             <>
