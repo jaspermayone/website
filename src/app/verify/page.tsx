@@ -1,30 +1,23 @@
+import { AtSign } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import {
+  SiBluesky,
+  SiBuymeacoffee,
+  SiGithub,
+  SiInstagram,
+  SiLinkedin,
+  SiMatrix,
+  SiReddit,
+  SiSignal,
+  SiThreads,
+  SiYoutube,
+} from "react-icons/si";
 
-interface SocialAccount {
-  platform: string;
-  username: string;
-  url?: string;
-  note?: string;
-}
-
-interface ContactEmail {
-  address: string;
-  primary?: boolean;
-}
-
-interface CryptoKey {
-  type: "SSH" | "GPG";
-  fingerprint: string;
-  publicKey: string;
-  note?: string;
-}
-
-const LetterBlock: React.FC<{ letter: string }> = ({ letter }) => (
+const LetterBlock = ({ letter }) => (
   <span className="inline-block py-1 mx-0.5">{letter}</span>
 );
 
-const WavyDivider: React.FC = () => (
+const WavyDivider = () => (
   <div className="my-4">
     <svg
       className="w-full h-6"
@@ -41,10 +34,10 @@ const WavyDivider: React.FC = () => (
   </div>
 );
 
-const VerifyPage: React.FC = () => {
+const VerifyPage = () => {
   const title = "/VERIFY";
 
-  const emails: ContactEmail[] = [
+  const emails = [
     { address: "me@jaspermayone.com", primary: true },
     { address: "jaspermayone@gmail.com" },
     { address: "jasper.mayone@singlefeather.com" },
@@ -54,7 +47,7 @@ const VerifyPage: React.FC = () => {
     { address: "jasper.mayone@dumpsterfire.icu" },
   ];
 
-  const accounts: SocialAccount[] = [
+  const accounts = [
     {
       platform: "Github",
       username: "jaspermayone",
@@ -83,12 +76,12 @@ const VerifyPage: React.FC = () => {
     {
       platform: "Youtube",
       username: "@jasper.does.circus",
-      url: "https://www.youtube.com/channel/UCxl_9WNUfM019kbbgk8gVuQ",
+      url: "https://www.youtube.com/@jasper.does.circus",
     },
     {
       platform: "Signal",
       username: "jaspermayone.10",
-      url: "https://signal.me/#eu/EG6j6-VthP_Bak5c0T5KSFZn0Rb8OW_67p2q4ibd03mYZd2LUuFGAIyuzeD3WEN9",
+      url: "https://signal.me/#eu/jaspermayone.10",
     },
     {
       platform: "Buy Me a Coffee",
@@ -100,9 +93,15 @@ const VerifyPage: React.FC = () => {
       username: "j-dogcoder",
       url: "https://www.reddit.com/user/j-dogcoder",
     },
+    {
+      platform: "Matrix",
+      username: "@jasper.mayone:matrix.org",
+      url: "https://matrix.to/#/@jasper.mayone:matrix.org",
+      note: "i'm not at all active here, contact me elsewhere if you want a response (like ever)",
+    },
   ];
 
-  const cryptoKeys: CryptoKey[] = [
+  const cryptoKeys = [
     {
       type: "GPG",
       fingerprint: "00E6 43C2 1FAC 965F FB28 D3B7 14D0 D45A 1DAD AAFA",
@@ -117,6 +116,33 @@ const VerifyPage: React.FC = () => {
       note: "Used for Git authentication and server access",
     },
   ];
+
+  const getIcon = (platform) => {
+    switch (platform.toLowerCase()) {
+      case "github":
+        return <SiGithub className="w-4 h-4" />;
+      case "linkedin":
+        return <SiLinkedin className="w-4 h-4" />;
+      case "instagram":
+        return <SiInstagram className="w-4 h-4" />;
+      case "youtube":
+        return <SiYoutube className="w-4 h-4" />;
+      case "buy me a coffee":
+        return <SiBuymeacoffee className="w-4 h-4" />;
+      case "matrix":
+        return <SiMatrix className="w-4 h-4" />;
+      case "bluesky":
+        return <SiBluesky className="w-4 h-4" />;
+      case "threads":
+        return <SiThreads className="w-4 h-4" />;
+      case "signal":
+        return <SiSignal className="w-4 h-4" />;
+      case "reddit":
+        return <SiReddit className="w-4 h-4" />;
+      default:
+        return <AtSign className="w-4 h-4" />;
+    }
+  };
 
   return (
     <main className="max-w-4xl mx-auto px-4 py-6">
@@ -141,21 +167,7 @@ const VerifyPage: React.FC = () => {
           >
             @Kieran Klukas
           </Link>
-          ,{" "}
-          <Link
-            className="underline decoration-wavy hover:text-linkHover transition-colors duration-300 ease-in-out"
-            href="https://www.mollywhite.net/verify/"
-          >
-            @Molly White
-          </Link>{" "}
-          and{" "}
-          <Link
-            className="underline decoration-wavy hover:text-linkHover transition-colors duration-300 ease-in-out"
-            href="https://rknight.me/verify/"
-          >
-            @Rob Knight
-          </Link>{" "}
-          this page serves as verification of my various accounts.
+          , this page serves as verification of my various accounts.
         </p>
       </header>
 
@@ -169,7 +181,7 @@ const VerifyPage: React.FC = () => {
           have for organizations I am a part of. If you have questions about my
           identity at these addresses, you can email me at any of the ones you
           see above to verify it's me. I also sign my emails with my GPG key
-          (also listed here) whenever possuble.
+          (also listed here) whenever possible.
         </p>
         <div className="space-y-1">
           {emails.map((email) => (
@@ -190,25 +202,31 @@ const VerifyPage: React.FC = () => {
 
       <WavyDivider />
 
-      {/* Accounts - Now in two columns */}
+      {/* Accounts */}
       <section className="mb-6">
         <h2 className="text-2xl mb-2">accounts</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
-          {accounts.map((account, index) => (
-            <div key={index} className="flex items-start">
-              <span className="text-neutral-700">
-                {account.platform}:{" "}
-                <Link
-                  href={account.url!}
-                  className="text-linkHover underline decoration-wavy hover:text-linkBlue transition-colors duration-300 ease-in-out"
-                >
-                  {account.username}
-                </Link>
-                {account.note && (
-                  <span className="text-neutral-500 ml-2">{account.note}</span>
-                )}
-              </span>
-            </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {accounts.map((account) => (
+            <Link
+              key={account.platform}
+              href={account.url}
+              className="block p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-sm transition-all duration-300 bg-white"
+              style={{
+                height: account.note ? "auto" : "5rem",
+                minHeight: "5rem",
+              }}
+            >
+              <div className="flex items-center gap-2 text-gray-600">
+                {getIcon(account.platform)}
+                <span className="font-medium">{account.platform}</span>
+              </div>
+              <div className="mt-1 text-sm text-gray-500">
+                {account.username}
+              </div>
+              {account.note && (
+                <div className="mt-2 text-xs text-gray-400">{account.note}</div>
+              )}
+            </Link>
           ))}
         </div>
       </section>
