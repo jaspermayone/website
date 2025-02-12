@@ -1,34 +1,69 @@
 "use client";
-import styles from "@/styles/500.module.css";
+import SquigglyLine from "@/components/SquigglyLine";
 import Link from "next/link";
 
-const Custom500 = () => {
+const Error = () => {
+  // Array of configurations for bottom squiggly lines
+  const bottomSquiggles = Array(20).fill({
+    frequency: 10,
+    amplitude: 5.4,
+    className: "min-w-max",
+    color: "#4299e1",
+  });
+
   return (
-    <>
-      <div className={styles.body}>
-        <div
-          className={`bg-gray-800 text-white p-4 rounded-lg shadow-lg ${styles.codeArea}`}
-        >
-          <span className={styles.comment}>// 500 internal server error.</span>
-          <span>
-            <span className={styles.keyword}>if</span>(
-            <span className={styles.variable}>serverError</span>){" {"}
-          </span>
-          <span>
-            <span className={styles.indent}>throw</span>(
-            <span className={styles.string}>&quot;(╯°□°)╯︵ ┻━┻&quot;</span>);
-          </span>
-          <span>{"}"}</span>
-          <span className={styles.comment}>
-            //{" "}
-            <Link href="/" className={styles.link}>
-              Go home!
-            </Link>
-          </span>
+    <div className="h-screen w-screen flex flex-col items-center justify-center overflow-hidden py-6">
+      {bottomSquiggles.map((config, index) => (
+        <SquigglyLine
+          key={index}
+          frequency={config.frequency}
+          amplitude={config.amplitude}
+          className={config.className}
+          color={config.color}
+        />
+      ))}
+
+      <div className="my-12 flex flex-col items-center justify-center rounded-md bg-linkHover/40 p-10">
+        <div className="flex gap-2 mb-1">
+          {["E", "R", "R", "O", "R"].map((letter, i) => (
+            <div
+              key={i}
+              className="font-cute-notes w-12 h-12 flex items-center justify-center text-5xl font-medium"
+            >
+              {letter}
+            </div>
+          ))}
+        </div>
+
+        {/* <SquigglyLine
+          frequency={50}
+          amplitude={0.4}
+          className="w-3/4"
+          color="#4299e1"
+        /> */}
+
+        <div className="max-w-lg text-center">
+          <p className="inline">
+            Uh oh! This page seems to have lost artistic direction. Please try
+            to
+          </p>{" "}
+          <p className="inline underline decoration-wavy decoration-blurre hover:decoration-linkHover hover:bg-blue-400 hover:rounded-md transition-all duration-300">
+            <Link href="/">return home!</Link>
+          </p>
         </div>
       </div>
-    </>
+
+      {bottomSquiggles.map((config, index) => (
+        <SquigglyLine
+          key={index}
+          frequency={config.frequency}
+          amplitude={config.amplitude}
+          className={config.className}
+          color={config.color}
+        />
+      ))}
+    </div>
   );
 };
 
-export default Custom500;
+export default Error;

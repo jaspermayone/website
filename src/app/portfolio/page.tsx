@@ -6,14 +6,14 @@ import { MenuItemType, Project } from "@/lib/types";
 import styles from "@/styles/Projects.module.css";
 import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
-import { Metadata } from "next";
+// import { Metadata } from "next";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "A showcase of my projects and accomplishments.",
-};
+// export const metadata: Metadata = {
+//   title: "Portfolio",
+//   description: "A showcase of my projects and accomplishments.",
+// };
 
 export default function Portfolio() {
   const [selectedTab, setSelectedTab] = useState<MenuItemType>("Portfolio");

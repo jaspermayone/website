@@ -265,7 +265,7 @@ const VerifyPage = () => {
               return (
                 <div
                   key={domain.name}
-                  className="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-sm transition-all duration-300"
+                  className="bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:bg-blue-50 hover:shadow-sm transition-all duration-300"
                 >
                   <h3 className="font-medium text-lg text-gray-800">
                     {domain.name}
@@ -327,7 +327,7 @@ const VerifyPage = () => {
             <Link
               key={account.platform}
               href={account.url}
-              className="block p-4 rounded-lg border border-gray-200 hover:border-blue-300 hover:shadow-sm transition-all duration-300 bg-white"
+              className="block p-4 rounded-lg border border-gray-200 transition-all duration-300 bg-white hover:bg-blue-500 hover:border-blue-300 hover:shadow-sm group"
               style={{
                 height: account.note ? "auto" : "5rem",
                 minHeight: "5rem",
@@ -376,7 +376,7 @@ const VerifyPage = () => {
                     <p className="text-neutral-700">
                       <Link
                         href={key.publicKey}
-                        className="text-blue-600 underline hover:text-blue-800 transition-colors duration-300"
+                        className="text-blue-600 underline hover:text-blue-100 transition-colors duration-300"
                       >
                         Get my public key from keys.openpgp.org
                       </Link>
