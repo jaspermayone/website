@@ -1,13 +1,15 @@
+/* Misc.module.css */
+
 .lightUl {
-    /* make a light underline */
-    text-decoration: underline;
-    text-decoration-color: rgba(66, 153, 225, 0.9);
-    text-decoration-thickness: 2.25px;
-    text-decoration-style: dashed;
-    font-weight: 325;
-    font-size: 1.25rem; /* 20px */
-    line-height: 1.75rem; /* 28px */
-    padding-bottom: 0.5rem;
+  /* make a light underline */
+  text-decoration: underline;
+  text-decoration-color: rgba(66, 153, 225, 0.9);
+  text-decoration-thickness: 2.25px;
+  text-decoration-style: dashed;
+  font-weight: 325;
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
+  padding-bottom: 0.5rem;
 }
 
 /* "font-medium text-xl mb-4 " */
