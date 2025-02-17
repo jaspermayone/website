@@ -1,26 +1,26 @@
 // src/app/api/webhooks/postmark/route.ts
-import { processNewsletterHtml } from "@/lib/processNewsletterHtml";
 import { prisma } from "@/lib/db";
+import { processNewsletterHtml } from "@/lib/processNewsletterHtml";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
-  console.log("Received webhook request");
+  // console.log("Received webhook request");
   const body = await request.json();
-  console.log("Webhook body:", JSON.stringify(body, null, 2));
+  // console.log("Webhook body:", JSON.stringify(body, null, 2));
 
   const { Subject, TextBody, HtmlBody, FromFull, Date: receivedDate } = body;
 
-  console.log("Parsed email details:", {
-    subject: Subject,
-    fromEmail: FromFull?.Email,
-    date: receivedDate,
-  });
+  // console.log("Parsed email details:", {
+  //   subject: Subject,
+  //   fromEmail: FromFull?.Email,
+  //   date: receivedDate,
+  // });
 
   if (FromFull!.Email !== "jasper@jaspermayone.com") {
     console.error("Email not from Jasper, ignoring");
     return NextResponse.json(
       { message: "Email not from Jasper" },
-      { status: 200 },
+      { status: 200 }
     );
   }
 
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
     console.error("Database error:", error);
     return NextResponse.json(
       { message: "Error processing newsletter" },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

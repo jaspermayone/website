@@ -37,6 +37,7 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "react-icons": "^5.4.0",
+    "react-toggle-dark-mode": "^1.1.1",
     "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {
