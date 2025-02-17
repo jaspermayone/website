@@ -1,5 +1,5 @@
+"use client";
 import { AtSign } from "lucide-react";
-import { Metadata } from "next";
 import Link from "next/link";
 import {
   SiBluesky,
@@ -14,17 +14,7 @@ import {
   SiYoutube,
 } from "react-icons/si";
 
-export const metadata: Metadata = {
-  title: "Verify",
-  description:
-    "A page to verify my identity across various platforms and domains.",
-};
-
 import { EmailCard } from "@/components/EmailCard";
-
-const LetterBlock = ({ letter }) => (
-  <span className="inline-block py-1 mx-0.5">{letter}</span>
-);
 
 const WavyDivider = () => (
   <div className="my-6">
@@ -43,8 +33,17 @@ const WavyDivider = () => (
   </div>
 );
 
+const LetterBlock = ({ letter }) => (
+  <span
+    className="inline-block py-1 mx-0.5"
+    style={{ fontFamily: "var(--font-cuteNotes)" }}
+  >
+    {letter}
+  </span>
+);
+
 const SectionHeader = ({ children }) => (
-  <h2 className="text-4xl mb-2 font-cute-notes">
+  <h2 className="text-4xl mb-2" style={{ fontFamily: "var(--font-cuteNotes)" }}>
     {children.split("").map((letter, index) => (
       <LetterBlock key={index} letter={letter} />
     ))}

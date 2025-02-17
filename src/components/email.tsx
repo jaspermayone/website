@@ -75,7 +75,7 @@ export default function Email() {
             <Input
               type="email"
               placeholder="example@example.com"
-              className="flex-1 text-sm outline-dashed outline-1.5 outline-blurre"
+              className="flex-1 text-sm outline-none border-1 border-gray-300 focus:border-blue-400 focus:ring-blue-400"
               value={email}
               onChange={handleInputChange}
               aria-label="email"

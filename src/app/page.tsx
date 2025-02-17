@@ -42,7 +42,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ type: "spring", duration: 1.5 }}
           >
-            <div className="flex flex-col md:flex-row gap-8 items-top -mt-8">
+            <div className="flex flex-col md:flex-row gap-8 items-top -mt-8 mx-5">
               <div className="w-64 flex-shrink-0">
                 <RoundedImage
                   src="/images/jmdark-min.jpg"

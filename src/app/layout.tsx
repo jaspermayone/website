@@ -2,7 +2,18 @@ import "@/styles/globals.css"; // Add this line
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AnimatePresence } from "framer-motion";
 import type { Metadata, Viewport } from "next";
+import localFont from "next/font/local";
 import Script from "next/script";
+
+const cuteNotes = localFont({
+  src: [
+    {
+      path: "../../public/fonts/CuteNotes.ttf",
+      style: "normal",
+    },
+  ],
+  variable: "--font-cuteNotes",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -40,12 +51,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="light">
+    <html lang="en" className={`light ${cuteNotes.variable}`}>
       <head>
         <meta property="og:image" content="https://jaspermayone.com/api/og" />
         <link rel="icon" href="/icon" sizes="any" />
       </head>
-      <body>
+      <body className={`${cuteNotes.variable} font-sans`}>
         <Script
           src="https://kit.fontawesome.com/96163f3b63.js"
           crossOrigin="anonymous"
