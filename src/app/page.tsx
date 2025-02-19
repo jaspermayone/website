@@ -55,7 +55,12 @@ export default function Home() {
           >
             <div className="flex flex-col md:flex-row gap-8 items-top -mt-8 mx-5">
               <div className="w-64 flex-shrink-0 mt-8">
-                <RoundedImage src={imgpath} alt="Jasper Mayone" size={250} />
+                <RoundedImage
+                  loading="lazy"
+                  src={imgpath}
+                  alt="Jasper Mayone"
+                  size={250}
+                />
               </div>
               <div className="flex flex-col justify-center">
                 <div className="space-y-4">

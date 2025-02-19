@@ -5,9 +5,15 @@ interface RoundedImageProps {
   src: string;
   alt: string;
   size: number;
+  loading?: "lazy" | "eager";
 }
 
-const RoundedImage: React.FC<RoundedImageProps> = ({ src, alt, size }) => {
+const RoundedImage: React.FC<RoundedImageProps> = ({
+  src,
+  alt,
+  size,
+  loading,
+}) => {
   return (
     <Image
       src={src}
@@ -15,6 +21,7 @@ const RoundedImage: React.FC<RoundedImageProps> = ({ src, alt, size }) => {
       width={size}
       height={size}
       aria-label={alt}
+      loading={loading}
       className="border-2 border-dotted border-stone-950 dark:border-stone-50"
       style={{
         borderRadius: "10%",
