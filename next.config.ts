@@ -15,7 +15,15 @@ const commitDate = require("child_process")
   .toString()
   .trim();
 
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+
 const nextConfig = {
+  swcMinify: true, // Uses SWC minifier instead of Terser (faster)
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production", // Removes console.logs in production
+  },
   transpilePackages: ["@arcjet/runtime"],
   experimental: {
     turbo: {},
@@ -29,4 +37,4 @@ const nextConfig = {
   reactStrictMode: true,
 };
 
-module.exports = nextConfig;
+module.exports = withBundleAnalyzer(nextConfig);
