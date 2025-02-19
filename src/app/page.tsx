@@ -9,25 +9,39 @@ import SquigglyLine from "@/components/SquigglyLine";
 import { MenuItemType } from "@/lib/types";
 import styles from "@/styles/Home.module.css";
 import { motion } from "framer-motion";
+import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [currentYear, setCurrentYear] = useState("");
   const [selectedTab, setSelectedTab] = useState<MenuItemType>("Homepage");
+  const [isLightMode, setIsLightMode] = useState(false);
 
-  // check if we're in light mode or dark mode
-  const isLightMode =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-color-scheme: light)").matches;
+  useEffect(() => {
+    // Initialize theme
+    if (typeof window !== "undefined") {
+      const mediaQuery = window.matchMedia("(prefers-color-scheme: light)");
+      setIsLightMode(mediaQuery.matches);
 
-  let imgpath: string;
+      // Add listener for theme changes
+      const handleThemeChange = (e) => {
+        setIsLightMode(e.matches);
+      };
 
-  if (isLightMode) {
-    imgpath = "/images/jmdark-min.jpg";
-  } else {
-    imgpath = "/images/jmlite-min.jpg";
-  }
+      mediaQuery.addEventListener("change", handleThemeChange);
+
+      // Cleanup listener
+      return () => {
+        mediaQuery.removeEventListener("change", handleThemeChange);
+      };
+    }
+  }, []);
+
+  // Use the theme state to determine image path
+  const imgpath = isLightMode
+    ? "/images/jmdark-min.jpg"
+    : "/images/jmlite-min.jpg";
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear().toString());
@@ -53,9 +67,9 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ type: "spring", duration: 1.5 }}
           >
-            <head>
+            <Head>
               <link rel="preload" as="image" href={imgpath} />
-            </head>
+            </Head>
             <div className="flex flex-col md:flex-row gap-8 items-top -mt-8 mx-5">
               <div className="w-64 flex-shrink-0 mt-8">
                 <RoundedImage
