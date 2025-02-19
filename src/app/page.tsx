@@ -53,13 +53,16 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ type: "spring", duration: 1.5 }}
           >
+            <head>
+              <link rel="preload" as="image" href={imgpath} />
+            </head>
             <div className="flex flex-col md:flex-row gap-8 items-top -mt-8 mx-5">
               <div className="w-64 flex-shrink-0 mt-8">
                 <RoundedImage
-                  loading="lazy"
                   src={imgpath}
                   alt="Jasper Mayone"
                   size={250}
+                  isPriority={true} // Add priority for above-the-fold images
                 />
               </div>
               <div className="flex flex-col justify-center">

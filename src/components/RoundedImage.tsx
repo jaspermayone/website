@@ -1,4 +1,3 @@
-// components/RoundedImage.tsx
 import Image from "next/image";
 
 interface RoundedImageProps {
@@ -6,6 +5,7 @@ interface RoundedImageProps {
   alt: string;
   size: number;
   loading?: "lazy" | "eager";
+  isPriority?: boolean;
 }
 
 const RoundedImage: React.FC<RoundedImageProps> = ({
@@ -13,6 +13,7 @@ const RoundedImage: React.FC<RoundedImageProps> = ({
   alt,
   size,
   loading,
+  isPriority = false,
 }) => {
   return (
     <Image
@@ -21,10 +22,10 @@ const RoundedImage: React.FC<RoundedImageProps> = ({
       width={size}
       height={size}
       aria-label={alt}
-      loading={loading}
-      className="border-2 border-dotted border-stone-950 dark:border-stone-50"
+      loading={isPriority ? undefined : loading} // Remove loading prop when priority is true
+      priority={isPriority}
+      className="border-2 border-dotted border-stone-950 dark:border-stone-50 rounded-[10%]"
       style={{
-        borderRadius: "10%",
         maxWidth: "100%",
         height: "auto",
       }}
