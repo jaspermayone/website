@@ -4,7 +4,6 @@ import Email from "@/components/email";
 import Experience from "@/components/experience";
 import CommitHash from "@/components/helpers/commitHash";
 import MainMenu from "@/components/MainMenu";
-import ProfileEmailCard from "@/components/ProfileEmailCard";
 import RoundedImage from "@/components/RoundedImage";
 import SquigglyLine from "@/components/SquigglyLine";
 import { MenuItemType } from "@/lib/types";
@@ -12,11 +11,23 @@ import styles from "@/styles/Home.module.css";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { SiGithub } from "react-icons/si";
 
 export default function Home() {
   const [currentYear, setCurrentYear] = useState("");
   const [selectedTab, setSelectedTab] = useState<MenuItemType>("Homepage");
+
+  // check if we're in light mode or dark mode
+  const isLightMode =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-color-scheme: light)").matches;
+
+  let imgpath: string;
+
+  if (isLightMode) {
+    imgpath = "/images/jmdark-min.jpg";
+  } else {
+    imgpath = "/images/jmlite-min.jpg";
+  }
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear().toString());
@@ -43,19 +54,14 @@ export default function Home() {
             transition={{ type: "spring", duration: 1.5 }}
           >
             <div className="flex flex-col md:flex-row gap-8 items-top -mt-8 mx-5">
-              <div className="w-64 flex-shrink-0">
-                <RoundedImage
-                  src="/images/jmdark-min.jpg"
-                  alt="Jasper Mayone"
-                  size={250}
-                />
-                <ProfileEmailCard email="me@jaspermayone.com" />
+              <div className="w-64 flex-shrink-0 mt-8">
+                <RoundedImage src={imgpath} alt="Jasper Mayone" size={250} />
               </div>
               <div className="flex flex-col justify-center">
                 <div className="space-y-4">
                   <p className="font-medium text-xl">
                     Jasper Mayone [<i>he/they</i>]{" "}
-                    <span className="text-gray-700 font-normal">
+                    <span className="text-gray-700 dark:text-white/70 font-normal">
                       is a 18-year-old post high school graduate from rural
                       Vermont. They are a circus performer, a{" "}
                       <Link
@@ -70,7 +76,7 @@ export default function Home() {
                       , and a photographer.
                     </span>
                   </p>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 dark:text-white/70 text-sm">
                     A circus artist and a native Vermonter, Jasper is currently
                     pursuing a gap year after their successful completion of
                     high school a full year early. Jasper tries to live by the
@@ -80,7 +86,7 @@ export default function Home() {
                     great outdoors, photography, computer programming, cooking,
                     and running away to join the circus.
                   </p>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 dark:text-white/70 text-sm">
                     An avid organizer and big picture thinker, you can often
                     find them scheming up some sort of business venture. From
                     developing a small app to drafting large scale plans for a
@@ -91,7 +97,7 @@ export default function Home() {
                     roles in various projects and adventures, both close to home
                     and abroad.
                   </p>
-                  <p className="text-gray-600 text-sm">
+                  <p className="text-gray-600 dark:text-white/70 text-sm">
                     Recently, Jasper's adventures include a month-long trip to
                     Rwanda, where they filmed a documentary and managed
                     production for his fellow students' films. They also played
@@ -165,26 +171,22 @@ export default function Home() {
             <div className="hidden md:block">
               <CommitHash />
             </div>
-            <p className="text-xs mr-1.5 hidden md:block">.</p>
-            <span className="text-xs">
+            <span className="text-xs ml-1.5">
+              You can verify my identity{" "}
               <Link
-                className={styles.footerLink}
-                href="https://github.com/jaspermayone/website"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub Repository for Jasper's Website"
+                className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
+                href="/verify"
               >
-                <SiGithub />
+                here.
               </Link>
             </span>
             <span className="text-xs ml-1.5">
-              Verify my identity{" "}
-              <Link
-                className="underline decoration-wavy text-blurre hover:text-linkHover transition-colors duration-300 ease-in-out"
-                href="/verify"
-              >
-                here
-              </Link>
+              I can be reached at{" "}
+              <u className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300">
+                <Link href={"mailto:me@jaspermayone.com"}>
+                  me@jaspermayone.com
+                </Link>
+              </u>
             </span>
           </div>
         </footer>

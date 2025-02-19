@@ -10,10 +10,14 @@ export default {
     extend: {
       colors: {
         blurre: "#4299e1",
+        // blurreDark:
         linkBlue: "#4299e1",
         linkHover: "#003e73",
+        linkHoverDark: "#aad5fb",
         pinkk: "#ed68ab",
         pinkkDark: "#ad2f6f",
+        lite: "#f8fbf8",
+        dark: "#151922",
         background: "var(--background)",
         foreground: "var(--foreground)",
       },

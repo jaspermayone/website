@@ -1,4 +1,3 @@
-"use client";
 import {
   Briefcase,
   Check,
@@ -8,7 +7,6 @@ import {
   Mailbox,
   Star,
 } from "lucide-react";
-import Link from "next/link";
 import { useState } from "react";
 
 export const EmailCard = ({ email, isPrimary, work, school }) => {
@@ -21,27 +19,29 @@ export const EmailCard = ({ email, isPrimary, work, school }) => {
   };
 
   return (
-    <div className="group relative bg-white p-4 rounded-lg border border-gray-200 hover:border-blue-300 transition-all duration-300">
+    <div className="group relative bg-white dark:bg-slate-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300">
       <div className="flex items-start justify-between">
         <div className="flex items-center gap-2">
-          <Mailbox className="w-4 h-4 text-gray-400" />
-          <span className="font-mono text-sm">{email}</span>
+          <Mailbox className="w-4 h-4 text-gray-400 dark:text-gray-500" />
+          <span className="font-mono text-sm text-gray-800 dark:text-gray-200">
+            {email}
+          </span>
         </div>
         <div className="flex gap-2">
           {isPrimary && (
-            <span className="flex items-center gap-1 bg-rose-100 text-rose-800 text-xs px-2 py-1 rounded-full">
+            <span className="flex items-center gap-1 bg-rose-100 dark:bg-rose-900/50 text-rose-800 dark:text-rose-200 text-xs px-2 py-1 rounded-full">
               <Star className="w-3 h-3" />
               Primary
             </span>
           )}
           {work && (
-            <span className="flex items-center gap-1 bg-cyan-100 text-cyan-800 text-xs px-2 py-1 rounded-full">
+            <span className="flex items-center gap-1 bg-cyan-100 dark:bg-cyan-900/50 text-cyan-800 dark:text-cyan-200 text-xs px-2 py-1 rounded-full">
               <Briefcase className="w-3 h-3" />
               Work
             </span>
           )}
           {school && (
-            <span className="flex items-center gap-1 bg-violet-100 text-violet-800 text-xs px-2 py-1 rounded-full">
+            <span className="flex items-center gap-1 bg-violet-100 dark:bg-violet-900/50 text-violet-800 dark:text-violet-200 text-xs px-2 py-1 rounded-full">
               <GraduationCap className="w-3 h-3" />
               School
             </span>
@@ -50,16 +50,16 @@ export const EmailCard = ({ email, isPrimary, work, school }) => {
       </div>
 
       <div className="mt-3 flex gap-2">
-        <Link
+        <a
           href={`mailto:${email}`}
-          className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors duration-200"
+          className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-200 hover:bg-blue-100 dark:hover:bg-blue-800/50 transition-colors duration-200"
         >
           <Mail className="w-3 h-3" />
           Send Email
-        </Link>
+        </a>
         <button
           onClick={copyToClipboard}
-          className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-gray-50 text-gray-600 hover:bg-gray-100 transition-colors duration-200"
+          className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-gray-50 dark:bg-gray-700/50 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600/50 transition-colors duration-200"
         >
           {copied ? (
             <>

@@ -15,6 +15,7 @@ const RoundedImage: React.FC<RoundedImageProps> = ({ src, alt, size }) => {
       width={size}
       height={size}
       aria-label={alt}
+      className="border-2 border-dotted border-stone-950 dark:border-stone-50"
       style={{
         borderRadius: "10%",
         maxWidth: "100%",

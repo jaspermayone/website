@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 
 const Tooltip = dynamic(
   () => import("@material-tailwind/react/components/Tooltip"),
-  { ssr: false },
+  { ssr: false }
 );
 
 import { formatDistanceToNow, isWeekend } from "date-fns";
@@ -18,12 +18,12 @@ export default function CommitHash() {
       <span className="sticky hidden text-xs sm:block">
         v{process.env.APP_VERSION} |{" "}
         <a
-          className="text-blue-500 decoration-wavy underline decoration-blue-500 hover:text-blurre transition-colors duration-300"
+          className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
           href={`https://github.com/jaspermayone/website/tree/${process.env.COMMIT_HASH}`}
         >
           <Tooltip
             content={process.env.FULL_COMMIT_HASH}
-            className="rounded-xl bg-blue-50 p-2 font-sans text-black shadow-lg "
+            className="rounded-xl bg-blue-50 dark:bg-slate-600 p-2 font-sans text-black dark:text-white shadow-lg "
           >
             {process.env.COMMIT_HASH}
           </Tooltip>

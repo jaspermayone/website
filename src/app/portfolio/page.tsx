@@ -33,9 +33,9 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <div className="h-screen flex flex-col bg-gradient-to-b from-gray-50 to-gray-100">
+    <div className="h-screen flex flex-col bg-lite">
       {/* Fixed Header Section */}
-      <header className="flex-none px-6 py-4 bg-gradient-to-b from-gray-50 to-gray-100">
+      <header className="flex-none px-6 py-4 bg-lite">
         <div className={styles.title}>
           <AnimatedProjectsTitle />
         </div>
@@ -61,7 +61,7 @@ export default function Portfolio() {
             {projects.map((project, index) => (
               <motion.div
                 key={index}
-                className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+                className="group bg-white dark:bg-gray-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -79,10 +79,10 @@ export default function Portfolio() {
                 </div>
 
                 <div className="p-6">
-                  <h2 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-blue-600 transition-colors">
+                  <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">
                     {project.title}
                   </h2>
-                  <p className="text-gray-600 mb-4 line-clamp-3">
+                  <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
                     {project.description}
                   </p>
 
@@ -90,7 +90,7 @@ export default function Portfolio() {
                     {project.techStack.map((tech, i) => (
                       <span
                         key={i}
-                        className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium"
+                        className="bg-blue-100 text-blue-500 px-3 py-1 rounded-full text-sm font-medium"
                       >
                         {tech}
                       </span>
@@ -101,7 +101,7 @@ export default function Portfolio() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-blue-400 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors"
                   >
                     <Github className="w-4 h-4" />
                     View Project

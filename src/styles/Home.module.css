@@ -12,7 +12,7 @@
   align-items: center; /* Center content horizontally */
   padding: 0;
   margin: 0;
-  background: rgba(255, 255, 255, 0.2); /* Slight white background */
+  background: light-dark(#f8fbf8, #151922);
   backdrop-filter: blur(10px);
 }
 
@@ -38,8 +38,11 @@
   width: 100%; /* Full width footer */
   text-align: center;
   padding: 1rem;
-  background-color: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  background: light-dark(#f8fbf8, #151922);
+  box-shadow: light-dark(
+    0 -2px 5px rgba(0, 0, 0, 0.1),
+    0 -2px 5px rgba(255, 255, 255, 0.1)
+  );
 }
 
 .title {
@@ -74,11 +77,6 @@
 
 .profilePhoto {
   border-radius: 50%;
-}
-
-.overlay {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
 }
 
 .title {
@@ -117,9 +115,5 @@
 }
 
 .lnk:hover {
-  color: #003e73; /* Change color on hover */
-}
-
-.footerLink:hover {
-  color: #003e73; /* Change color on hover */
+  color: light-dark(#003e73, #aad5fb); /* Change color on hover */
 }

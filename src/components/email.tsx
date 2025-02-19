@@ -64,7 +64,7 @@ export default function Email() {
     <div className="w-full max-w-6xl mx-auto px-4">
       {/* h2 with custom .ul class  */}
       <h2 className={styles.lightUl}>Newsletter</h2>
-      <p className="text-gray-700 text-sm mb-4">
+      <p className="text-gray-700 dark:text-white/70 text-sm mb-4">
         Subscribe to my newsletter to get <i>occasioal</i> updates on what I'm
         up to.
       </p>
