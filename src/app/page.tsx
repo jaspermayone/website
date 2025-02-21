@@ -47,7 +47,7 @@ export default function Home() {
     setCurrentYear(new Date().getFullYear().toString());
 
     console.log(
-      "%cCheck out the code over on github at https://github.com/jaspermayone/website. \n\nIf you're interested in circus arts, photography, or just want to chat, feel free to reach out to me at me@jaspermayone.com. \n\nI can't wait to meet you!",
+      "%cCheck out the code over on github at https://github.jaspermayone.com/website. \n\nIf you're interested in circus arts, photography, or just want to chat, feel free to reach out to me at me@jaspermayone.com. \n\nI can't wait to meet you!",
       "background: #fff; color: #4299e1"
     );
   }, []);
@@ -88,7 +88,7 @@ export default function Home() {
                       Vermont. They are a circus performer, a{" "}
                       <Link
                         className={styles.lnk}
-                        href="https://github.com/jaspermayone"
+                        href="https://github.jaspermayone.com"
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label="Link to Jasper's Github profile"

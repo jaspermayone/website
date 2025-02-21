@@ -57,32 +57,32 @@ const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
 
   const socialLinks = [
     {
-      href: "https://github.com/jaspermayone/",
+      href: "https://github.jaspermayone.com",
       label: "GitHub",
       Icon: SiGithub,
     },
     {
-      href: "https://www.linkedin.com/in/jaspermayone/",
-      label: "LinkedIn",
+      href: "https:/linkedin.jaspermayone.com",
+      label: "Linkedin",
       Icon: SiLinkedin,
     },
     {
-      href: "https://www.instagram.com/jasper.mayone/",
+      href: "https://instagram.jaspermayone.com",
       label: "Instagram",
       Icon: SiInstagram,
     },
     {
-      href: "https://threads.net/@jasper.mayone",
+      href: "https://threads.jaspermayone.com",
       label: "Threads",
       Icon: SiThreads,
     },
     {
-      href: "https://bsky.app/profile/jaspermayone.com",
+      href: "https://bluesky.jaspermayone.com",
       label: "Bluesky",
       Icon: SiBluesky,
     },
     {
-      href: "https://x.com/jaspermayone",
+      href: "https://x.jaspermayone.com",
       label: "X",
       Icon: SiX,
     },

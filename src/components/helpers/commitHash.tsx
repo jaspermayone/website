@@ -19,7 +19,7 @@ export default function CommitHash() {
         v{process.env.APP_VERSION} |{" "}
         <a
           className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
-          href={`https://github.com/jaspermayone/website/tree/${process.env.COMMIT_HASH}`}
+          href={`https://github.jaspermayone.com/website/tree/${process.env.COMMIT_HASH}`}
         >
           <Tooltip
             content={process.env.FULL_COMMIT_HASH}

@@ -110,32 +110,32 @@ const VerifyPage = () => {
     {
       platform: "Github",
       username: "jaspermayone",
-      url: "https://github.com/jaspermayone",
+      url: "https://github.jaspermayone.com",
     },
     {
       platform: "Bluesky",
       username: "@jaspermayone.com",
-      url: "https://bsky.app/profile/jaspermayone.com",
+      url: "https://bluesky.jaspermayone.com",
     },
     {
-      platform: "LinkedIn",
+      platform: "Linkedin",
       username: "jaspermayone",
-      url: "https://www.linkedin.com/in/jaspermayone",
+      url: "https://linkedin.jaspermayone.com",
     },
     {
       platform: "Instagram",
       username: "jasper.mayone",
-      url: "https://www.instagram.com/jasper.mayone",
+      url: "https://instagram.jaspermayone.com",
     },
     {
       platform: "Threads",
       username: "@jasper.mayone",
-      url: "https://www.threads.net/@jasper.mayone",
+      url: "https://threads.jaspermayone.com",
     },
     {
       platform: "Youtube",
       username: "@jasper.does.circus",
-      url: "https://www.youtube.com/@jasper.does.circus",
+      url: "https://youtube.jaspermayone.com",
     },
     {
       platform: "Signal",
@@ -145,17 +145,17 @@ const VerifyPage = () => {
     {
       platform: "Buy Me a Coffee",
       username: "jaspermayone",
-      url: "https://www.buymeacoffee.com/jaspermayone",
+      url: "https://coffee.jaspermayone.com",
     },
     {
       platform: "Reddit",
       username: "j-dogcoder",
-      url: "https://www.reddit.com/user/j-dogcoder",
+      url: "https://reddit.jaspermayone.com",
     },
     {
       platform: "Matrix",
       username: "@jasper.mayone:matrix.org",
-      url: "https://matrix.to/#/@jasper.mayone:matrix.org",
+      url: "https://matrix.jaspermayone.com",
       note: "i'm not at all active here, contact me elsewhere if you want a response (like ever)",
     },
   ];
