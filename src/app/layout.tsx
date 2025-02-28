@@ -60,6 +60,16 @@ export default function RootLayout({
         />
         <meta property="og:image" content="https://jaspermayone.com/api/og" />
         <link rel="icon" href="/icon" sizes="any" />
+        <link rel="me" href="https://github.com/jaspermayone" />
+        <link rel="me" href="https://www.linkedin.com/in/jaspermayone" />
+        <link rel="me" href="https://bsky.app/profile/jaspermayone.com" />
+        <link rel="me" href="https://www.threads.net/@jasper.mayone" />
+        <link rel="me" href="https://x.com/jaspermayone" />
+        <link rel="me" href="https://x.jaspermayone.com" />
+        <link rel="me" href="https://www.youtube.com/@jasper.does.circus" />
+        <link rel="me" href="https://buymeacoffee.com/jaspermayone" />
+        <link rel="me" href="https://www.reddit.com/user/j-dogcoder" />
+        <link rel="me" href="https://matrix.to/#/@jasper.mayone:matrix.org" />
       </head>
       <body className={`${cuteNotes.variable} font-sans`}>
         <Script

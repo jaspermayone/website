@@ -90,7 +90,7 @@ export default function Home() {
                         className={styles.lnk}
                         href="https://github.jaspermayone.com"
                         target="_blank"
-                        rel="noopener noreferrer"
+                        rel="me noopener noreferrer"
                         aria-label="Link to Jasper's Github profile"
                       >
                         coder
@@ -205,7 +205,7 @@ export default function Home() {
             <span className="text-xs ml-1.5">
               I can be reached at{" "}
               <u className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300">
-                <Link href={"mailto:me@jaspermayone.com"}>
+                <Link rel="me" href={"mailto:me@jaspermayone.com"}>
                   me@jaspermayone.com
                 </Link>
               </u>

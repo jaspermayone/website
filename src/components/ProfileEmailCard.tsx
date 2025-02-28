@@ -24,6 +24,7 @@ const ProfileEmailCard = ({ email }) => {
       </div>
       <div className="flex gap-2">
         <Link
+          rel="me"
           href={`mailto:${email}`}
           className="flex items-center justify-center gap-1 px-2 py-1 rounded-md bg-blue-50 text-blue-600 hover:bg-blue-50 transition-colors duration-200 text-xs flex-1"
         >

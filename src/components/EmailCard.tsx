@@ -52,6 +52,7 @@ export const EmailCard = ({ email, isPrimary, work, school }) => {
       <div className="mt-3 flex gap-2">
         <a
           href={`mailto:${email}`}
+          rel="me"
           className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-200 hover:bg-blue-100 dark:hover:bg-blue-800/50 transition-colors duration-200"
         >
           <Mail className="w-3 h-3" />

@@ -24,6 +24,7 @@ const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
     e.preventDefault();
     const link = document.createElement("a");
     link.href = "/resume.pdf";
+    link.rel = "me";
     link.download = "Jasper Mayone's Resume.pdf";
     document.body.appendChild(link);
     link.click();

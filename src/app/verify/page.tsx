@@ -323,6 +323,7 @@ const VerifyPage = () => {
             <Link
               key={account.platform}
               href={account.url}
+              rel="me"
               className="block p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 bg-white dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-sm group"
               style={{
                 height: account.note ? "auto" : "5rem",
@@ -376,6 +377,7 @@ const VerifyPage = () => {
                     <p className="text-neutral-700 dark:text-neutral-300">
                       <Link
                         href={key.publicKey}
+                        rel="me"
                         className="text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300"
                       >
                         Get my public key from keys.openpgp.org
