@@ -37,6 +37,16 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 });
 
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: "/ss",
+        destination: "/?ss=true",
+        permanent: false,
+        basePath: false,
+      },
+    ];
+  },
   // Bun-specific optimizations
   experimental: {
     optimizePackageImports: ["@opentelemetry/api", "ua-parser-js"],
