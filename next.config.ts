@@ -40,8 +40,8 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/ss",
-        destination: "/?ss=true",
+        source: "/symposiumW25",
+        destination: "/?symposiumW25=true",
         permanent: false,
         basePath: false,
       },

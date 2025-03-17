@@ -198,13 +198,15 @@ export default function ConfettiWrapper() {
       setShowConfetti(true);
 
       // Track confetti display with Umami
-      // Check if it's specifically on the /ss path or contains /ss/
-      if (pathname === "/ss" || pathname.startsWith("/ss/")) {
+      if (
+        pathname === "/symposiumW25" ||
+        pathname.startsWith("/symposiumW25/")
+      ) {
         // Create a tracking element if it doesn't exist
         const trackingElement = document.createElement("div");
         trackingElement.setAttribute(
           "data-umami-event",
-          "SS Confetti Displayed"
+          "SymposiumW25_Confetti"
         );
         trackingElement.setAttribute("data-umami-event-path", pathname);
         trackingElement.setAttribute(
