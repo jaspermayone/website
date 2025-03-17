@@ -1,5 +1,6 @@
 "use client";
 import AnimatedTitle from "@/components/AnimatedTitle";
+import ConfettiWrapper from "@/components/ConfettiWrapper";
 import Email from "@/components/email";
 import Experience from "@/components/experience";
 import CommitHash from "@/components/helpers/commitHash";
@@ -67,6 +68,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ type: "spring", duration: 1.5 }}
           >
+            <ConfettiWrapper />
             <Head>
               <link rel="preload" as="image" href={imgpath} />
             </Head>
