@@ -18,6 +18,12 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
 
     const ctx = canvas.getContext("2d");
     
+    // Exit if we couldn't get a context
+    if (!ctx) {
+      console.error("Could not get 2d context from canvas");
+      return;
+    }
+    
     // Define animation frame reference outside img.onload
     let animationFrame: number | null = null;
 
@@ -25,8 +31,22 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
     const img = new Image();
     img.src = imagePath;
 
+    // Define particle type
+    interface Particle {
+      x: number;
+      y: number;
+      size: number;
+      speedX: number;
+      speedY: number;
+      rotation: number;
+      rotationSpeed: number;
+      opacity: number;
+      fadeDirection: number;
+      fadeSpeed: number;
+    }
+    
     // Create confetti particles
-    const particles = [];
+    const particles: Particle[] = [];
     const particleCount = 100;
 
     img.onload = () => {
