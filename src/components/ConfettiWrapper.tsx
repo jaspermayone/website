@@ -118,6 +118,9 @@ export default function ConfettiWrapper() {
   const pathname = usePathname();
   const [showConfetti, setShowConfetti] = useState(false);
 
+  // Use a ref to track if we've already shown confetti in this page load
+  const [hasShownThisSession, setHasShownThisSession] = useState(false);
+  
   useEffect(() => {
     // Check if browser environment
     if (typeof window === "undefined") return;
@@ -128,22 +131,22 @@ export default function ConfettiWrapper() {
     
     console.log("Current path:", pathname);
     console.log("ss param:", ssParam);
+    console.log("Has shown this session:", hasShownThisSession);
 
-    // Only run once on page load when ss=true
-    if (ssParam === 'true' && !showConfetti) {
+    // Only run once on page load when ss=true and not shown yet
+    if (ssParam === 'true' && !hasShownThisSession && !showConfetti) {
       console.log("Showing confetti!");
+      
+      // Mark that we've shown it this session
+      setHasShownThisSession(true);
       
       // Show confetti
       setShowConfetti(true);
 
       // Hide confetti after it finishes
       setTimeout(() => setShowConfetti(false), 3000);
-      
-      // Remove the parameter from URL without refreshing page
-      const newUrl = window.location.pathname;
-      window.history.replaceState({}, document.title, newUrl);
     }
-  }, [pathname, showConfetti]);
+  }, [pathname, showConfetti, hasShownThisSession]);
 
   return showConfetti ? (
     <ImageConfetti imagePath="/images/ss.png" duration={3000} />
