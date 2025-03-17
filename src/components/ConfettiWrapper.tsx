@@ -129,7 +129,8 @@ export default function ConfettiWrapper() {
     console.log("Current path:", pathname);
     console.log("ss param:", ssParam);
 
-    if ((ssParam === 'true' || pathname === "/") && !showConfetti) {
+    // Only run once on page load when ss=true
+    if (ssParam === 'true' && !showConfetti) {
       console.log("Showing confetti!");
       
       // Show confetti
@@ -137,6 +138,10 @@ export default function ConfettiWrapper() {
 
       // Hide confetti after it finishes
       setTimeout(() => setShowConfetti(false), 3000);
+      
+      // Remove the parameter from URL without refreshing page
+      const newUrl = window.location.pathname;
+      window.history.replaceState({}, document.title, newUrl);
     }
   }, [pathname, showConfetti]);
 
