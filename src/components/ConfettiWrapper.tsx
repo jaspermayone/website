@@ -190,16 +190,18 @@ export default function ConfettiWrapper() {
     // Check if browser environment
     if (typeof window === "undefined") return;
 
-    // Check URL parameters for ss trigger
+    // Check URL parameters for ss trigger or cookie from middleware
     const searchParams = new URLSearchParams(window.location.search);
     const ssParam = searchParams.get('ss');
+    const hasSSReferral = document.cookie.includes('hasSSReferral=true');
     
     console.log("Current path:", pathname);
     console.log("ss param:", ssParam);
+    console.log("Has SS referral cookie:", hasSSReferral);
     console.log("Has shown this session:", hasShownThisSession);
 
-    // Only run once on page load when ss=true and not shown yet
-    if (ssParam === 'true' && !hasShownThisSession && !showConfetti) {
+    // Only run once on page load when it's from an SS referral and not shown yet
+    if ((ssParam === 'true' || hasSSReferral) && !hasShownThisSession && !showConfetti) {
       console.log("Showing confetti!");
       
       // Mark that we've shown it this session
@@ -207,6 +209,11 @@ export default function ConfettiWrapper() {
       
       // Show confetti
       setShowConfetti(true);
+
+      // Clear the cookie if it exists
+      if (hasSSReferral) {
+        document.cookie = "hasSSReferral=; max-age=0; path=/;";
+      }
 
       // Hide confetti after it finishes (4 seconds total: 2.5s active + 1.5s fade out)
       setTimeout(() => setShowConfetti(false), 4000);

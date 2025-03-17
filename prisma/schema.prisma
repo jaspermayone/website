@@ -21,3 +21,22 @@ model Newsletter {
   receivedAt     DateTime
   createdAt      DateTime @default(now())
 }
+
+model PageView {
+  id         String   @id @default(cuid())
+  path       String
+  userAgent  String?
+  referer    String?
+  ip         String?  // Storing IP in hashed form is recommended for privacy
+  sessionId  String?
+  createdAt  DateTime @default(now())
+}
+
+model Referral {
+  id         String   @id @default(cuid())
+  source     String   // e.g., "ss" for Socratica Symposium
+  userAgent  String?
+  ip         String?  // Storing IP in hashed form is recommended for privacy
+  sessionId  String?
+  createdAt  DateTime @default(now())
+}
