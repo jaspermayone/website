@@ -45,8 +45,8 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
       fadeSpeed: number;
     }
     
-    // Create confetti particles
-    const particles: Particle[] = [];
+    // Create confetti particles with type assertion to avoid TypeScript errors
+    const particles: Array<Particle> = [] as Array<Particle>;
     const particleCount = 100;
 
     img.onload = () => {
@@ -174,6 +174,7 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
       }
     };
   }, [imagePath, duration]);
+  
 
   return null;
 };
