@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const ImageConfetti = ({ imagePath, duration = 3000 }) => {
+  // Existing confetti implementation remains the same
   useEffect(() => {
     // Create canvas element
     const canvas = document.createElement("canvas");
@@ -17,36 +18,24 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
     document.body.appendChild(canvas);
 
     const ctx = canvas.getContext("2d");
-    
+
     // Exit if we couldn't get a context
     if (!ctx) {
       console.error("Could not get 2d context from canvas");
       return;
     }
-    
+
     // Define animation frame reference outside img.onload
-    let animationFrame: number | null = null;
+    let animationFrame = null;
 
     // Load the image
     const img = new Image();
     img.src = imagePath;
 
     // Define particle type
-    interface Particle {
-      x: number;
-      y: number;
-      size: number;
-      speedX: number;
-      speedY: number;
-      rotation: number;
-      rotationSpeed: number;
-      opacity: number;
-      fadeDirection: number;
-      fadeSpeed: number;
-    }
-    
+
     // Create confetti particles with type assertion to avoid TypeScript errors
-    const particles: Array<Particle> = [] as Array<Particle>;
+    const particles = [];
     const particleCount = 100;
 
     img.onload = () => {
@@ -77,10 +66,10 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
             particle.y + particle.size / 2
           );
           ctx.rotate((particle.rotation * Math.PI) / 180);
-          
+
           // Set global alpha for transparency
           ctx.globalAlpha = particle.opacity;
-          
+
           ctx.drawImage(
             img,
             -particle.size / 2,
@@ -94,18 +83,18 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
           particle.x += particle.speedX;
           particle.y += particle.speedY;
           particle.rotation += particle.rotationSpeed;
-          
+
           // Handle fading in and out randomly
           // Occasionally start fading if not already
           if (particle.fadeDirection === 0 && Math.random() < 0.01) {
             // 1% chance each frame to start fading out
             particle.fadeDirection = -1;
           }
-          
+
           // Update opacity based on fade direction
           if (particle.fadeDirection !== 0) {
             particle.opacity += particle.fadeDirection * particle.fadeSpeed;
-            
+
             // Cap opacity between 0 and 1
             if (particle.opacity <= 0) {
               particle.opacity = 0;
@@ -132,17 +121,18 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
       // Clean up after duration - start fadeout process
       setTimeout(() => {
         // Flag all particles to start fading out
-        particles.forEach(particle => {
+        particles.forEach((particle) => {
           // Set fade speed for final exit (faster)
           particle.fadeSpeed = 0.03;
           particle.fadeDirection = -1;
-          
+
           // Also push particles to the sides gradually
-          particle.speedX = (particle.x > canvas.width / 2) ? 
-            Math.max(2, particle.speedX * 1.2) : 
-            Math.min(-2, particle.speedX * 1.2);
+          particle.speedX =
+            particle.x > canvas.width / 2
+              ? Math.max(2, particle.speedX * 1.2)
+              : Math.min(-2, particle.speedX * 1.2);
         });
-        
+
         // Then remove canvas after additional time for fade out
         setTimeout(() => {
           if (animationFrame !== null) {
@@ -174,7 +164,6 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
       }
     };
   }, [imagePath, duration]);
-  
 
   return null;
 };
@@ -185,28 +174,53 @@ export default function ConfettiWrapper() {
 
   // Use a ref to track if we've already shown confetti in this page load
   const [hasShownThisSession, setHasShownThisSession] = useState(false);
-  
+
   useEffect(() => {
     // Check if browser environment
     if (typeof window === "undefined") return;
 
     // Check URL parameters for ss trigger
     const searchParams = new URLSearchParams(window.location.search);
-    const ssParam = searchParams.get('ss');
-    
+    const ssParam = searchParams.get("ss");
+
     console.log("Current path:", pathname);
     console.log("ss param:", ssParam);
     console.log("Has shown this session:", hasShownThisSession);
 
     // Only run once on page load when ss=true and not shown yet
-    if (ssParam === 'true' && !hasShownThisSession && !showConfetti) {
+    if (ssParam === "true" && !hasShownThisSession && !showConfetti) {
       console.log("Showing confetti!");
-      
+
       // Mark that we've shown it this session
       setHasShownThisSession(true);
-      
+
       // Show confetti
       setShowConfetti(true);
+
+      // Track confetti display with Umami
+      // Check if it's specifically on the /ss path or contains /ss/
+      if (pathname === "/ss" || pathname.startsWith("/ss/")) {
+        // Create a tracking element if it doesn't exist
+        const trackingElement = document.createElement("div");
+        trackingElement.setAttribute(
+          "data-umami-event",
+          "SS Confetti Displayed"
+        );
+        trackingElement.setAttribute("data-umami-event-path", pathname);
+        trackingElement.setAttribute(
+          "data-umami-event-triggered-by",
+          "url-param"
+        );
+        trackingElement.style.display = "none";
+        document.body.appendChild(trackingElement);
+
+        // Clean up the tracking element after a brief delay
+        setTimeout(() => {
+          if (document.body.contains(trackingElement)) {
+            document.body.removeChild(trackingElement);
+          }
+        }, 100);
+      }
 
       // Hide confetti after it finishes (4 seconds total: 2.5s active + 1.5s fade out)
       setTimeout(() => setShowConfetti(false), 4000);

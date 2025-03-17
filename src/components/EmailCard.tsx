@@ -61,6 +61,7 @@ export const EmailCard = ({ email, isPrimary, work, school }) => {
         <button
           onClick={copyToClipboard}
           className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-gray-50 dark:bg-gray-700/50 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600/50 transition-colors duration-200"
+          data-umami-event="copy_email"
         >
           {copied ? (
             <>

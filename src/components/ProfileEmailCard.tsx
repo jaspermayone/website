@@ -33,7 +33,8 @@ const ProfileEmailCard = ({ email }) => {
         </Link>
         <button
           onClick={copyToClipboard}
-          className="flex items-center justify-center space-x-2 px-3 py-2 rounded bg-gray-200 text-gray-600 hover:bg-gray-300 transition-colors duration-200 outline outline-1 outline-gray-300 text-sm w-full"
+          className="flex items-center justify-center space-x-2 px-3 py-2 rounded bg-gray-200 text-gray-600 hover:bg-gray-300 transition-colors duration-200 outline-1 outline-gray-300 text-sm w-full"
+          data-umami-event="copy_email"
         >
           {copied ? (
             <>

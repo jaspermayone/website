@@ -1,6 +1,6 @@
-import { prisma } from "@/lib/db";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { prisma } from "@/lib/db";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -40,6 +40,7 @@ export default async function NewsletterPage({
               variant="ghost"
               size="sm"
               className="bg-slate-800 hover:bg-slate-500 gap-2 text-whote"
+              data-umami-event="newsletter_id_back"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to Newsletter Homepage

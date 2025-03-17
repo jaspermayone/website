@@ -37,6 +37,7 @@ export default async function Page() {
             variant="ghost"
             size="sm"
             className="hover:bg-gray-100 gap-2 text-gray-600"
+            data-umami-event="newsletter_back"
           >
             <ArrowLeft className="w-4 h-4" />
             Back

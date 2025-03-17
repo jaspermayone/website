@@ -86,6 +86,8 @@ export default function Email() {
               className="text-sm whitespace-nowrap bg-blue-400"
               aria-label="submit"
               disabled={isLoading}
+              data-umami-event="newsletter_submit"
+              data-umami-event-email={email}
             >
               {isLoading ? "Submitting..." : "Submit"}
             </Button>
