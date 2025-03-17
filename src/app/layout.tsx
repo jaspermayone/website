@@ -53,6 +53,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`light ${cuteNotes.variable}`}>
       <head>
+        <script
+          defer
+          src="https://umami.hogwarts.dev/script.js"
+          data-website-id="00bdf44f-0b0b-4c26-bc25-730672583d82"
+        />
         <link
           rel="preconnect"
           href="https://ka-f.fontawesome.com"
