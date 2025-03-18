@@ -26,7 +26,7 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
     }
 
     // Define animation frame reference outside img.onload
-    let animationFrame = null;
+    let animationFrame: number | null = null;
 
     // Load the image
     const img = new Image();
@@ -39,9 +39,21 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
     };
 
     // Define particle type
+    interface Particle {
+      x: number;
+      y: number;
+      size: number;
+      speedX: number;
+      speedY: number;
+      rotation: number;
+      rotationSpeed: number;
+      opacity: number;
+      fadeDirection: number;
+      fadeSpeed: number;
+    }
 
-    // Create confetti particles with type assertion to avoid TypeScript errors
-    const particles = [];
+    // Create confetti particles
+    const particles: Particle[] = [];
     const particleCount = 100;
 
     img.onload = () => {
