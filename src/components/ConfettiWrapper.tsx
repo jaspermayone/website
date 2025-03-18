@@ -30,7 +30,13 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
 
     // Load the image
     const img = new Image();
+    console.log("Loading confetti image:", imagePath);
     img.src = imagePath;
+
+    // Handle image loading error
+    img.onerror = () => {
+      console.error("Failed to load image:", imagePath);
+    };
 
     // Define particle type
 
@@ -171,9 +177,47 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
 export default function ConfettiWrapper() {
   const pathname = usePathname();
   const [showConfetti, setShowConfetti] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   // Use a ref to track if we've already shown confetti in this page load
   const [hasShownThisSession, setHasShownThisSession] = useState(false);
+
+  // Preload both images
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    // Preload both versions of the image
+    const regularImg = new Image();
+    regularImg.src = "/images/ss.png";
+
+    const invertedImg = new Image();
+    invertedImg.src = "/images/ss-inverted.png";
+
+    console.log("Preloaded confetti images");
+  }, []);
+
+  useEffect(() => {
+    // Check if browser environment
+    if (typeof window === "undefined") return;
+
+    // Detect dark mode
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    setIsDarkMode(mediaQuery.matches);
+    console.log("Dark mode detected:", mediaQuery.matches);
+
+    // Add listener for theme changes
+    const handleThemeChange = (e) => {
+      console.log("Theme changed to dark:", e.matches);
+      setIsDarkMode(e.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleThemeChange);
+
+    // Cleanup listener
+    return () => {
+      mediaQuery.removeEventListener("change", handleThemeChange);
+    };
+  }, []);
 
   useEffect(() => {
     // Check if browser environment
@@ -181,7 +225,7 @@ export default function ConfettiWrapper() {
 
     // Check URL parameters for ss trigger
     const searchParams = new URLSearchParams(window.location.search);
-    const ssParam = searchParams.get("ss");
+    const ssParam = searchParams.get("socraticaW25");
 
     console.log("Current path:", pathname);
     console.log("ss param:", ssParam);
@@ -199,14 +243,14 @@ export default function ConfettiWrapper() {
 
       // Track confetti display with Umami
       if (
-        pathname === "/symposiumW25" ||
-        pathname.startsWith("/symposiumW25/")
+        pathname === "/socraticaW25" ||
+        pathname.startsWith("/socraticaW25/")
       ) {
         // Create a tracking element if it doesn't exist
         const trackingElement = document.createElement("div");
         trackingElement.setAttribute(
           "data-umami-event",
-          "SymposiumW25_Confetti"
+          "SocraticaSymposiumW25_Confetti"
         );
         trackingElement.setAttribute("data-umami-event-path", pathname);
         trackingElement.setAttribute(
@@ -230,6 +274,9 @@ export default function ConfettiWrapper() {
   }, [pathname, showConfetti, hasShownThisSession]);
 
   return showConfetti ? (
-    <ImageConfetti imagePath="/images/ss.png" duration={2500} />
+    <ImageConfetti
+      imagePath={isDarkMode ? "/images/ss-inverted.png" : "/images/ss.png"}
+      duration={2500}
+    />
   ) : null;
 }
