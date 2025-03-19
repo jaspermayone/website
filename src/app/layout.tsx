@@ -4,6 +4,7 @@ import { AnimatePresence } from "framer-motion";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
+import MobileRedirect from "@/components/MobileRedirect";
 
 const cuteNotes = localFont({
   src: [
@@ -82,7 +83,9 @@ export default function RootLayout({
           src="https://kit.fontawesome.com/96163f3b63.js"
           crossOrigin="anonymous"
         />
-        <AnimatePresence>{children}</AnimatePresence>
+        <MobileRedirect>
+          <AnimatePresence>{children}</AnimatePresence>
+        </MobileRedirect>
         <SpeedInsights />
       </body>
     </html>
