@@ -100,6 +100,11 @@ const nextConfig = {
         destination: "https://devto.jaspermayone.com",
         permanent: true,
       },
+      {
+        source: "/hackerone",
+        destination: "https://hackerone.jaspermayone.com",
+        permanent: true,
+      },
     ];
   },
   // Bun-specific optimizations

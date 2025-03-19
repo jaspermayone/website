@@ -4,13 +4,16 @@ import Link from "next/link";
 import {
   SiBluesky,
   SiBuymeacoffee,
+  SiDevdotto,
   SiGithub,
+  SiHackerone,
   SiInstagram,
   SiLinkedin,
   SiMatrix,
   SiReddit,
   SiSignal,
   SiThreads,
+  SiX,
   SiYoutube,
 } from "react-icons/si";
 
@@ -153,6 +156,21 @@ const VerifyPage = () => {
       url: "https://reddit.jaspermayone.com",
     },
     {
+      platform: "HackerOne",
+      username: "jmayone",
+      url: "https://hackerone.jaspermayone.com",
+    },
+    {
+      platform: "Twitter/X",
+      username: "jaspermayone",
+      url: "https://x.jaspermayone.com",
+    },
+    {
+      platform: "Dev.to",
+      username: "jaspermayone",
+      url: "https://devto.jaspermayone.com",
+    },
+    {
       platform: "Matrix",
       username: "@jasper.mayone:matrix.org",
       url: "https://matrix.jaspermayone.com",
@@ -198,6 +216,12 @@ const VerifyPage = () => {
         return <SiSignal className="w-4 h-4" />;
       case "reddit":
         return <SiReddit className="w-4 h-4" />;
+      case "hackerone":
+        return <SiHackerone className="w-4 h-4" />;
+      case "twitter/x":
+        return <SiX className="w-4 h-4" />;
+      case "dev.to":
+        return <SiDevdotto className="w-4 h-4" />;
       default:
         return <AtSign className="w-4 h-4" />;
     }

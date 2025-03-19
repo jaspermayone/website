@@ -75,6 +75,7 @@ export default function RootLayout({
         <link rel="me" href="https://buymeacoffee.com/jaspermayone" />
         <link rel="me" href="https://www.reddit.com/user/j-dogcoder" />
         <link rel="me" href="https://matrix.to/#/@jasper.mayone:matrix.org" />
+        <link rel="me" href="https://hackerone.com/jmayone" />
       </head>
       <body className={`${cuteNotes.variable} font-sans`}>
         <Script
