@@ -9,7 +9,13 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-export const EmailCard = ({ email, isPrimary, work, school }) => {
+export const EmailCard = ({
+  email,
+  isPrimary,
+  // isWork,
+  isSchool,
+  isBuisness,
+}) => {
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = async () => {
@@ -34,16 +40,22 @@ export const EmailCard = ({ email, isPrimary, work, school }) => {
               Primary
             </span>
           )}
-          {work && (
+          {/* {isWork && (
             <span className="flex items-center gap-1 bg-cyan-100 dark:bg-cyan-900/50 text-cyan-800 dark:text-cyan-200 text-xs px-2 py-1 rounded-full">
               <Briefcase className="w-3 h-3" />
               Work
             </span>
-          )}
-          {school && (
+          )} */}
+          {isSchool && (
             <span className="flex items-center gap-1 bg-violet-100 dark:bg-violet-900/50 text-violet-800 dark:text-violet-200 text-xs px-2 py-1 rounded-full">
               <GraduationCap className="w-3 h-3" />
               School
+            </span>
+          )}
+          {isBuisness && (
+            <span className="flex items-center gap-1 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 text-xs px-2 py-1 rounded-full">
+              <Briefcase className="w-3 h-3" />
+              Business
             </span>
           )}
         </div>

@@ -10,10 +10,13 @@ import {
   SiInstagram,
   SiLinkedin,
   SiMatrix,
+  SiProducthunt,
   SiReddit,
   SiSignal,
+  SiThingiverse,
   SiThreads,
   SiX,
+  SiYcombinator,
   SiYoutube,
 } from "react-icons/si";
 
@@ -64,6 +67,7 @@ const VerifyPage = () => {
     personal,
     project,
     work,
+    buisness,
     other,
   }
 
@@ -79,12 +83,24 @@ const VerifyPage = () => {
       type: domainType.personal,
     },
     {
+      name: "jsp.lat",
+      type: domainType.personal,
+    },
+    {
       name: "hogwarts.dev",
       type: domainType.personal,
     },
     {
+      name: "hogwarts.channel",
+      type: domainType.personal,
+    },
+    {
       name: "singlefeather.com",
-      type: domainType.work,
+      type: domainType.buisness,
+    },
+    {
+      name: "singlefeather.dev",
+      type: domainType.buisness,
     },
     {
       name: "phish.directory",
@@ -95,18 +111,19 @@ const VerifyPage = () => {
       type: domainType.project,
     },
     {
-      name: "dumpsterfire.icu",
-      type: domainType.other,
+      name: "patchworklabs.org",
+      type: domainType.project,
     },
   ];
 
   const emails = [
     { address: "me@jaspermayone.com", primary: true },
     { address: "jaspermayone@gmail.com" },
-    { address: "jasper.mayone@singlefeather.com", work: true },
+    { address: "jasper.mayone@singlefeather.com", buisness: true },
     { address: "mayonej@wit.edu", school: true },
     { address: "jasper.mayone@phish.directory" },
     { address: "jasper.mayone@everywhere.pub" },
+    { address: "jasper@patchworklabs.org" },
   ];
 
   const accounts = [
@@ -171,6 +188,21 @@ const VerifyPage = () => {
       url: "https://devto.jaspermayone.com",
     },
     {
+      platform: "Product Hunt",
+      username: "jaspermayone",
+      url: "https://producthunt.jaspermayone.com",
+    },
+    {
+      platform: "Hacker News",
+      username: "jaspermayone",
+      url: "https://hackernews.jaspermayone.com",
+    },
+    {
+      platform: "Thingiverse", // Added Thingiverse as an example
+      username: "preamble6098", // Assuming this is the username on Thingiverse
+      url: "https://thingiverse.jaspermayone.com", // Assuming a custom URL for Thingiverse
+    },
+    {
       platform: "Matrix",
       username: "@jasper.mayone:matrix.org",
       url: "https://matrix.jaspermayone.com",
@@ -222,6 +254,13 @@ const VerifyPage = () => {
         return <SiX className="w-4 h-4" />;
       case "dev.to":
         return <SiDevdotto className="w-4 h-4" />;
+      case "product hunt":
+        return <SiProducthunt className="w-4 h-4" />;
+      case "hacker news":
+        // HN doesn't have an official icon, use YCombinator as a placeholder
+        return <SiYcombinator className="w-4 h-4" />;
+      case "thingiverse":
+        return <SiThingiverse className="w-4 h-4" />;
       default:
         return <AtSign className="w-4 h-4" />;
     }
@@ -241,15 +280,36 @@ const VerifyPage = () => {
             <LetterBlock key={index} letter={letter} />
           ))}
         </h1>
-        <p className="text-neutral-500 dark:text-neutral-400 text-[0.60rem]">
+        <p className="text-neutral-500 dark:text-neutral-400 text-[0.60rem] mb-2">
           Inspired by{" "}
           <Link
-            className="underline decoration-wavy hover:text-linkHover dark:hover:text-blue-300 transition-colors duration-300 ease-in-out"
+            className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
             href="https://dunkirk.sh/verify/"
           >
             @Kieran Klukas
           </Link>
           , this page serves as verification of my various accounts.
+        </p>
+        <p>
+          <b className="mt-2 text-neutral-700 dark:text-neutral-300">Note:</b>{" "}
+          This page is intended to be a public record of my online presence and
+          should not be considered exhaustive. If you find an account that is
+          not listed here, please let me know via email or any of the platforms
+          listed below.
+        </p>
+        {/*  add a notice that this page is tracked in version control for anyone who wants to view the history, with link to the file in source control */}
+
+        <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400">
+          This page is tracked in version control. You can view the source code
+          for this page on{" "}
+          <Link
+            href="https://github.com/jaspermayone/website/blob/main/src/app/verify/page.tsx"
+            className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Github
+          </Link>
         </p>
       </header>
 
@@ -323,8 +383,9 @@ const VerifyPage = () => {
                 key={email.address}
                 email={email.address}
                 isPrimary={email.primary}
-                work={email.work}
-                school={email.school}
+                // isWork={email.work}
+                isBuisness={email.buisness}
+                isSchool={email.school}
               />
             ))}
           </div>
