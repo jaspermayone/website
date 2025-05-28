@@ -67,7 +67,7 @@ const VerifyPage = () => {
     personal,
     project,
     work,
-    buisness,
+    business,
     other,
   }
 
@@ -96,11 +96,11 @@ const VerifyPage = () => {
     },
     {
       name: "singlefeather.com",
-      type: domainType.buisness,
+      type: domainType.business,
     },
     {
       name: "singlefeather.dev",
-      type: domainType.buisness,
+      type: domainType.business,
     },
     {
       name: "phish.directory",
@@ -119,7 +119,7 @@ const VerifyPage = () => {
   const emails = [
     { address: "me@jaspermayone.com", primary: true },
     { address: "jaspermayone@gmail.com" },
-    { address: "jasper.mayone@singlefeather.com", buisness: true },
+    { address: "jasper.mayone@singlefeather.com", business: true },
     { address: "mayonej@wit.edu", school: true },
     { address: "jasper.mayone@phish.directory" },
     { address: "jasper.mayone@everywhere.pub" },
@@ -384,7 +384,7 @@ const VerifyPage = () => {
                 email={email.address}
                 isPrimary={email.primary}
                 // isWork={email.work}
-                isBuisness={email.buisness}
+                isBusiness={email.business}
                 isSchool={email.school}
               />
             ))}

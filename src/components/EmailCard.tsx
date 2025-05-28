@@ -14,7 +14,7 @@ export const EmailCard = ({
   isPrimary,
   // isWork,
   isSchool,
-  isBuisness,
+  isBusiness,
 }) => {
   const [copied, setCopied] = useState(false);
 
@@ -52,7 +52,7 @@ export const EmailCard = ({
               School
             </span>
           )}
-          {isBuisness && (
+          {isBusiness && (
             <span className="flex items-center gap-1 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 text-xs px-2 py-1 rounded-full">
               <Briefcase className="w-3 h-3" />
               Business
