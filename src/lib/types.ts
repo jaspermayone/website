@@ -1,18 +1,4 @@
-export interface Newsletter {
-  id: string;
-  subject: string;
-  content: string;
-  htmlContent: string;
-  receivedAt: Date;
-  fromEmail: string;
-}
-
-export type MenuItemType =
-  | "Homepage"
-  | "Resume"
-  | "Portfolio"
-  | "Newsletter"
-  | "Verify";
+export type MenuItemType = "Homepage" | "Resume" | "Portfolio" | "Verify";
 
 export type Project = {
   title: string;
