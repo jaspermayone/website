@@ -15,3 +15,10 @@ export interface ExperienceItem {
   date: string;
   link: string;
 }
+
+
+export interface RedirectItem {
+  slug: string;
+  destination: string;
+  linkrelme: boolean
+}
