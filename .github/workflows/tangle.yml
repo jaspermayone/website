@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: gwennlbh/to-tangled@v0.3
         with:
-          repo: yourself.bsky.social/your-repo
+          repo: jaspermayone.com/website
           ssh-key: ${{ secrets.TANGLED_KEY }}
 
