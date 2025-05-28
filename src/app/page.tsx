@@ -39,9 +39,11 @@ export default function Home() {
   }, []);
 
   // Use the theme state to determine image path
-  const imgpath = isLightMode
-    ? "/images/jmdark-min.jpg"
-    : "/images/jmlite-min.jpg";
+  // const imgpath = isLightMode
+  //   ? "/images/jmdark-min.jpeg"
+  //   : "/images/jmlite-min.jpeg";
+
+  const imgpath = "/images/jmdark-min.jpeg";
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear().toString());

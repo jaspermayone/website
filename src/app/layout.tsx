@@ -96,6 +96,8 @@ category: "Personal",
 
 const jsonLdData = {
   "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jasper Mayone",
   "@graph": [
     {
       "@type": "Person",
@@ -206,6 +208,68 @@ const jsonLdData = {
         ]
       }
     }
+  ],
+  "mentions": [
+   {
+    "@type": "Article",
+    "url": "https://www.valleyplayers.com/oliver-2019",
+    "publisher": "Valley Players"
+   },
+   {
+    "@type": "Article",
+    "url": "https://www.valleyplayers.com/past-shows-1/oliver---revival",
+    "publisher": "Valley Players"
+   },
+   {
+    "@type": "Article",
+    "url": "https://www.ourherald.com/articles/the-valley-players-will-present-the-mousetrap-in-waitsfield/",
+    "publisher": "Our Herald"
+   },
+   {
+    "@type": "Article",
+    "url": "https://www.waterburyroundabout.org/community-archive/whwso8o3u19jbcj9gi50mzcdi6tm8d",
+    "publisher": "Waterbury Roundabout"
+   },
+   {
+    "@type": "Article",
+    "url": "https://theaterengine.com/productions/2702",
+    "publisher": "Theater Engine"
+   },
+   {
+    "@type": "Article",
+    "url": "https://huhsnewspaper.com/staff_name/jasper-mayone/",
+    "publisher": "Harwood Union High School Newspaper"
+   },
+   {
+    "@type": "Organization",
+    "url": "https://www.madrivermentoring.com/staff",
+    "name": "Mad River Mentoring"
+   },
+   {
+    "@type": "Article",
+    "url": "https://www.waterburyroundabout.org/education/yc7o3f5vz3lvmvi8ea3lgxzett17y7",
+    "publisher": "Waterbury Roundabout"
+   },
+   {
+    "@type": "Article",
+    "url": "https://www.sevendaysvt.com/guides/the-art-of-a-frame-building-35270341",
+    "publisher": "Seven Days"
+   },
+   {
+    "@type": "Article",
+    "url": "https://archive.nytimes.com/query.nytimes.com/gst/fullpage-9F06E4DE153AF936A35750C0A96F9C8B63.html",
+    "publisher": "New York Times"
+   },
+   {
+    "@type": "Article",
+    "url": "https://www.valleyreporter.com/index.php/news/artsent/18053-willy-wonka-a-world-of-pure-imagination",
+    "publisher": "The Valley Reporter" 
+   },
+   {
+    "@type": "Article",
+    "url": "https://www.valleyreporter.com/index.php/news/artsent/18031-willy-wonka-coming-to-the-valley-players",
+    "publisher": "The Valley Reporter" 
+   }
   ]
 }
 
@@ -228,6 +292,7 @@ export default function RootLayout({
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://umami.hogwarts.dev" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="alternate" type="application/rss+xml" href="/press.xml" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
