@@ -135,8 +135,7 @@ async function getDynamicRoutes(): Promise<Route[]> {
 }
 
 function createUrlEntry(baseUrl: string, route: Route): string {
-  return `
-  <url>
+  return `  <url>
     <loc>${baseUrl}${route.path}</loc>
     <lastmod>${route.lastmod}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
