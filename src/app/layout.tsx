@@ -264,6 +264,13 @@ export default function RootLayout({
           <link rel="me" href={redirect.destination}/>
         ))}
 
+       <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(jsonLdData)
+          }}
+        />
+
         <meta name="apple-mobile-web-app-title" content="Jasper Mayone" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
