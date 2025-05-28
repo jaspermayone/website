@@ -261,7 +261,7 @@ export default function RootLayout({
         />
 
         {redirects.map((redirect) => (
-          <link rel="me" href={redirect.destination}/>
+          <link rel="me" href={redirect.destination} key={redirect.slug}/>
         ))}
 
        <script
