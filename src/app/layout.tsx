@@ -1,6 +1,5 @@
-import "@/styles/globals.css"; // Add this line
+import "@/styles/globals.css"; 
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { AnimatePresence } from "framer-motion";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
   },
   description:
     "Personal Website of Jasper Mayone. A circus performer, coder, and photographer.",
-  applicationName: "jaspermayone.com",
+  applicationName: "Jasper Mayone",
   keywords: ["Jasper", "Mayone", "Jasper Mayone"],
   authors: [
     {
@@ -54,6 +53,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`light ${cuteNotes.variable}`}>
       <head>
+        <meta charSet="utf-8" />
+        <meta name="og:type" content="website" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <script
           defer
           src="https://umami.hogwarts.dev/script.js"
@@ -64,7 +66,6 @@ export default function RootLayout({
           href="https://ka-f.fontawesome.com"
           crossOrigin="anonymous"
         />
-        <meta property="og:image" content="https://jaspermayone.com/api/og" />
         <link rel="icon" href="/icon" sizes="any" />
         <link rel="me" href="https://github.com/jaspermayone" />
         <link rel="me" href="https://www.linkedin.com/in/jaspermayone" />
@@ -84,7 +85,7 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         <MobileRedirect>
-          <AnimatePresence>{children}</AnimatePresence>
+          {children}
         </MobileRedirect>
         <SpeedInsights />
       </body>

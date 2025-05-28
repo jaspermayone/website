@@ -9,7 +9,6 @@ import RoundedImage from "@/components/RoundedImage";
 import SquigglyLine from "@/components/SquigglyLine";
 import { MenuItemType } from "@/lib/types";
 import styles from "@/styles/Home.module.css";
-import { motion } from "framer-motion";
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -63,11 +62,7 @@ export default function Home() {
     switch (selectedTab) {
       case "Homepage":
         return (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ type: "spring", duration: 1.5 }}
-          >
+          <div>
             <ConfettiWrapper />
             <Head>
               <link rel="preload" as="image" href={imgpath} />
@@ -152,20 +147,12 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </motion.div>
+            </div>
         );
-      default:
-        return null;
-    }
-  };
+}
+  }
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ type: "spring", duration: 1.5 }}
-      className="flex justify-center items-center min-h-screen"
-    >
       <div className={styles.container}>
         <div className={styles.top}>
           <AnimatedTitle />
@@ -173,19 +160,7 @@ export default function Home() {
         </div>
 
         <div className={styles.contentBox}>
-          <motion.div
-            key={selectedTab}
-            variants={fadeVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            transition={{
-              opacity: { duration: 0.5 },
-              filter: { duration: 0.5 },
-            }}
-          >
-            {renderContent()}
-          </motion.div>
+          {renderContent()}
         </div>
         <footer className="flex flex-col items-center mb-3.5 -mt-4">
           <div className="flex items-center justify-center">
@@ -215,6 +190,5 @@ export default function Home() {
           </div>
         </footer>
       </div>
-    </motion.div>
   );
 }

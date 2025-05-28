@@ -4,7 +4,6 @@ import MainMenu from "@/components/MainMenu";
 import SquigglyLine from "@/components/SquigglyLine";
 import { MenuItemType, Project } from "@/lib/types";
 import styles from "@/styles/Projects.module.css";
-import { motion } from "framer-motion";
 import { ExternalLink, Github } from "lucide-react";
 // import { Metadata } from "next";
 import Image from "next/image";
@@ -59,14 +58,7 @@ export default function Portfolio() {
         <div className="h-full overflow-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <motion.div
-                key={index}
-                className="group bg-white dark:bg-gray-900 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
+              <div>
                 <div className="relative overflow-hidden aspect-video">
                   <Image
                     src={project.image}
@@ -108,7 +100,7 @@ export default function Portfolio() {
                     <ExternalLink className="w-4 h-4" />
                   </a>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
