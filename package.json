@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "bunx --bun next dev",
     "build": "bunx --bun next build",
+    "postbuild": "next-sitemap",
     "start": "bunx --bun next start",
     "lint": "bunx --bun next lint",
     "analyze": "ANALYZE=true bunx --bun next build"
@@ -32,6 +33,7 @@
     "lucide-react": "^0.475.0",
     "next": "15.1.7",
     "next-auth": "^4.24.11",
+    "next-sitemap": "^4.2.3",
     "path": "^0.12.7",
     "react": "19.0.0",
     "react-dom": "19.0.0",
