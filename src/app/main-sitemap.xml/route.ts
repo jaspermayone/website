@@ -1,6 +1,4 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
 
 // Types
 interface Route {
@@ -10,30 +8,19 @@ interface Route {
   priority: string;
 }
 
-// interface DynamicContentItem {
-//   slug: string;
-//   updatedAt: string;
-// }
-
-// interface BlogPost extends DynamicContentItem {
-//   title: string;
-//   published: boolean;
-// }
-
 export async function GET(): Promise<NextResponse> {
   const baseUrl = 'https://jaspermayone.com';
   
   try {
-    // Get all page files from your app directory
-    const pagesDirectory = path.join(process.cwd(), 'src','app');
-    const staticRoutes = getRoutes(pagesDirectory);
+    // Define your static routes manually
+    const staticRoutes = getStaticRoutes();
     
     // Fetch dynamic content
     const dynamicRoutes = await getDynamicRoutes();
     
     const allRoutes: Route[] = [...staticRoutes, ...dynamicRoutes];
     
-    const urls = allRoutes.map(route => createUrlEntry(baseUrl, route)).join('');
+    const urls = allRoutes.map(route => createUrlEntry(baseUrl, route)).join('\n');
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -52,70 +39,46 @@ ${urls}
   }
 }
 
-function getRoutes(dir: string, basePath: string = ''): Route[] {
-  const routes: Route[] = [];
+// Define your static routes manually - update this when you add new pages
+function getStaticRoutes(): Route[] {
+  const currentDate = new Date().toISOString();
   
-  if (!fs.existsSync(dir)) {
-    return routes;
-  }
+  const routes: Route[] = [
+    {
+      path: '/',
+      lastmod: currentDate,
+      changefreq: 'daily',
+      priority: '1.0'
+    },
+    {
+      path: '/portfolio',
+      lastmod: currentDate,
+      changefreq: 'weekly',
+      priority: '0.9'
+    },
+    {
+      path: '/verify',
+      lastmod: currentDate,
+      changefreq: 'daily',
+      priority: '0.9'
+    },
+    // Add more static routes here as needed
+    // {
+    //   path: '/services',
+    //   lastmod: currentDate,
+    //   changefreq: 'weekly',
+    //   priority: '0.8'
+    // },
+  ];
 
-  const files = fs.readdirSync(dir);
-  
-  files.forEach(file => {
-    const filePath = path.join(dir, file);
-    
-    try {
-      const stat = fs.statSync(filePath);
-      
-      if (stat.isDirectory() && shouldIncludeDirectory(file)) {
-        routes.push(...getRoutes(filePath, `${basePath}/${file}`));
-      } else if (isPageFile(file)) {
-        const route: Route = {
-          path: basePath || '/',
-          lastmod: stat.mtime.toISOString(),
-          changefreq: getChangeFrequency(basePath),
-          priority: getPriority(basePath)
-        };
-        routes.push(route);
-      }
-    } catch (error) {
-      console.warn(`Error processing file ${filePath}:`, error);
-    }
-  });
-  
   return routes;
-}
-
-function shouldIncludeDirectory(dirname: string): boolean {
-  // Exclude Next.js special directories and hidden folders
-  const excludedDirs = ['_', '.', 'api', 'globals', 'favicon'];
-  return !excludedDirs.some(excluded => dirname.startsWith(excluded));
-}
-
-function isPageFile(filename: string): boolean {
-  // Next.js App Router page files
-  const pageFiles = ['page.tsx', 'page.ts', 'page.jsx', 'page.js'];
-  return pageFiles.includes(filename);
-}
-
-function getChangeFrequency(path: string): Route['changefreq'] {
-  if (path === '' || path === '/') return 'daily';
-//   if (path.includes('/blog/')) return 'monthly';
-  return 'weekly';
-}
-
-function getPriority(path: string): string {
-  if (path === '' || path === '/') return '1.0';
-//   if (path.includes('/blog/')) return '0.6';
-  if (path.includes('/about') || path.includes('/contact') || path.includes('/verify')) return '0.9';
-  return '0.7';
 }
 
 async function getDynamicRoutes(): Promise<Route[]> {
   const routes: Route[] = [];
   
   try {
-    // Fetch blog posts
+    // Example: Fetch blog posts from an API or CMS
     // const posts = await fetchBlogPosts();
     // const postRoutes: Route[] = posts
     //   .filter(post => post.published)
@@ -125,8 +88,12 @@ async function getDynamicRoutes(): Promise<Route[]> {
     //     changefreq: 'monthly' as const,
     //     priority: '0.6'
     //   }));
-    
     // routes.push(...postRoutes);
+
+    // Example: Fetch from a headless CMS like Contentful, Sanity, etc.
+    // const cmsContent = await fetchFromCMS();
+    // routes.push(...cmsContent.map(item => ({...})));
+    
   } catch (error) {
     console.warn('Error fetching dynamic routes:', error);
   }
@@ -143,9 +110,8 @@ function createUrlEntry(baseUrl: string, route: Route): string {
   </url>`;
 }
 
-// // Mock data fetching functions - replace with your actual implementations
-// async function fetchBlogPosts(): Promise<BlogPost[]> {
-//   // Replace with your actual API call or database query
+// Example function for fetching blog posts from an API
+// async function fetchBlogPosts(): Promise<Array<{slug: string, updatedAt: string, published: boolean}>> {
 //   try {
 //     const response = await fetch('https://api.yoursite.com/posts', {
 //       next: { revalidate: 3600 } // Cache for 1 hour
@@ -155,18 +121,9 @@ function createUrlEntry(baseUrl: string, route: Route): string {
 //       throw new Error(`HTTP error! status: ${response.status}`);
 //     }
     
-//     const posts: BlogPost[] = await response.json();
-//     return posts;
+//     return await response.json();
 //   } catch (error) {
 //     console.warn('Failed to fetch blog posts:', error);
-//     // Return mock data or empty array
-//     return [
-//       {
-//         slug: 'sample-post',
-//         title: 'Sample Post',
-//         updatedAt: new Date().toISOString(),
-//         published: true
-//       }
-//     ];
+//     return [];
 //   }
 // }
