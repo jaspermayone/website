@@ -200,11 +200,15 @@ const jsonLdData = {
    {
     "@type": "Article",
     "url": "https://www.valleyplayers.com/oliver-2019",
+    "image": "https://static.wixstatic.com/media/70c1f7_16617a7e14a342168a8dc67e26375db1~mv2.jpg/v1/fill/w_582,h_442,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/P1100936%20(2)_JPG.jpg",
+    "author": "Valley Players",
     "publisher": "Valley Players"
    },
    {
     "@type": "Article",
     "url": "https://www.valleyplayers.com/past-shows-1/oliver---revival",
+    "image": "https://static.wixstatic.com/media/70c1f7_16617a7e14a342168a8dc67e26375db1~mv2.jpg/v1/fill/w_582,h_442,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/P1100936%20(2)_JPG.jpg",
+    "author": "Valley Players",
     "publisher": "Valley Players"
    },
    {
