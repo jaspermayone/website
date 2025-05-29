@@ -107,19 +107,25 @@ const jsonLdData = {
       "familyName": "Mayone",
       "gender": "male",
       "pronouns": "he/they",
-      "age": 18,
       "description": "18-year-old post high school graduate from rural Vermont. Circus performer, coder, and photographer pursuing a gap year after graduating high school a year early.",
       "url": "https://jaspermayone.com",
       "birthPlace": {
         "@type": "Place",
         "name": "Vermont",
-        "addressCountry": "US"
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Vermont",
+          "addressCountry": "US"
+        }
       },
       "homeLocation": {
         "@type": "Place",
         "name": "Rural Vermont",
-        "addressRegion": "Vermont",
-        "addressCountry": "US"
+        "address": {
+          "@type": "PostalAddress",
+          "addressRegion": "Vermont",
+          "addressCountry": "US"
+        }
       },
       "knowsAbout": [
         "Circus Arts",
@@ -129,25 +135,6 @@ const jsonLdData = {
         "Event Organization",
         "Leadership",
         "Business Development"
-      ],
-      "hasSkill": [
-        "Circus Performance",
-        "Software Development",
-        "Photography",
-        "Film Production",
-        "Event Management", 
-        "Project Coordination",
-        "Leadership"
-      ],
-      "interestIn": [
-        "Reading",
-        "Outdoor Activities",
-        "Photography",
-        "Computer Programming",
-        "Cooking",
-        "Circus Arts",
-        "Environmental Issues",
-        "Business Ventures"
       ],
       "alumniOf": {
         "@type": "EducationalOrganization",
