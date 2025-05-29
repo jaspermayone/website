@@ -13,6 +13,7 @@ import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import JmDark from "@public/images/jmdark-min.jpeg";
+import JmLight from "@public/images/jmlite-min.jpeg";
 
 export default function Home() {
   const [currentYear, setCurrentYear] = useState("");
@@ -39,11 +40,7 @@ export default function Home() {
     }
   }, []);
 
-  // Use the theme state to determine image path
-  // const imgpath = isLightMode
-  //   ? "/images/jmdark-min.jpeg"
-  //   : "/images/jmlite-min.jpeg";
-
+  const imgpath = isLightMode ? JmDark : JmLight;
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear().toString());
@@ -69,7 +66,7 @@ export default function Home() {
             <div className="flex flex-col md:flex-row gap-8 items-top -mt-8 mx-5">
               <div className="w-64 flex-shrink-0 mt-8">
                 <RoundedImage
-                  src={JmDark}
+                  src={imgpath}
                   alt="Jasper Mayone"
                   size={250}
                   isPriority={true} // Add priority for above-the-fold images
