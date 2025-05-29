@@ -38,7 +38,13 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 const nextConfig = {
   async redirects() {
-    return [];
+    return [
+      {
+        source: "/repo",
+        destination: "https://github.jaspermayone.com/website",
+        permanent: true,
+      }
+    ];
   },
   // Bun-specific optimizations
   experimental: {
