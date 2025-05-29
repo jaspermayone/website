@@ -23,6 +23,7 @@ const RoundedImage: React.FC<RoundedImageProps> = ({
       height={size}
       aria-label={alt}
       loading={isPriority ? undefined : loading} // Remove loading prop when priority is true
+      placeholder="blur"
       priority={isPriority}
       className="border-2 border-dotted border-stone-950 dark:border-stone-50 rounded-[10%]"
       style={{
