@@ -1,7 +1,8 @@
 import Image from "next/image";
+import Head from "next/head";
 
 interface RoundedImageProps {
-  src: string;
+  src
   alt: string;
   size: number;
   loading?: "lazy" | "eager";
@@ -16,6 +17,10 @@ const RoundedImage: React.FC<RoundedImageProps> = ({
   isPriority = false,
 }) => {
   return (
+    <>
+    <Head>
+      <link rel="preload" href={src} as="image" />
+    </Head>
     <Image
       src={src}
       alt={alt}
@@ -31,6 +36,7 @@ const RoundedImage: React.FC<RoundedImageProps> = ({
         height: "auto",
       }}
     />
+    </>
   );
 };
 

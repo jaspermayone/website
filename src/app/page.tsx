@@ -12,6 +12,7 @@ import styles from "@/styles/Home.module.css";
 import Head from "next/head";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import JmDark from "@public/images/jmdark-min.jpeg";
 
 export default function Home() {
   const [currentYear, setCurrentYear] = useState("");
@@ -43,7 +44,6 @@ export default function Home() {
   //   ? "/images/jmdark-min.jpeg"
   //   : "/images/jmlite-min.jpeg";
 
-  const imgpath = "/images/jmdark-min.jpeg";
 
   useEffect(() => {
     setCurrentYear(new Date().getFullYear().toString());
@@ -66,13 +66,10 @@ export default function Home() {
         return (
           <div>
             <ConfettiWrapper />
-            <Head>
-              <link rel="preload" as="image" href={imgpath} />
-            </Head>
             <div className="flex flex-col md:flex-row gap-8 items-top -mt-8 mx-5">
               <div className="w-64 flex-shrink-0 mt-8">
                 <RoundedImage
-                  src={imgpath}
+                  src={JmDark}
                   alt="Jasper Mayone"
                   size={250}
                   isPriority={true} // Add priority for above-the-fold images
@@ -164,31 +161,21 @@ export default function Home() {
         <div className={styles.contentBox}>
           {renderContent()}
         </div>
-        <footer className="flex flex-col items-center mb-3.5 -mt-4">
-          <div className="flex items-center justify-center">
-            <p className="text-xs mr-1.5">
-              © 2024-{currentYear || "2025"} Jasper Mayone
+        <footer className="flex flex-col items-center">
+          <div className="flex items-center justify-center gap-1.5 py-2">
+
+            <span className="text-xs text-gray-600">
+              Not made by a 🤖 |
+            </span>
+
+            <p className="text-xs text-gray-600">
+              © {currentYear || "2025"} Jasper Mayone |
             </p>
-            <div className="hidden md:block">
+
+            <div>
               <CommitHash />
             </div>
-            <span className="text-xs ml-1.5">
-              You can verify my identity{" "}
-              <Link
-                className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
-                href="/verify"
-              >
-                here.
-              </Link>
-            </span>
-            <span className="text-xs ml-1.5">
-              I can be reached at{" "}
-              <u className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300">
-                <Link rel="me" href={"mailto:me@jaspermayone.com"}>
-                  me@jaspermayone.com
-                </Link>
-              </u>
-            </span>
+
           </div>
         </footer>
       </div>

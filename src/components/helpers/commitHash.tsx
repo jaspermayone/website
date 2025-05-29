@@ -15,8 +15,8 @@ export default function CommitHash() {
   });
   return (
     <div>
-      <span className="sticky hidden text-xs sm:block">
-        v{process.env.APP_VERSION} |{" "}
+      <span className="sticky hidden text-xs sm:block text-gray-600">
+        v{process.env.APP_VERSION} {"("}
         <a
           className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
           href={`https://github.jaspermayone.com/website/tree/${process.env.COMMIT_HASH}`}
@@ -27,8 +27,8 @@ export default function CommitHash() {
           >
             {process.env.COMMIT_HASH}
           </Tooltip>
-        </a>{" "}
-        from {formattedCommitDate}
+        </a>{")"}{" "}
+        from {formattedCommitDate}.
       </span>
     </div>
   );

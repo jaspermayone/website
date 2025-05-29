@@ -38,74 +38,7 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
 
 const nextConfig = {
   async redirects() {
-    return [
-      {
-        source: "/socraticaW25",
-        destination: "/?socraticaW25=true",
-        permanent: false,
-        basePath: false,
-      },
-      {
-        source: "/github",
-        destination: "github.jaspermayone.com",
-        permanent: true,
-      },
-      {
-        source: "/linkedin",
-        destination: "linkedin.jaspermayone.com",
-        permanent: true,
-      },
-      {
-        source: "/bluesky",
-        destination: "https://bluesky.jaspermayone.com",
-        permanent: true,
-      },
-      {
-        source: "/threads",
-        destination: "https://threads.jaspermayone.com",
-        permanent: true,
-      },
-      {
-        source: "/x",
-        destination: "https://x.jaspermayone.com",
-        permanent: true,
-      },
-      {
-        source: "/twitter",
-        destination: "https://twitter.jaspermayone.com",
-        permanent: true,
-      },
-      {
-        source: "/youtube",
-        destination: "https://youtube.jaspermayone.com",
-        permanent: true,
-      },
-      {
-        source: "/coffee",
-        destination: "https://coffee.jaspermayone.com",
-        permanent: true,
-      },
-      {
-        source: "/reddit",
-        destination: "https://reddit.jaspermayone.com",
-        permanent: true,
-      },
-      {
-        source: "/matrix",
-        destination: "https://matrix.jaspermayone.com",
-        permanent: true,
-      },
-      {
-        source: "/devto",
-        destination: "https://devto.jaspermayone.com",
-        permanent: true,
-      },
-      {
-        source: "/hackerone",
-        destination: "https://hackerone.jaspermayone.com",
-        permanent: true,
-      },
-    ];
+    return [];
   },
   // Bun-specific optimizations
   experimental: {
