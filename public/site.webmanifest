@@ -1,6 +1,7 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "Jasper Mayone",
+  "short_name": "Jasper Mayone",
+  "description": "Creative organizer from Vermont with passion for programming, photography and adventure. Turning big ideas into meaningful projects.",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
