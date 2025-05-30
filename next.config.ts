@@ -43,7 +43,32 @@ const nextConfig = {
         source: "/repo",
         destination: "https://github.jaspermayone.com/website",
         permanent: true,
-      }
+      },
+      {
+        source: "/hello",
+        destination: "/contact",
+        permanent: true,
+      },
+      {
+        source: "/defaults",
+        destination: "/uses",
+        permanent: true,
+      },
+      // {
+      //   source: "/tip",
+      //   destination: "/to/buy-me-a-coffee",
+      //   permanent: true,
+      // },
+      // {
+      //   source: "/coffee",
+      //   destination: "/to/buy-me-a-coffee",
+      //   permanent: true,
+      // },
+      // {
+      //   source: "/pay",
+      //   destination: "/to/buy-me-a-coffee",
+      //   permanent: true,
+      // },
     ];
   },
   // Bun-specific optimizations
