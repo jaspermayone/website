@@ -94,13 +94,12 @@ export default function PageNavigation() {
         {pages.map((item) => (
           <div key={item} className={styles.menuItemContainer}>
             <p
-              className={styles.menuItem}
+              className={`${styles.menuItem} ${item === selectedTab ? "lnk" : ""}`}
               onClick={() => handleMenuClick(item)}
               title={`Go to ${item}`}
             >
               /{item}
             </p>
-            {item === selectedTab && <div className={styles.activeIndicator} />}
           </div>
         ))}
       </div>
