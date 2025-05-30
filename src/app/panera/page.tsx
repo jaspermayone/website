@@ -1,6 +1,11 @@
 import { PaneraCard } from "@/components/PaneraCard";
 import Image from "next/image";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+    title: "Panera",
+    description: "What I usually get at Panera, in case anyone wants to get me Panera.",
+  };
 
 export default function Panera() {
     return (

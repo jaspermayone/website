@@ -5,8 +5,13 @@ import dark from "@public/images/profiles/jmdark-min.jpeg"
 import lite from "@public/images/profiles/jmlite-min.jpeg"
 import circus from "@public/images/profiles/circus.jpg"
 import waves from "@public/images/profiles/waves.png"
+import AnimatedTitle from "@/components/AnimatedTitle"
+import { Metadata } from "next";
 
-
+export const metadata: Metadata = {
+    title: "PFPs",
+    description: "All the profile photos I've used over the years.",
+  };
 
 export default function PFP() {
 
@@ -20,7 +25,8 @@ let paths = [
     
     
     return (
-        <div className="m-2">
+        <div className="m-3.5">
+        <AnimatedTitle firstWord="PFPs"/>
         <p>Here's all the profile photos I've used over the years</p>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

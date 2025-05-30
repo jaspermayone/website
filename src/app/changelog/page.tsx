@@ -1,38 +1,59 @@
-"use client"
-import { useState, useEffect } from 'react';
 import { formatDistanceToNow } from 'date-fns';
+import AnimatedTitle from '@/components/AnimatedTitle';
+import { Metadata } from "next";
+import { Commit, GitHubCommitResponse } from "@/lib/interfaces";
 
-interface Commit {
-  hash: string;
-  date: string;
-  author: string;
-  email: string;
-  message: string;
-  url?: string;
-  avatar?: string;
+
+async function getGitHubCommits(limit: number = 50): Promise<Commit[]> {
+  const owner = "jaspermayone";
+  const repo = "website";
+
+  try {
+    const headers: HeadersInit = {
+      'Accept': 'application/vnd.github.v3+json',
+      'User-Agent': 'NextJS-Changelog-App'
+    };
+
+    const response = await fetch(
+      `https://api.github.com/repos/${owner}/${repo}/commits?per_page=${limit}`,
+      { headers }
+    );
+
+    if (!response.ok) {
+      if (response.status === 403) {
+        throw new Error('GitHub API rate limit exceeded or repository access denied');
+      }
+      throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+    }
+
+    const commits: GitHubCommitResponse[] = await response.json();
+
+    return commits.map(commit => ({
+      hash: commit.sha,
+      date: commit.commit.author.date,
+      author: commit.commit.author.name,
+      email: commit.commit.author.email,
+      message: commit.commit.message,
+      url: commit.html_url,
+      avatar: commit.author?.avatar_url || null
+    }));
+
+  } catch (error) {
+    console.error('GitHub API request failed:', error);
+    throw error;
+  }
 }
 
-export default function Changelog() {
-  const [commits, setCommits] = useState<Commit[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+export const metadata: Metadata = {
+    title: "Changelog",
+    description: "Website changelog",
+};
+  
 
-  useEffect(() => {
-    fetchCommits();
-  }, []);
+export default async function Changelog() {
 
-  const fetchCommits = async (): Promise<void> => {
-    try {
-      const response = await fetch('/api/commits');
-      if (!response.ok) throw new Error('Failed to fetch commits');
-      const data: Commit[] = await response.json();
-      setCommits(data);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
-    } finally {
-      setLoading(false);
-    }
-  };
+  const commits = await getGitHubCommits();
+
 
   const formatCommitMessage = (message: string) => {
     // Split commit message into title and description
@@ -80,43 +101,12 @@ export default function Changelog() {
     return icons[type] || icons.change;
   };
 
-  if (loading) {
+
     return (
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center">
-            <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto"></div>
-            <p className="mt-4 text-gray-600">Loading changelog...</p>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="min-h-screen bg-gray-50 py-12">
-        <div className="max-w-4xl mx-auto px-4">
-          <div className="text-center">
-            <div className="text-red-600 text-xl mb-4">⚠️ Error loading changelog</div>
-            <p className="text-gray-600">{error}</p>
-            <button 
-              onClick={fetchCommits}
-              className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-            >
-              Retry
-            </button>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-4xl mx-auto px-4">
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Changelog</h1>
+          <AnimatedTitle firstWord="Changelog"/>
           <p className="text-xl text-gray-600">Latest updates and changes to jaspermayone.com</p>
         </div>
 

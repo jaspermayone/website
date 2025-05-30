@@ -1,6 +1,12 @@
 
 import { formatRelative} from 'date-fns';
+import AnimatedTitle from "@/components/AnimatedTitle";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+    title: "Now",
+    description: "What I'm currently doing.",
+  };
 
 export default async function Green() {
 
@@ -23,6 +29,7 @@ console.log(posts)
 
     return (
  <div className='m-5'>
+          <AnimatedTitle firstWord="Now"/>
           <div className="space-y-3">
             {posts.map((post, index) => (
               <div key={index} className="flex items-start gap-3">

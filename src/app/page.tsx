@@ -151,7 +151,7 @@ export default function Home() {
   return (
       <div className={styles.container}>
         <div className={styles.top}>
-          <AnimatedTitle />
+          <AnimatedTitle firstWord="Jasper" secondWord="Mayone"/>
           <MainMenu selectedTab={selectedTab} onMenuClick={setSelectedTab} />
         </div>
 

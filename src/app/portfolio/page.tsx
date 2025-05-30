@@ -1,66 +1,46 @@
-"use client";
-import AnimatedProjectsTitle from "@/components/AnimatedProjectsTitle";
-import MainMenu from "@/components/MainMenu";
+import AnimatedTitle from "@/components/AnimatedTitle";
 import SquigglyLine from "@/components/SquigglyLine";
-import { MenuItemType, Project } from "@/lib/types";
-import styles from "@/styles/Projects.module.css";
-import { ExternalLink, Github } from "lucide-react";
-// import { Metadata } from "next";
+import { projects } from "@/lib/defs";
+import { ExternalLink } from "lucide-react";
+import { Metadata } from "next";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { GitHubLogoIcon } from "@radix-ui/react-icons";
 
-// export const metadata: Metadata = {
-//   title: "Portfolio",
-//   description: "A showcase of my projects and accomplishments.",
-// };
+export const metadata: Metadata = {
+  title: "Portfolio",
+  description: "A showcase of my projects and accomplishments.",
+};
+
 
 export default function Portfolio() {
-  const [selectedTab, setSelectedTab] = useState<MenuItemType>("Portfolio");
-  const [projects, setProjects] = useState<Project[]>([]);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const response = await fetch("/api/projects");
-        const data: Project[] = await response.json();
-        setProjects(data);
-      } catch (error) {
-        console.error("Failed to fetch projects:", error);
-      }
-    };
-    fetchProjects();
-  }, []);
 
   return (
     <div className="h-screen flex flex-col bg-lite">
-      {/* Fixed Header Section */}
-      <header className="flex-none px-6 py-4 bg-lite">
-        <div className={styles.title}>
-          <AnimatedProjectsTitle />
-        </div>
-        <div className="-mt-8">
-          <MainMenu selectedTab={selectedTab} onMenuClick={setSelectedTab} />
-        </div>
-        <div className="py-1" />
-        <SquigglyLine
-          height={10}
-          frequency={25}
-          amplitude={1.2}
-          strokeWidth={1.5}
-          className="w-full"
-          color="#4299e1"
-        />
-        <div className="py-2" />
-      </header>
+    <header className="flex-none px-6 py-4 bg-lite">
+      <div className="flex flex-col items-center">
+        <AnimatedTitle firstWord="Portfolio" />
+      </div>
+      <div className="py-1" />
+      <SquigglyLine
+        height={10}
+        frequency={25}
+        amplitude={1.2}
+        strokeWidth={1.5}
+        className="w-full"
+        color="#4299e1"
+      />
+      <div className="py-2" />
+    </header>
 
       {/* Scrollable Projects Section */}
       <main className="flex-1 overflow-y-auto px-6 pb-12">
         <div className="h-full overflow-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project, index) => (
-              <div>
+              <div key={index}>
                 <div className="relative overflow-hidden aspect-video">
                   <Image
+                    priority={true}
                     src={project.image}
                     alt={project.title}
                     width={500}
@@ -95,7 +75,7 @@ export default function Portfolio() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2 bg-blue-400 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors"
                   >
-                    <Github className="w-4 h-4" />
+                    <GitHubLogoIcon className="w-4 h-4" />
                     View Project
                     <ExternalLink className="w-4 h-4" />
                   </a>

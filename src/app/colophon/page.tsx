@@ -1,4 +1,11 @@
 import { Code, Globe, Laptop, Wrench, ExternalLink, History, Server, User } from 'lucide-react';
+import AnimatedTitle from '@/components/AnimatedTitle';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: "Colophon",
+    description: "A comprehensive look at the evolution, tools, and technologies that power this website.",
+  };
 
 export default function Colophon() {
     const techStack = [
@@ -59,9 +66,7 @@ export default function Colophon() {
             <div className="max-w-5xl mx-auto px-6 py-16">
                 {/* Header */}
                 <div className="text-center mb-20">
-                    <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-slate-900 via-blue-900 to-indigo-900 bg-clip-text text-transparent mb-6">
-                        Colophon
-                    </h1>
+                    <AnimatedTitle firstWord="Colophon"/>
                     <div className="w-32 h-1 bg-gradient-to-r from-blue-500 via-purple-500 to-indigo-600 mx-auto mb-8"></div>
                     <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
                         A comprehensive look at the evolution, tools, and technologies that power this website

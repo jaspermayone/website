@@ -1,3 +1,11 @@
+import AnimatedTitle from "@/components/AnimatedTitle";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Uses",
+    description: "What I use to get things done.",
+  };
+  
 
 export default function Uses() {
 
@@ -107,6 +115,7 @@ const defaults = [
 
     return (
         <div className="m-2">
+            <AnimatedTitle firstWord="Uses"/>
         {defaults.map((item, index) => (
             <div key={index}>
                 {item.emoji} <strong>{item.name}:</strong> {item.result}

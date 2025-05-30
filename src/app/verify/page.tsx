@@ -1,4 +1,3 @@
-"use client";
 import { AtSign } from "lucide-react";
 import Link from "next/link";
 import {
@@ -20,7 +19,14 @@ import {
   SiYoutube,
 } from "react-icons/si";
 
+import AnimatedTitle from "@/components/AnimatedTitle";
 import { EmailCard } from "@/components/EmailCard";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Verify",
+    description: "Verification of my online presence.",
+  };
 
 const WavyDivider = () => (
   <div className="my-6">
@@ -275,11 +281,7 @@ const VerifyPage = () => {
         >
           ← Back to homepage
         </Link>
-        <h1 className="text-5xl mb-2 font-cute-notes dark:text-white">
-          {title.split("").map((letter, index) => (
-            <LetterBlock key={index} letter={letter} />
-          ))}
-        </h1>
+        <AnimatedTitle firstWord="/verify" />
         <p className="text-neutral-500 dark:text-neutral-400 text-[0.60rem] mb-2">
           Inspired by{" "}
           <Link
@@ -459,20 +461,24 @@ const VerifyPage = () => {
                     Fingerprint: {key.fingerprint}
                   </p>
                   {key.type === "GPG" ? (
-                    <p className="text-neutral-700 dark:text-neutral-300">
-                      <Link
-                        href={key.publicKey}
-                        rel="me"
-                        className="text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300"
-                      >
-                        Get my public key from keys.openpgp.org
-                      </Link>
-                    </p>
-                  ) : (
-                    <p className="text-neutral-700 dark:text-neutral-300 break-all">
-                      {key.publicKey}
-                    </p>
-                  )}
+  <p className="text-neutral-700 dark:text-neutral-300">
+    <Link
+      href={key.publicKey}
+      rel="me"
+      className="text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300"
+    >
+      Get my public key from keys.openpgp.org
+    </Link>
+  </p>
+) : (
+  <div className="text-neutral-700 dark:text-neutral-300">
+    <div className="bg-gray-100 dark:bg-gray-900 p-3 rounded border overflow-x-auto">
+      <code className="text-xs whitespace-nowrap block font-mono text-gray-800 dark:text-gray-200">
+        {key.publicKey}
+      </code>
+    </div>
+  </div>
+)}
                   {key.note && (
                     <p className="text-neutral-500 dark:text-neutral-400 font-sans text-sm">
                       {key.note}

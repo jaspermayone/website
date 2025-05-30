@@ -1,8 +1,17 @@
+import AnimatedTitle from "@/components/AnimatedTitle";
+
 interface Podcast {
     name: string;
     description: string;
     url: string;
 }
+
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Podroll",
+    description: "Podcasts I recommend.",
+  };
 
 export default function Podroll() {
 
@@ -36,6 +45,7 @@ export default function Podroll() {
 
     return (
         <div className="m-2">
+            <AnimatedTitle firstWord="Recommended" secondWord="Podcasts"/>
             <p className="text-2xl mb-2">Here are some of my favorite podcasts</p>
 
             {/* display podcasts in a list */}

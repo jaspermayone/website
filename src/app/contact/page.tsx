@@ -1,7 +1,16 @@
+import AnimatedTitle from "@/components/AnimatedTitle";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Contact",
+    description: "How to get in touch with me.",
+  };
+  
 export default function Contact() {
     return (
-        <div className="m-2">
+        <div className="m-3.5">
+            <AnimatedTitle firstWord="Contact"/>
         <div>
             <p>You can email me at me [at] jaspermayone [dot] com</p>
             <p> I can also be reached on signal at <a className="underline" href="https://signal.me/#eu/jaspermayone.10">@jaspermayone.10</a></p>
