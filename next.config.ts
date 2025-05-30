@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const pkg = require("./package.json");
 const childProcess = require("child_process");
+import { redirects as rees } from "./src/lib/defs"
 
 // Get git information
 const getGitInfo = () => {
@@ -36,40 +37,62 @@ const withBundleAnalyzer = require("@next/bundle-analyzer")({
   enabled: process.env.ANALYZE === "true",
 });
 
+interface NextRedirectItem {
+  source: string;
+  destination: string;
+  permanent: boolean;
+}
+
 const nextConfig = {
   async redirects() {
-    return [
+
+    let redirects: NextRedirectItem[] = [];
+
+    for (let redirect of rees) {
+      redirects.push({
+        source: "/to/" + redirect.slug,
+        destination: redirect.destination,
+        permanent: true,
+      });
+    }
+
+    let someOtherRedirects = [
+          {
+            source: "/repo",
+            destination: "https://github.jaspermayone.com/website",
+            permanent: true,
+          },
+          {
+            source: "/hello",
+            destination: "/contact",
+            permanent: true,
+          },
+          {
+            source: "/defaults",
+            destination: "/uses",
+            permanent: true,
+          },
       {
-        source: "/repo",
-        destination: "https://github.jaspermayone.com/website",
+        source: "/tip",
+        destination: "/to/buy-me-a-coffee",
         permanent: true,
       },
       {
-        source: "/hello",
-        destination: "/contact",
+        source: "/coffee",
+        destination: "/to/buy-me-a-coffee",
         permanent: true,
       },
       {
-        source: "/defaults",
-        destination: "/uses",
+        source: "/pay",
+        destination: "/to/buy-me-a-coffee",
         permanent: true,
       },
-      // {
-      //   source: "/tip",
-      //   destination: "/to/buy-me-a-coffee",
-      //   permanent: true,
-      // },
-      // {
-      //   source: "/coffee",
-      //   destination: "/to/buy-me-a-coffee",
-      //   permanent: true,
-      // },
-      // {
-      //   source: "/pay",
-      //   destination: "/to/buy-me-a-coffee",
-      //   permanent: true,
-      // },
-    ];
+    ]
+
+    redirects.push(...someOtherRedirects);
+
+    return redirects;
+
   },
   // Bun-specific optimizations
   experimental: {

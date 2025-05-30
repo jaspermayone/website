@@ -44,7 +44,7 @@ export const redirects: RedirectItem[] = [
     linkrelme: true,
   },
   {
-    slug: "coffee",
+    slug: "buy-me-a-coffee",
     destination: "https://buymeacoffee.com/jaspermayone",
     linkrelme: true,
   },
