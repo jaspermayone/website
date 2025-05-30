@@ -113,10 +113,6 @@ const VerifyPage = () => {
       type: domainType.project,
     },
     {
-      name: "everywhere.pub",
-      type: domainType.project,
-    },
-    {
       name: "patchworklabs.org",
       type: domainType.project,
     },
@@ -125,10 +121,10 @@ const VerifyPage = () => {
   const emails = [
     { address: "me@jaspermayone.com", primary: true },
     { address: "jaspermayone@gmail.com" },
+    { address: "jasper.mayone@icloud.com" },
     { address: "jasper.mayone@singlefeather.com", business: true },
     { address: "mayonej@wit.edu", school: true },
     { address: "jasper.mayone@phish.directory" },
-    { address: "jasper.mayone@everywhere.pub" },
     { address: "jasper@patchworklabs.org" },
   ];
 
@@ -299,7 +295,18 @@ const VerifyPage = () => {
           not listed here, please let me know via email or any of the platforms
           listed below.
         </p>
-        {/*  add a notice that this page is tracked in version control for anyone who wants to view the history, with link to the file in source control */}
+
+        <p className="text-neutral-700 dark:text-neutral-300 mt-2">
+          My entire indentity can also be verified at{" "}
+          <Link
+            href="https://keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA"
+            className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA
+          </Link>
+        </p>
 
         <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400">
           This page is tracked in version control. You can view the source code
@@ -312,6 +319,8 @@ const VerifyPage = () => {
           >
             Github
           </Link>
+          . If you find any errors or have any questions, please let me know via
+          email or any of the platforms listed below.
         </p>
       </header>
 

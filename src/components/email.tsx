@@ -11,7 +11,10 @@ const predefinedEmails = [
   "jasper.mayone@jaspermayone.com",
   "jasper.mayone@singlefeather.com",
   "jasper.mayone@phish.directory",
-  "jasper.mayone@everywhere.pub",
+  "jasper.mayone@icloud.com",
+  "mayonej@wit.edu",
+  "jasper.mayone.skiskate@gmail.com",
+  "jasper@patchworklabs.org",
 ];
 
 export default function Email() {

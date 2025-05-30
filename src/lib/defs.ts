@@ -89,6 +89,11 @@ export const redirects: RedirectItem[] = [
       "https://keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA",
     linkrelme: true,
   },
+  {
+    slug: "signal",
+    destination: "https://signal.me/#eu/jaspermayone.10",
+    linkrelme: true,
+  },
 ];
 
 export const projects: Project[] = [
