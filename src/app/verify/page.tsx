@@ -21,30 +21,13 @@ import {
 
 import AnimatedTitle from "@/components/AnimatedTitle";
 import { EmailCard } from "@/components/EmailCard";
+import WavyDivider from "@/components/WavyDivider";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Verify",
   description: "Verification of my online presence.",
 };
-
-const WavyDivider = () => (
-  <div className="my-6">
-    <svg
-      className="w-full h-6"
-      viewBox="0 0 1200 24"
-      preserveAspectRatio="none"
-    >
-      <path
-        d="M0 12 Q 100 24, 200 12 T 400 12 T 600 12 T 800 12 T 1000 12 T 1200 12"
-        fill="none"
-        stroke="#4299e1"
-        strokeWidth="2"
-        className="dark:stroke-blue-400"
-      />
-    </svg>
-  </div>
-);
 
 const LetterBlock = ({ letter }) => (
   <span

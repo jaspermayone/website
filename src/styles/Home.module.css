@@ -59,22 +59,42 @@
   font-style: italic;
 }
 
-.menu p {
+.menuItemContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menuItem {
   position: relative;
   cursor: pointer;
-  padding-bottom: 1vh; /* Add space for the underline */
-  transition:
-    color 0.3s ease,
-    text-decoration 0.3s ease;
+  padding-bottom: 0.5vh; /* Add space for the underline */
+  transition: color 0.3s ease;
 }
 
-.menu p:hover {
-  color: #4299e1; /* Change text color when hovered (adjust to desired color) */
+.menuItem:hover {
+  color: #4299e1; /* Change text color when hovered */
 }
 
-.menu p.selected {
-  text-decoration: underline wavy;
-  text-decoration-color: #4299e1; /* Wavy underline for selected items */
+.activeIndicator {
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #4299e1;
+  transform-origin: center;
+  animation: underlineAnimation 0.3s ease forwards;
+}
+
+@keyframes underlineAnimation {
+  0% {
+    transform: scaleX(0);
+  }
+  100% {
+    transform: scaleX(1);
+  }
 }
 
 .profilePhoto {
@@ -95,13 +115,14 @@
   justify-content: center; /* Center both menus horizontally */
   align-items: center; /* Align menus vertically */
   gap: 1.5vw; /* Space between the main menu and menu2 */
+  width: 100%;
+  margin-bottom: 1rem;
 }
 
 .menu2 {
   display: flex;
   gap: 0.25rem;
-  margin-top: -1vh;
-  align-items: center; /* Add this line */
+  align-items: center;
 }
 
 .footerLink {

@@ -1,4 +1,4 @@
-import AnimatedTitle from "@/components/AnimatedTitle";
+import MENU from "@/components/MENU";
 
 interface Podcast {
   name: string;
@@ -49,7 +49,7 @@ export default function Podroll() {
 
   return (
     <div className="m-2">
-      <AnimatedTitle firstWord="Recommended" secondWord="Podcasts" />
+      <MENU pageFirstWord="Recommended" pageSecondWord="Podcasts" />
       <p className="text-2xl mb-2">Here are some of my favorite podcasts</p>
 
       {/* display podcasts in a list */}
