@@ -85,7 +85,8 @@ export const redirects: RedirectItem[] = [
   },
   {
     slug: "keyoxide",
-    destination: "https://keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA",
+    destination:
+      "https://keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA",
     linkrelme: true,
   },
 ];

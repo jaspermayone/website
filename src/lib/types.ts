@@ -16,9 +16,8 @@ export interface ExperienceItem {
   link: string;
 }
 
-
 export interface RedirectItem {
   slug: string;
   destination: string;
-  linkrelme: boolean
+  linkrelme: boolean;
 }

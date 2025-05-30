@@ -47,7 +47,7 @@ export default function Home() {
 
     console.log(
       "%cCheck out the code over on github at https://github.jaspermayone.com/website. \n\nIf you're interested in circus arts, photography, or just want to chat, feel free to reach out to me at me@jaspermayone.com. \n\nI can't wait to meet you!",
-      "background: #fff; color: #4299e1"
+      "background: #fff; color: #4299e1",
     );
   }, []);
 
@@ -143,38 +143,32 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            </div>
+          </div>
         );
-}
-  }
+    }
+  };
 
   return (
-      <div className={styles.container}>
-        <div className={styles.top}>
-          <AnimatedTitle firstWord="Jasper" secondWord="Mayone"/>
-          <MainMenu selectedTab={selectedTab} onMenuClick={setSelectedTab} />
-        </div>
-
-        <div className={styles.contentBox}>
-          {renderContent()}
-        </div>
-        <footer className="flex flex-col items-center">
-          <div className="flex items-center justify-center gap-1.5 py-2">
-
-            <span className="text-xs text-gray-600">
-              Not made by a 🤖 |
-            </span>
-
-            <p className="text-xs text-gray-600">
-              © {currentYear || "2025"} Jasper Mayone |
-            </p>
-
-            <div>
-              <CommitHash />
-            </div>
-
-          </div>
-        </footer>
+    <div className={styles.container}>
+      <div className={styles.top}>
+        <AnimatedTitle firstWord="Jasper" secondWord="Mayone" />
+        <MainMenu selectedTab={selectedTab} onMenuClick={setSelectedTab} />
       </div>
+
+      <div className={styles.contentBox}>{renderContent()}</div>
+      <footer className="flex flex-col items-center">
+        <div className="flex items-center justify-center gap-1.5 py-2">
+          <span className="text-xs text-gray-600">Not made by a 🤖 |</span>
+
+          <p className="text-xs text-gray-600">
+            © {currentYear || "2025"} Jasper Mayone |
+          </p>
+
+          <div>
+            <CommitHash />
+          </div>
+        </div>
+      </footer>
+    </div>
   );
 }

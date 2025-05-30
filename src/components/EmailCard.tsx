@@ -1,10 +1,4 @@
-import {
-  Briefcase,
-  GraduationCap,
-  Mail,
-  Mailbox,
-  Star,
-} from "lucide-react";
+import { Briefcase, GraduationCap, Mail, Mailbox, Star } from "lucide-react";
 
 // emails come in like me@jaspermayone.com
 // i want to display as me[at]jaspermayone[dot]com
@@ -41,7 +35,7 @@ export const EmailCard = ({
           <Mail className="w-3 h-3" />
           Send Email
         </a>
-        
+
         {isPrimary && (
           <span className="flex items-center gap-1 bg-rose-100 dark:bg-rose-900/50 text-rose-800 dark:text-rose-200 text-xs px-2 py-1 rounded-full">
             <Star className="w-3 h-3" />

@@ -24,9 +24,9 @@ import { EmailCard } from "@/components/EmailCard";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Verify",
-    description: "Verification of my online presence.",
-  };
+  title: "Verify",
+  description: "Verification of my online presence.",
+};
 
 const WavyDivider = () => (
   <div className="my-6">
@@ -354,7 +354,7 @@ const VerifyPage = () => {
                   <div className="mt-2 flex items-center gap-2">
                     <span
                       className={`text-xs px-2 py-1 rounded-full ${getBadgeStyles(
-                        domain.type
+                        domain.type,
                       )}`}
                     >
                       {domainType[domain.type].charAt(0).toUpperCase() +
@@ -461,24 +461,24 @@ const VerifyPage = () => {
                     Fingerprint: {key.fingerprint}
                   </p>
                   {key.type === "GPG" ? (
-  <p className="text-neutral-700 dark:text-neutral-300">
-    <Link
-      href={key.publicKey}
-      rel="me"
-      className="text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300"
-    >
-      Get my public key from keys.openpgp.org
-    </Link>
-  </p>
-) : (
-  <div className="text-neutral-700 dark:text-neutral-300">
-    <div className="bg-gray-100 dark:bg-gray-900 p-3 rounded border overflow-x-auto">
-      <code className="text-xs whitespace-nowrap block font-mono text-gray-800 dark:text-gray-200">
-        {key.publicKey}
-      </code>
-    </div>
-  </div>
-)}
+                    <p className="text-neutral-700 dark:text-neutral-300">
+                      <Link
+                        href={key.publicKey}
+                        rel="me"
+                        className="text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300"
+                      >
+                        Get my public key from keys.openpgp.org
+                      </Link>
+                    </p>
+                  ) : (
+                    <div className="text-neutral-700 dark:text-neutral-300">
+                      <div className="bg-gray-100 dark:bg-gray-900 p-3 rounded border overflow-x-auto">
+                        <code className="text-xs whitespace-nowrap block font-mono text-gray-800 dark:text-gray-200">
+                          {key.publicKey}
+                        </code>
+                      </div>
+                    </div>
+                  )}
                   {key.note && (
                     <p className="text-neutral-500 dark:text-neutral-400 font-sans text-sm">
                       {key.note}

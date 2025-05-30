@@ -11,26 +11,24 @@ export const metadata: Metadata = {
   description: "A showcase of my projects and accomplishments.",
 };
 
-
 export default function Portfolio() {
-
   return (
     <div className="h-screen flex flex-col bg-lite">
-    <header className="flex-none px-6 py-4 bg-lite">
-      <div className="flex flex-col items-center">
-        <AnimatedTitle firstWord="Portfolio" />
-      </div>
-      <div className="py-1" />
-      <SquigglyLine
-        height={10}
-        frequency={25}
-        amplitude={1.2}
-        strokeWidth={1.5}
-        className="w-full"
-        color="#4299e1"
-      />
-      <div className="py-2" />
-    </header>
+      <header className="flex-none px-6 py-4 bg-lite">
+        <div className="flex flex-col items-center">
+          <AnimatedTitle firstWord="Portfolio" />
+        </div>
+        <div className="py-1" />
+        <SquigglyLine
+          height={10}
+          frequency={25}
+          amplitude={1.2}
+          strokeWidth={1.5}
+          className="w-full"
+          color="#4299e1"
+        />
+        <div className="py-2" />
+      </header>
 
       {/* Scrollable Projects Section */}
       <main className="flex-1 overflow-y-auto px-6 pb-12">

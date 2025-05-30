@@ -1,16 +1,16 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
-import localFont from 'next/font/local'
+import localFont from "next/font/local";
 
 const CuteNotes = localFont({
-    src: '../../public/fonts/CuteNotes.ttf',
-    display: 'swap',
-    variable: '--font-cute-notes',
+  src: "../../public/fonts/CuteNotes.ttf",
+  display: "swap",
+  variable: "--font-cute-notes",
 });
 
 interface AnimatedTitleProps {
-    firstWord: string,
-    secondWord?: string,
+  firstWord: string;
+  secondWord?: string;
 }
 
 const AnimatedTitle = (props: AnimatedTitleProps) => {

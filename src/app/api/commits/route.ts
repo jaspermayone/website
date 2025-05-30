@@ -1,5 +1,5 @@
 // pages/api/commits.ts (for Pages Router) or app/api/commits/route.ts (for App Router)
-import { NextApiRequest, NextApiResponse } from 'next';
+import { NextApiRequest, NextApiResponse } from "next";
 
 interface GitHubCommitResponse {
   sha: string;
@@ -33,8 +33,8 @@ export async function GET(): Promise<Response> {
     const commits = await getGitHubCommits();
     return Response.json(commits);
   } catch (error) {
-    console.error('Error fetching commits:', error);
-    return Response.json({ error: 'Failed to fetch commits' }, { status: 500 });
+    console.error("Error fetching commits:", error);
+    return Response.json({ error: "Failed to fetch commits" }, { status: 500 });
   }
 }
 
@@ -44,36 +44,39 @@ async function getGitHubCommits(limit: number = 50): Promise<Commit[]> {
 
   try {
     const headers: HeadersInit = {
-      'Accept': 'application/vnd.github.v3+json',
-      'User-Agent': 'NextJS-Changelog-App'
+      Accept: "application/vnd.github.v3+json",
+      "User-Agent": "NextJS-Changelog-App",
     };
 
     const response = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/commits?per_page=${limit}`,
-      { headers }
+      { headers },
     );
 
     if (!response.ok) {
       if (response.status === 403) {
-        throw new Error('GitHub API rate limit exceeded or repository access denied');
+        throw new Error(
+          "GitHub API rate limit exceeded or repository access denied",
+        );
       }
-      throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
+      throw new Error(
+        `GitHub API error: ${response.status} ${response.statusText}`,
+      );
     }
 
     const commits: GitHubCommitResponse[] = await response.json();
 
-    return commits.map(commit => ({
+    return commits.map((commit) => ({
       hash: commit.sha,
       date: commit.commit.author.date,
       author: commit.commit.author.name,
       email: commit.commit.author.email,
       message: commit.commit.message,
       url: commit.html_url,
-      avatar: commit.author?.avatar_url || null
+      avatar: commit.author?.avatar_url || null,
     }));
-
   } catch (error) {
-    console.error('GitHub API request failed:', error);
+    console.error("GitHub API request failed:", error);
     throw error;
   }
 }

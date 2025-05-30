@@ -81,7 +81,7 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
           ctx.save();
           ctx.translate(
             particle.x + particle.size / 2,
-            particle.y + particle.size / 2
+            particle.y + particle.size / 2,
           );
           ctx.rotate((particle.rotation * Math.PI) / 180);
 
@@ -93,7 +93,7 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
             -particle.size / 2,
             -particle.size / 2,
             particle.size,
-            particle.size
+            particle.size,
           );
           ctx.restore();
 
@@ -262,12 +262,12 @@ export default function ConfettiWrapper() {
         const trackingElement = document.createElement("div");
         trackingElement.setAttribute(
           "data-umami-event",
-          "SocraticaSymposiumW25_Confetti"
+          "SocraticaSymposiumW25_Confetti",
         );
         trackingElement.setAttribute("data-umami-event-path", pathname);
         trackingElement.setAttribute(
           "data-umami-event-triggered-by",
-          "url-param"
+          "url-param",
         );
         trackingElement.style.display = "none";
         document.body.appendChild(trackingElement);

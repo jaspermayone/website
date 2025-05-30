@@ -63,7 +63,9 @@
   position: relative;
   cursor: pointer;
   padding-bottom: 1vh; /* Add space for the underline */
-  transition: color 0.3s ease, text-decoration 0.3s ease;
+  transition:
+    color 0.3s ease,
+    text-decoration 0.3s ease;
 }
 
 .menu p:hover {

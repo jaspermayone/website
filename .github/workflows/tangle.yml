@@ -12,4 +12,3 @@ jobs:
         with:
           repo: jaspermayone.com/website
           ssh-key: ${{ secrets.TANGLED_KEY }}
-

@@ -1,4 +1,4 @@
-import "@/styles/globals.css"; 
+import "@/styles/globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
@@ -38,232 +38,235 @@ export const metadata: Metadata = {
   // google:
   // },
 
-// Enhanced Open Graph
-openGraph: {
-  title: "Jasper Mayone",
-  description:
-    "Creative organizer from Vermont with passion for programming, photography and adventure. Turning big ideas into meaningful projects.",
-  url: "https://jaspermayone.com",
-  siteName: "Jasper Mayone",
-  type: "website",
-  locale: "en_US",
-  images: [
-    {
-      url: "/opengraph-image.png",
-      width: 1200,
-      height: 630,
-      alt: "Jasper Mayone",
-      type: "image/png",
-    },
-  ],
-},
+  // Enhanced Open Graph
+  openGraph: {
+    title: "Jasper Mayone",
+    description:
+      "Creative organizer from Vermont with passion for programming, photography and adventure. Turning big ideas into meaningful projects.",
+    url: "https://jaspermayone.com",
+    siteName: "Jasper Mayone",
+    type: "website",
+    locale: "en_US",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Jasper Mayone",
+        type: "image/png",
+      },
+    ],
+  },
 
-// Enhanced Twitter/X metadata
-twitter: {
-  card: "summary_large_image",
-  site: "@jaspermayone", // Add if you have a Twitter account
-  creator: "@jaspermayone", // Add if John has a Twitter
-  title: "Jasper Mayone",
-  description:
-    "Creative organizer from Vermont with passion for programming, photography and adventure. Turning big ideas into meaningful projects.",
-  images: [
-    {
-      url: "/opengraph-image.png",
-      alt: "Jasper Mayone",
-    },
-  ],
-},
+  // Enhanced Twitter/X metadata
+  twitter: {
+    card: "summary_large_image",
+    site: "@jaspermayone", // Add if you have a Twitter account
+    creator: "@jaspermayone", // Add if John has a Twitter
+    title: "Jasper Mayone",
+    description:
+      "Creative organizer from Vermont with passion for programming, photography and adventure. Turning big ideas into meaningful projects.",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        alt: "Jasper Mayone",
+      },
+    ],
+  },
 
-robots: {
-  index: true,
-  follow: true,
-  googleBot: {
+  robots: {
     index: true,
     follow: true,
-    "max-video-preview": -1,
-    "max-image-preview": "large",
-    "max-snippet": -1,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
-},
 
-alternates: {
-  canonical: "https://jaspermayone.com",
-},
+  alternates: {
+    canonical: "https://jaspermayone.com",
+  },
 
-// Added category for better classification
-category: "Personal",
-}
+  // Added category for better classification
+  category: "Personal",
+};
 
 const jsonLdData = {
   "@context": "https://schema.org",
   "@type": "Person",
-  "name": "Jasper Mayone",
+  name: "Jasper Mayone",
   "@graph": [
     {
       "@type": "Person",
       "@id": "https://jaspermayone.com/#person",
-      "name": "Jasper Mayone",
-      "givenName": "Jasper",
-      "familyName": "Mayone",
-      "gender": "male",
-      "pronouns": "he/they",
-      "description": "18-year-old post high school graduate from rural Vermont. Circus performer, coder, and photographer pursuing a gap year after graduating high school a year early.",
-      "url": "https://jaspermayone.com",
-      "birthPlace": {
+      name: "Jasper Mayone",
+      givenName: "Jasper",
+      familyName: "Mayone",
+      gender: "male",
+      pronouns: "he/they",
+      description:
+        "18-year-old post high school graduate from rural Vermont. Circus performer, coder, and photographer pursuing a gap year after graduating high school a year early.",
+      url: "https://jaspermayone.com",
+      birthPlace: {
         "@type": "Place",
-        "name": "Vermont",
-        "address": {
+        name: "Vermont",
+        address: {
           "@type": "PostalAddress",
-          "addressRegion": "Vermont",
-          "addressCountry": "US"
-        }
+          addressRegion: "Vermont",
+          addressCountry: "US",
+        },
       },
-      "homeLocation": {
+      homeLocation: {
         "@type": "Place",
-        "name": "Rural Vermont",
-        "address": {
+        name: "Rural Vermont",
+        address: {
           "@type": "PostalAddress",
-          "addressRegion": "Vermont",
-          "addressCountry": "US"
-        }
+          addressRegion: "Vermont",
+          addressCountry: "US",
+        },
       },
-      "knowsAbout": [
+      knowsAbout: [
         "Circus Arts",
         "Computer Programming",
         "Photography",
         "Documentary Film Production",
         "Event Organization",
         "Leadership",
-        "Business Development"
+        "Business Development",
       ],
-      "alumniOf": {
+      alumniOf: {
         "@type": "EducationalOrganization",
-        "name": "Harwood Union High School"
+        name: "Harwood Union High School",
       },
-      "sameAs": [
-        "https://jaspermayone.com"
-      ]
+      sameAs: ["https://jaspermayone.com"],
     },
     {
       "@type": "WebSite",
       "@id": "https://jaspermayone.com/#website",
-      "url": "https://jaspermayone.com",
-      "name": "Jasper Mayone - Personal Website",
-      "alternateName": "Jasper Mayone Portfolio",
-      "description": "Personal website of Jasper Mayone - an 18-year-old circus performer, coder, and photographer from rural Vermont",
-      "about": {
-        "@id": "https://jaspermayone.com/#person"
+      url: "https://jaspermayone.com",
+      name: "Jasper Mayone - Personal Website",
+      alternateName: "Jasper Mayone Portfolio",
+      description:
+        "Personal website of Jasper Mayone - an 18-year-old circus performer, coder, and photographer from rural Vermont",
+      about: {
+        "@id": "https://jaspermayone.com/#person",
       },
-      "author": {
-        "@id": "https://jaspermayone.com/#person"
+      author: {
+        "@id": "https://jaspermayone.com/#person",
       },
-      "creator": {
-        "@id": "https://jaspermayone.com/#person"
+      creator: {
+        "@id": "https://jaspermayone.com/#person",
       },
-      "publisher": {
-        "@id": "https://jaspermayone.com/#person"
+      publisher: {
+        "@id": "https://jaspermayone.com/#person",
       },
-      "inLanguage": "en-US",
-      "copyrightHolder": {
-        "@id": "https://jaspermayone.com/#person"
-      }
+      inLanguage: "en-US",
+      copyrightHolder: {
+        "@id": "https://jaspermayone.com/#person",
+      },
     },
     {
       "@type": "WebPage",
       "@id": "https://jaspermayone.com/#webpage",
-      "url": "https://jaspermayone.com",
-      "name": "Jasper Mayone - Circus Artist, Coder & Photographer",
-      "description": "Meet Jasper Mayone, an 18-year-old circus performer, software developer, and photographer from rural Vermont. Currently on a gap year after graduating high school early.",
-      "isPartOf": {
-        "@id": "https://jaspermayone.com/#website"
+      url: "https://jaspermayone.com",
+      name: "Jasper Mayone - Circus Artist, Coder & Photographer",
+      description:
+        "Meet Jasper Mayone, an 18-year-old circus performer, software developer, and photographer from rural Vermont. Currently on a gap year after graduating high school early.",
+      isPartOf: {
+        "@id": "https://jaspermayone.com/#website",
       },
-      "about": {
-        "@id": "https://jaspermayone.com/#person"
+      about: {
+        "@id": "https://jaspermayone.com/#person",
       },
-      "mainEntity": {
-        "@id": "https://jaspermayone.com/#person"
+      mainEntity: {
+        "@id": "https://jaspermayone.com/#person",
       },
-      "breadcrumb": {
+      breadcrumb: {
         "@type": "BreadcrumbList",
-        "itemListElement": [
+        itemListElement: [
           {
             "@type": "ListItem",
-            "position": 1,
-            "name": "Home",
-            "item": "https://jaspermayone.com"
-          }
-        ]
-      }
-    }
+            position: 1,
+            name: "Home",
+            item: "https://jaspermayone.com",
+          },
+        ],
+      },
+    },
   ],
-  "mentions": [
-   {
-    "@type": "Article",
-    "url": "https://www.valleyplayers.com/oliver-2019",
-    "image": "https://static.wixstatic.com/media/70c1f7_16617a7e14a342168a8dc67e26375db1~mv2.jpg/v1/fill/w_582,h_442,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/P1100936%20(2)_JPG.jpg",
-    "author": "Valley Players",
-    "headline": "Oliver - The Musical",
-    "publisher": "Valley Players"
-   },
-   {
-    "@type": "Article",
-    "url": "https://www.valleyplayers.com/past-shows-1/oliver---revival",
-    "image": "https://static.wixstatic.com/media/70c1f7_16617a7e14a342168a8dc67e26375db1~mv2.jpg/v1/fill/w_582,h_442,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/P1100936%20(2)_JPG.jpg",
-    "author": "Valley Players",
-    "publisher": "Valley Players"
-   },
-   {
-    "@type": "Article",
-    "url": "https://www.ourherald.com/articles/the-valley-players-will-present-the-mousetrap-in-waitsfield/",
-    "publisher": "Our Herald"
-   },
-   {
-    "@type": "Article",
-    "url": "https://www.waterburyroundabout.org/community-archive/whwso8o3u19jbcj9gi50mzcdi6tm8d",
-    "publisher": "Waterbury Roundabout"
-   },
-   {
-    "@type": "Article",
-    "url": "https://theaterengine.com/productions/2702",
-    "publisher": "Theater Engine"
-   },
-   {
-    "@type": "Article",
-    "url": "https://huhsnewspaper.com/staff_name/jasper-mayone/",
-    "publisher": "Harwood Union High School Newspaper"
-   },
-   {
-    "@type": "Organization",
-    "url": "https://www.madrivermentoring.com/staff",
-    "name": "Mad River Mentoring"
-   },
-   {
-    "@type": "Article",
-    "url": "https://www.waterburyroundabout.org/education/yc7o3f5vz3lvmvi8ea3lgxzett17y7",
-    "publisher": "Waterbury Roundabout"
-   },
-   {
-    "@type": "Article",
-    "url": "https://www.sevendaysvt.com/guides/the-art-of-a-frame-building-35270341",
-    "publisher": "Seven Days"
-   },
-   {
-    "@type": "Article",
-    "url": "https://archive.nytimes.com/query.nytimes.com/gst/fullpage-9F06E4DE153AF936A35750C0A96F9C8B63.html",
-    "publisher": "New York Times"
-   },
-   {
-    "@type": "Article",
-    "url": "https://www.valleyreporter.com/index.php/news/artsent/18053-willy-wonka-a-world-of-pure-imagination",
-    "publisher": "The Valley Reporter" 
-   },
-   {
-    "@type": "Article",
-    "url": "https://www.valleyreporter.com/index.php/news/artsent/18031-willy-wonka-coming-to-the-valley-players",
-    "publisher": "The Valley Reporter" 
-   }
-  ]
-}
+  mentions: [
+    {
+      "@type": "Article",
+      url: "https://www.valleyplayers.com/oliver-2019",
+      image:
+        "https://static.wixstatic.com/media/70c1f7_16617a7e14a342168a8dc67e26375db1~mv2.jpg/v1/fill/w_582,h_442,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/P1100936%20(2)_JPG.jpg",
+      author: "Valley Players",
+      headline: "Oliver - The Musical",
+      publisher: "Valley Players",
+    },
+    {
+      "@type": "Article",
+      url: "https://www.valleyplayers.com/past-shows-1/oliver---revival",
+      image:
+        "https://static.wixstatic.com/media/70c1f7_16617a7e14a342168a8dc67e26375db1~mv2.jpg/v1/fill/w_582,h_442,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/P1100936%20(2)_JPG.jpg",
+      author: "Valley Players",
+      publisher: "Valley Players",
+    },
+    {
+      "@type": "Article",
+      url: "https://www.ourherald.com/articles/the-valley-players-will-present-the-mousetrap-in-waitsfield/",
+      publisher: "Our Herald",
+    },
+    {
+      "@type": "Article",
+      url: "https://www.waterburyroundabout.org/community-archive/whwso8o3u19jbcj9gi50mzcdi6tm8d",
+      publisher: "Waterbury Roundabout",
+    },
+    {
+      "@type": "Article",
+      url: "https://theaterengine.com/productions/2702",
+      publisher: "Theater Engine",
+    },
+    {
+      "@type": "Article",
+      url: "https://huhsnewspaper.com/staff_name/jasper-mayone/",
+      publisher: "Harwood Union High School Newspaper",
+    },
+    {
+      "@type": "Organization",
+      url: "https://www.madrivermentoring.com/staff",
+      name: "Mad River Mentoring",
+    },
+    {
+      "@type": "Article",
+      url: "https://www.waterburyroundabout.org/education/yc7o3f5vz3lvmvi8ea3lgxzett17y7",
+      publisher: "Waterbury Roundabout",
+    },
+    {
+      "@type": "Article",
+      url: "https://www.sevendaysvt.com/guides/the-art-of-a-frame-building-35270341",
+      publisher: "Seven Days",
+    },
+    {
+      "@type": "Article",
+      url: "https://archive.nytimes.com/query.nytimes.com/gst/fullpage-9F06E4DE153AF936A35750C0A96F9C8B63.html",
+      publisher: "New York Times",
+    },
+    {
+      "@type": "Article",
+      url: "https://www.valleyreporter.com/index.php/news/artsent/18053-willy-wonka-a-world-of-pure-imagination",
+      publisher: "The Valley Reporter",
+    },
+    {
+      "@type": "Article",
+      url: "https://www.valleyreporter.com/index.php/news/artsent/18031-willy-wonka-coming-to-the-valley-players",
+      publisher: "The Valley Reporter",
+    },
+  ],
+};
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -295,7 +298,7 @@ export default function RootLayout({
           href="https://ka-f.fontawesome.com"
           crossOrigin="anonymous"
         />
-        
+
         <script
           defer
           src="https://umami.hogwarts.dev/script.js"
@@ -318,13 +321,13 @@ export default function RootLayout({
         />
 
         {redirects.map((redirect) => (
-          <link rel="me" href={redirect.destination} key={redirect.slug}/>
+          <link rel="me" href={redirect.destination} key={redirect.slug} />
         ))}
 
-       <script
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLdData)
+            __html: JSON.stringify(jsonLdData),
           }}
         />
 
@@ -336,18 +339,13 @@ export default function RootLayout({
         {/* Theme color for mobile browsers */}
         {/* <meta name="theme-color" content="#1a1a1a" /> */}
         {/* <meta name="msapplication-TileColor" content="#1a1a1a" /> */}
-
-      
-
       </head>
       <body className={`${cuteNotes.variable} font-sans`}>
         <Script
           src="https://kit.fontawesome.com/96163f3b63.js"
           crossOrigin="anonymous"
         />
-        <MobileRedirect>
-          {children}
-        </MobileRedirect>
+        <MobileRedirect>{children}</MobileRedirect>
         <SpeedInsights />
       </body>
     </html>

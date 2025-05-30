@@ -79,6 +79,6 @@ export default async function Image() {
     {
       width: 1200,
       height: 630,
-    }
+    },
   );
 }

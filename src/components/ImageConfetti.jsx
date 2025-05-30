@@ -48,7 +48,7 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
           ctx.save();
           ctx.translate(
             particle.x + particle.size / 2,
-            particle.y + particle.size / 2
+            particle.y + particle.size / 2,
           );
           ctx.rotate((particle.rotation * Math.PI) / 180);
           ctx.drawImage(
@@ -56,7 +56,7 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
             -particle.size / 2,
             -particle.size / 2,
             particle.size,
-            particle.size
+            particle.size,
           );
           ctx.restore();
 

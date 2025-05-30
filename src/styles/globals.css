@@ -19,7 +19,8 @@
 
 @font-face {
   font-family: "Cute Notes";
-  src: url("/fonts/CuteNotes.woff2") format("woff2"),
+  src:
+    url("/fonts/CuteNotes.woff2") format("woff2"),
     url("/fonts/CuteNotes.woff") format("woff");
   font-weight: normal;
   font-style: normal;

@@ -2,7 +2,7 @@ import dynamic from "next/dynamic";
 
 const Tooltip = dynamic(
   () => import("@material-tailwind/react/components/Tooltip"),
-  { ssr: false }
+  { ssr: false },
 );
 
 import { formatDistanceToNow, isWeekend } from "date-fns";
@@ -27,8 +27,8 @@ export default function CommitHash() {
           >
             {process.env.COMMIT_HASH}
           </Tooltip>
-        </a>{")"}{" "}
-        from {formattedCommitDate}.
+        </a>
+        {")"} from {formattedCommitDate}.
       </span>
     </div>
   );
