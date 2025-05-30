@@ -1,10 +1,19 @@
-import { MenuItemType, RedirectItem, Project } from "./types";
+import { RedirectItem, Project } from "./types";
 
-export const menuItems: MenuItemType[] = [
-  "Homepage",
-  "Resume",
-  "Portfolio",
-  "Verify",
+export const pages = [
+  "home",
+  "resume",
+  "portfolio",
+  "verify",
+  "uses",
+  "podroll",
+  "pfp",
+  "panera",
+  "now",
+  "green",
+  "contact",
+  "colophon",
+  "changelog",
 ];
 
 export const redirects: RedirectItem[] = [
@@ -92,6 +101,11 @@ export const redirects: RedirectItem[] = [
   {
     slug: "signal",
     destination: "https://signal.me/#eu/jaspermayone.10",
+    linkrelme: true,
+  },
+  {
+    slug: "instagram",
+    destination: "https://www.instagram.com/jasper.mayone",
     linkrelme: true,
   },
 ];

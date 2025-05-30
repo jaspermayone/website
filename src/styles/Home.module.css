@@ -54,7 +54,7 @@
 .menu {
   display: flex;
   justify-content: center;
-  gap: 1vw; /* Space between menu items */
+  gap: 0.5vw; /* Space between menu items */
   font-size: 0.8em;
   font-style: italic;
 }
@@ -99,7 +99,7 @@
 
 .menu2 {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.25rem;
   margin-top: -1vh;
   align-items: center; /* Add this line */
 }

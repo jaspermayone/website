@@ -1,5 +1,4 @@
-import { menuItems } from "@/lib/defs";
-import { MenuItemType } from "@/lib/types";
+import { pages } from "@/lib/defs";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -13,8 +12,8 @@ import {
 } from "react-icons/si";
 
 interface MainMenuProps {
-  selectedTab: MenuItemType;
-  onMenuClick: (tab: MenuItemType) => void;
+  selectedTab: string;
+  onMenuClick: (tab: string) => void;
 }
 
 const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
@@ -35,9 +34,9 @@ const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
     window.open(url, "_blank", "noopener,noreferrer");
   };
 
-  const handleMenuClick = async (item: MenuItemType) => {
+  const handleMenuClick = async (item: string) => {
     // Special cases that shouldn't trigger navigation or state updates
-    if (item === "Resume") {
+    if (item === "resume") {
       handleDownload(new MouseEvent("click") as unknown as React.MouseEvent);
       return; // Exit early without updating state
     }
@@ -45,43 +44,43 @@ const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
     // For other cases, update state and handle navigation
     onMenuClick(item);
 
-    if (item === "Portfolio") {
+    if (item === "portfolio") {
       router.push("/portfolio");
-    } else if (item === "Verify") {
+    } else if (item === "verify") {
       router.push("/verify");
-    } else if (item === "Homepage") {
+    } else if (item === "home") {
       router.push("/");
     }
   };
 
   const socialLinks = [
     {
-      href: "https://github.jaspermayone.com",
+      href: "/github",
       label: "GitHub",
       Icon: SiGithub,
     },
     {
-      href: "https:/linkedin.jaspermayone.com",
+      href: "/linkedin",
       label: "Linkedin",
       Icon: SiLinkedin,
     },
     {
-      href: "https://instagram.jaspermayone.com",
+      href: "/instagram",
       label: "Instagram",
       Icon: SiInstagram,
     },
     {
-      href: "https://threads.jaspermayone.com",
+      href: "/threads",
       label: "Threads",
       Icon: SiThreads,
     },
     {
-      href: "https://bluesky.jaspermayone.com",
+      href: "/bluesky",
       label: "Bluesky",
       Icon: SiBluesky,
     },
     {
-      href: "https://x.jaspermayone.com",
+      href: "/x",
       label: "X",
       Icon: SiX,
     },
@@ -90,7 +89,7 @@ const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
   return (
     <div className={styles.menuContainer}>
       <div className={styles.menu} aria-label="main menu">
-        {menuItems.map((item) => (
+        {pages.map((item) => (
           <p
             key={item}
             className={`${styles.menuItem} ${
@@ -99,7 +98,7 @@ const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
             onClick={() => handleMenuClick(item)}
             title={`Go to ${item}`}
           >
-            {item}
+            /{item}
           </p>
         ))}
       </div>

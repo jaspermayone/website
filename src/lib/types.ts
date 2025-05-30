@@ -1,5 +1,3 @@
-export type MenuItemType = "Homepage" | "Resume" | "Portfolio" | "Verify";
-
 export type Project = {
   title: string;
   description: string;
