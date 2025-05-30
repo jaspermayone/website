@@ -1,10 +1,10 @@
 import Image from "next/image"
 
-import jm from "@public/images/profiles/jm.jpg"
+import jm from "@public/images/profiles/jm.png"
 import dark from "@public/images/profiles/jmdark-min.jpeg"
 import lite from "@public/images/profiles/jmlite-min.jpeg"
 import circus from "@public/images/profiles/circus.jpg"
-import waves from "@public/images/profiles/waves.jpg"
+import waves from "@public/images/profiles/waves.png"
 
 
 
