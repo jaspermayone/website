@@ -38,21 +38,6 @@ export async function GET(): Promise<Response> {
   }
 }
 
-// For Pages Router (pages/api/commits.ts)
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'GET') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
-
-  try {
-    const commits = await getGitHubCommits();
-    res.status(200).json(commits);
-  } catch (error) {
-    console.error('Error fetching commits:', error);
-    res.status(500).json({ error: 'Failed to fetch commits' });
-  }
-}
-
 async function getGitHubCommits(limit: number = 50): Promise<Commit[]> {
   const owner = "jaspermayone";
   const repo = "website";
