@@ -5,6 +5,8 @@ import Image from "next/image";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
 import MENU from "@/components/MENU";
 import FOOTER from "@/components/FOOTER";
+import SquigglyLine from "@/components/SquigglyLine";
+import styles from "@/styles/Home.module.css";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -13,60 +15,79 @@ export const metadata: Metadata = {
 
 export default function Portfolio() {
   return (
-    <div className="h-screen flex flex-col bg-lite">
+    <div className="min-h-screen flex flex-col">
       <MENU pageFirstWord="Portfolio" />
-      {/* Scrollable Projects Section */}
-      <main className="flex-1 overflow-y-auto px-6 pb-12">
-        <div className="h-full overflow-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <main className="flex-1">
+        <div className="max-w-5xl mx-auto px-5 my-8">
+          <h1 className="text-2xl font-bold mb-6 text-gray-800 dark:text-white">
+            Projects
+          </h1>
+
+          <div className="space-y-8">
             {projects.map((project, index) => (
-              <div key={index}>
-                <div className="relative overflow-hidden aspect-video">
+              <div
+                key={index}
+                className="flex flex-col md:flex-row overflow-hidden rounded-xl bg-white/50 dark:bg-gray-800/20 shadow-sm"
+              >
+                <div className="md:w-72 relative h-48 md:h-auto flex-shrink-0">
                   <Image
-                    priority={true}
+                    priority={index < 2}
                     src={project.image}
                     alt={project.title}
-                    width={500}
-                    height={300}
-                    className="object-cover w-full h-full transform group-hover:scale-105 transition-transform duration-300"
+                    fill
+                    className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
 
                 <div className="p-6">
-                  <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-3">
-                    {project.title}
-                  </h2>
-                  <p className="text-gray-600 dark:text-gray-400 mb-4 line-clamp-3">
+                  <div className="flex items-start justify-between">
+                    <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+                      {project.title}
+                    </h2>
+
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={
+                        styles.lnk +
+                        " inline-flex items-center gap-1.5 text-sm ml-4"
+                      }
+                    >
+                      <GitHubLogoIcon className="w-4 h-4" />
+                      <span className="hidden sm:inline">View on GitHub</span>
+                      <span className="sm:hidden">Repo</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+
+                  <p className="text-gray-600 dark:text-white/70 mb-4">
                     {project.description}
                   </p>
 
-                  <div className="mb-6 flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2">
                     {project.techStack.map((tech, i) => (
                       <span
                         key={i}
-                        className="bg-blue-100 text-blue-500 px-3 py-1 rounded-full text-sm font-medium"
+                        className="bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-300 px-2.5 py-1 rounded-md text-xs font-medium"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
-
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 bg-blue-400 text-white font-semibold rounded-lg hover:bg-blue-600 transition-colors"
-                  >
-                    <GitHubLogoIcon className="w-4 h-4" />
-                    View Project
-                    <ExternalLink className="w-4 h-4" />
-                  </a>
                 </div>
               </div>
             ))}
           </div>
         </div>
+
+        <div className="py-2.5" />
+        <SquigglyLine
+          frequency={50}
+          amplitude={0.4}
+          className="min-w-screen"
+          color="#4299e1"
+        />
       </main>
       <FOOTER />
     </div>

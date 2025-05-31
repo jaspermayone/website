@@ -1,5 +1,4 @@
 import { formatDistanceToNow } from "date-fns";
-import AnimatedTitle from "@/components/AnimatedTitle";
 import { Metadata } from "next";
 import { Commit, GitHubCommitResponse } from "@/lib/interfaces";
 import MENU from "@/components/MENU";
