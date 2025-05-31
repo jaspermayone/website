@@ -44,6 +44,13 @@ interface NextRedirectItem {
 }
 
 const nextConfig = {
+  // Turbo mode for faster builds
+  turbopack: {
+    rules: {
+      // Optimize for Bun's transpiler
+      "*.{js,jsx,ts,tsx}": ["bun-loader"],
+    },
+  },
   async redirects() {
     let redirects: NextRedirectItem[] = [];
 
@@ -56,6 +63,11 @@ const nextConfig = {
     }
 
     let someOtherRedirects = [
+      {
+        source: "/ss",
+        destination: "/?socraticaW25=true",
+        permanent: false,
+      },
       {
         source: "/repo",
         destination: "https://github.com/jaspermayone/website",
@@ -95,13 +107,6 @@ const nextConfig = {
   // Bun-specific optimizations
   experimental: {
     optimizePackageImports: ["@opentelemetry/api", "ua-parser-js"],
-    // Turbo mode for faster builds
-    turbo: {
-      rules: {
-        // Optimize for Bun's transpiler
-        "*.{js,jsx,ts,tsx}": ["bun-loader"],
-      },
-    },
   },
   compiler: {
     removeConsole:

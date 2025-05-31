@@ -24,8 +24,6 @@ export default async function Now() {
     return formatRelative(new Date(dateString), new Date());
   };
 
-  console.log(posts);
-
   return (
     <div className="min-h-screen flex flex-col">
       <MENU pageFirstWord="Now" />

@@ -30,7 +30,6 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
 
     // Load the image
     const img = new Image();
-    console.log("Loading confetti image:", imagePath);
     img.src = imagePath;
 
     // Handle image loading error
@@ -204,8 +203,6 @@ export default function ConfettiWrapper() {
 
     const invertedImg = new Image();
     invertedImg.src = "/images/ss-inverted.png";
-
-    console.log("Preloaded confetti images");
   }, []);
 
   useEffect(() => {
@@ -215,11 +212,9 @@ export default function ConfettiWrapper() {
     // Detect dark mode
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     setIsDarkMode(mediaQuery.matches);
-    console.log("Dark mode detected:", mediaQuery.matches);
 
     // Add listener for theme changes
-    const handleThemeChange = (e) => {
-      console.log("Theme changed to dark:", e.matches);
+    const handleThemeChange = (e: MediaQueryListEvent) => {
       setIsDarkMode(e.matches);
     };
 
@@ -239,14 +234,8 @@ export default function ConfettiWrapper() {
     const searchParams = new URLSearchParams(window.location.search);
     const ssParam = searchParams.get("socraticaW25");
 
-    console.log("Current path:", pathname);
-    console.log("ss param:", ssParam);
-    console.log("Has shown this session:", hasShownThisSession);
-
     // Only run once on page load when ss=true and not shown yet
     if (ssParam === "true" && !hasShownThisSession && !showConfetti) {
-      console.log("Showing confetti!");
-
       // Mark that we've shown it this session
       setHasShownThisSession(true);
 
