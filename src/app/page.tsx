@@ -37,13 +37,6 @@ export default function Home() {
 
   const imgpath = isLightMode ? JmDark : JmLight;
 
-  useEffect(() => {
-    console.log(
-      "%cCheck out the code over on github at https://github.com/jaspermayone/website. \n\nIf you're interested in circus arts, photography, or just want to chat, feel free to reach out to me at me@jaspermayone.com. \n\nI can't wait to meet you!",
-      "background: #fff; color: #4299e1",
-    );
-  }, []);
-
   const fadeVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1 },
