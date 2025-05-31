@@ -7,10 +7,16 @@ import MENU from "@/components/MENU";
 import FOOTER from "@/components/FOOTER";
 import SquigglyLine from "@/components/SquigglyLine";
 import styles from "@/styles/Home.module.css";
+import { generateOGMetadata } from "@/lib/og-utils";
 
 export const metadata: Metadata = {
   title: "Portfolio",
   description: "A showcase of my projects and accomplishments.",
+  ...generateOGMetadata(
+    "/portfolio",
+    "Portfolio",
+    "A showcase of my projects and accomplishments.",
+  ),
 };
 
 export default function Portfolio() {
