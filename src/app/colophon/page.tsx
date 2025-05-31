@@ -2,6 +2,7 @@ import { Code, Laptop, Wrench, History, Server, User } from "lucide-react";
 import { Metadata } from "next";
 import MENU from "@/components/MENU";
 import FOOTER from "@/components/FOOTER";
+import SquigglyLine from "@/components/SquigglyLine";
 
 export const metadata: Metadata = {
   title: "Colophon",
@@ -74,21 +75,21 @@ export default function Colophon() {
           {/* Site History Section */}
           <section className="mb-20">
             <div className="flex items-center gap-4 mb-10">
-              <div className="p-3 bg-gradient-to-br from-amber-100 to-orange-100 rounded-full">
-                <History className="w-7 h-7 text-amber-600" />
+              <div className="p-3 bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900 dark:to-orange-900 rounded-full">
+                <History className="w-7 h-7 text-amber-600 dark:text-amber-400" />
               </div>
-              <h2 className="text-3xl font-bold text-slate-900">
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
                 Site History
               </h2>
             </div>
 
             <div className="flex items-center gap-3 mb-2">
-              <User className="w-5 h-5 text-blue-600" />
-              <span className="font-semibold text-slate-900">
+              <User className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+              <span className="font-semibold text-slate-900 dark:text-white">
                 Original Development
               </span>
             </div>
-            <p className="text-slate-700 mb-0">
+            <p className="text-slate-700 dark:text-gray-300 mb-0">
               The original site was developed by{" "}
               <a
                 href="https://aram.sh"
@@ -104,10 +105,10 @@ export default function Colophon() {
           {/* Technology Stack Section */}
           <section className="mb-20">
             <div className="flex items-center gap-4 mb-10">
-              <div className="p-3 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full">
-                <Code className="w-7 h-7 text-blue-600" />
+              <div className="p-3 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-full">
+                <Code className="w-7 h-7 text-blue-600 dark:text-blue-400" />
               </div>
-              <h2 className="text-3xl font-bold text-slate-900">
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
                 Technology Stack
               </h2>
             </div>
@@ -116,21 +117,21 @@ export default function Colophon() {
               {techStack.map((tech, index) => (
                 <div
                   key={index}
-                  className="group bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/50 hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
+                  className="group bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-xl p-6 shadow-lg border border-white/50 dark:border-gray-700/50 hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-3">
                       <div>
-                        <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-700 transition-colors">
+                        <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors">
                           {tech.name}
                         </h3>
-                        <span className="text-xs font-medium px-2 py-1 bg-slate-100 text-slate-600 rounded-full capitalize">
+                        <span className="text-xs font-medium px-2 py-1 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-full capitalize">
                           {tech.category}
                         </span>
                       </div>
                     </div>
                   </div>
-                  <p className="text-slate-600 leading-relaxed">
+                  <p className="text-slate-600 dark:text-gray-300 leading-relaxed">
                     {tech.description}
                   </p>
                 </div>
@@ -141,24 +142,24 @@ export default function Colophon() {
           {/* Hosting & Deployment Section */}
           <section className="mb-20">
             <div className="flex items-center gap-4 mb-10">
-              <div className="p-3 bg-gradient-to-br from-green-100 to-emerald-100 rounded-full">
-                <Server className="w-7 h-7 text-green-600" />
+              <div className="p-3 bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900 dark:to-emerald-900 rounded-full">
+                <Server className="w-7 h-7 text-green-600 dark:text-green-400" />
               </div>
-              <h2 className="text-3xl font-bold text-slate-900">
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
                 Hosting & Deployment
               </h2>
             </div>
 
-            <div className="bg-gradient-to-r from-green-50 via-emerald-50 to-teal-50 rounded-2xl p-8 shadow-lg border border-green-200/50">
+            <div className="bg-gradient-to-r from-green-50 via-emerald-50 to-teal-50 dark:from-green-900/20 dark:via-emerald-900/20 dark:to-teal-900/20 rounded-2xl p-8 shadow-lg border border-green-200/50 dark:border-green-700/50">
               <div className="flex items-start gap-6">
-                <div className="p-4 bg-white rounded-full shadow-sm">
-                  <Server className="w-8 h-8 text-green-600" />
+                <div className="p-4 bg-white dark:bg-gray-800 rounded-full shadow-sm">
+                  <Server className="w-8 h-8 text-green-600 dark:text-green-400" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-xl font-bold text-slate-900 mb-3">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3">
                     Vercel Platform
                   </h3>
-                  <p className="text-slate-700 leading-relaxed mb-4">
+                  <p className="text-slate-700 dark:text-gray-300 leading-relaxed mb-4">
                     The site is hosted on{" "}
                     <a
                       href="https://vercel.com"
@@ -172,13 +173,13 @@ export default function Colophon() {
                     HTTPS, and global CDN distribution.
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    <span className="px-3 py-1 bg-white/80 text-green-700 text-sm font-medium rounded-full">
+                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/80 text-green-700 dark:text-green-300 text-sm font-medium rounded-full">
                       GitHub Integration
                     </span>
-                    <span className="px-3 py-1 bg-white/80 text-green-700 text-sm font-medium rounded-full">
+                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/80 text-green-700 dark:text-green-300 text-sm font-medium rounded-full">
                       Automatic HTTPS
                     </span>
-                    <span className="px-3 py-1 bg-white/80 text-green-700 text-sm font-medium rounded-full">
+                    <span className="px-3 py-1 bg-white/80 dark:bg-gray-800/80 text-green-700 dark:text-green-300 text-sm font-medium rounded-full">
                       Global CDN
                     </span>
                   </div>
@@ -190,25 +191,25 @@ export default function Colophon() {
           {/* Development Tools Section */}
           <section className="mb-20">
             <div className="flex items-center gap-4 mb-10">
-              <div className="p-3 bg-gradient-to-br from-purple-100 to-pink-100 rounded-full">
-                <Wrench className="w-7 h-7 text-purple-600" />
+              <div className="p-3 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 rounded-full">
+                <Wrench className="w-7 h-7 text-purple-600 dark:text-purple-400" />
               </div>
-              <h2 className="text-3xl font-bold text-slate-900">
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
                 Development Tools
               </h2>
             </div>
 
-            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/50">
+            <div className="bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/50 dark:border-gray-700/50">
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {tools.map((tool, index) => (
                   <div key={index} className="text-center group">
-                    <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-200">
-                      <Wrench className="w-7 h-7 text-purple-600" />
+                    <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-900 dark:to-pink-900 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-200">
+                      <Wrench className="w-7 h-7 text-purple-600 dark:text-purple-400" />
                     </div>
-                    <h3 className="font-bold text-slate-900 mb-2 text-lg">
+                    <h3 className="font-bold text-slate-900 dark:text-white mb-2 text-lg">
                       {tool.name}
                     </h3>
-                    <p className="text-slate-600 leading-relaxed">
+                    <p className="text-slate-600 dark:text-gray-300 leading-relaxed">
                       {tool.description}
                     </p>
                   </div>
@@ -220,22 +221,24 @@ export default function Colophon() {
           {/* Hardware Section */}
           <section className="mb-16">
             <div className="flex items-center gap-4 mb-10">
-              <div className="p-3 bg-gradient-to-br from-gray-100 to-slate-100 rounded-full">
-                <Laptop className="w-7 h-7 text-gray-600" />
+              <div className="p-3 bg-gradient-to-br from-gray-100 to-slate-100 dark:from-gray-700 dark:to-slate-700 rounded-full">
+                <Laptop className="w-7 h-7 text-gray-600 dark:text-gray-400" />
               </div>
-              <h2 className="text-3xl font-bold text-slate-900">Hardware</h2>
+              <h2 className="text-3xl font-bold text-slate-900 dark:text-white">
+                Hardware
+              </h2>
             </div>
 
-            <div className="bg-gradient-to-r from-gray-50 to-slate-50 rounded-2xl p-8 shadow-lg border border-gray-200/50">
+            <div className="bg-gradient-to-r from-gray-50 to-slate-50 dark:from-gray-900/50 dark:to-slate-900/50 rounded-2xl p-8 shadow-lg border border-gray-200/50 dark:border-gray-700/50">
               <div className="flex items-center gap-6">
-                <div className="p-4 bg-white rounded-full shadow-sm">
-                  <Laptop className="w-10 h-10 text-gray-600" />
+                <div className="p-4 bg-white dark:bg-gray-800 rounded-full shadow-sm">
+                  <Laptop className="w-10 h-10 text-gray-600 dark:text-gray-400" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">
+                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
                     Apple M4 Pro MacBook Pro
                   </h3>
-                  <p className="text-slate-600 text-lg">
+                  <p className="text-slate-600 dark:text-gray-300 text-lg">
                     Primary development machine for coding, design, and testing
                   </p>
                 </div>
@@ -244,14 +247,22 @@ export default function Colophon() {
           </section>
 
           {/* Footer */}
-          <div className="text-center pt-12 border-t border-slate-200/50">
-            <p className="text-slate-600 text-lg leading-relaxed max-w-2xl mx-auto">
+          <div className="text-center pt-12 border-t border-slate-200/50 dark:border-slate-700/50">
+            <p className="text-slate-600 dark:text-gray-300 text-lg leading-relaxed max-w-2xl mx-auto">
               This page celebrates the amazing tools and technologies that make
               modern web development possible, and honors the continuous
               evolution of this digital space.
             </p>
           </div>
         </div>
+
+        <div className="py-2.5" />
+        <SquigglyLine
+          frequency={50}
+          amplitude={0.4}
+          className="min-w-screen"
+          color="#4299e1"
+        />
       </main>
       <FOOTER />
     </div>
