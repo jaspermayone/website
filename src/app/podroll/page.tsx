@@ -1,13 +1,15 @@
 import MENU from "@/components/MENU";
 import FOOTER from "@/components/FOOTER";
+import SquigglyLine from "@/components/SquigglyLine";
+import styles from "@/styles/Home.module.css";
+import { Metadata } from "next";
+import { HeadphonesIcon } from "lucide-react";
 
 interface Podcast {
   name: string;
   description: string;
   url: string;
 }
-
-import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Podroll",
@@ -19,19 +21,19 @@ export default function Podroll() {
     {
       name: "Mac Power Users",
       description:
-        "Learn about getting the most from your Apple technology with focused topics and workflow guests. Creating Mac Power Users since 2009, one conversation at a time. Hosted by David Sparks and Stephen Hackett.",
+        "Learn about getting the most from your Apple technology with focused topics and workflow guests.",
       url: "https://www.relay.fm/mpu",
     },
     {
       name: "Hard Fork",
       description:
-        "Hard Fork is a show about the future that's already here. Each week, journalists Kevin Roose and Casey Newton explore and make sense of the latest in the rapidly changing world of tech.",
+        "Each week, journalists Kevin Roose and Casey Newton explore the rapidly changing world of tech.",
       url: "https://www.nytimes.com/column/hard-fork",
     },
     {
       name: "Startups For the Rest of Us",
       description:
-        "The original podcast for bootstrapped and mostly bootstrapped startups, this show follow the stories of founders as they start, acquire, and grow SaaS companies. Hear when they fail, struggle, succeed, and take you with them through the tumultuous life of a Saas founder. If you like Mixergy, This Week in Startups, or SaaStr, you'll enjoy Startup for the Rest of Us.",
+        "Following founders as they start, acquire, and grow SaaS companies through success and failure.",
       url: "https://www.startupsfortherestofus.com/",
     },
     {
@@ -50,27 +52,46 @@ export default function Podroll() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <MENU pageFirstWord="Recommended" pageSecondWord="Podcasts" />
-      <div className="m-5 flex-1">
-        <p className="text-2xl mb-2">Here are some of my favorite podcasts</p>
+      <MENU pageFirstWord="Podcasts" />
+      <main className="flex-1">
+        <div className="mx-5 mt-4 mb-4">
+          <h1 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
+            Recommended Podcasts
+          </h1>
 
-        {/* display podcasts in a list */}
-        <ul>
-          {podcasts.map((podcast, index) => (
-            <li key={index} className="mb-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {podcasts.map((podcast, index) => (
               <a
+                key={index}
                 href={podcast.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline"
+                className="flex p-3 bg-white/50 dark:bg-gray-800/20 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
               >
-                {podcast.name}
+                <div className="flex-shrink-0 mr-3 text-blue-500">
+                  <HeadphonesIcon size={20} />
+                </div>
+                <div>
+                  <h2 className="font-medium text-gray-800 dark:text-gray-100 text-sm">
+                    {podcast.name}
+                  </h2>
+                  <p className="text-gray-600 dark:text-white/70 text-xs mt-1">
+                    {podcast.description}
+                  </p>
+                </div>
               </a>
-              <p>{podcast.description}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="py-2" />
+        <SquigglyLine
+          frequency={50}
+          amplitude={0.4}
+          className="min-w-screen"
+          color="#4299e1"
+        />
+      </main>
       <FOOTER />
     </div>
   );
