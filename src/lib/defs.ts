@@ -5,15 +5,15 @@ export const pages = [
   "resume",
   "portfolio",
   "verify",
+  "contact",
+  "pfp",
+  "now",
   "uses",
   "podroll",
-  "pfp",
   "panera",
-  "now",
   "green",
-  "contact",
-  "colophon",
   "changelog",
+  "colophon",
 ];
 
 export const redirects: RedirectItem[] = [
