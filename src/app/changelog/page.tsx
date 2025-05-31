@@ -2,6 +2,8 @@ import { formatDistanceToNow } from "date-fns";
 import AnimatedTitle from "@/components/AnimatedTitle";
 import { Metadata } from "next";
 import { Commit, GitHubCommitResponse } from "@/lib/interfaces";
+import MENU from "@/components/MENU";
+import FOOTER from "@/components/FOOTER";
 
 async function getGitHubCommits(limit: number = 50): Promise<Commit[]> {
   const owner = "jaspermayone";
@@ -123,92 +125,97 @@ export default async function Changelog() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-4xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <AnimatedTitle firstWord="Changelog" />
-          <p className="text-xl text-gray-600">
-            Latest updates and changes to jaspermayone.com
-          </p>
-        </div>
+    <div className="h-screen flex flex-col">
+      <MENU pageFirstWord="Changelog" />
 
-        <div className="space-y-8">
-          {commits.map((commit, index) => {
-            const { title, description } = formatCommitMessage(commit.message);
-            const type = getCommitType(commit.message);
-            const typeColor = getTypeColor(type);
-            const typeIcon = getTypeIcon(type);
+      {/* Scrollable changelog content */}
+      <main className="flex-1 overflow-y-auto">
+        <div className="max-w-4xl mx-auto px-4 py-8">
+          <div className="space-y-8">
+            {commits.map((commit, index) => {
+              const { title, description } = formatCommitMessage(
+                commit.message,
+              );
+              const type = getCommitType(commit.message);
+              const typeColor = getTypeColor(type);
+              const typeIcon = getTypeIcon(type);
 
-            return (
-              <div
-                key={commit.hash}
-                className="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center space-x-3">
-                    <span
-                      className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${typeColor}`}
-                    >
-                      {typeIcon} {type}
-                    </span>
-                    <span className="text-sm text-gray-500">
-                      {formatDistanceToNow(new Date(commit.date), {
-                        addSuffix: true,
-                      })}
-                    </span>
-                  </div>
-                  <div className="flex items-center space-x-2 text-sm text-gray-500">
-                    <span className="font-mono bg-gray-100 px-2 py-1 rounded">
-                      {commit.hash.substring(0, 7)}
-                    </span>
-                  </div>
-                </div>
-
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {title}
-                </h3>
-
-                {description && (
-                  <p className="text-gray-700 mb-4 whitespace-pre-line">
-                    {description}
-                  </p>
-                )}
-
-                <div className="flex items-center justify-between text-sm text-gray-500">
-                  <div className="flex items-center space-x-2">
-                    {commit.avatar ? (
-                      <img
-                        src={commit.avatar}
-                        alt={commit.author}
-                        className="w-6 h-6 rounded-full"
-                      />
-                    ) : (
-                      <div className="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
-                        <span className="text-xs font-semibold">
-                          {commit.author.charAt(0).toUpperCase()}
-                        </span>
-                      </div>
-                    )}
-                    <span>{commit.author}</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    {commit.url && (
-                      <a
-                        href={commit.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-800 underline"
+              return (
+                <div
+                  key={commit.hash}
+                  className="bg-white rounded-lg shadow-md p-6 border-l-4 border-blue-500"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex items-center space-x-3">
+                      <span
+                        className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${typeColor}`}
                       >
-                        View on GitHub
-                      </a>
-                    )}
-                    <span className="text">{commit.email}</span>
+                        {typeIcon} {type}
+                      </span>
+                      <span className="text-sm text-gray-500">
+                        {formatDistanceToNow(new Date(commit.date), {
+                          addSuffix: true,
+                        })}
+                      </span>
+                    </div>
+                    <div className="flex items-center space-x-2 text-sm text-gray-500">
+                      <span className="font-mono bg-gray-100 px-2 py-1 rounded">
+                        {commit.hash.substring(0, 7)}
+                      </span>
+                    </div>
+                  </div>
+
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                    {title}
+                  </h3>
+
+                  {description && (
+                    <p className="text-gray-700 mb-4 whitespace-pre-line">
+                      {description}
+                    </p>
+                  )}
+
+                  <div className="flex items-center justify-between text-sm text-gray-500">
+                    <div className="flex items-center space-x-2">
+                      {commit.avatar ? (
+                        <img
+                          src={commit.avatar}
+                          alt={commit.author}
+                          className="w-6 h-6 rounded-full"
+                        />
+                      ) : (
+                        <div className="w-6 h-6 bg-gray-300 rounded-full flex items-center justify-center">
+                          <span className="text-xs font-semibold">
+                            {commit.author.charAt(0).toUpperCase()}
+                          </span>
+                        </div>
+                      )}
+                      <span>{commit.author}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      {commit.url && (
+                        <a
+                          href={commit.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 underline"
+                        >
+                          View on GitHub
+                        </a>
+                      )}
+                      <span className="text">{commit.email}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
+      </main>
+
+      {/* Fixed footer */}
+      <div className="flex-shrink-0 py-2.5">
+        <FOOTER />
       </div>
     </div>
   );

@@ -1,13 +1,14 @@
 import { formatRelative } from "date-fns";
-import AnimatedTitle from "@/components/AnimatedTitle";
 import { Metadata } from "next";
+import MENU from "@/components/MENU";
+import FOOTER from "@/components/FOOTER";
 
 export const metadata: Metadata = {
   title: "Now",
   description: "What I'm currently doing.",
 };
 
-export default async function Green() {
+export default async function Now() {
   const api_url =
     "https://bsky.social/xrpc/com.atproto.repo.listRecords?repo=jaspermayone.com&collection=a.status.update&limit=50";
 
@@ -26,21 +27,24 @@ export default async function Green() {
   console.log(posts);
 
   return (
-    <div className="m-5">
-      <AnimatedTitle firstWord="Now" />
-      <div className="space-y-3">
-        {posts.map((post, index) => (
-          <div key={index} className="flex items-start gap-3">
-            <div className="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
-            <div className="flex-1">
-              <p className="text-gray-800">{post.text}</p>
-              <p className="text-xs text-gray-500 mt-1">
-                {formatTimeAgo(post.createdAt)}
-              </p>
+    <div className="min-h-screen flex flex-col">
+      <MENU pageFirstWord="Now" />
+      <main className="m-5 flex-1">
+        <div className="space-y-3">
+          {posts.map((post, index) => (
+            <div key={index} className="flex items-start gap-3">
+              <div className="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+              <div className="flex-1">
+                <p className="text-gray-800">{post.text}</p>
+                <p className="text-xs text-gray-500 mt-1">
+                  {formatTimeAgo(post.createdAt)}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      </main>
+      <FOOTER />
     </div>
   );
 }

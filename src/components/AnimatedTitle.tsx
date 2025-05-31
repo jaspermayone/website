@@ -11,6 +11,7 @@ const CuteNotes = localFont({
 interface AnimatedTitleProps {
   firstWord: string;
   secondWord?: string;
+  color?: string;
 }
 
 const AnimatedTitle = (props: AnimatedTitleProps) => {
@@ -20,6 +21,8 @@ const AnimatedTitle = (props: AnimatedTitleProps) => {
   const totalLength = firstWord.length + (secondWord ? secondWord.length : 0);
   const LETTER_DELAY = 300;
   const CYCLE_PAUSE = 2000;
+
+  const color = props.color || "inherit";
 
   useEffect(() => {
     const animate = async () => {
@@ -51,7 +54,7 @@ const AnimatedTitle = (props: AnimatedTitleProps) => {
           key={`first-${index}`}
           className="transition-colors duration-300"
           style={{
-            color: index === activeIndex ? "#4299e1" : "inherit",
+            color: index === activeIndex ? "#4299e1" : color,
           }}
         >
           {letter}
@@ -62,8 +65,7 @@ const AnimatedTitle = (props: AnimatedTitleProps) => {
           key={`second-${index}`}
           className="transition-colors duration-300"
           style={{
-            color:
-              index + firstWord.length === activeIndex ? "#4299e1" : "inherit",
+            color: index + firstWord.length === activeIndex ? "#4299e1" : color,
           }}
         >
           {letter}

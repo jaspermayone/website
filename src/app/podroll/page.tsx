@@ -1,4 +1,5 @@
 import MENU from "@/components/MENU";
+import FOOTER from "@/components/FOOTER";
 
 interface Podcast {
   name: string;
@@ -48,26 +49,29 @@ export default function Podroll() {
   ];
 
   return (
-    <div className="m-2">
+    <div className="min-h-screen flex flex-col">
       <MENU pageFirstWord="Recommended" pageSecondWord="Podcasts" />
-      <p className="text-2xl mb-2">Here are some of my favorite podcasts</p>
+      <div className="m-5 flex-1">
+        <p className="text-2xl mb-2">Here are some of my favorite podcasts</p>
 
-      {/* display podcasts in a list */}
-      <ul>
-        {podcasts.map((podcast, index) => (
-          <li key={index} className="mb-4">
-            <a
-              href={podcast.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="underline"
-            >
-              {podcast.name}
-            </a>
-            <p>{podcast.description}</p>
-          </li>
-        ))}
-      </ul>
+        {/* display podcasts in a list */}
+        <ul>
+          {podcasts.map((podcast, index) => (
+            <li key={index} className="mb-4">
+              <a
+                href={podcast.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline"
+              >
+                {podcast.name}
+              </a>
+              <p>{podcast.description}</p>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <FOOTER />
     </div>
   );
 }

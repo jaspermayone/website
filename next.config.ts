@@ -58,7 +58,7 @@ const nextConfig = {
     let someOtherRedirects = [
       {
         source: "/repo",
-        destination: "https://github.jaspermayone.com/website",
+        destination: "https://github.com/jaspermayone/website",
         permanent: true,
       },
       {

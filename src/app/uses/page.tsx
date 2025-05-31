@@ -1,5 +1,6 @@
-import AnimatedTitle from "@/components/AnimatedTitle";
 import { Metadata } from "next";
+import MENU from "@/components/MENU";
+import FOOTER from "@/components/FOOTER";
 
 export const metadata: Metadata = {
   title: "Uses",
@@ -111,13 +112,16 @@ export default function Uses() {
   ];
 
   return (
-    <div className="m-2">
-      <AnimatedTitle firstWord="Uses" />
-      {defaults.map((item, index) => (
-        <div key={index}>
-          {item.emoji} <strong>{item.name}:</strong> {item.result}
-        </div>
-      ))}
+    <div className="min-h-screen flex flex-col">
+      <MENU pageFirstWord="Uses" />
+      <main className="m-5 flex-1">
+        {defaults.map((item, index) => (
+          <div key={index}>
+            {item.emoji} <strong>{item.name}:</strong> {item.result}
+          </div>
+        ))}
+      </main>
+      <FOOTER />
     </div>
   );
 }

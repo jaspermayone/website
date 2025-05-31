@@ -1,10 +1,10 @@
-import AnimatedTitle from "@/components/AnimatedTitle";
-import SquigglyLine from "@/components/SquigglyLine";
 import { projects } from "@/lib/defs";
 import { ExternalLink } from "lucide-react";
 import { Metadata } from "next";
 import Image from "next/image";
 import { GitHubLogoIcon } from "@radix-ui/react-icons";
+import MENU from "@/components/MENU";
+import FOOTER from "@/components/FOOTER";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -14,22 +14,7 @@ export const metadata: Metadata = {
 export default function Portfolio() {
   return (
     <div className="h-screen flex flex-col bg-lite">
-      <header className="flex-none px-6 py-4 bg-lite">
-        <div className="flex flex-col items-center">
-          <AnimatedTitle firstWord="Portfolio" />
-        </div>
-        <div className="py-1" />
-        <SquigglyLine
-          height={10}
-          frequency={25}
-          amplitude={1.2}
-          strokeWidth={1.5}
-          className="w-full"
-          color="#4299e1"
-        />
-        <div className="py-2" />
-      </header>
-
+      <MENU pageFirstWord="Portfolio" />
       {/* Scrollable Projects Section */}
       <main className="flex-1 overflow-y-auto px-6 pb-12">
         <div className="h-full overflow-auto">
@@ -83,6 +68,7 @@ export default function Portfolio() {
           </div>
         </div>
       </main>
+      <FOOTER />
     </div>
   );
 }

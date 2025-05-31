@@ -1,22 +1,36 @@
 import AnimatedTitle from "@/components/AnimatedTitle";
 import PageNavigation from "@/components/PageNavigation";
-import WavyDivider from "@/components/WavyDivider";
+import SquigglyLine from "@/components/SquigglyLine";
 
 interface MENUProps {
   pageFirstWord: string;
   pageSecondWord?: string;
+  color?: string;
 }
 
 const MENU = (props: MENUProps) => {
-  const { pageFirstWord, pageSecondWord } = props;
+  const { pageFirstWord, pageSecondWord, color } = props;
 
   return (
-    <div>
-      <div className="flex justify-center">
-        <AnimatedTitle firstWord={pageFirstWord} secondWord={pageSecondWord} />
+    <div className="pb-2">
+      <div className="pt-5">
+        <div className="flex justify-center mb-2">
+          <AnimatedTitle
+            firstWord={pageFirstWord}
+            secondWord={pageSecondWord}
+            color={color}
+          />
+        </div>
+        <PageNavigation color={color} />
       </div>
-      <PageNavigation />
-      <WavyDivider />
+      <SquigglyLine
+        height={10}
+        frequency={25}
+        amplitude={1.2}
+        strokeWidth={1.5}
+        className="w-full"
+        color="#4299e1"
+      />
     </div>
   );
 };

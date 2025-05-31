@@ -19,10 +19,11 @@ import {
   SiYoutube,
 } from "react-icons/si";
 
-import AnimatedTitle from "@/components/AnimatedTitle";
 import { EmailCard } from "@/components/EmailCard";
 import WavyDivider from "@/components/WavyDivider";
 import { Metadata } from "next";
+import MENU from "@/components/MENU";
+import FOOTER from "@/components/FOOTER";
 
 export const metadata: Metadata = {
   title: "Verify",
@@ -115,82 +116,82 @@ const VerifyPage = () => {
     {
       platform: "Github",
       username: "jaspermayone",
-      url: "https://github.jaspermayone.com",
+      url: "/to/github",
     },
     {
       platform: "Bluesky",
       username: "@jaspermayone.com",
-      url: "https://bluesky.jaspermayone.com",
+      url: "/to/bluesky",
     },
     {
       platform: "Linkedin",
       username: "jaspermayone",
-      url: "https://linkedin.jaspermayone.com",
+      url: "/to/linkedin",
     },
     {
       platform: "Instagram",
       username: "jasper.mayone",
-      url: "https://instagram.jaspermayone.com",
+      url: "/to/instagram",
     },
     {
       platform: "Threads",
       username: "@jasper.mayone",
-      url: "https://threads.jaspermayone.com",
+      url: "/to/threads",
     },
     {
       platform: "Youtube",
       username: "@jasper.does.circus",
-      url: "https://youtube.jaspermayone.com",
+      url: "/to/youtube",
     },
     {
       platform: "Signal",
       username: "jaspermayone.10",
-      url: "https://signal.me/#eu/jaspermayone.10",
+      url: "/to/signal",
     },
     {
       platform: "Buy Me a Coffee",
       username: "jaspermayone",
-      url: "https://coffee.jaspermayone.com",
+      url: "/to/coffee",
     },
     {
       platform: "Reddit",
       username: "j-dogcoder",
-      url: "https://reddit.jaspermayone.com",
+      url: "/to/reddit",
     },
     {
       platform: "HackerOne",
       username: "jmayone",
-      url: "https://hackerone.jaspermayone.com",
+      url: "/to/hackerone",
     },
     {
       platform: "Twitter/X",
       username: "jaspermayone",
-      url: "https://x.jaspermayone.com",
+      url: "/to/x",
     },
     {
       platform: "Dev.to",
       username: "jaspermayone",
-      url: "https://devto.jaspermayone.com",
+      url: "/to/devto",
     },
     {
       platform: "Product Hunt",
       username: "jaspermayone",
-      url: "https://producthunt.jaspermayone.com",
+      url: "/to/producthunt",
     },
     {
       platform: "Hacker News",
       username: "jaspermayone",
-      url: "https://hackernews.jaspermayone.com",
+      url: "/to/hackernews",
     },
     {
       platform: "Thingiverse", // Added Thingiverse as an example
       username: "preamble6098", // Assuming this is the username on Thingiverse
-      url: "https://thingiverse.jaspermayone.com", // Assuming a custom URL for Thingiverse
+      url: "/to/thingiverse", // Assuming a custom URL for Thingiverse
     },
     {
       platform: "Matrix",
       username: "@jasper.mayone:matrix.org",
-      url: "https://matrix.jaspermayone.com",
+      url: "/to/matrix",
       note: "i'm not at all active here, contact me elsewhere if you want a response (like ever)",
     },
   ];
@@ -252,239 +253,239 @@ const VerifyPage = () => {
   };
 
   return (
-    <main className="max-w-4xl mx-auto px-4 pt-6">
-      <header className="mb-8">
-        <Link
-          href="/"
-          className="inline-block mb-4 underline decoration-wavy text-linkHover hover:text-linkBlue dark:text-blue-400 dark:hover:text-blue-300 transition-colors duration-300 ease-in-out"
-        >
-          ← Back to homepage
-        </Link>
-        <AnimatedTitle firstWord="/verify" />
-        <p className="text-neutral-500 dark:text-neutral-400 text-[0.60rem] mb-2">
-          Inspired by{" "}
-          <Link
-            className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
-            href="https://dunkirk.sh/verify/"
-          >
-            @Kieran Klukas
-          </Link>
-          , this page serves as verification of my various accounts.
-        </p>
-        <p>
-          <b className="mt-2 text-neutral-700 dark:text-neutral-300">Note:</b>{" "}
-          This page is intended to be a public record of my online presence and
-          should not be considered exhaustive. If you find an account that is
-          not listed here, please let me know via email or any of the platforms
-          listed below.
-        </p>
-
-        <p className="text-neutral-700 dark:text-neutral-300 mt-2">
-          My entire indentity can also be verified at{" "}
-          <Link
-            href="https://keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA"
-            className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA
-          </Link>
-        </p>
-
-        <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400">
-          This page is tracked in version control. You can view the source code
-          for this page on{" "}
-          <Link
-            href="https://github.com/jaspermayone/website/blob/main/src/app/verify/page.tsx"
-            className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Github
-          </Link>
-          . If you find any errors or have any questions, please let me know via
-          email or any of the platforms listed below.
-        </p>
-      </header>
-
-      <WavyDivider />
-
-      {/* Domains Section */}
-      <section className="mb-6">
-        <SectionHeader>domains</SectionHeader>
-        <div className="bg-gradient-to-br from-blue-50 to-pink-50 dark:from-slate-800 dark:to-slate-900 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
-          <p className="mb-4 text-gray-700 dark:text-gray-300">
-            These are the domains I own and operate. I also operate a few other
-            domains for work and clients that are not listed here for privacy
-            reasons.
+    <>
+      <MENU pageFirstWord="/verify" />
+      <main className="max-w-4xl mx-auto px-4 pt-6">
+        <header className="mb-8">
+          <p className="text-neutral-500 dark:text-neutral-400 text-[0.60rem] mb-2">
+            Inspired by{" "}
+            <Link
+              className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
+              href="https://dunkirk.sh/verify/"
+            >
+              @Kieran Klukas
+            </Link>
+            , this page serves as verification of my various accounts.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            {domains.map((domain) => {
-              const getBadgeStyles = (type) => {
-                switch (type) {
-                  case domainType.personal:
-                    return "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200";
-                  case domainType.work:
-                    return "bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200";
-                  case domainType.project:
-                    return "bg-fuchsia-100 text-fuchsia-800 dark:bg-fuchsia-900 dark:text-fuchsia-200";
-                  case domainType.other:
-                    return "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200";
-                  default:
-                    return "bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-200";
-                }
-              };
+          <p>
+            <b className="mt-2 text-neutral-700 dark:text-neutral-300">Note:</b>{" "}
+            This page is intended to be a public record of my online presence
+            and should not be considered exhaustive. If you find an account that
+            is not listed here, please let me know via email or any of the
+            platforms listed below.
+          </p>
 
-              return (
-                <div
-                  key={domain.name}
-                  className="bg-white dark:bg-slate-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-slate-700 hover:shadow-sm transition-all duration-300"
-                >
-                  <h3 className="font-medium text-lg text-gray-800 dark:text-gray-200">
-                    {domain.name}
-                  </h3>
-                  <div className="mt-2 flex items-center gap-2">
-                    <span
-                      className={`text-xs px-2 py-1 rounded-full ${getBadgeStyles(
-                        domain.type,
-                      )}`}
-                    >
-                      {domainType[domain.type].charAt(0).toUpperCase() +
-                        domainType[domain.type].slice(1)}
-                    </span>
+          <p className="text-neutral-700 dark:text-neutral-300 mt-2">
+            My entire indentity can also be verified at{" "}
+            <Link
+              href="https://keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA"
+              className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA
+            </Link>
+          </p>
+
+          <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400">
+            This page is tracked in version control. You can view the source
+            code for this page on{" "}
+            <Link
+              href="https://github.com/jaspermayone/website/blob/main/src/app/verify/page.tsx"
+              className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Github
+            </Link>
+            . If you find any errors or have any questions, please let me know
+            via email or any of the platforms listed below.
+          </p>
+        </header>
+
+        <WavyDivider />
+
+        {/* Domains Section */}
+        <section className="mb-6">
+          <SectionHeader>domains</SectionHeader>
+          <div className="bg-gradient-to-br from-blue-50 to-pink-50 dark:from-slate-800 dark:to-slate-900 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+            <p className="mb-4 text-gray-700 dark:text-gray-300">
+              These are the domains I own and operate. I also operate a few
+              other domains for work and clients that are not listed here for
+              privacy reasons.
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {domains.map((domain) => {
+                const getBadgeStyles = (type) => {
+                  switch (type) {
+                    case domainType.personal:
+                      return "bg-indigo-100 text-indigo-800 dark:bg-indigo-900 dark:text-indigo-200";
+                    case domainType.work:
+                      return "bg-emerald-100 text-emerald-800 dark:bg-emerald-900 dark:text-emerald-200";
+                    case domainType.project:
+                      return "bg-fuchsia-100 text-fuchsia-800 dark:bg-fuchsia-900 dark:text-fuchsia-200";
+                    case domainType.other:
+                      return "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200";
+                    default:
+                      return "bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-200";
+                  }
+                };
+
+                return (
+                  <div
+                    key={domain.name}
+                    className="bg-white dark:bg-slate-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-slate-700 hover:shadow-sm transition-all duration-300"
+                  >
+                    <h3 className="font-medium text-lg text-gray-800 dark:text-gray-200">
+                      {domain.name}
+                    </h3>
+                    <div className="mt-2 flex items-center gap-2">
+                      <span
+                        className={`text-xs px-2 py-1 rounded-full ${getBadgeStyles(
+                          domain.type,
+                        )}`}
+                      >
+                        {domainType[domain.type].charAt(0).toUpperCase() +
+                          domainType[domain.type].slice(1)}
+                      </span>
+                    </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <WavyDivider />
+        <WavyDivider />
 
-      {/* Email Section */}
-      <section className="mb-12">
-        <SectionHeader>email</SectionHeader>
-        <div className="bg-gradient-to-br from-blue-50 to-pink-50 dark:from-slate-800 dark:to-slate-900 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
-          <p className="mb-4 text-gray-700 dark:text-gray-300">
-            I maintain email addresses across various domains. Some addresses
-            for organizations I am a part of are not published here for privacy
-            reasons.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {emails.map((email) => (
-              <EmailCard
-                key={email.address}
-                email={email.address}
-                isPrimary={email.primary}
-                // isWork={email.work}
-                isBusiness={email.business}
-                isSchool={email.school}
-              />
+        {/* Email Section */}
+        <section className="mb-12">
+          <SectionHeader>email</SectionHeader>
+          <div className="bg-gradient-to-br from-blue-50 to-pink-50 dark:from-slate-800 dark:to-slate-900 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+            <p className="mb-4 text-gray-700 dark:text-gray-300">
+              I maintain email addresses across various domains. Some addresses
+              for organizations I am a part of are not published here for
+              privacy reasons.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {emails.map((email) => (
+                <EmailCard
+                  key={email.address}
+                  email={email.address}
+                  isPrimary={email.primary}
+                  // isWork={email.work}
+                  isBusiness={email.business}
+                  isSchool={email.school}
+                />
+              ))}
+            </div>
+            <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
+              If you have questions about my identity at these{" "}
+              <b>or any other addresses</b>, you can email me at any of the ones
+              you see above to verify it's me. I also sign my emails with my GPG
+              key (listed below) whenever possible.
+            </p>
+          </div>
+        </section>
+
+        <WavyDivider />
+
+        {/* Accounts Section */}
+        <section className="mb-12">
+          <SectionHeader>accounts</SectionHeader>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {accounts.map((account) => (
+              <Link
+                key={account.platform}
+                href={account.url}
+                rel="me"
+                className="block p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 bg-white dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-sm group"
+                style={{
+                  height: account.note ? "auto" : "5rem",
+                  minHeight: "5rem",
+                }}
+              >
+                <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                  {getIcon(account.platform)}
+                  <span className="font-medium">{account.platform}</span>
+                </div>
+                <div className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                  {account.username}
+                </div>
+                {account.note && (
+                  <div className="mt-2 text-xs text-gray-400 dark:text-gray-500">
+                    {account.note}
+                  </div>
+                )}
+              </Link>
             ))}
           </div>
-          <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
-            If you have questions about my identity at these{" "}
-            <b>or any other addresses</b>, you can email me at any of the ones
-            you see above to verify it's me. I also sign my emails with my GPG
-            key (listed below) whenever possible.
+        </section>
+
+        <WavyDivider />
+
+        {/* Crypto Keys Section */}
+        <section className="mb-12">
+          <SectionHeader>crypto keys</SectionHeader>
+          <p className="mb-4 text-neutral-700 dark:text-neutral-300">
+            These are my current GPG and SSH keys. I will use these to sign my
+            commits and emails, as well as authentication and signing elsewhere.
           </p>
-        </div>
-      </section>
-
-      <WavyDivider />
-
-      {/* Accounts Section */}
-      <section className="mb-12">
-        <SectionHeader>accounts</SectionHeader>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {accounts.map((account) => (
-            <Link
-              key={account.platform}
-              href={account.url}
-              rel="me"
-              className="block p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 bg-white dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-sm group"
-              style={{
-                height: account.note ? "auto" : "5rem",
-                minHeight: "5rem",
-              }}
-            >
-              <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-                {getIcon(account.platform)}
-                <span className="font-medium">{account.platform}</span>
-              </div>
-              <div className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                {account.username}
-              </div>
-              {account.note && (
-                <div className="mt-2 text-xs text-gray-400 dark:text-gray-500">
-                  {account.note}
-                </div>
-              )}
-            </Link>
-          ))}
-        </div>
-      </section>
-
-      <WavyDivider />
-
-      {/* Crypto Keys Section */}
-      <section className="mb-12">
-        <SectionHeader>crypto keys</SectionHeader>
-        <p className="mb-4 text-neutral-700 dark:text-neutral-300">
-          These are my current GPG and SSH keys. I will use these to sign my
-          commits and emails, as well as authentication and signing elsewhere.
-        </p>
-        <div className="space-y-4">
-          {cryptoKeys.map((key, index) => (
-            <div
-              key={index}
-              className="bg-blue-50 dark:bg-slate-800 p-4 rounded-lg border border-blue-100 dark:border-gray-700"
-            >
-              <div>
-                <h3 className="text-lg font-medium mb-2 dark:text-white">
-                  {key.type} Key
-                </h3>
-                <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-                  For secure communication and authentication.
-                </p>
-                <div className="space-y-1 text-sm font-mono">
-                  <p className="text-neutral-700 dark:text-neutral-300">
-                    Fingerprint: {key.fingerprint}
+          <div className="space-y-4">
+            {cryptoKeys.map((key, index) => (
+              <div
+                key={index}
+                className="bg-blue-50 dark:bg-slate-800 p-4 rounded-lg border border-blue-100 dark:border-gray-700"
+              >
+                <div>
+                  <h3 className="text-lg font-medium mb-2 dark:text-white">
+                    {key.type} Key
+                  </h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                    For secure communication and authentication.
                   </p>
-                  {key.type === "GPG" ? (
+                  <div className="space-y-1 text-sm font-mono">
                     <p className="text-neutral-700 dark:text-neutral-300">
-                      <Link
-                        href={key.publicKey}
-                        rel="me"
-                        className="text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300"
-                      >
-                        Get my public key from keys.openpgp.org
-                      </Link>
+                      Fingerprint: {key.fingerprint}
                     </p>
-                  ) : (
-                    <div className="text-neutral-700 dark:text-neutral-300">
-                      <div className="bg-gray-100 dark:bg-gray-900 p-3 rounded border overflow-x-auto">
-                        <code className="text-xs whitespace-nowrap block font-mono text-gray-800 dark:text-gray-200">
-                          {key.publicKey}
-                        </code>
+                    {key.type === "GPG" ? (
+                      <p className="text-neutral-700 dark:text-neutral-300">
+                        <Link
+                          href={key.publicKey}
+                          rel="me"
+                          className="text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300"
+                        >
+                          Get my public key from keys.openpgp.org
+                        </Link>
+                      </p>
+                    ) : (
+                      <div className="text-neutral-700 dark:text-neutral-300">
+                        <div className="bg-gray-100 dark:bg-gray-900 p-3 rounded border overflow-x-auto">
+                          <code className="text-xs whitespace-nowrap block font-mono text-gray-800 dark:text-gray-200">
+                            {key.publicKey}
+                          </code>
+                        </div>
                       </div>
-                    </div>
-                  )}
-                  {key.note && (
-                    <p className="text-neutral-500 dark:text-neutral-400 font-sans text-sm">
-                      {key.note}
-                    </p>
-                  )}
+                    )}
+                    {key.note && (
+                      <p className="text-neutral-500 dark:text-neutral-400 font-sans text-sm">
+                        {key.note}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
 
-      <WavyDivider />
-    </main>
+        <WavyDivider />
+        <FOOTER />
+        {/* spacer */}
+        <div className="h-5" />
+        <WavyDivider />
+      </main>
+    </>
   );
 };
 

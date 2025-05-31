@@ -7,19 +7,34 @@ const Tooltip = dynamic(
 
 import { formatDistanceToNow, isWeekend } from "date-fns";
 
-export default function CommitHash() {
+interface CommitHashProps {
+  color?: string;
+}
+
+export default function CommitHash({ color }: CommitHashProps) {
   const commitDate = new Date(process.env.COMMIT_DATE!);
   const isitweekend = isWeekend(commitDate);
   const formattedCommitDate = formatDistanceToNow(commitDate, {
     addSuffix: true,
   });
+
+  const textColor = color || "#4a5565";
+  const linkColor = color === "#ffffff" ? "#61b8ff" : "#4299e1";
+
   return (
     <div>
-      <span className="sticky hidden text-xs sm:block text-gray-600">
+      <span
+        className="sticky hidden text-xs sm:block"
+        style={{ color: textColor }}
+      >
         v{process.env.APP_VERSION} {"("}
         <a
-          className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
-          href={`https://github.jaspermayone.com/website/tree/${process.env.COMMIT_HASH}`}
+          className="decoration-wavy underline hover:text-blur transition-colors duration-300"
+          style={{
+            color: linkColor,
+            textDecorationColor: linkColor,
+          }}
+          href={`https://github.com/jaspermayone/website/tree/${process.env.COMMIT_HASH}`}
         >
           <Tooltip
             content={process.env.FULL_COMMIT_HASH}

@@ -4,18 +4,17 @@ import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
 import { pages } from "@/lib/defs";
 import styles from "@/styles/Home.module.css";
-import {
-  SiBluesky,
-  SiGithub,
-  SiInstagram,
-  SiLinkedin,
-  SiThreads,
-  SiX,
-} from "react-icons/si";
 
-export default function PageNavigation() {
+interface PageNavigationProps {
+  color?: string;
+}
+
+export default function PageNavigation(props: PageNavigationProps) {
+  const { color } = props;
   const router = useRouter();
   const pathname = usePathname();
+
+  const textColor = color || "inherit";
 
   // Determine the selected tab based on the current path
   const getSelectedTab = () => {
@@ -55,66 +54,26 @@ export default function PageNavigation() {
     }
   };
 
-  const socialLinks = [
-    {
-      href: "/github",
-      label: "GitHub",
-      Icon: SiGithub,
-    },
-    {
-      href: "/linkedin",
-      label: "Linkedin",
-      Icon: SiLinkedin,
-    },
-    {
-      href: "/instagram",
-      label: "Instagram",
-      Icon: SiInstagram,
-    },
-    {
-      href: "/threads",
-      label: "Threads",
-      Icon: SiThreads,
-    },
-    {
-      href: "/bluesky",
-      label: "Bluesky",
-      Icon: SiBluesky,
-    },
-    {
-      href: "/x",
-      label: "X",
-      Icon: SiX,
-    },
-  ];
-
   return (
     <div className={styles.menuContainer}>
-      <div className={styles.menu} aria-label="main menu">
+      <div
+        className={`${styles.menu} flex items-center`}
+        aria-label="main menu"
+      >
         {pages.map((item) => (
-          <div key={item} className={styles.menuItemContainer}>
+          <div
+            key={item}
+            className={`${styles.menuItemContainer} flex items-center`}
+          >
             <p
-              className={`${styles.menuItem} ${item === selectedTab ? "lnk" : ""}`}
+              className={`${styles.menuItem} ${item === selectedTab ? "lnk" : ""} hover:!text-[#4299e1] cursor-pointer flex items-center`}
               onClick={() => handleMenuClick(item)}
               title={`Go to ${item}`}
+              style={item === selectedTab ? {} : { color: textColor }}
             >
               /{item}
             </p>
           </div>
-        ))}
-      </div>
-      <div className={`${styles.menu2} flex items-center`}>
-        {socialLinks.map(({ href, label, Icon }) => (
-          <Link
-            key={label}
-            href={href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`Jasper's ${label} profile`}
-            className="mx-1 transition-colors duration-200 hover:text-[#4299e1] flex items-center"
-          >
-            <Icon size={20} />
-          </Link>
         ))}
       </div>
     </div>

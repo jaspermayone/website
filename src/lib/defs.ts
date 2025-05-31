@@ -116,14 +116,14 @@ export const projects: Project[] = [
     description:
       "Managing loaner chromebooks for students and teachers in the HUUSD school district.",
     image: "/images/projects/ittool.png",
-    link: "https://github.jaspermayone.com/ittool",
+    link: "https://github.com/jaspermayone/ittool",
     techStack: ["Rails", "Ruby", "CSS", "JavaScript"],
   },
   {
     title: "@jaspermayone/logger",
     description: "Node.js Logging Package.",
     image: "/images/projects/logger.png",
-    link: "https://github.jaspermayone.com/logger",
+    link: "https://github.com/jaspermayone/logger",
     techStack: ["Node.js", "Typescript"],
   },
   {
