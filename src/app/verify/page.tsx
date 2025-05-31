@@ -276,7 +276,7 @@ const VerifyPage = () => {
           </p>
 
           <p className="text-neutral-700 dark:text-neutral-300 mt-2">
-            My entire indentity can also be verified at{" "}
+            My entire identity can also be verified at{" "}
             <Link
               href="https://keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA"
               className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
