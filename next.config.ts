@@ -55,11 +55,13 @@ const nextConfig = {
     let redirects: NextRedirectItem[] = [];
 
     for (let redirect of rees) {
-      redirects.push({
-        source: "/to/" + redirect.slug,
-        destination: redirect.destination,
-        permanent: true,
-      });
+      if (redirect.slashToLink) {
+        redirects.push({
+          source: "/to/" + redirect.slug,
+          destination: redirect.destination,
+          permanent: true,
+        });
+      }
     }
 
     let someOtherRedirects = [

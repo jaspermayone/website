@@ -18,4 +18,5 @@ export interface RedirectItem {
   slug: string;
   destination: string;
   linkrelme: boolean;
+  slashToLink: boolean;
 }

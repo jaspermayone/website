@@ -1,10 +1,10 @@
+import MobileRedirect from "@/components/MobileRedirect";
+import { redirects } from "@/lib/defs";
 import "@/styles/globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
-import MobileRedirect from "@/components/MobileRedirect";
-import { redirects } from "@/lib/defs";
 
 const cuteNotes = localFont({
   src: [
@@ -320,9 +320,11 @@ export default function RootLayout({
           href="/apple-touch-icon.png?v=2"
         />
 
-        {redirects.map((redirect) => (
-          <link rel="me" href={redirect.destination} key={redirect.slug} />
-        ))}
+        {redirects
+          .filter((redirect) => redirect.linkrelme)
+          .map((redirect) => (
+            <link rel="me" href={redirect.destination} key={redirect.slug} />
+          ))}
 
         <script
           type="application/ld+json"
