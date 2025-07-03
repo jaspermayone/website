@@ -186,23 +186,48 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
 };
 
 export default function ConfettiWrapper() {
+  enum confettiTrigger {
+    wit = "wit",
+    socraticaW25 = "socraticaW25",
+  }
+
+  const images = [
+    {
+      trigger: confettiTrigger.wit,
+      imagePath: "/images/wit.png",
+      invertedImagePath: "/images/wit.png",
+      urlParam: "wit",
+      trackingEvent: "Wit_Confetti",
+    },
+    {
+      trigger: confettiTrigger.socraticaW25,
+      imagePath: "/images/ss.png",
+      invertedImagePath: "/images/ss-inverted.png",
+      urlParam: "socraticaW25",
+      trackingEvent: "SocraticaSymposiumW25_Confetti",
+    },
+  ];
+
   const pathname = usePathname();
   const [showConfetti, setShowConfetti] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [activeImage, setActiveImage] = useState<(typeof images)[0] | null>(
+    null,
+  );
 
   // Use a ref to track if we've already shown confetti in this page load
   const [hasShownThisSession, setHasShownThisSession] = useState(false);
 
-  // Preload both images
+  // Preload all images
   useEffect(() => {
     if (typeof window === "undefined") return;
 
-    // Preload both versions of the image
-    const regularImg = new Image();
-    regularImg.src = "/images/ss.png";
-
-    const invertedImg = new Image();
-    invertedImg.src = "/images/ss-inverted.png";
+    images.forEach((imageConfig) => {
+      const regularImg = new Image();
+      const invertedImg = new Image();
+      regularImg.src = imageConfig.imagePath;
+      invertedImg.src = imageConfig.invertedImagePath;
+    });
   }, []);
 
   useEffect(() => {
@@ -230,53 +255,58 @@ export default function ConfettiWrapper() {
     // Check if browser environment
     if (typeof window === "undefined") return;
 
-    // Check URL parameters for ss trigger
+    // Check URL parameters for any configured triggers
     const searchParams = new URLSearchParams(window.location.search);
-    const ssParam = searchParams.get("socraticaW25");
 
-    // Only run once on page load when ss=true and not shown yet
-    if (ssParam === "true" && !hasShownThisSession && !showConfetti) {
+    // Find which image config matches the current URL params (homepage only)
+    const matchedConfig =
+      pathname === "/"
+        ? images.find((config) => {
+            const paramValue = searchParams.get(config.urlParam);
+            return paramValue === "true";
+          })
+        : null;
+
+    // Only run once on page load when matched and not shown yet
+    if (matchedConfig && !hasShownThisSession && !showConfetti) {
       // Mark that we've shown it this session
       setHasShownThisSession(true);
+      setActiveImage(matchedConfig);
 
       // Show confetti
       setShowConfetti(true);
 
       // Track confetti display with Umami
-      if (
-        pathname === "/socraticaW25" ||
-        pathname.startsWith("/socraticaW25/")
-      ) {
-        // Create a tracking element if it doesn't exist
-        const trackingElement = document.createElement("div");
-        trackingElement.setAttribute(
-          "data-umami-event",
-          "SocraticaSymposiumW25_Confetti",
-        );
-        trackingElement.setAttribute("data-umami-event-path", pathname);
-        trackingElement.setAttribute(
-          "data-umami-event-triggered-by",
-          "url-param",
-        );
-        trackingElement.style.display = "none";
-        document.body.appendChild(trackingElement);
+      const trackingElement = document.createElement("div");
+      trackingElement.setAttribute(
+        "data-umami-event",
+        matchedConfig.trackingEvent,
+      );
+      trackingElement.setAttribute("data-umami-event-path", pathname);
+      trackingElement.setAttribute(
+        "data-umami-event-triggered-by",
+        "url-param",
+      );
+      trackingElement.style.display = "none";
+      document.body.appendChild(trackingElement);
 
-        // Clean up the tracking element after a brief delay
-        setTimeout(() => {
-          if (document.body.contains(trackingElement)) {
-            document.body.removeChild(trackingElement);
-          }
-        }, 100);
-      }
+      // Clean up the tracking element after a brief delay
+      setTimeout(() => {
+        if (document.body.contains(trackingElement)) {
+          document.body.removeChild(trackingElement);
+        }
+      }, 100);
 
       // Hide confetti after it finishes (4 seconds total: 2.5s active + 1.5s fade out)
       setTimeout(() => setShowConfetti(false), 4000);
     }
   }, [pathname, showConfetti, hasShownThisSession]);
 
-  return showConfetti ? (
+  return showConfetti && activeImage ? (
     <ImageConfetti
-      imagePath={isDarkMode ? "/images/ss-inverted.png" : "/images/ss.png"}
+      imagePath={
+        isDarkMode ? activeImage.invertedImagePath : activeImage.imagePath
+      }
       duration={2500}
     />
   ) : null;

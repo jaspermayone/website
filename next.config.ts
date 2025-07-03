@@ -71,6 +71,11 @@ const nextConfig = {
         permanent: false,
       },
       {
+        source: "/wit",
+        destination: "/?wit=true",
+        permanent: false,
+      },
+      {
         source: "/repo",
         destination: "https://github.com/jaspermayone/website",
         permanent: true,
