@@ -189,6 +189,9 @@ export default function ConfettiWrapper() {
   enum confettiTrigger {
     wit = "wit",
     socraticaW25 = "socraticaW25",
+    pwl = "pwl",
+    pd = "pd",
+    mlh = "mlh",
   }
 
   const images = [
@@ -197,7 +200,7 @@ export default function ConfettiWrapper() {
       imagePath: "/images/wit.png",
       invertedImagePath: "/images/wit.png",
       urlParam: "wit",
-      trackingEvent: "Wit_Confetti",
+      trackingEvent: "WIT_Confetti",
     },
     {
       trigger: confettiTrigger.socraticaW25,
@@ -205,6 +208,27 @@ export default function ConfettiWrapper() {
       invertedImagePath: "/images/ss-inverted.png",
       urlParam: "socraticaW25",
       trackingEvent: "SocraticaSymposiumW25_Confetti",
+    },
+    {
+      trigger: confettiTrigger.pwl,
+      imagePath: "/images/pwl.png",
+      invertedImagePath: "/images/pwl.png",
+      urlParam: "pwl",
+      trackingEvent: "PWL_Confetti",
+    },
+    {
+      trigger: confettiTrigger.pd,
+      imagePath: "/images/pd.jpeg",
+      invertedImagePath: "/images/pd.jpeg",
+      urlParam: "pd",
+      trackingEvent: "PD_Confetti",
+    },
+    {
+      trigger: confettiTrigger.mlh,
+      imagePath: "/images/mlh.jpg",
+      invertedImagePath: "/images/mlh.jpg",
+      urlParam: "mlh",
+      trackingEvent: "MLH_Confetti",
     },
   ];
 

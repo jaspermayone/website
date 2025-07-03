@@ -76,6 +76,31 @@ const nextConfig = {
         permanent: false,
       },
       {
+        source: "/pwl",
+        destination: "/?pwl=true",
+        permanent: false,
+      },
+      {
+        source: "/pd",
+        destination: "/?pd=true",
+        permanent: false,
+      },
+      {
+        source: "/patchwork",
+        destination: "/?pwl=true",
+        permanent: false,
+      },
+      {
+        source: "/phishdirectory",
+        destination: "/?pd=true",
+        permanent: false,
+      },
+      {
+        source: "/mlh",
+        destination: "/?mlh=true",
+        permanent: false,
+      },
+      {
         source: "/repo",
         destination: "https://github.com/jaspermayone/website",
         permanent: true,
