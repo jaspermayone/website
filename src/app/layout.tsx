@@ -28,12 +28,12 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Jasper Mayone",
-      url: "https://jaspermayone.com",
+      url: "https://www.jaspermayone.com",
     },
   ],
   creator: "Jasper Mayone",
   publisher: "Jasper Mayone",
-  metadataBase: new URL("https://jaspermayone.com"),
+  metadataBase: new URL("https://www.jaspermayone.com"),
   // verification: {
   // google:
   // },
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     title: "Jasper Mayone",
     description:
       "Creative organizer from Vermont with passion for programming, photography and adventure. Turning big ideas into meaningful projects.",
-    url: "https://jaspermayone.com",
+    url: "https://www.jaspermayone.com",
     siteName: "Jasper Mayone",
     type: "website",
     locale: "en_US",
@@ -87,7 +87,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "https://jaspermayone.com",
+    canonical: "https://www.jaspermayone.com",
   },
 
   // Added category for better classification
@@ -101,7 +101,7 @@ const jsonLdData = {
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://jaspermayone.com/#person",
+      "@id": "https://www.jaspermayone.com/#person",
       name: "Jasper Mayone",
       givenName: "Jasper",
       familyName: "Mayone",
@@ -109,7 +109,7 @@ const jsonLdData = {
       pronouns: "he/they",
       description:
         "18-year-old post high school graduate from rural Vermont. Circus performer, coder, and photographer pursuing a gap year after graduating high school a year early.",
-      url: "https://jaspermayone.com",
+      url: "https://www.jaspermayone.com",
       birthPlace: {
         "@type": "Place",
         name: "Vermont",
@@ -141,48 +141,48 @@ const jsonLdData = {
         "@type": "EducationalOrganization",
         name: "Harwood Union High School",
       },
-      sameAs: ["https://jaspermayone.com"],
+      sameAs: ["https://www.jaspermayone.com"],
     },
     {
       "@type": "WebSite",
-      "@id": "https://jaspermayone.com/#website",
-      url: "https://jaspermayone.com",
+      "@id": "https://www.jaspermayone.com/#website",
+      url: "https://www.jaspermayone.com",
       name: "Jasper Mayone - Personal Website",
       alternateName: "Jasper Mayone Portfolio",
       description:
         "Personal website of Jasper Mayone - an 18-year-old circus performer, coder, and photographer from rural Vermont",
       about: {
-        "@id": "https://jaspermayone.com/#person",
+        "@id": "https://www.jaspermayone.com/#person",
       },
       author: {
-        "@id": "https://jaspermayone.com/#person",
+        "@id": "https://www.jaspermayone.com/#person",
       },
       creator: {
-        "@id": "https://jaspermayone.com/#person",
+        "@id": "https://www.jaspermayone.com/#person",
       },
       publisher: {
-        "@id": "https://jaspermayone.com/#person",
+        "@id": "https://www.jaspermayone.com/#person",
       },
       inLanguage: "en-US",
       copyrightHolder: {
-        "@id": "https://jaspermayone.com/#person",
+        "@id": "https://www.jaspermayone.com/#person",
       },
     },
     {
       "@type": "WebPage",
-      "@id": "https://jaspermayone.com/#webpage",
-      url: "https://jaspermayone.com",
+      "@id": "https://www.jaspermayone.com/#webpage",
+      url: "https://www.jaspermayone.com",
       name: "Jasper Mayone - Circus Artist, Coder & Photographer",
       description:
         "Meet Jasper Mayone, an 18-year-old circus performer, software developer, and photographer from rural Vermont. Currently on a gap year after graduating high school early.",
       isPartOf: {
-        "@id": "https://jaspermayone.com/#website",
+        "@id": "https://www.jaspermayone.com/#website",
       },
       about: {
-        "@id": "https://jaspermayone.com/#person",
+        "@id": "https://www.jaspermayone.com/#person",
       },
       mainEntity: {
-        "@id": "https://jaspermayone.com/#person",
+        "@id": "https://www.jaspermayone.com/#person",
       },
       breadcrumb: {
         "@type": "BreadcrumbList",
@@ -191,7 +191,7 @@ const jsonLdData = {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://jaspermayone.com",
+            item: "https://www.jaspermayone.com",
           },
         ],
       },
