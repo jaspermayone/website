@@ -3,16 +3,14 @@ import { Project, RedirectItem } from "./types";
 export const pages = [
   "home",
   "resume",
-  "portfolio",
   "verify",
   "contact",
   "pfp",
   "now",
+  "panera",
   "uses",
   "podroll",
-  "panera",
   "green",
-  "changelog",
   "colophon",
 ];
 
