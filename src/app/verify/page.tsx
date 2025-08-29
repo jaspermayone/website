@@ -20,10 +20,11 @@ import {
 } from "react-icons/si";
 
 import { EmailCard } from "@/components/EmailCard";
-import WavyDivider from "@/components/WavyDivider";
-import { Metadata } from "next";
-import MENU from "@/components/MENU";
 import FOOTER from "@/components/FOOTER";
+import MENU from "@/components/MENU";
+import WavyDivider from "@/components/WavyDivider";
+import { emails, serviceSpecEmails } from "@/lib/defs";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Verify",
@@ -100,16 +101,6 @@ const VerifyPage = () => {
       name: "patchworklabs.org",
       type: domainType.project,
     },
-  ];
-
-  const emails = [
-    { address: "me@jaspermayone.com", primary: true },
-    { address: "jaspermayone@gmail.com" },
-    { address: "jasper.mayone@icloud.com" },
-    { address: "jasper.mayone@singlefeather.com", business: true },
-    { address: "mayonej@wit.edu", school: true },
-    { address: "jasper.mayone@phish.directory" },
-    { address: "jasper@patchworklabs.org" },
   ];
 
   const accounts = [
@@ -376,6 +367,25 @@ const VerifyPage = () => {
                   // isWork={email.work}
                   isBusiness={email.business}
                   isSchool={email.school}
+                />
+              ))}
+            </div>
+            <p className="mt-4 mb-4 text-gray-700 dark:text-gray-300">
+              I also maintain several "service" specific email addresses. Please
+              be respectful of these and only use them for their intended
+              purposes!
+            </p>{" "}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {serviceSpecEmails.map((email) => (
+                <EmailCard
+                  key={email.address}
+                  email={email.address}
+                  service={email.service}
+                  description={email.description}
+                  isPrimary={false}
+                  // isWork={email.work}
+                  isBusiness={false}
+                  isSchool={false}
                 />
               ))}
             </div>

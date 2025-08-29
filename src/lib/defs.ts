@@ -171,3 +171,23 @@ export const projects: Project[] = [
     ],
   },
 ];
+
+export const emails = [
+  { address: "me@jaspermayone.com", primary: true },
+  { address: "jaspermayone@gmail.com" },
+  { address: "jasper.mayone@icloud.com" },
+  { address: "jasper.mayone@singlefeather.com", business: true },
+  { address: "mayonej@wit.edu", school: true },
+  { address: "jasper.mayone@phish.directory" },
+  { address: "jasper@patchworklabs.org" },
+  { address: "jasper@hackathon.help" },
+];
+
+export const serviceSpecEmails = [
+  {
+    address: "mlh@jaspermayone.com",
+    service: "MLH",
+    description:
+      "I use this email for MLH (Major League Hacking) related communications.",
+  },
+];

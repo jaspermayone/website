@@ -3,14 +3,21 @@ import { Briefcase, GraduationCap, Mail, Mailbox, Star } from "lucide-react";
 // emails come in like me@jaspermayone.com
 // i want to display as me[at]jaspermayone[dot]com
 
-export const EmailCard = ({
-  email,
-  isPrimary,
-  // isWork,
-  isSchool,
-  isBusiness,
-}) => {
-  const formatEmail = (email) => {
+type cardArgs = {
+  email: string;
+  isPrimary: boolean | undefined;
+  // isWork: boolean
+  isSchool: boolean | undefined;
+  isBusiness: boolean | undefined;
+  service?: string;
+  description?: string;
+};
+
+export const EmailCard = (cardArgs: cardArgs) => {
+  const { email, isPrimary, isSchool, isBusiness, service, description } =
+    cardArgs;
+
+  const formatEmail = (email: string) => {
     const [localPart, domainPart] = email.split("@");
     const domainSegments = domainPart.split(".");
     const formattedDomain = domainSegments.join("[dot]");
@@ -27,14 +34,23 @@ export const EmailCard = ({
       </div>
 
       <div className="mt-3 flex items-center gap-2">
-        <a
-          href={`mailto:${email}`}
-          rel="me"
-          className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-200 hover:bg-blue-100 dark:hover:bg-blue-800/50 transition-colors duration-200"
-        >
-          <Mail className="w-3 h-3" />
-          Send Email
-        </a>
+        {/* button that only shows up if service param is null */}
+        {!service && (
+          <a
+            href={`mailto:${email}`}
+            rel="me"
+            className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-200 hover:bg-blue-100 dark:hover:bg-blue-800/50 transition-colors duration-200"
+          >
+            <Mail className="w-3 h-3" />
+            Send Email
+          </a>
+        )}
+
+        {description && (
+          <p className="mt-1 text-sm text-gray-500 italic dark:text-gray-400">
+            {description}
+          </p>
+        )}
 
         {isPrimary && (
           <span className="flex items-center gap-1 bg-rose-100 dark:bg-rose-900/50 text-rose-800 dark:text-rose-200 text-xs px-2 py-1 rounded-full">
