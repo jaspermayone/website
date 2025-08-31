@@ -137,11 +137,61 @@ const jsonLdData = {
         "Leadership",
         "Business Development",
       ],
-      alumniOf: {
+      alumniOf: [
+        {
+          "@type": "EducationalOrganization",
+          name: "Harwood Union High School",
+          address: {
+            "@type": "PostalAddress",
+            addressRegion: "Vermont",
+            addressCountry: "US",
+          },
+        },
+      ],
+      affiliation: {
         "@type": "EducationalOrganization",
-        name: "Harwood Union High School",
+        "@id": "https://wit.edu",
+        name: "Wentworth Institute of Technology",
+        url: "https://wit.edu",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "550 Huntington Avenue",
+          addressLocality: "Boston",
+          addressRegion: "Massachusetts",
+          postalCode: "02115",
+          addressCountry: "US",
+        },
+        description:
+          "Private technological university in Boston, Massachusetts",
       },
-      sameAs: ["https://www.jaspermayone.com"],
+      worksFor: [
+        {
+          "@type": "Organization",
+          name: "Major League Hacking (MLH)",
+          url: "https://mlh.io",
+          description: "MLH is the official student hackathon league",
+        },
+        {
+          "@type": "Organization",
+          name: "Patchwork Labs",
+          url: "https://patchworklabs.org",
+          description:
+            "Nonprofit providing fiscal sponsorship for hackathons and STEM projects",
+        },
+      ],
+      sameAs: [
+        "https://www.jaspermayone.com",
+        "https://github.com/jaspermayone",
+        "https://bsky.app/profile/jaspermayone.com",
+        "https://www.linkedin.com/in/jaspermayone",
+        "https://www.instagram.com/jasper.mayone",
+        "https://www.threads.net/@jasper.mayone",
+        "https://www.youtube.com/@jasper.does.circus",
+        "https://x.com/jaspermayone",
+        "https://dev.to/jaspermayone",
+        "https://www.reddit.com/user/j-dogcoder",
+        "https://hackerone.com/jmayone",
+      ],
     },
     {
       "@type": "WebSite",

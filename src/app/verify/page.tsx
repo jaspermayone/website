@@ -25,10 +25,24 @@ import MENU from "@/components/MENU";
 import WavyDivider from "@/components/WavyDivider";
 import { emails, serviceSpecEmails } from "@/lib/defs";
 import { Metadata } from "next";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Verify",
-  description: "Verification of my online presence.",
+  description:
+    "Verify Jasper Mayone's identity across domains, email addresses, social accounts, and cryptographic keys for secure communication.",
+  keywords: [
+    "verification",
+    "identity",
+    "gpg key",
+    "jasper mayone verification",
+    "domains",
+    "cryptographic keys",
+    "security",
+  ],
+  alternates: {
+    canonical: "https://www.jaspermayone.com/verify",
+  },
 };
 
 const LetterBlock = ({ letter }) => (
@@ -50,6 +64,39 @@ const SectionHeader = ({ children }) => (
     ))}
   </h2>
 );
+
+const verifyPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://www.jaspermayone.com/verify#webpage",
+  url: "https://www.jaspermayone.com/verify",
+  name: "Verify - Jasper Mayone",
+  description:
+    "Verify Jasper Mayone's identity across domains, email addresses, social accounts, and cryptographic keys for secure communication.",
+  isPartOf: {
+    "@id": "https://www.jaspermayone.com/#website",
+  },
+  about: {
+    "@id": "https://www.jaspermayone.com/#person",
+  },
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.jaspermayone.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Verify",
+        item: "https://www.jaspermayone.com/verify",
+      },
+    ],
+  },
+};
 
 const VerifyPage = () => {
   const title = "/VERIFY";
@@ -245,6 +292,13 @@ const VerifyPage = () => {
 
   return (
     <>
+      <Script
+        id="verify-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(verifyPageSchema),
+        }}
+      />
       <MENU pageFirstWord="/verify" />
       <main className="max-w-4xl mx-auto px-4 pt-6">
         <header className="mb-8">
