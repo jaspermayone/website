@@ -2,15 +2,14 @@
 import ConfettiWrapper from "@/components/ConfettiWrapper";
 import Email from "@/components/email";
 import Experience from "@/components/experience";
+import FOOTER from "@/components/FOOTER";
+import MENU from "@/components/MENU";
 import RoundedImage from "@/components/RoundedImage";
 import SquigglyLine from "@/components/SquigglyLine";
 import styles from "@/styles/Home.module.css";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 import JmDark from "@public/images/jmdark-min.jpeg";
 import JmLight from "@public/images/jmlite-min.jpeg";
-import MENU from "@/components/MENU";
-import FOOTER from "@/components/FOOTER";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [isLightMode, setIsLightMode] = useState(false);
@@ -62,26 +61,20 @@ export default function Home() {
               <p className="font-medium text-xl">
                 Jasper Mayone [<i>he/they</i>]{" "}
                 <span className="text-gray-700 dark:text-white/70 font-normal">
-                  is a 18-year-old post high school graduate from rural Vermont.
-                  They are a circus performer, a{" "}
-                  <Link
-                    className={styles.lnk}
-                    href="/to/github"
-                    target="_blank"
-                    rel="me noopener noreferrer"
-                    aria-label="Link to Jasper's Github profile"
-                  >
-                    coder
-                  </Link>
-                  , and a photographer.
+                  is a 19-year-old college student from rural Vermont, currently
+                  residing in Boston.
                 </span>
               </p>
               <p className="text-gray-600 dark:text-white/70 text-sm">
-                A circus artist and a native Vermonter, Jasper is currently
-                pursuing a gap year after their successful completion of high
-                school a full year early. Jasper tries to live by the quote
-                "We've all got both light and dark inside us. What matters is
-                the part we choose to act on...that's who we really are."
+                a Computer Science Major at{" "}
+                <a
+                  href="https://wit.edu"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Wentworth Institute of Technology
+                </a>{" "}
+                in Boston, Massachusetts. When not in school or at work,
                 Jasper's hobbies include reading, being in the great outdoors,
                 photography, computer programming, cooking, and running away to
                 join the circus.
@@ -97,13 +90,38 @@ export default function Home() {
                 adventures, both close to home and abroad.
               </p>
               <p className="text-gray-600 dark:text-white/70 text-sm">
-                Recently, Jasper's adventures include a month-long trip to
+                Recently they've been focusing their time (outside of their
+                degree) on{" "}
+                <a className={styles.lnk} href="https://mlh.io/">
+                  MLH
+                </a>{" "}
+                (aka Major League Hacking) where they currently contract as a
+                Coach, as well as at{" "}
+                <a
+                  className={styles.lnk}
+                  href="https://github.com/patchworklabsorg"
+                >
+                  Patchwork Labs
+                </a>
+                , a nonprofit they started with the mission to "Provide fiscal
+                sponsorship and administrative support for hackathons and STEM
+                projects, enabling individuals and teams to organize educational
+                events and develop technology-based solutions that benefit the
+                community."
+              </p>
+
+              <p className="text-gray-600 dark:text-white/70 text-sm">
+                Previously, Jasper's adventures included working at{" "}
+                <a className={styles.lnk} href="https://mlh.io/">
+                  MLH
+                </a>{" "}
+                as the Summer 2025 engineering intern, a month-long trip to
                 Rwanda, where they filmed a documentary and managed production
-                for his fellow students' films. They also played a key role in
+                for their fellow students' films. They also played a key role in
                 the Waitsfield Elementary PTA's Annual Ski & Skate sale,
                 co-coordinated large scale climate conferences called “See
                 Change Sessions” with thousands of attendees, and enjoyed
-                concerts by Sammy Rae & the Friends, AJR, and Lake Street Dive.
+                concerts by AJR, Sammy Rae & the Friends, and Lake Street Dive.
               </p>
             </div>
           </div>

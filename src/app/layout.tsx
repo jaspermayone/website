@@ -108,7 +108,7 @@ const jsonLdData = {
       gender: "male",
       pronouns: "he/they",
       description:
-        "18-year-old post high school graduate from rural Vermont. Circus performer, coder, and photographer pursuing a gap year after graduating high school a year early.",
+        "19-year-old post college student from rural Vermont. Circus performer, coder, and photographer pursuing a major in Computer Science at Wentworth Institute of Technology in Boston.",
       url: "https://www.jaspermayone.com",
       birthPlace: {
         "@type": "Place",
@@ -150,7 +150,7 @@ const jsonLdData = {
       name: "Jasper Mayone - Personal Website",
       alternateName: "Jasper Mayone Portfolio",
       description:
-        "Personal website of Jasper Mayone - an 18-year-old circus performer, coder, and photographer from rural Vermont",
+        "Personal website of Jasper Mayone - a 19-year-old circus performer, coder, and photographer from rural Vermont",
       about: {
         "@id": "https://www.jaspermayone.com/#person",
       },
@@ -174,7 +174,7 @@ const jsonLdData = {
       url: "https://www.jaspermayone.com",
       name: "Jasper Mayone - Circus Artist, Coder & Photographer",
       description:
-        "Meet Jasper Mayone, an 18-year-old circus performer, software developer, and photographer from rural Vermont. Currently on a gap year after graduating high school early.",
+        "Meet Jasper Mayone, a 19-year-old circus performer, software developer, and photographer from rural Vermont. Currently pursuing a major in Computer Science at Wentworth Institute of Technology in Boston.",
       isPartOf: {
         "@id": "https://www.jaspermayone.com/#website",
       },
