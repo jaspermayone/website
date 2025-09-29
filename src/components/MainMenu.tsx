@@ -19,37 +19,23 @@ interface MainMenuProps {
 const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
   const router = useRouter();
 
-  const handleDownload = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const link = document.createElement("a");
-    link.href = "/resume.pdf";
-    link.rel = "me";
-    link.download = "Jasper Mayone's Resume.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
-  const handleExternalLink = (url: string) => {
-    window.open(url, "_blank", "noopener,noreferrer");
-  };
-
   const handleMenuClick = async (item: string) => {
-    // Special cases that shouldn't trigger navigation or state updates
-    if (item === "resume") {
-      handleDownload(new MouseEvent("click") as unknown as React.MouseEvent);
-      return; // Exit early without updating state
-    }
-
-    // For other cases, update state and handle navigation
     onMenuClick(item);
 
-    if (item === "portfolio") {
+    if (item === "cv") {
+      router.push("/to/cv");
+    } else if (item === "portfolio") {
       router.push("/portfolio");
     } else if (item === "verify") {
       router.push("/verify");
     } else if (item === "home") {
       router.push("/");
+    } else if (item === "gpg") {
+      router.push("/keys/gpg");
+    } else if (item === "ssh") {
+      router.push("/keys/ssh");
+    } else {
+      router.push(`/${item}`);
     }
   };
 

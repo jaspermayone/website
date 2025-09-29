@@ -10,7 +10,7 @@ import { Project, RedirectItem } from "./types";
 
 export const pages = [
   "home",
-  "resume",
+  "cv",
   "verify",
   "contact",
   "gpg",
@@ -139,6 +139,12 @@ export const redirects: RedirectItem[] = [
     destination: "https://theaterengine.com/artists/7449",
     slashToLink: false,
     linkrelme: true,
+  },
+  {
+    slug: "cv",
+    destination: "https://cv.jaspermayone.com",
+    linkrelme: true,
+    slashToLink: true,
   },
 ];
 

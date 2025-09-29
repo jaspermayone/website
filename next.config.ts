@@ -56,9 +56,17 @@ const nextConfig = {
 
     for (let redirect of rees) {
       if (redirect.slashToLink) {
+        // newDestination is redirect.destination but with ?utm_source=jaspermayone.com&utm_medium=referral
+        // in some cases a redirect already has query parameters, so we need to merge the utm parameters instead of just appending them
+
+        let url = new URL(redirect.destination);
+        url.searchParams.set("utm_source", "jaspermayone.com");
+        url.searchParams.set("utm_medium", "referral");
+        let newDestination = url.toString();
+
         redirects.push({
           source: "/to/" + redirect.slug,
-          destination: redirect.destination,
+          destination: newDestination,
           permanent: true,
         });
       }
@@ -128,6 +136,16 @@ const nextConfig = {
       {
         source: "/pay",
         destination: "/to/buy-me-a-coffee",
+        permanent: true,
+      },
+      {
+        source: "/cv",
+        destination: "/to/cv",
+        permanent: true,
+      },
+      {
+        source: "/resume",
+        destination: "/to/cv",
         permanent: true,
       },
     ];

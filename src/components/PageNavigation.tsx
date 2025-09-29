@@ -4,7 +4,6 @@ import { pages, socialLinks } from "@/lib/defs";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import React from "react";
 
 interface PageNavigationProps {
   color?: string;
@@ -25,26 +24,10 @@ export default function PageNavigation(props: PageNavigationProps) {
 
   const selectedTab = getSelectedTab();
 
-  const handleDownload = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const link = document.createElement("a");
-    link.href = "/resume.pdf";
-    link.rel = "me";
-    link.download = "Jasper Mayone's Resume.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
-
   const handleMenuClick = async (item: string) => {
-    // Special cases that shouldn't trigger navigation or state updates
-    if (item === "resume") {
-      handleDownload(new MouseEvent("click") as unknown as React.MouseEvent);
-      return;
-    }
-
-    // For other cases, handle navigation
-    if (item === "portfolio") {
+    if (item === "cv") {
+      router.push("/to/cv");
+    } else if (item === "portfolio") {
       router.push("/portfolio");
     } else if (item === "verify") {
       router.push("/verify");
