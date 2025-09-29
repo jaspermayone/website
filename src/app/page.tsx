@@ -94,14 +94,6 @@ export default function Home() {
                 degree) on{" "}
                 <Link
                   className={styles.lnk}
-                  href="https://mlh.io/?utm_source=jaspermayone.com&utm_medium=referral"
-                >
-                  MLH
-                </Link>{" "}
-                (aka Major League Hacking) where they currently contract as a
-                Coach, as well as at{" "}
-                <Link
-                  className={styles.lnk}
                   href="https://patchworklabs.org?utm_source=jaspermayone.com&utm_medium=referral"
                   target="_blank"
                   rel="noopener noreferrer"

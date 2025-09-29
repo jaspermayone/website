@@ -199,15 +199,6 @@ export const emails = [
   { address: "jasper@hackathon.help" },
 ];
 
-export const serviceSpecEmails = [
-  {
-    address: "mlh@jaspermayone.com",
-    service: "MLH",
-    description:
-      "I use this email for MLH (Major League Hacking) related communications.",
-  },
-];
-
 export const socialLinks = [
   {
     href: "/to/github",

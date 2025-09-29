@@ -23,7 +23,7 @@ import { EmailCard } from "@/components/EmailCard";
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import WavyDivider from "@/components/WavyDivider";
-import { emails, serviceSpecEmails } from "@/lib/defs";
+import { emails } from "@/lib/defs";
 import styles from "@/styles/Home.module.css";
 import { Metadata } from "next";
 import Script from "next/script";
@@ -434,25 +434,6 @@ const VerifyPage = () => {
                   // isWork={email.work}
                   isBusiness={email.business}
                   isSchool={email.school}
-                />
-              ))}
-            </div>
-            <p className="mt-4 mb-4 text-gray-700 dark:text-gray-300">
-              I also maintain several "service" specific email addresses. Please
-              be respectful of these and only use them for their intended
-              purposes!
-            </p>{" "}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {serviceSpecEmails.map((email) => (
-                <EmailCard
-                  key={email.address}
-                  email={email.address}
-                  service={email.service}
-                  description={email.description}
-                  isPrimary={false}
-                  // isWork={email.work}
-                  isBusiness={false}
-                  isSchool={false}
                 />
               ))}
             </div>

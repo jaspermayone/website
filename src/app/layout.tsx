@@ -167,12 +167,6 @@ const jsonLdData = {
       worksFor: [
         {
           "@type": "Organization",
-          name: "Major League Hacking (MLH)",
-          url: "https://mlh.io",
-          description: "MLH is the official student hackathon league",
-        },
-        {
-          "@type": "Organization",
           name: "Patchwork Labs",
           url: "https://patchworklabs.org",
           description:
