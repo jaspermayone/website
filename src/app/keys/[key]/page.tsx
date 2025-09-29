@@ -19,11 +19,16 @@ export async function generateStaticParams() {
 
 export const revalidate = false;
 
-export default async function Page({ params }: { params: { key: string } }) {
-  const record = await getKeyByTitle(params.key);
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ key: string }>;
+}) {
+  const { key } = await params;
+  const record = await getKeyByTitle(key);
   if (!record) notFound();
 
-  const { title, fingerprint, key, fileExtension } = record;
+  const { title, fingerprint, key: keyData, fileExtension } = record;
   const directURL = buildDirectURL(title);
   const downloadURL = buildDownloadURL(title, fileExtension);
 
@@ -80,7 +85,7 @@ export default async function Page({ params }: { params: { key: string } }) {
                 Actions
               </h2>
               <div className="flex flex-col sm:flex-row gap-4">
-                <CopyButton label="Copy public key" valueToCopy={key} />
+                <CopyButton label="Copy public key" valueToCopy={keyData} />
                 <Link href={downloadURL}>
                   <Button variant="outline" className="w-full sm:w-auto">
                     <span className="mr-2">📥</span>
