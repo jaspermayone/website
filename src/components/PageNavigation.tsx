@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
 import { pages } from "@/lib/defs";
 import styles from "@/styles/Home.module.css";
+import { usePathname, useRouter } from "next/navigation";
 
 interface PageNavigationProps {
   color?: string;
@@ -49,6 +48,10 @@ export default function PageNavigation(props: PageNavigationProps) {
       router.push("/verify");
     } else if (item === "home") {
       router.push("/");
+    } else if (item === "gpg") {
+      router.push("/keys/gpg");
+    } else if (item === "ssh") {
+      router.push("/keys/ssh");
     } else {
       router.push(`/${item}`);
     }

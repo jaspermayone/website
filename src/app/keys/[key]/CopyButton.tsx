@@ -1,6 +1,7 @@
 // app/keys/[key]/CopyButton.tsx
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
 export default function CopyButton({
@@ -22,5 +23,10 @@ export default function CopyButton({
     }
   }
 
-  return <button onClick={handleCopy}>{copied ? "Copied!" : label}</button>;
+  return (
+    <Button onClick={handleCopy} className="w-full sm:w-auto">
+      <span className="mr-2">{copied ? "✓" : "📋"}</span>
+      {copied ? "Copied!" : label}
+    </Button>
+  );
 }

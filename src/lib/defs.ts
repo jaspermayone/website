@@ -5,6 +5,8 @@ export const pages = [
   "resume",
   "verify",
   "contact",
+  "gpg",
+  "ssh",
   "pfp",
   "now",
   "panera",

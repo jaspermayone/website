@@ -25,7 +25,14 @@ export async function getKeyByTitle(
 }
 
 export function buildDirectURL(title: string) {
-  return `/keys/${encodeURIComponent(title)}.keys`;
+  // Direct link points to the actual file for immediate access
+  if (title === "ssh") {
+    return `/keys/jaspermayone-ssh-pub`;
+  } else if (title === "gpg") {
+    return `/keys/jaspermayone-gpg.gpg`;
+  }
+  // Fallback for any other keys
+  return `/keys/jaspermayone-${encodeURIComponent(title)}.${title === "ssh" ? "pub" : "gpg"}`;
 }
 
 export function buildDownloadURL(title: string, fileExtension: string) {
