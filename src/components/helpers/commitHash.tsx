@@ -38,7 +38,7 @@ export default function CommitHash({ color }: CommitHashProps) {
         >
           <Tooltip
             content={process.env.FULL_COMMIT_HASH}
-            className="rounded-xl bg-blue-50 dark:bg-slate-600 p-2 font-sans text-black dark:text-white shadow-lg "
+            className="rounded-xl bg-white dark:bg-slate-800 p-3 font-mono text-sm text-slate-800 dark:text-slate-200 shadow-xl border border-slate-200 dark:border-slate-600 backdrop-blur-sm"
           >
             {process.env.COMMIT_HASH}
           </Tooltip>
