@@ -31,27 +31,24 @@ export default async function Page({
   const { title, fingerprint, key: keyData, fileExtension } = record;
   const directURL = buildDirectURL(title);
   const downloadURL = buildDownloadURL(title, fileExtension);
+  const fullDirectURL = `https://www.jaspermayone.com${directURL}`;
+
+  // Create import commands
+  const sshImportCommand = `curl -s ${fullDirectURL} >> ~/.ssh/authorized_keys`;
+  const gpgImportCommand = `curl -s ${fullDirectURL} | gpg --import`;
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div>
       <MENU
         pageFirstWord="Keys"
         pageSecondWord="~"
         pageThirdWord={`${title}`}
       />
-      <main className="flex-1">
-        <div className="max-w-4xl mx-auto px-6 py-12">
-          <div className="mb-8">
-            <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
-              {title}
-            </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
-              Public key for secure communications
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            <div className="border border-gray-200 dark:border-gray-700 rounded-2xl p-8">
+      <main>
+        <div className="max-w-4xl mx-auto px-3 py-6">
+          <div className="border border-gray-200 dark:border-gray-700 rounded-2xl p-8">
+            {/* Key Details */}
+            <div className="mb-5">
               <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
                 Key Details
               </h2>
@@ -80,10 +77,11 @@ export default async function Page({
               </div>
             </div>
 
-            <div className="border border-gray-200 dark:border-gray-700 rounded-2xl p-8">
-              <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">
+            {/* Actions */}
+            <div className="border-t border-gray-200 dark:border-gray-700 pt-6 mb-8">
+              <h3 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white">
                 Actions
-              </h2>
+              </h3>
               <div className="flex flex-col sm:flex-row gap-4">
                 <CopyButton label="Copy public key" valueToCopy={keyData} />
                 <Link href={downloadURL}>
@@ -93,6 +91,41 @@ export default async function Page({
                   </Button>
                 </Link>
               </div>
+            </div>
+
+            {/* Import Command */}
+            <div className="border-t border-gray-200 dark:border-gray-700 pt-6">
+              <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
+                Import Command
+              </h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 mb-3">
+                Copy and run this command to import the key:
+              </p>
+              {title === "ssh" ? (
+                <div className="space-y-3">
+                  <div className="bg-gray-100 dark:bg-gray-900 p-3 rounded border overflow-x-auto">
+                    <code className="text-xs whitespace-nowrap block font-mono text-gray-800 dark:text-gray-200">
+                      {sshImportCommand}
+                    </code>
+                  </div>
+                  <CopyButton
+                    label="Copy SSH import command"
+                    valueToCopy={sshImportCommand}
+                  />
+                </div>
+              ) : title === "gpg" ? (
+                <div className="space-y-3">
+                  <div className="bg-gray-100 dark:bg-gray-900 p-3 rounded border overflow-x-auto">
+                    <code className="text-xs whitespace-nowrap block font-mono text-gray-800 dark:text-gray-200">
+                      {gpgImportCommand}
+                    </code>
+                  </div>
+                  <CopyButton
+                    label="Copy GPG import command"
+                    valueToCopy={gpgImportCommand}
+                  />
+                </div>
+              ) : null}
             </div>
           </div>
         </div>

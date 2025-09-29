@@ -24,6 +24,7 @@ import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import WavyDivider from "@/components/WavyDivider";
 import { emails, serviceSpecEmails } from "@/lib/defs";
+import styles from "@/styles/Home.module.css";
 import { Metadata } from "next";
 import Script from "next/script";
 
@@ -332,6 +333,18 @@ const VerifyPage = () => {
             </Link>
           </p>
 
+          <p className="mt-4 text-sm text-neutral-700 dark:text-neutral-300">
+            To view my public cryptographic keys you can visit{" "}
+            <Link className={styles.lnk} href="/keys/gpg">
+              /keys/gpg
+            </Link>{" "}
+            or{" "}
+            <Link className={styles.lnk} href="/keys/ssh">
+              /keys/ssh
+            </Link>{" "}
+            respectively.
+          </p>
+
           <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400">
             This page is tracked in version control. You can view the source
             code for this page on{" "}
@@ -482,63 +495,6 @@ const VerifyPage = () => {
                   </div>
                 )}
               </Link>
-            ))}
-          </div>
-        </section>
-
-        <WavyDivider />
-
-        {/* Crypto Keys Section */}
-        <section className="mb-12">
-          <SectionHeader>crypto keys</SectionHeader>
-          <p className="mb-4 text-neutral-700 dark:text-neutral-300">
-            These are my current GPG and SSH keys. I will use these to sign my
-            commits and emails, as well as authentication and signing elsewhere.
-          </p>
-          <div className="space-y-4">
-            {cryptoKeys.map((key, index) => (
-              <div
-                key={index}
-                className="bg-blue-50 dark:bg-slate-800 p-4 rounded-lg border border-blue-100 dark:border-gray-700"
-              >
-                <div>
-                  <h3 className="text-lg font-medium mb-2 dark:text-white">
-                    {key.type} Key
-                  </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-                    For secure communication and authentication.
-                  </p>
-                  <div className="space-y-1 text-sm font-mono">
-                    <p className="text-neutral-700 dark:text-neutral-300">
-                      Fingerprint: {key.fingerprint}
-                    </p>
-                    {key.type === "GPG" ? (
-                      <p className="text-neutral-700 dark:text-neutral-300">
-                        <Link
-                          href={`${key.publicKey}?utm_source=jaspermayone.com&utm_medium=referral`}
-                          rel="me"
-                          className="text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300"
-                        >
-                          Get my public key from keys.openpgp.org
-                        </Link>
-                      </p>
-                    ) : (
-                      <div className="text-neutral-700 dark:text-neutral-300">
-                        <div className="bg-gray-100 dark:bg-gray-900 p-3 rounded border overflow-x-auto">
-                          <code className="text-xs whitespace-nowrap block font-mono text-gray-800 dark:text-gray-200">
-                            {key.publicKey}
-                          </code>
-                        </div>
-                      </div>
-                    )}
-                    {key.note && (
-                      <p className="text-neutral-500 dark:text-neutral-400 font-sans text-sm">
-                        {key.note}
-                      </p>
-                    )}
-                  </div>
-                </div>
-              </div>
             ))}
           </div>
         </section>
