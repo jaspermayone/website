@@ -5,11 +5,12 @@ import SquigglyLine from "@/components/SquigglyLine";
 interface MENUProps {
   pageFirstWord: string;
   pageSecondWord?: string;
+  pageThirdWord?: string;
   color?: string;
 }
 
 const MENU = (props: MENUProps) => {
-  const { pageFirstWord, pageSecondWord, color } = props;
+  const { pageFirstWord, pageSecondWord, pageThirdWord, color } = props;
 
   return (
     <div className="pb-2">
@@ -18,6 +19,7 @@ const MENU = (props: MENUProps) => {
           <AnimatedTitle
             firstWord={pageFirstWord}
             secondWord={pageSecondWord}
+            thirdWord={pageThirdWord}
             color={color}
           />
         </div>

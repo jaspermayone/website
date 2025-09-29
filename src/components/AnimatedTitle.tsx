@@ -1,6 +1,6 @@
 "use client";
-import React, { useState, useEffect } from "react";
 import localFont from "next/font/local";
+import { useEffect, useState } from "react";
 
 const CuteNotes = localFont({
   src: "../../public/fonts/CuteNotes.ttf",
@@ -11,6 +11,7 @@ const CuteNotes = localFont({
 interface AnimatedTitleProps {
   firstWord: string;
   secondWord?: string;
+  thirdWord?: string;
   color?: string;
 }
 
@@ -18,7 +19,11 @@ const AnimatedTitle = (props: AnimatedTitleProps) => {
   const [activeIndex, setActiveIndex] = useState(-1);
   const firstWord = props.firstWord;
   const secondWord = props.secondWord;
-  const totalLength = firstWord.length + (secondWord ? secondWord.length : 0);
+  const thirdWord = props.thirdWord;
+  const totalLength =
+    firstWord.length +
+    (secondWord ? secondWord.length : 0) +
+    (thirdWord ? thirdWord.length : 0);
   const LETTER_DELAY = 300;
   const CYCLE_PAUSE = 2000;
 
@@ -66,6 +71,23 @@ const AnimatedTitle = (props: AnimatedTitleProps) => {
           className="transition-colors duration-300"
           style={{
             color: index + firstWord.length === activeIndex ? "#4299e1" : color,
+          }}
+        >
+          {letter}
+        </span>
+      ))}{" "}
+      {thirdWord?.split("").map((letter, index) => (
+        <span
+          key={`third-${index}`}
+          className="transition-colors duration-300"
+          style={{
+            color:
+              index +
+                firstWord.length +
+                (secondWord ? secondWord.length : 0) ===
+              activeIndex
+                ? "#4299e1"
+                : color,
           }}
         >
           {letter}
