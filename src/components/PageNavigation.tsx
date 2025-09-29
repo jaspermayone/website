@@ -1,8 +1,10 @@
 "use client";
 
-import { pages } from "@/lib/defs";
+import { pages, socialLinks } from "@/lib/defs";
 import styles from "@/styles/Home.module.css";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import React from "react";
 
 interface PageNavigationProps {
   color?: string;
@@ -78,6 +80,23 @@ export default function PageNavigation(props: PageNavigationProps) {
             </p>
           </div>
         ))}
+        <div className="flex-grow" />
+
+        <div className={`flex items-baseline gap-2 -mt-0.5`}>
+          {socialLinks.map(({ href, label, Icon }) => (
+            <Link
+              key={label}
+              href={`${href}?utm_source=jaspermayone.com&utm_medium=referral`}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Jasper's ${label} profile`}
+              className="transition-colors duration-200 hover:!text-[#4299e1] flex items-center justify-center"
+              style={{ color: textColor }}
+            >
+              <Icon size={15} />
+            </Link>
+          ))}
+        </div>
       </div>
     </div>
   );

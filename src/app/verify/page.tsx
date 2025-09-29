@@ -501,9 +501,6 @@ const VerifyPage = () => {
 
         <WavyDivider />
         <FOOTER />
-        {/* spacer */}
-        <div className="h-5" />
-        <WavyDivider />
       </main>
     </>
   );

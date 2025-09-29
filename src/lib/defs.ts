@@ -1,3 +1,11 @@
+import {
+  SiBluesky,
+  SiGithub,
+  SiInstagram,
+  SiLinkedin,
+  SiThreads,
+  SiX,
+} from "react-icons/si";
 import { Project, RedirectItem } from "./types";
 
 export const pages = [
@@ -191,5 +199,38 @@ export const serviceSpecEmails = [
     service: "MLH",
     description:
       "I use this email for MLH (Major League Hacking) related communications.",
+  },
+];
+
+export const socialLinks = [
+  {
+    href: "/to/github",
+    label: "GitHub",
+    Icon: SiGithub,
+  },
+  {
+    href: "/to/linkedin",
+    label: "Linkedin",
+    Icon: SiLinkedin,
+  },
+  {
+    href: "/to/instagram",
+    label: "Instagram",
+    Icon: SiInstagram,
+  },
+  {
+    href: "/to/threads",
+    label: "Threads",
+    Icon: SiThreads,
+  },
+  {
+    href: "/to/bluesky",
+    label: "Bluesky",
+    Icon: SiBluesky,
+  },
+  {
+    href: "/to/x",
+    label: "X",
+    Icon: SiX,
   },
 ];
