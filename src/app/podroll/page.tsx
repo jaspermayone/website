@@ -1,9 +1,9 @@
-import MENU from "@/components/MENU";
 import FOOTER from "@/components/FOOTER";
+import MENU from "@/components/MENU";
 import SquigglyLine from "@/components/SquigglyLine";
-import styles from "@/styles/Home.module.css";
-import { Metadata } from "next";
 import { HeadphonesIcon } from "lucide-react";
+import { Metadata } from "next";
+import Link from "next/link";
 
 interface Podcast {
   name: string;
@@ -61,9 +61,9 @@ export default function Podroll() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
             {podcasts.map((podcast, index) => (
-              <a
+              <Link
                 key={index}
-                href={podcast.url}
+                href={`${podcast.url}?utm_source=jaspermayone.com&utm_medium=referral`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex p-3 bg-white/50 dark:bg-gray-800/20 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
@@ -79,7 +79,7 @@ export default function Podroll() {
                     {podcast.description}
                   </p>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

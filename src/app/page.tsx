@@ -1,6 +1,5 @@
 "use client";
 import ConfettiWrapper from "@/components/ConfettiWrapper";
-import Email from "@/components/email";
 import Experience from "@/components/experience";
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
@@ -9,6 +8,7 @@ import SquigglyLine from "@/components/SquigglyLine";
 import styles from "@/styles/Home.module.css";
 import JmDark from "@public/images/jmdark-min.jpeg";
 import JmLight from "@public/images/jmlite-min.jpeg";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -67,13 +67,13 @@ export default function Home() {
               </p>
               <p className="text-gray-600 dark:text-white/70 text-sm">
                 a Computer Science Major at{" "}
-                <a
-                  href="https://wit.edu"
+                <Link
+                  href="https://wit.edu?utm_source=jaspermayone.com&utm_medium=referral"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Wentworth Institute of Technology
-                </a>{" "}
+                </Link>{" "}
                 in Boston, Massachusetts. When not in school or at work,
                 Jasper's hobbies include reading, being in the great outdoors,
                 photography, computer programming, cooking, and running away to
@@ -92,29 +92,35 @@ export default function Home() {
               <p className="text-gray-600 dark:text-white/70 text-sm">
                 Recently they've been focusing their time (outside of their
                 degree) on{" "}
-                <a className={styles.lnk} href="https://mlh.io/">
+                <Link
+                  className={styles.lnk}
+                  href="https://mlh.io/?utm_source=jaspermayone.com&utm_medium=referral"
+                >
                   MLH
-                </a>{" "}
+                </Link>{" "}
                 (aka Major League Hacking) where they currently contract as a
                 Coach, as well as at{" "}
-                <a
+                <Link
                   className={styles.lnk}
-                  href="https://github.com/patchworklabsorg"
+                  href="https://patchworklabs.org?utm_source=jaspermayone.com&utm_medium=referral"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="patchworklabs.org"
                 >
                   Patchwork Labs
-                </a>
-                , a nonprofit they started with the mission to "Provide fiscal
-                sponsorship and administrative support for hackathons and STEM
-                projects, enabling individuals and teams to organize educational
-                events and develop technology-based solutions that benefit the
-                community."
+                </Link>
+                , a nonprofit they started with the mission to bring back
+                creativity and support the next generation of makers.
               </p>
 
               <p className="text-gray-600 dark:text-white/70 text-sm">
                 Previously, Jasper's adventures included working at{" "}
-                <a className={styles.lnk} href="https://mlh.io/">
+                <Link
+                  className={styles.lnk}
+                  href="https://mlh.io/?utm_source=jaspermayone.com&utm_medium=referral"
+                >
                   MLH
-                </a>{" "}
+                </Link>{" "}
                 as the Summer 2025 engineering intern, a month-long trip to
                 Rwanda, where they filmed a documentary and managed production
                 for their fellow students' films. They also played a key role in
@@ -133,8 +139,9 @@ export default function Home() {
           className="min-w-screen"
           color="#4299e1"
         />
-        <div className="relative">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+        <div className="relative pt-1">
+          <Experience />
+          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
             <div className="md:col-span-2">
               <Experience />
             </div>
@@ -142,7 +149,7 @@ export default function Home() {
             <div className="md:col-span-1">
               <Email />
             </div>
-          </div>
+          </div> */}
         </div>
       </main>
       <FOOTER />

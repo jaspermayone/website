@@ -1,5 +1,6 @@
 import { redirects } from "@/lib/defs";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Links - Jasper Mayone",
@@ -29,12 +30,12 @@ export default function ToIndex() {
                     {redirect.destination}
                   </p>
                 </div>
-                <a
-                  href={`/to/${redirect.slug}`}
+                <Link
+                  href={`/to/${redirect.slug}?utm_source=jaspermayone.com&utm_medium=referral`}
                   className="text-primary hover:underline text-sm"
                 >
                   Visit →
-                </a>
+                </Link>
               </div>
             </div>
           ))}

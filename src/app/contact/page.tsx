@@ -1,8 +1,9 @@
-import MENU from "@/components/MENU";
 import FOOTER from "@/components/FOOTER";
+import MENU from "@/components/MENU";
 import SquigglyLine from "@/components/SquigglyLine";
 import styles from "@/styles/Home.module.css";
 import { Metadata } from "next";
+import Link from "next/link";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -112,14 +113,14 @@ export default function Contact() {
               </p>
               <p className="text-gray-600 dark:text-white/70">
                 I can also be reached on Signal at{" "}
-                <a
+                <Link
                   className={styles.lnk}
                   href="https://signal.me/#eu/jaspermayone.10"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   @jaspermayone.10
-                </a>
+                </Link>
               </p>
               <p className="text-gray-600 dark:text-white/70">
                 Want my phone number? Let's be friends first! I promise I
@@ -131,9 +132,9 @@ export default function Contact() {
               <p className="text-gray-600 dark:text-white/70">
                 You can verify my identity and all the ways I might contact you
                 by checking out the{" "}
-                <a className={styles.lnk} href="/verify">
+                <Link className={styles.lnk} href="/verify">
                   /verify
-                </a>{" "}
+                </Link>{" "}
                 page.
               </p>
             </div>

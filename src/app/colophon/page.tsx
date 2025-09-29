@@ -1,7 +1,7 @@
-import { Code, Laptop, Wrench, History, Server, User } from "lucide-react";
-import { Metadata } from "next";
-import MENU from "@/components/MENU";
 import FOOTER from "@/components/FOOTER";
+import MENU from "@/components/MENU";
+import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Colophon",
@@ -88,14 +88,14 @@ export default function Colophon() {
             <div className="border border-gray-200 dark:border-gray-700 rounded-2xl p-8">
               <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
                 The original site was developed by{" "}
-                <a
-                  href="https://aram.sh"
+                <Link
+                  href="https://aram.sh?utm_source=jaspermayone.com&utm_medium=referral"
                   className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Aram Shiva
-                </a>
+                </Link>
                 .
               </p>
             </div>
@@ -139,14 +139,14 @@ export default function Colophon() {
               </h3>
               <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
                 The site is hosted on{" "}
-                <a
-                  href="https://vercel.com"
+                <Link
+                  href="https://vercel.com?utm_source=jaspermayone.com&utm_medium=referral"
                   className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   Vercel
-                </a>
+                </Link>
                 , which provides seamless deployment from GitHub, automatic
                 HTTPS, and global CDN distribution.
               </p>

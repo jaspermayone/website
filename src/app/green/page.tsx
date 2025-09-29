@@ -1,8 +1,9 @@
-import MENU from "@/components/MENU";
-import { Metadata } from "next";
 import FOOTER from "@/components/FOOTER";
+import MENU from "@/components/MENU";
 import SquigglyLine from "@/components/SquigglyLine";
 import styles from "@/styles/Home.module.css";
+import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Green",
@@ -33,9 +34,9 @@ export default function Green() {
               I always love seeing cool sustainability and green projects. If
               you find one or are working on one, please let me know! My contact
               info is on the{" "}
-              <a href="/contact" className={styles.lnk}>
+              <Link href="/contact" className={styles.lnk}>
                 contact
-              </a>{" "}
+              </Link>{" "}
               page and has all the ways I can be reached.
             </p>
           </div>

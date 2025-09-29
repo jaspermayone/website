@@ -2,6 +2,7 @@ import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import PostList from "@/components/PostList";
 import { Metadata } from "next";
+import Link from "next/link";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -88,35 +89,35 @@ export default function Now() {
             <p className="text-gray-700 mb-3">
               This is a semi-realtime status update system for posting updates
               to{" "}
-              <a
-                href="https://bsky.app/profile/rightnow.jaspermayone.com"
+              <Link
+                href="https://bsky.app/profile/rightnow.jaspermayone.com?utm_source=jaspermayone.com&utm_medium=referral"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 underline"
               >
                 @rightnow.jaspermayone.com
-              </a>{" "}
+              </Link>{" "}
               on Bluesky. Think of it as a{" "}
-              <a
-                href="https://nownownow.com/about"
+              <Link
+                href="https://nownownow.com/about?utm_source=jaspermayone.com&utm_medium=referral"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 underline"
               >
                 /now page
-              </a>{" "}
+              </Link>{" "}
               that updates automatically.
             </p>
             <p className="text-gray-600 text-sm">
               The original was called a.status.update and created by{" "}
-              <a
-                href="https://dame.is/creating/shortcuts/a-status-update/"
+              <Link
+                href="https://dame.is/creating/shortcuts/a-status-update/?utm_source=jaspermayone.com&utm_medium=referral"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 hover:text-blue-800 underline"
               >
                 @dame.is
-              </a>
+              </Link>
               . I have since modified/adapted it to auto-update for things like
               sleeping, driving, and school based on indicators from various
               devices.

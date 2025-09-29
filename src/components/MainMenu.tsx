@@ -107,7 +107,7 @@ const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
           {socialLinks.map(({ href, label, Icon }) => (
             <Link
               key={label}
-              href={href}
+              href={`${href}?utm_source=jaspermayone.com&utm_medium=referral`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Jasper's ${label} profile`}

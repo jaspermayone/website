@@ -1,6 +1,7 @@
 "use client";
-import { useEffect, useState } from "react";
 import CommitHash from "@/components/helpers/commitHash";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import {
   SiBluesky,
   SiGithub,
@@ -9,7 +10,6 @@ import {
   SiThreads,
   SiX,
 } from "react-icons/si";
-import Link from "next/link";
 
 interface FooterProps {
   color?: string;
@@ -64,7 +64,7 @@ export default function FOOTER({ color }: FooterProps) {
           {socialLinks.map(({ href, label, Icon }) => (
             <Link
               key={label}
-              href={href}
+              href={`${href}?utm_source=jaspermayone.com&utm_medium=referral`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Jasper's ${label} profile`}

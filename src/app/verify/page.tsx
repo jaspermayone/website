@@ -306,7 +306,7 @@ const VerifyPage = () => {
             Inspired by{" "}
             <Link
               className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
-              href="https://dunkirk.sh/verify/"
+              href="https://dunkirk.sh/verify/?utm_source=jaspermayone.com&utm_medium=referral"
             >
               @Kieran Klukas
             </Link>
@@ -323,7 +323,7 @@ const VerifyPage = () => {
           <p className="text-neutral-700 dark:text-neutral-300 mt-2">
             My entire identity can also be verified at{" "}
             <Link
-              href="https://keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA"
+              href="https://keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA?utm_source=jaspermayone.com&utm_medium=referral"
               className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
               rel="noopener noreferrer"
               target="_blank"
@@ -336,7 +336,7 @@ const VerifyPage = () => {
             This page is tracked in version control. You can view the source
             code for this page on{" "}
             <Link
-              href="https://github.com/jaspermayone/website/blob/main/src/app/verify/page.tsx"
+              href="https://github.com/jaspermayone/website/blob/main/src/app/verify/page.tsx?utm_source=jaspermayone.com&utm_medium=referral"
               className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
               rel="noopener noreferrer"
               target="_blank"
@@ -461,7 +461,7 @@ const VerifyPage = () => {
             {accounts.map((account) => (
               <Link
                 key={account.platform}
-                href={account.url}
+                href={`${account.url}?utm_source=jaspermayone.com&utm_medium=referral`}
                 rel="me"
                 className="block p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 bg-white dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-sm group"
                 style={{
@@ -515,7 +515,7 @@ const VerifyPage = () => {
                     {key.type === "GPG" ? (
                       <p className="text-neutral-700 dark:text-neutral-300">
                         <Link
-                          href={key.publicKey}
+                          href={`${key.publicKey}?utm_source=jaspermayone.com&utm_medium=referral`}
                           rel="me"
                           className="text-blue-600 dark:text-blue-400 underline hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-300"
                         >

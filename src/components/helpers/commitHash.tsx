@@ -34,7 +34,7 @@ export default function CommitHash({ color }: CommitHashProps) {
             color: linkColor,
             textDecorationColor: linkColor,
           }}
-          href={`https://github.com/jaspermayone/website/tree/${process.env.COMMIT_HASH}`}
+          href={`https://github.com/jaspermayone/website/tree/${process.env.COMMIT_HASH}?utm_source=jaspermayone.com&utm_medium=referral`}
         >
           <Tooltip
             content={process.env.FULL_COMMIT_HASH}
