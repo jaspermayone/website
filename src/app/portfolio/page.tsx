@@ -87,8 +87,8 @@ export default function Portfolio() {
                 key={index}
                 className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-200"
               >
-                {project.image && (
-                  <div className="relative w-full h-48 bg-gray-100 dark:bg-gray-800">
+                <div className="relative w-full h-48 bg-gray-100 dark:bg-gray-800">
+                  {project.image ? (
                     <Image
                       src={project.image}
                       alt={project.title}
@@ -99,8 +99,12 @@ export default function Portfolio() {
                       placeholder="blur"
                       blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAE0lEQVR42mNk+P+fgYGBgQEAAP8A/ueJdwEAAAAASUVORK5CYII="
                     />
-                  </div>
-                )}
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-gray-400 dark:text-gray-600 text-sm">
+                      No image provided
+                    </div>
+                  )}
+                </div>
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-3">
                     <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
