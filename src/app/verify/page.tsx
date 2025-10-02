@@ -306,7 +306,7 @@ const VerifyPage = () => {
           <p className="text-neutral-500 dark:text-neutral-400 text-[0.60rem] mb-2">
             Inspired by{" "}
             <Link
-              className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
+              className={styles.lnk}
               href="https://dunkirk.sh/verify/?utm_source=jaspermayone.com&utm_medium=referral"
             >
               @Kieran Klukas
@@ -325,7 +325,7 @@ const VerifyPage = () => {
             My entire identity can also be verified at{" "}
             <Link
               href="https://keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA?utm_source=jaspermayone.com&utm_medium=referral"
-              className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
+              className={styles.lnk}
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -350,7 +350,7 @@ const VerifyPage = () => {
             code for this page on{" "}
             <Link
               href="https://github.com/jaspermayone/website/blob/main/src/app/verify/page.tsx?utm_source=jaspermayone.com&utm_medium=referral"
-              className="text-blue-500 dark:text-blue-300 decoration-wavy underline decoration-blue-500 dark:decoration-blue-300 hover:text-blurre transition-colors duration-300"
+              className={styles.lnk}
               rel="noopener noreferrer"
               target="_blank"
             >

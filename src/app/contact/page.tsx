@@ -126,9 +126,7 @@ export default function Contact() {
                 Want my phone number? Let's be friends first! I promise I
                 respond super quick on the other platforms 😁
               </p>
-            </div>
 
-            <div className="mt-6 p-4 bg-white/50 dark:bg-gray-800/20 rounded-lg">
               <p className="text-gray-600 dark:text-white/70">
                 You can verify my identity and all the ways I might contact you
                 by checking out the{" "}
