@@ -2,10 +2,10 @@ import { ExperienceItem } from "./types";
 
 export const experience: ExperienceItem[] = [
   {
-    company: "Jewish Community of Greater Stowe",
-    location: "Stowe, VT",
-    role: "Part-Time Technology Coordinator",
-    date: "September 2023 - Present",
+    company: "Major League Hacking (MLH)",
+    location: "Remote (NYC, NY)",
+    role: "Software Engineering Intern",
+    date: "May 2025 - August 2025",
     link: "https://www.jcogs.org/",
   },
   {
