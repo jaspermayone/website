@@ -23,7 +23,7 @@ const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
     onMenuClick(item);
 
     if (item === "cv") {
-      router.push("/to/cv");
+      window.open("/to/cv", "_blank", "noopener,noreferrer");
     } else if (item === "portfolio") {
       router.push("/portfolio");
     } else if (item === "verify") {
