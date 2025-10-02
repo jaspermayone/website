@@ -12,3 +12,13 @@ export interface RedirectItem {
   linkrelme: boolean;
   slashToLink: boolean;
 }
+
+export interface ProjectItem {
+  title: string;
+  description: string;
+  link?: string;
+  github?: string;
+  tags?: string[];
+  date?: string;
+  image?: string;
+}

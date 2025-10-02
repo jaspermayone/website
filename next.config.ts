@@ -167,7 +167,12 @@ const nextConfig = {
         : false,
   },
   images: {
-    remotePatterns: [],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "*.jaspermayone.com",
+      },
+    ],
     minimumCacheTTL: 60,
   },
   env: {

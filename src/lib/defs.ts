@@ -6,11 +6,12 @@ import {
   SiThreads,
   SiX,
 } from "react-icons/si";
-import { RedirectItem } from "./types";
+import { ProjectItem, RedirectItem } from "./types";
 
 export const pages = [
   "home",
   "cv",
+  "portfolio",
   "verify",
   "contact",
   "gpg",
@@ -189,5 +190,68 @@ export const socialLinks = [
     href: "/to/x",
     label: "X",
     Icon: SiX,
+  },
+];
+
+/**
+ * Project Item
+ * title: string;
+ * description: string;
+ * link?: string;
+ * github?: string;
+ * tags?: string[];
+ * date?: string;
+ * image?: string;
+ */
+export const projects: ProjectItem[] = [
+  {
+    title: "Personal Website",
+    description: "My personal website showcasing my projects and skills.",
+    link: "https://jaspermayone.com",
+    github: "jaspermayone/website",
+    tags: ["Next.js", "TypeScript", "Tailwind"],
+    date: "2025",
+    image: "/images/projects/website.png",
+  },
+  {
+    title: "LaTex Generated CV/Resume",
+    description: "My personal cv/resume built with LaTex.",
+    link: "https://cv.jaspermayone.com",
+    github: "jaspermayone/cv",
+    tags: ["LaTex", "Github Actions"],
+    date: "2025",
+    image: "https://cv.jaspermayone.com/jaspermayone-cv.jpeg",
+  },
+  {
+    title: "MLH Discord Integration",
+    description:
+      "Discord bot that integrates with MyMLH identity platform for tighter linking of roles and user experience enhancement.",
+    tags: ["Discord", "Ruby", "Ruby on Rails"],
+    date: "2025",
+    image: "/images/projects/mlh-discord.png",
+  },
+  {
+    title: "WIP - Metro",
+    description:
+      "Work in progress... An interactive map of Boston's transit system.",
+    github: "jaspermayone/metro",
+    link: "https://metro.jaspermayone.com",
+    tags: ["Next.js", "TypeScript", "Tailwind"],
+    date: "2024",
+    image: "/images/projects/metro.png",
+  },
+  {
+    title: "Obsidian AI Note Tagger",
+    description:
+      "An Obsidian plugin that uses AI to automatically tag your notes based on their content.",
+    github: "jaspermayone/obsidian-ai-note-tagger",
+    tags: ["TypeScript", "Obsidian", "AI"],
+    date: "2025",
+  },
+  {
+    title: "Hack Club - Arcadius",
+    description:
+      "A freindly dino (slack bot) that managed the onboarding flow for Hack Club's 2024 summer event Arcade. (https://arcade.hackclub.com)",
+    github: "hackclub/arcadius",
   },
 ];
