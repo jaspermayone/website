@@ -22,8 +22,8 @@ export default function FOOTER({ color }: FooterProps) {
         style={{ color: textColor }}
       >
         <p className="text-xs" style={{ color: textColor }}>
-          ©{currentYear} Jasper Mayone. Made in <i>Boston, USA</i> by a real
-          human, not a 🤖.
+          ©{currentYear} Jasper Mayone. Made in <i>Boston, Massachusetts</i> by
+          a real human, not a 🤖.
         </p>
       </div>
       <div>
