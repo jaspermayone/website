@@ -4,6 +4,7 @@ import SquigglyLine from "@/components/SquigglyLine";
 import { HeadphonesIcon } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 
 interface Podcast {
   name: string;
@@ -17,6 +18,42 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://www.jaspermayone.com/podroll",
   },
+};
+
+const podrollPageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.jaspermayone.com/podroll#webpage",
+      url: "https://www.jaspermayone.com/podroll",
+      name: "Podroll - Jasper Mayone",
+      description: "Podcasts I recommend.",
+      isPartOf: {
+        "@id": "https://www.jaspermayone.com/#website",
+      },
+      about: {
+        "@id": "https://www.jaspermayone.com/#person",
+      },
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.jaspermayone.com",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Podroll",
+            item: "https://www.jaspermayone.com/podroll",
+          },
+        ],
+      },
+    },
+  ],
 };
 
 export default function Podroll() {
@@ -54,48 +91,57 @@ export default function Podroll() {
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <MENU pageFirstWord="Podcasts" />
-      <main className="flex-1">
-        <div className="mx-5 mt-4 mb-4">
-          <h1 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
-            Recommended Podcasts
-          </h1>
+    <>
+      <Script
+        id="podroll-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(podrollPageSchema),
+        }}
+      />
+      <div className="min-h-screen flex flex-col">
+        <MENU pageFirstWord="Podcasts" />
+        <main className="flex-1">
+          <div className="mx-5 mt-4 mb-4">
+            <h1 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
+              Recommended Podcasts
+            </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-            {podcasts.map((podcast, index) => (
-              <Link
-                key={index}
-                href={`${podcast.url}?utm_source=jaspermayone.com&utm_medium=referral`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex p-3 bg-white/50 dark:bg-gray-800/20 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
-              >
-                <div className="flex-shrink-0 mr-3 text-blue-500">
-                  <HeadphonesIcon size={20} />
-                </div>
-                <div>
-                  <h2 className="font-medium text-gray-800 dark:text-gray-100 text-sm">
-                    {podcast.name}
-                  </h2>
-                  <p className="text-gray-600 dark:text-white/70 text-xs mt-1">
-                    {podcast.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {podcasts.map((podcast, index) => (
+                <Link
+                  key={index}
+                  href={`${podcast.url}?utm_source=jaspermayone.com&utm_medium=referral`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex p-3 bg-white/50 dark:bg-gray-800/20 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
+                >
+                  <div className="flex-shrink-0 mr-3 text-blue-500">
+                    <HeadphonesIcon size={20} />
+                  </div>
+                  <div>
+                    <h2 className="font-medium text-gray-800 dark:text-gray-100 text-sm">
+                      {podcast.name}
+                    </h2>
+                    <p className="text-gray-600 dark:text-white/70 text-xs mt-1">
+                      {podcast.description}
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div className="py-2" />
-        <SquigglyLine
-          frequency={50}
-          amplitude={0.4}
-          className="min-w-screen"
-          color="#4299e1"
-        />
-      </main>
-      <FOOTER />
-    </div>
+          <div className="py-2" />
+          <SquigglyLine
+            frequency={50}
+            amplitude={0.4}
+            className="min-w-screen"
+            color="#4299e1"
+          />
+        </main>
+        <FOOTER />
+      </div>
+    </>
   );
 }

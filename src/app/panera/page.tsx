@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Metadata } from "next";
 import MENU from "@/components/MENU";
 import FOOTER from "@/components/FOOTER";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "Panera",
@@ -13,9 +14,53 @@ export const metadata: Metadata = {
   },
 };
 
+const paneraPageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.jaspermayone.com/panera#webpage",
+      url: "https://www.jaspermayone.com/panera",
+      name: "Panera - Jasper Mayone",
+      description:
+        "What I usually get at Panera, in case anyone wants to get me Panera.",
+      isPartOf: {
+        "@id": "https://www.jaspermayone.com/#website",
+      },
+      about: {
+        "@id": "https://www.jaspermayone.com/#person",
+      },
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.jaspermayone.com",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Panera",
+            item: "https://www.jaspermayone.com/panera",
+          },
+        ],
+      },
+    },
+  ],
+};
+
 export default function Panera() {
   return (
     <>
+      <Script
+        id="panera-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(paneraPageSchema),
+        }}
+      />
       <div
         className="min-h-screen w-full"
         style={{

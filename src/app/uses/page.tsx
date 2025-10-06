@@ -23,35 +23,39 @@ export const metadata: Metadata = {
 
 const usesPageSchema = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "https://www.jaspermayone.com/uses#webpage",
-  url: "https://www.jaspermayone.com/uses",
-  name: "Uses - Jasper Mayone",
-  description:
-    "Tools and software I use daily for development, productivity, and creative work - from code editors to project management apps.",
-  isPartOf: {
-    "@id": "https://www.jaspermayone.com/#website",
-  },
-  about: {
-    "@id": "https://www.jaspermayone.com/#person",
-  },
-  breadcrumb: {
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://www.jaspermayone.com",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.jaspermayone.com/uses#webpage",
+      url: "https://www.jaspermayone.com/uses",
+      name: "Uses - Jasper Mayone",
+      description:
+        "Tools and software I use daily for development, productivity, and creative work - from code editors to project management apps.",
+      isPartOf: {
+        "@id": "https://www.jaspermayone.com/#website",
       },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Uses",
-        item: "https://www.jaspermayone.com/uses",
+      about: {
+        "@id": "https://www.jaspermayone.com/#person",
       },
-    ],
-  },
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.jaspermayone.com",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Uses",
+            item: "https://www.jaspermayone.com/uses",
+          },
+        ],
+      },
+    },
+  ],
 };
 
 export default function Uses() {

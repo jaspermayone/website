@@ -68,35 +68,39 @@ const SectionHeader = ({ children }) => (
 
 const verifyPageSchema = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "@id": "https://www.jaspermayone.com/verify#webpage",
-  url: "https://www.jaspermayone.com/verify",
-  name: "Verify - Jasper Mayone",
-  description:
-    "Verify Jasper Mayone's identity across domains, email addresses, social accounts, and cryptographic keys for secure communication.",
-  isPartOf: {
-    "@id": "https://www.jaspermayone.com/#website",
-  },
-  about: {
-    "@id": "https://www.jaspermayone.com/#person",
-  },
-  breadcrumb: {
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      {
-        "@type": "ListItem",
-        position: 1,
-        name: "Home",
-        item: "https://www.jaspermayone.com",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.jaspermayone.com/verify#webpage",
+      url: "https://www.jaspermayone.com/verify",
+      name: "Verify - Jasper Mayone",
+      description:
+        "Verify Jasper Mayone's identity across domains, email addresses, social accounts, and cryptographic keys for secure communication.",
+      isPartOf: {
+        "@id": "https://www.jaspermayone.com/#website",
       },
-      {
-        "@type": "ListItem",
-        position: 2,
-        name: "Verify",
-        item: "https://www.jaspermayone.com/verify",
+      about: {
+        "@id": "https://www.jaspermayone.com/#person",
       },
-    ],
-  },
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.jaspermayone.com",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Verify",
+            item: "https://www.jaspermayone.com/verify",
+          },
+        ],
+      },
+    },
+  ],
 };
 
 const VerifyPage = () => {
