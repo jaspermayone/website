@@ -312,6 +312,8 @@ const VerifyPage = () => {
             <Link
               className={styles.lnk}
               href="https://dunkirk.sh/verify/?utm_source=jaspermayone.com&utm_medium=referral"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               @Kieran Klukas
             </Link>

@@ -110,6 +110,8 @@ export default function Home() {
                 <Link
                   className={styles.lnk}
                   href="https://mlh.io/?utm_source=jaspermayone.com&utm_medium=referral"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
                   MLH
                 </Link>{" "}
