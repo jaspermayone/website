@@ -8,6 +8,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Green",
   description: "How I try to live sustainably.",
+  alternates: {
+    canonical: "https://www.jaspermayone.com/green",
+  },
 };
 
 export default function Green() {

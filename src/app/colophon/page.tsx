@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   title: "Colophon",
   description:
     "A comprehensive look at the evolution, tools, and technologies that power this website.",
+  alternates: {
+    canonical: "https://www.jaspermayone.com/colophon",
+  },
 };
 
 export default function Colophon() {

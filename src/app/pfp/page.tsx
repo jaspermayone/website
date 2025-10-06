@@ -13,6 +13,9 @@ import SquigglyLine from "@/components/SquigglyLine";
 export const metadata: Metadata = {
   title: "PFPs",
   description: "All the profile photos I've used over the years.",
+  alternates: {
+    canonical: "https://www.jaspermayone.com/pfp",
+  },
 };
 
 export default function PFP() {

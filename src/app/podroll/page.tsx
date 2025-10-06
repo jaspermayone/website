@@ -14,6 +14,9 @@ interface Podcast {
 export const metadata: Metadata = {
   title: "Podroll",
   description: "Podcasts I recommend.",
+  alternates: {
+    canonical: "https://www.jaspermayone.com/podroll",
+  },
 };
 
 export default function Podroll() {

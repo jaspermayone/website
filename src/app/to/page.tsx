@@ -5,6 +5,9 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Links - Jasper Mayone",
   description: "All my redirect links and social media profiles",
+  alternates: {
+    canonical: "https://www.jaspermayone.com/to",
+  },
 };
 
 export default function ToIndex() {

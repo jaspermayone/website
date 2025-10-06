@@ -2,6 +2,7 @@
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import { Button } from "@/components/ui/button";
+import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CopyButton from "./CopyButton";
@@ -15,6 +16,27 @@ import {
 export async function generateStaticParams() {
   const keys = await getKeysIndex();
   return keys.map((k) => ({ key: k.title }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ key: string }>;
+}): Promise<Metadata> {
+  const { key } = await params;
+  const record = await getKeyByTitle(key);
+
+  if (!record) {
+    return {};
+  }
+
+  return {
+    title: `${key.toUpperCase()} Key`,
+    description: `Public ${key.toUpperCase()} key for Jasper Mayone`,
+    alternates: {
+      canonical: `https://www.jaspermayone.com/keys/${key}`,
+    },
+  };
 }
 
 export const revalidate = false;

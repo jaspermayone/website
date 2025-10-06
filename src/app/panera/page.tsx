@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Panera",
   description:
     "What I usually get at Panera, in case anyone wants to get me Panera.",
+  alternates: {
+    canonical: "https://www.jaspermayone.com/panera",
+  },
 };
 
 export default function Panera() {
