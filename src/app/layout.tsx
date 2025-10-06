@@ -86,10 +86,6 @@ export const metadata: Metadata = {
     },
   },
 
-  alternates: {
-    canonical: "https://www.jaspermayone.com",
-  },
-
   // Added category for better classification
   category: "Personal",
 };
