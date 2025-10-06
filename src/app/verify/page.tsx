@@ -244,7 +244,7 @@ const VerifyPage = () => {
       type: "GPG",
       fingerprint: "00E6 43C2 1FAC 965F FB28 D3B7 14D0 D45A 1DAD AAFA",
       publicKey: "https://keys.openpgp.org/search?q=me%40jaspermayone.com",
-      note: "Used for email signing and encryption. Click the link to get my public key.",
+      note: "Used for email signing and encryption. Download my public key from keys.openpgp.org.",
     },
     {
       type: "SSH",
@@ -338,27 +338,26 @@ const VerifyPage = () => {
           </p>
 
           <p className="mt-4 text-sm text-neutral-700 dark:text-neutral-300">
-            To view my public cryptographic keys you can visit{" "}
+            To view my public cryptographic keys, visit my{" "}
             <Link className={styles.lnk} href="/keys/gpg">
-              /keys/gpg
+              GPG key page
             </Link>{" "}
             or{" "}
             <Link className={styles.lnk} href="/keys/ssh">
-              /keys/ssh
-            </Link>{" "}
-            respectively.
+              SSH key page
+            </Link>
+            .
           </p>
 
           <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400">
-            This page is tracked in version control. You can view the source
-            code for this page on{" "}
+            This page is tracked in version control. You can{" "}
             <Link
               href="https://github.com/jaspermayone/website/blob/main/src/app/verify/page.tsx?utm_source=jaspermayone.com&utm_medium=referral"
               className={styles.lnk}
               rel="noopener noreferrer"
               target="_blank"
             >
-              Github
+              view the source code on GitHub
             </Link>
             . If you find any errors or have any questions, please let me know
             via email or any of the platforms listed below.

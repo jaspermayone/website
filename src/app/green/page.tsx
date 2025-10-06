@@ -80,12 +80,11 @@ export default function Green() {
               </p>
               <p className="text-gray-600 dark:text-white/70">
                 I always love seeing cool sustainability and green projects. If
-                you find one or are working on one, please let me know! My
-                contact info is on the{" "}
+                you find one or are working on one, please let me know! My{" "}
                 <Link href="/contact" className={styles.lnk}>
-                  contact
+                  contact page
                 </Link>{" "}
-                page and has all the ways I can be reached.
+                has all the ways I can be reached.
               </p>
             </div>
           </div>

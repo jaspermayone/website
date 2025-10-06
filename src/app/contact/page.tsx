@@ -129,11 +129,11 @@ export default function Contact() {
 
               <p className="text-gray-600 dark:text-white/70">
                 You can verify my identity and all the ways I might contact you
-                by checking out the{" "}
+                on my{" "}
                 <Link className={styles.lnk} href="/verify">
-                  /verify
-                </Link>{" "}
-                page.
+                  identity verification page
+                </Link>
+                .
               </p>
             </div>
           </div>
