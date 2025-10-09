@@ -66,7 +66,7 @@ export default function Home() {
                 </span>
               </p>
               <p className="text-gray-600 dark:text-white/70 text-sm">
-                a Computer Science Major at{" "}
+                A computer science major at{" "}
                 <Link
                   href="https://wit.edu?utm_source=jaspermayone.com&utm_medium=referral"
                   target="_blank"
