@@ -223,6 +223,15 @@ export const projects: ProjectItem[] = [
     image: "https://cv.jaspermayone.com/jaspermayone-cv.jpeg",
   },
   {
+    title: "Slack Profile CLI",
+    description:
+      "Command-line tool for updating Slack user profiles programmatically. Published to npm and RubyGems with Homebrew support.",
+    link: "https://www.npmjs.com/package/@jaspermayone/slack-profile-cli",
+    github: "jaspermayone/slack-profile-cli",
+    tags: ["Node.js", "Ruby", "CLI", "Slack API"],
+    date: "2025",
+  },
+  {
     title: "MLH Discord Integration",
     description:
       "Discord bot that integrates with MyMLH identity platform for tighter linking of roles and user experience enhancement.",
