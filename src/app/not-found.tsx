@@ -34,13 +34,6 @@ const NotFound = () => {
           ))}
         </div>
 
-        {/* <SquigglyLine
-          frequency={50}
-          amplitude={0.4}
-          className="w-3/4"
-          color="#56ba8e"
-        /> */}
-
         <div className="max-w-lg text-center">
           <p className="inline">
             This page seems to have run away to join the circus.

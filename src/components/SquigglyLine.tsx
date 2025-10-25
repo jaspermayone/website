@@ -1,33 +1,6 @@
 "use client";
 
-import { FC, useMemo, useEffect, useState } from "react";
-
-/*
-// Medium waves
-<SquigglyLine
-  height={20}
-  frequency={25}
-  amplitude={1.2}
-  strokeWidth={2}
-/>
-
-// Larger waves
-<SquigglyLine
-  height={40}
-  frequency={15}
-  amplitude={2}
-  strokeWidth={3}
-/>
-
-// Very large waves
-<SquigglyLine
-  height={60}
-  frequency={10}
-  amplitude={3}
-  strokeWidth={4}
-/>
-
-*/
+import { FC, useEffect, useMemo, useState } from "react";
 
 interface SquigglyLineProps {
   height?: string | number;

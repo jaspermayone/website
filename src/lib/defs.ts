@@ -143,7 +143,7 @@ export const redirects: RedirectItem[] = [
   },
   {
     slug: "cv",
-    destination: "https://cv.jaspermayone.com",
+    destination: "https://jasper.cv",
     linkrelme: true,
     slashToLink: true,
   },
@@ -216,11 +216,11 @@ export const projects: ProjectItem[] = [
   {
     title: "LaTex Generated CV/Resume",
     description: "My personal cv/resume built with LaTex.",
-    link: "https://cv.jaspermayone.com",
+    link: "https://jasper.cv",
     github: "jaspermayone/cv",
     tags: ["LaTex", "Github Actions"],
     date: "2025",
-    image: "https://cv.jaspermayone.com/jaspermayone-cv.jpeg",
+    image: "https://jasper.cv/jaspermayone-cv.jpeg",
   },
   {
     title: "Slack Profile CLI",
@@ -263,4 +263,13 @@ export const projects: ProjectItem[] = [
       "A freindly dino (slack bot) that managed the onboarding flow for Hack Club's 2024 summer event Arcade. (https://arcade.hackclub.com)",
     github: "hackclub/arcadius",
   },
+];
+
+export const navSocialLinks = [
+  { href: "/github", label: "GitHub", Icon: SiGithub },
+  { href: "/linkedin", label: "Linkedin", Icon: SiLinkedin },
+  { href: "/instagram", label: "Instagram", Icon: SiInstagram },
+  { href: "/threads", label: "Threads", Icon: SiThreads },
+  { href: "/bluesky", label: "Bluesky", Icon: SiBluesky },
+  { href: "/x", label: "X", Icon: SiX },
 ];

@@ -27,10 +27,6 @@ export default function PageNavigation(props: PageNavigationProps) {
   const handleMenuClick = async (item: string) => {
     if (item === "cv") {
       router.push("/to/cv");
-    } else if (item === "portfolio") {
-      router.push("/portfolio");
-    } else if (item === "verify") {
-      router.push("/verify");
     } else if (item === "home") {
       router.push("/");
     } else if (item === "gpg") {
@@ -72,7 +68,7 @@ export default function PageNavigation(props: PageNavigationProps) {
               href={`${href}?utm_source=jaspermayone.com&utm_medium=referral`}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={`Jasper's ${label} profile`}
+              aria-label={`${label}`}
               className="transition-colors duration-200 hover:!text-[#56ba8e] flex items-center justify-center"
               style={{ color: textColor }}
             >

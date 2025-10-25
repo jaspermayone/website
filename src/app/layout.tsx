@@ -1,4 +1,3 @@
-import MobileRedirect from "@/components/MobileRedirect";
 import { redirects } from "@/lib/defs";
 import "@/styles/globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -34,9 +33,6 @@ export const metadata: Metadata = {
   creator: "Jasper Mayone",
   publisher: "Jasper Mayone",
   metadataBase: new URL("https://www.jaspermayone.com"),
-  // verification: {
-  // google:
-  // },
 
   // Enhanced Open Graph
   openGraph: {
@@ -377,17 +373,13 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <link rel="manifest" href="/site.webmanifest" />
-
-        {/* Theme color for mobile browsers */}
-        {/* <meta name="theme-color" content="#1a1a1a" /> */}
-        {/* <meta name="msapplication-TileColor" content="#1a1a1a" /> */}
       </head>
       <body className={`${cuteNotes.variable} font-sans`}>
         <Script
           src="https://kit.fontawesome.com/96163f3b63.js"
           crossOrigin="anonymous"
         />
-        <MobileRedirect>{children}</MobileRedirect>
+        {children}
         <SpeedInsights />
       </body>
     </html>
