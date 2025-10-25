@@ -45,12 +45,7 @@ interface NextRedirectItem {
 
 const nextConfig = {
   // Turbo mode for faster builds
-  turbopack: {
-    rules: {
-      // Optimize for Bun's transpiler
-      "*.{js,jsx,ts,tsx}": ["bun-loader"],
-    },
-  },
+  turbopack: {},
   async redirects() {
     let redirects: NextRedirectItem[] = [];
 
