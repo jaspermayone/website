@@ -15,7 +15,7 @@ const ProfileEmailCard = ({ email }) => {
   const [user, domain] = email.split("@");
 
   return (
-    <div className="w-64 mt-2 p-3 border border-blurre rounded-lg hover:bg-blue-100 transition-all duration-300 bg-white/50">
+    <div className="w-64 mt-2 p-3 border border-greeen rounded-lg hover:bg-blue-100 transition-all duration-300 bg-white/50">
       <h3 className="text-gray-700 font-medium text-sm mb-2 text-center">
         Contact me
       </h3>

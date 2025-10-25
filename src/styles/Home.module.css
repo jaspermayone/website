@@ -74,7 +74,7 @@
 }
 
 .menuItem:hover {
-  color: #4299e1; /* Change text color when hovered */
+  color: #56ba8e; /* Change text color when hovered */
 }
 
 .activeIndicator {
@@ -83,7 +83,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #4299e1;
+  background-color: #56ba8e;
   transform-origin: center;
   animation: underlineAnimation 0.3s ease forwards;
 }
@@ -126,13 +126,13 @@
 }
 
 .footerLink {
-  color: #4299e1; /* Link color */
+  color: #56ba8e; /* Link color */
   text-decoration: underline wavy; /* Add an underline */
   transition: color 0.3s ease; /* Smooth color transition on hover */
 }
 
 .lnk {
-  color: #4299e1; /* Link color */
+  color: #56ba8e; /* Link color */
   text-decoration: underline wavy; /* Add an underline */
   transition: color 0.3s ease; /* Smooth color transition on hover */
 }

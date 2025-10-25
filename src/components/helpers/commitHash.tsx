@@ -19,7 +19,7 @@ export default function CommitHash({ color }: CommitHashProps) {
   });
 
   const textColor = color || "#4a5565";
-  const linkColor = color === "#ffffff" ? "#61b8ff" : "#4299e1";
+  const linkColor = color === "#ffffff" ? "#61b8ff" : "#56ba8e";
 
   return (
     <div>

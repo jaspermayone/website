@@ -1,6 +1,5 @@
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
-import SquigglyLine from "@/components/SquigglyLine";
 import styles from "@/styles/Home.module.css";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -137,14 +136,6 @@ export default function Contact() {
               </p>
             </div>
           </div>
-
-          <div className="py-2" />
-          <SquigglyLine
-            frequency={50}
-            amplitude={0.4}
-            className="min-w-screen"
-            color="#4299e1"
-          />
         </main>
         <FOOTER />
       </div>

@@ -9,7 +9,7 @@ export default function WavyDivider() {
         <path
           d="M0 12 Q 100 24, 200 12 T 400 12 T 600 12 T 800 12 T 1000 12 T 1200 12"
           fill="none"
-          stroke="#4299e1"
+          stroke="#56ba8e"
           strokeWidth="2"
           className="dark:stroke-blue-400"
         />

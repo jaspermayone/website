@@ -1,14 +1,13 @@
 import Image from "next/image";
 
+import FOOTER from "@/components/FOOTER";
+import MENU from "@/components/MENU";
+import circus from "@public/images/profiles/circus.jpg";
 import jm from "@public/images/profiles/jm.png";
 import dark from "@public/images/profiles/jmdark-min.jpeg";
 import lite from "@public/images/profiles/jmlite-min.jpeg";
-import circus from "@public/images/profiles/circus.jpg";
 import waves from "@public/images/profiles/waves.png";
-import MENU from "@/components/MENU";
 import { Metadata } from "next";
-import FOOTER from "@/components/FOOTER";
-import SquigglyLine from "@/components/SquigglyLine";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -99,14 +98,6 @@ export default function PFP() {
               ))}
             </div>
           </div>
-
-          <div className="py-2" />
-          <SquigglyLine
-            frequency={50}
-            amplitude={0.4}
-            className="min-w-screen"
-            color="#4299e1"
-          />
         </main>
         <FOOTER />
       </div>

@@ -26,7 +26,7 @@ export default function ToIndex() {
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-semibold text-lg underline decoration-wavy decoration-blurre text-blurre hover:decoration-linkHover">
+                  <h3 className="font-semibold text-lg underline decoration-wavy decoration-greeen text-greeen hover:decoration-linkHover">
                     {redirect.slug}
                   </h3>
                   <p className="text-muted-foreground text-sm break-all">

@@ -1,8 +1,6 @@
-import { Metadata } from "next";
-import MENU from "@/components/MENU";
 import FOOTER from "@/components/FOOTER";
-import SquigglyLine from "@/components/SquigglyLine";
-import styles from "@/styles/Home.module.css";
+import MENU from "@/components/MENU";
+import { Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -114,14 +112,6 @@ export default function Uses() {
               ))}
             </div>
           </div>
-
-          <div className="py-2" />
-          <SquigglyLine
-            frequency={50}
-            amplitude={0.4}
-            className="min-w-screen"
-            color="#4299e1"
-          />
         </main>
         <FOOTER />
       </div>

@@ -97,7 +97,7 @@ const MainMenu = ({ selectedTab, onMenuClick }: MainMenuProps) => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Jasper's ${label} profile`}
-              className="mx-1 transition-colors duration-200 hover:text-[#4299e1]"
+              className="mx-1 transition-colors duration-200 hover:text-[#56ba8e]"
             >
               <Icon width={20} height={20} />
             </Link>

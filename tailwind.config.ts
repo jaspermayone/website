@@ -9,11 +9,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        blurre: "#4299e1",
-        // blurreDark:
-        linkBlue: "#4299e1",
-        linkHover: "#003e73",
-        linkHoverDark: "#aad5fb",
+        greeen: "#56ba8e",
+        linkHover: "#188052",
         pinkk: "#ed68ab",
         pinkkDark: "#ad2f6f",
         lite: "#f8fbf8",

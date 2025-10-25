@@ -7,11 +7,12 @@ interface MENUProps {
   pageSecondWord?: string;
   pageThirdWord?: string;
   color?: string;
+  disableSquig?: boolean;
 }
 
 const MENU = (props: MENUProps) => {
-  const { pageFirstWord, pageSecondWord, pageThirdWord, color } = props;
-
+  const { pageFirstWord, pageSecondWord, pageThirdWord, color, disableSquig } =
+    props;
   return (
     <div className="pb-2">
       <div className="pt-5">
@@ -25,14 +26,14 @@ const MENU = (props: MENUProps) => {
         </div>
         <PageNavigation color={color} />
       </div>
-      <SquigglyLine
-        height={10}
-        frequency={25}
-        amplitude={1.2}
-        strokeWidth={1.5}
-        className="w-full"
-        color="#4299e1"
-      />
+      {!disableSquig && (
+        <SquigglyLine
+          frequency={50}
+          amplitude={0.4}
+          className="min-w-screen"
+          color="#56ba8e"
+        />
+      )}
     </div>
   );
 };

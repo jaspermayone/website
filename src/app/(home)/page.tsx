@@ -1,10 +1,8 @@
 "use client";
 import ConfettiWrapper from "@/components/ConfettiWrapper";
-import Experience from "@/components/experience";
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import RoundedImage from "@/components/RoundedImage";
-import SquigglyLine from "@/components/SquigglyLine";
 import styles from "@/styles/Home.module.css";
 import JmDark from "@public/images/jmdark-min.jpeg";
 import JmLight from "@public/images/jmlite-min.jpeg";
@@ -125,25 +123,6 @@ export default function Home() {
               </p>
             </div>
           </div>
-        </div>
-        <div className="py-2.5" />
-        <SquigglyLine
-          frequency={50}
-          amplitude={0.4}
-          className="min-w-screen"
-          color="#4299e1"
-        />
-        <div className="relative pt-1">
-          <Experience />
-          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
-            <div className="md:col-span-2">
-              <Experience />
-            </div>
-            <div className="hidden md:block w-px bg-linkHover h-full absolute left-2/3 -translate-x-1/2" />
-            <div className="md:col-span-1">
-              <Email />
-            </div>
-          </div> */}
         </div>
       </main>
       <FOOTER />

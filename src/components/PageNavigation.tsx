@@ -54,7 +54,7 @@ export default function PageNavigation(props: PageNavigationProps) {
             className={`${styles.menuItemContainer} flex items-center`}
           >
             <p
-              className={`${styles.menuItem} ${item === selectedTab ? "lnk" : ""} hover:!text-[#4299e1] cursor-pointer flex items-center`}
+              className={`${styles.menuItem} ${item === selectedTab ? "lnk" : ""} hover:!text-[#56ba8e] cursor-pointer flex items-center`}
               onClick={() => handleMenuClick(item)}
               title={`Go to ${item}`}
               style={item === selectedTab ? {} : { color: textColor }}
@@ -73,7 +73,7 @@ export default function PageNavigation(props: PageNavigationProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Jasper's ${label} profile`}
-              className="transition-colors duration-200 hover:!text-[#4299e1] flex items-center justify-center"
+              className="transition-colors duration-200 hover:!text-[#56ba8e] flex items-center justify-center"
               style={{ color: textColor }}
             >
               <Icon size={15} />

@@ -8,7 +8,7 @@ const Error = () => {
     frequency: 10,
     amplitude: 5.4,
     className: "min-w-max",
-    color: "#4299e1",
+    color: "#56ba8e",
   });
 
   return (
@@ -39,7 +39,7 @@ const Error = () => {
           frequency={50}
           amplitude={0.4}
           className="w-3/4"
-          color="#4299e1"
+          color="#56ba8e"
         /> */}
 
         <div className="max-w-lg text-center">
@@ -47,7 +47,7 @@ const Error = () => {
             Uh oh! This page seems to have lost artistic direction. Please try
             to
           </p>{" "}
-          <p className="inline underline decoration-wavy decoration-blurre hover:decoration-linkHover hover:bg-blue-400 hover:rounded-md transition-all duration-300">
+          <p className="inline underline decoration-wavy decoration-greeen hover:decoration-linkHover hover:bg-blue-400 hover:rounded-md transition-all duration-300">
             <Link href="/">return home!</Link>
           </p>
         </div>

@@ -41,7 +41,7 @@ export function generateOGImage(data: OGImageData) {
         return {
           bg: "#151922",
           cardBg: "rgba(21, 25, 34, 0.7)",
-          accent: "#4299e1", // blue
+          accent: "#56ba8e", // blue
           border: "rgba(66, 153, 225, 0.2)",
         };
     }

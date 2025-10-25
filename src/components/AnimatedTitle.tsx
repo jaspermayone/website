@@ -59,7 +59,7 @@ const AnimatedTitle = (props: AnimatedTitleProps) => {
           key={`first-${index}`}
           className="transition-colors duration-300"
           style={{
-            color: index === activeIndex ? "#4299e1" : color,
+            color: index === activeIndex ? "#56ba8e" : color,
           }}
         >
           {letter}
@@ -70,7 +70,7 @@ const AnimatedTitle = (props: AnimatedTitleProps) => {
           key={`second-${index}`}
           className="transition-colors duration-300"
           style={{
-            color: index + firstWord.length === activeIndex ? "#4299e1" : color,
+            color: index + firstWord.length === activeIndex ? "#56ba8e" : color,
           }}
         >
           {letter}
@@ -86,7 +86,7 @@ const AnimatedTitle = (props: AnimatedTitleProps) => {
                 firstWord.length +
                 (secondWord ? secondWord.length : 0) ===
               activeIndex
-                ? "#4299e1"
+                ? "#56ba8e"
                 : color,
           }}
         >

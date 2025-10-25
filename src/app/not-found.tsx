@@ -7,7 +7,7 @@ const NotFound = () => {
     frequency: 10,
     amplitude: 5.4,
     className: "min-w-max",
-    color: "#4299e1",
+    color: "#56ba8e",
   });
 
   return (
@@ -38,14 +38,14 @@ const NotFound = () => {
           frequency={50}
           amplitude={0.4}
           className="w-3/4"
-          color="#4299e1"
+          color="#56ba8e"
         /> */}
 
         <div className="max-w-lg text-center">
           <p className="inline">
             This page seems to have run away to join the circus.
           </p>{" "}
-          <p className="inline underline decoration-wavy decoration-blurre hover:decoration-linkHover hover:bg-blue-400 hover:rounded-md transition-all duration-300">
+          <p className="inline underline decoration-wavy decoration-greeen hover:decoration-linkHover hover:bg-blue-400 hover:rounded-md transition-all duration-300">
             <Link href="/">Go home!</Link>
           </p>
         </div>
