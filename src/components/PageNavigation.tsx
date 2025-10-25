@@ -1,3 +1,4 @@
+// components/PageNavigation.tsx
 "use client";
 
 import { pages, socialLinks } from "@/lib/defs";
@@ -16,10 +17,29 @@ export default function PageNavigation(props: PageNavigationProps) {
 
   const textColor = color || "inherit";
 
-  // Determine the selected tab based on the current path
+  /**
+   * Determine the selected tab based on the current path.
+   * Handles nested routes like /keys/gpg and /keys/ssh by mapping them to "gpg"/"ssh".
+   * Also normalizes trailing slashes.
+   */
   const getSelectedTab = () => {
-    if (pathname === "/") return "home";
-    return pathname.substring(1); // Remove the leading slash
+    if (!pathname) return undefined;
+
+    // Normalize trailing slash (e.g., "/keys/gpg/" → "/keys/gpg")
+    const normalized = pathname.replace(/\/+$/, "");
+
+    if (normalized === "/" || normalized === "") return "home";
+
+    // Special-case nested keys pages
+    if (normalized.startsWith("/keys/gpg")) return "gpg";
+    if (normalized.startsWith("/keys/ssh")) return "ssh";
+
+    // Handle redirects or alias routes if needed (example: /to/cv → cv)
+    if (normalized.startsWith("/to/cv")) return "cv";
+
+    // Default: first segment after /
+    const firstSegment = normalized.split("/")[1];
+    return firstSegment || "home";
   };
 
   const selectedTab = getSelectedTab();
