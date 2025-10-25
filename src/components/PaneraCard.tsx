@@ -1,7 +1,7 @@
 "use client";
 
+import { PlusCircleIcon } from "@phosphor-icons/react";
 import Image from "next/image";
-import { HiPlusCircle } from "react-icons/hi";
 
 interface PaneraCardProps {
   imagesrc: string;
@@ -106,7 +106,7 @@ export const PaneraCard = (props: PaneraCardProps) => {
                 "border .2s ease-in-out,color .05s ease-in-out,background-color .05s ease-in-out",
             }}
           >
-            <HiPlusCircle style={{ fontSize: "1.2rem" }} />
+            <PlusCircleIcon style={{ fontSize: "1.2rem" }} />
             Add
           </button>
         </div>

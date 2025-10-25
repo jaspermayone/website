@@ -1,12 +1,11 @@
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import { projects } from "@/lib/defs";
+import { GithubLogoIcon, PaperclipIcon } from "@phosphor-icons/react/dist/ssr";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
-import { HiPaperClip } from "react-icons/hi";
-import { SiGithub } from "react-icons/si";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -119,7 +118,7 @@ export default function Portfolio() {
                           className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                           aria-label="Visit project"
                         >
-                          <HiPaperClip className="w-5 h-5" />
+                          <PaperclipIcon className="w-5 h-5" />
                         </Link>
                       )}
                       {project.github && (
@@ -130,7 +129,7 @@ export default function Portfolio() {
                           className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                           aria-label="View on GitHub"
                         >
-                          <SiGithub className="w-5 h-5" />
+                          <GithubLogoIcon className="w-5 h-5" />
                         </Link>
                       )}
                     </div>

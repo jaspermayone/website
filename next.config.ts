@@ -165,7 +165,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "*.jaspermayone.com",
+        hostname: "jasper.cv",
       },
     ],
     minimumCacheTTL: 60,

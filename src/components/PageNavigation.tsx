@@ -1,4 +1,4 @@
-// components/PageNavigation.tsx
+// src/components/PageNavigation.tsx
 "use client";
 
 import { pages, socialLinks } from "@/lib/defs";
@@ -9,6 +9,15 @@ import { usePathname, useRouter } from "next/navigation";
 interface PageNavigationProps {
   color?: string;
 }
+
+// Centralized route map for aliases and nested routes
+const ROUTE_MAP: Record<string, string> = {
+  home: "/",
+  cv: "/to/cv",
+  gpg: "/keys/gpg",
+  ssh: "/keys/ssh",
+  // Add any other explicit aliases here
+};
 
 export default function PageNavigation(props: PageNavigationProps) {
   const { color } = props;
@@ -25,7 +34,7 @@ export default function PageNavigation(props: PageNavigationProps) {
   const getSelectedTab = () => {
     if (!pathname) return undefined;
 
-    // Normalize trailing slash (e.g., "/keys/gpg/" → "/keys/gpg")
+    // Normalize trailing slash
     const normalized = pathname.replace(/\/+$/, "");
 
     if (normalized === "/" || normalized === "") return "home";
@@ -44,17 +53,54 @@ export default function PageNavigation(props: PageNavigationProps) {
 
   const selectedTab = getSelectedTab();
 
-  const handleMenuClick = async (item: string) => {
-    if (item === "cv") {
-      router.push("/to/cv");
-    } else if (item === "home") {
-      router.push("/");
-    } else if (item === "gpg") {
-      router.push("/keys/gpg");
-    } else if (item === "ssh") {
-      router.push("/keys/ssh");
-    } else {
-      router.push(`/${item}`);
+  /**
+   * Normalize a menu item into the canonical key used for navigation.
+   * This ensures items like "keys/gpg" are treated as "gpg".
+   */
+  const normalizeItem = (item: string): string => {
+    if (!item) return "home";
+    // strip leading slashes
+    const trimmed = item.replace(/^\/+/, "");
+    // map nested keys to leaf tabs
+    if (trimmed.startsWith("keys/gpg")) return "gpg";
+    if (trimmed.startsWith("keys/ssh")) return "ssh";
+    if (trimmed.startsWith("to/cv")) return "cv";
+    // default to first segment
+    const seg = trimmed.split("/")[0];
+    return seg || "home";
+  };
+
+  const handleMenuClick = async (rawItem: string) => {
+    const item = normalizeItem(rawItem);
+
+    // Prefer explicit mapping when present
+    const mapped = ROUTE_MAP[item];
+
+    // Determine the href we will push to
+    const href =
+      typeof mapped === "string" && mapped.length > 0 ? mapped : `/${item}`;
+
+    // Final validation: ensure href is a non-empty string and starts with '/'
+    if (
+      typeof href !== "string" ||
+      href.length === 0 ||
+      !href.startsWith("/")
+    ) {
+      // Log detailed info to help debug the offending item
+      console.error("Invalid route for menu click", {
+        rawItem,
+        normalizedItem: item,
+        mapped,
+        href,
+      });
+      return; // Avoid calling router.push with an invalid value
+    }
+
+    try {
+      await router.push(href);
+    } catch (err) {
+      // Network or Next router errors (e.g., middleware fetch failures)
+      console.error("router.push failed", { href, error: err });
     }
   };
 
