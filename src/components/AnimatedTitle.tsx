@@ -30,19 +30,27 @@ const AnimatedTitle = (props: AnimatedTitleProps) => {
   const color = props.color || "inherit";
 
   useEffect(() => {
+    let cancelled = false;
+
     const animate = async () => {
-      while (true) {
+      while (!cancelled) {
         for (let i = 0; i <= totalLength; i++) {
+          if (cancelled) break;
           setActiveIndex(i === totalLength ? -1 : i);
           await new Promise((resolve) => setTimeout(resolve, LETTER_DELAY));
         }
-        await new Promise((resolve) => setTimeout(resolve, CYCLE_PAUSE));
+        if (!cancelled) {
+          await new Promise((resolve) => setTimeout(resolve, CYCLE_PAUSE));
+        }
       }
     };
 
     animate();
-    return () => setActiveIndex(-1);
-  }, []);
+    return () => {
+      cancelled = true;
+      setActiveIndex(-1);
+    };
+  }, [totalLength, LETTER_DELAY, CYCLE_PAUSE]);
 
   return (
     <h1
