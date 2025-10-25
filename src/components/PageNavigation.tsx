@@ -1,9 +1,9 @@
 // src/components/PageNavigation.tsx
 "use client";
 
-import { pages, socialLinks } from "@/lib/defs";
+import { pages } from "@/lib/defs";
+import { PageItem } from "@/lib/types";
 import styles from "@/styles/Home.module.css";
-import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
 interface PageNavigationProps {
@@ -110,37 +110,36 @@ export default function PageNavigation(props: PageNavigationProps) {
         className={`${styles.menu} flex items-center`}
         aria-label="main menu"
       >
-        {pages.map((item) => (
-          <div
-            key={item}
-            className={`${styles.menuItemContainer} flex items-center`}
-          >
-            <p
-              className={`${styles.menuItem} ${item === selectedTab ? "lnk" : ""} hover:!text-[#56ba8e] cursor-pointer flex items-center`}
-              onClick={() => handleMenuClick(item)}
-              title={`Go to ${item}`}
-              style={item === selectedTab ? {} : { color: textColor }}
+        {pages
+          .filter((item: PageItem) => item.showInNav)
+          .sort((a: PageItem, b: PageItem) => a.order - b.order)
+          .map((item: PageItem) => (
+            <div
+              key={item.slug}
+              className={`${styles.menuItemContainer} flex items-center`}
             >
-              /{item}
-            </p>
-          </div>
-        ))}
-        <div className="flex-grow" />
-
-        <div className={`flex items-baseline gap-2 -mt-0.5`}>
-          {socialLinks.map(({ href, label, Icon }) => (
-            <Link
-              key={label}
-              href={`${href}?utm_source=jaspermayone.com&utm_medium=referral`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${label}`}
-              className="transition-colors duration-200 hover:!text-[#56ba8e] flex items-center justify-center"
-              style={{ color: textColor }}
-            >
-              <Icon size={15} />
-            </Link>
+              <p
+                className={`${styles.menuItem} ${item.slug === selectedTab ? "lnk" : ""} hover:!text-[#56ba8e] cursor-pointer flex items-center`}
+                onClick={() => handleMenuClick(item.slug)}
+                title={`Go to ${item.slug}`}
+                style={item.slug === selectedTab ? {} : { color: textColor }}
+              >
+                /{item.slug}
+              </p>
+            </div>
           ))}
+        <div
+          key={"more"}
+          className={`${styles.menuItemContainer} flex items-center`}
+        >
+          <p
+            className={`${styles.menuItem} ${"more" === selectedTab ? "lnk" : ""} hover:!text-[#56ba8e] cursor-pointer flex items-center`}
+            onClick={() => handleMenuClick("more")}
+            title={`see more pages`}
+            style={"more" === selectedTab ? {} : { color: textColor }}
+          >
+            /more
+          </p>
         </div>
       </div>
     </div>

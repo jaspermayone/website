@@ -6,9 +6,9 @@ import {
   SiThreads,
   SiX,
 } from "react-icons/si";
-import { ProjectItem, RedirectItem } from "./types";
+import { PageItem, ProjectItem, RedirectItem } from "./types";
 
-export const pages = [
+/*
   "home",
   "cv",
   "portfolio",
@@ -23,6 +23,22 @@ export const pages = [
   "podroll",
   "green",
   "colophon",
+*/
+export const pages: PageItem[] = [
+  { text: "Home", slug: "home", showInNav: true, order: 1 },
+  { text: "CV", slug: "cv", showInNav: true, order: 2 },
+  { text: "Portfolio", slug: "portfolio", showInNav: true, order: 3 },
+  { text: "Verify", slug: "verify", showInNav: true, order: 99 },
+  { text: "Contact", slug: "contact", showInNav: true, order: 4 },
+  { text: "GPG Keys", slug: "gpg", showInNav: true, order: 5 },
+  { text: "SSH Keys", slug: "ssh", showInNav: true, order: 6 },
+  { text: "PFP", slug: "pfp", showInNav: false, order: 99 },
+  { text: "Now", slug: "now", showInNav: false, order: 99 },
+  { text: "Panera", slug: "panera", showInNav: false, order: 99 },
+  { text: "Uses", slug: "uses", showInNav: false, order: 7 },
+  { text: "Podroll", slug: "podroll", showInNav: false, order: 99 },
+  { text: "Green", slug: "green", showInNav: false, order: 99 },
+  { text: "Colophon", slug: "colophon", showInNav: false, order: 8 },
 ];
 
 export const redirects: RedirectItem[] = [

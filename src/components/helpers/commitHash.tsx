@@ -23,11 +23,7 @@ export default function CommitHash({ color }: CommitHashProps) {
 
   return (
     <div>
-      <span
-        className="sticky hidden text-xs sm:block"
-        style={{ color: textColor }}
-      >
-        v{process.env.APP_VERSION} {"("}
+      <span className="hidden text-xs sm:block" style={{ color: textColor }}>
         <a
           className="decoration-wavy underline hover:text-blur transition-colors duration-300"
           style={{
@@ -43,7 +39,7 @@ export default function CommitHash({ color }: CommitHashProps) {
             {process.env.COMMIT_HASH}
           </Tooltip>
         </a>
-        {")"} from {formattedCommitDate}.
+        from {formattedCommitDate}.
       </span>
     </div>
   );

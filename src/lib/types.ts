@@ -6,6 +6,13 @@ export interface ExperienceItem {
   link: string;
 }
 
+export interface PageItem {
+  text: string;
+  slug: string;
+  showInNav: boolean;
+  order: number;
+}
+
 export interface RedirectItem {
   slug: string;
   destination: string;

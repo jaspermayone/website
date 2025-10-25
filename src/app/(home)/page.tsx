@@ -41,12 +41,12 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen min-w-screen mx-auto flex flex-col">
       <MENU pageFirstWord="Jasper" pageSecondWord="Mayone" />
       <main className="flex-1">
         <ConfettiWrapper />
         <div className="flex flex-col md:flex-row gap-8 mx-5 mt-5 mb-5">
-          <div className="w-64 flex-shrink-0 mt-8">
+          <div className="w-64 flex-shrink-0 mt-8 mx-auto md:mx-0 md:self-start">
             <RoundedImage
               src={imgpath}
               alt="Jasper Mayone"
