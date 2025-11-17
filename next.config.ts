@@ -77,7 +77,7 @@ const nextConfig = {
         redirects.push({
           source: "/to/" + redirect.slug,
           destination: newDestination,
-          permanent: true,
+          permanent: false, // Changed to 307 (temporary) to avoid browser caching issues
         });
       }
     }
