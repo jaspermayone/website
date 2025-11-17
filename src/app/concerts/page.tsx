@@ -106,6 +106,18 @@ export default function Concerts() {
                                 {concert.date && ` • ${concert.date}`}
                               </div>
                             )}
+                            {concert.setlist && (
+                              <div className="text-xs mt-1">
+                                <a
+                                  href={concert.setlist}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                                >
+                                  View Setlist →
+                                </a>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </li>

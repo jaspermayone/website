@@ -306,6 +306,8 @@ export const concertsByYear: YearGroup[] = [
     concerts: [
       {
         headliner: "Lake Street Dive",
+        setlist:
+          "https://www.setlist.fm/setlist/lake-street-dive/2025/thompsons-point-portland-me-7b5aaaa0.html",
         openers: ["Sammy Rae & the Friends"],
         venue: "Thompson Point, Portland, ME",
         date: "2025-08-17",
@@ -313,6 +315,8 @@ export const concertsByYear: YearGroup[] = [
       },
       {
         headliner: "AJR",
+        setlist:
+          "https://www.setlist.fm/setlist/ajr/2025/xfinity-center-mansfield-ma-1358f995.html",
         tour: "Somewhere in the Sky Tour",
         openers: ["Madilyn Mei", "Cavetown", "Valley"],
         venue: "Xfinity Center, Mansfield, MA",
@@ -325,14 +329,25 @@ export const concertsByYear: YearGroup[] = [
     concerts: [
       {
         headliner: "Sammy Rae & the Friends",
+        setlist:
+          "https://www.setlist.fm/setlist/sammy-rae-and-the-friends/2024/flynn-center-for-the-performing-arts-burlington-vt-73534a95.html",
         tour: "Something for Everybody Tour",
         venue: "Flynn Theater for the Performing Arts, Burlington, VT",
         date: "2024-11-1",
         favorite: false,
       },
       {
+        headliner: "Lake Street Dive",
+        venue: "Shelburne Museum, Shelburne, VT",
+        setlist:
+          "https://www.setlist.fm/setlist/lake-street-dive/2024/the-green-at-shelburne-museum-shelburne-vt-6353c6cb.html",
+        date: "2024-09-19",
+      },
+      {
         headliner: "AJR",
         tour: "The Maybe Man Tour",
+        setlist:
+          "https://www.setlist.fm/setlist/ajr/2024/td-garden-boston-ma-23ab80cf.html",
         openers: ["mxmtoon"],
         venue: "TD Garden, Boston, MA",
         date: "2024-08-03",
@@ -345,6 +360,8 @@ export const concertsByYear: YearGroup[] = [
     concerts: [
       {
         headliner: "Sammy Rae & the Friends",
+        setlist:
+          "https://www.setlist.fm/setlist/sammy-rae-and-the-friends/2023/higher-ground-music-hall-south-burlington-vt-53a3bfcd.html",
         tour: "CAMP",
         venue: "Higher Ground, Burlington, VT",
         date: "2023-09-18",

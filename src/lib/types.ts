@@ -33,6 +33,7 @@ export interface ProjectItem {
 export interface Concert {
   headliner: string;
   openers?: string[];
+  setlist?: string;
   tour?: string;
   venue?: string;
   date?: string;
