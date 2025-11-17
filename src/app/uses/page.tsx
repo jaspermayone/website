@@ -72,7 +72,7 @@ export default function Uses() {
     { emoji: "🎵", name: "Music", result: "Apple Music" },
     { emoji: "🎤", name: "Podcasts", result: "Apple Podcasts" },
     { emoji: "🔐", name: "Passwords", result: "Vaultwarden" },
-    { emoji: "📊", name: "Presentations", result: "Google Slides" },
+    { emoji: "📊", name: "Presentations", result: "Figma Slides" },
     { emoji: "🍴", name: "Food Planning", result: "Mealie" },
   ];
 
