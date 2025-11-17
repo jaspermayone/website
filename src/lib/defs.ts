@@ -338,6 +338,7 @@ export const concertsByYear: YearGroup[] = [
       },
       {
         headliner: "Lake Street Dive",
+        tour: "Good Together Tour",
         venue: "Shelburne Museum, Shelburne, VT",
         setlist:
           "https://www.setlist.fm/setlist/lake-street-dive/2024/the-green-at-shelburne-museum-shelburne-vt-6353c6cb.html",
@@ -362,7 +363,7 @@ export const concertsByYear: YearGroup[] = [
         headliner: "Sammy Rae & the Friends",
         setlist:
           "https://www.setlist.fm/setlist/sammy-rae-and-the-friends/2023/higher-ground-music-hall-south-burlington-vt-53a3bfcd.html",
-        tour: "CAMP",
+        tour: "Camp Tour",
         venue: "Higher Ground, Burlington, VT",
         date: "2023-09-18",
         favorite: false,
