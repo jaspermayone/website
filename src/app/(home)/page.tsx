@@ -65,6 +65,7 @@ export default function Home() {
               <p className="text-gray-600 dark:text-white/70 text-sm">
                 A computer science major at{" "}
                 <Link
+                  className="lnk"
                   href="https://wit.edu?utm_source=jaspermayone.com&utm_medium=referral"
                   target="_blank"
                   rel="noopener noreferrer"

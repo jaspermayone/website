@@ -93,7 +93,7 @@ export default function Now() {
                 href="https://bsky.app/profile/rightnow.jaspermayone.com?utm_source=jaspermayone.com&utm_medium=referral"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 underline"
+                className="lnk"
               >
                 @rightnow.jaspermayone.com
               </Link>{" "}
@@ -102,7 +102,7 @@ export default function Now() {
                 href="https://nownownow.com/about?utm_source=jaspermayone.com&utm_medium=referral"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 underline"
+                className="lnk"
               >
                 /now page
               </Link>{" "}
@@ -114,7 +114,7 @@ export default function Now() {
                 href="https://dame.is/creating/shortcuts/a-status-update/?utm_source=jaspermayone.com&utm_medium=referral"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 hover:text-blue-800 underline"
+                className="lnk"
               >
                 @dame.is
               </Link>

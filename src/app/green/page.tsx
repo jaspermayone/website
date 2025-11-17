@@ -125,7 +125,7 @@ export default function Green() {
                   href="https://www.websitecarbon.com/website/jaspermayone-com/?utm_source=jaspermayone.com&utm_medium=referral"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                  className="lnk text-sm"
                 >
                   View full report on Website Carbon →
                 </Link>

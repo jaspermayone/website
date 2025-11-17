@@ -139,7 +139,7 @@ export default function Colophon() {
                   The original site was developed by{" "}
                   <Link
                     href="https://aram.sh?utm_source=jaspermayone.com&utm_medium=referral"
-                    className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline"
+                    className="lnk"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -190,7 +190,7 @@ export default function Colophon() {
                   The site is hosted on{" "}
                   <Link
                     href="https://vercel.com?utm_source=jaspermayone.com&utm_medium=referral"
-                    className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline"
+                    className="lnk"
                     target="_blank"
                     rel="noopener noreferrer"
                   >

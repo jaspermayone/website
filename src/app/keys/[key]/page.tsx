@@ -140,10 +140,7 @@ export default async function Page({
                       Direct link:
                     </span>
                     <p className="mt-1">
-                      <Link
-                        href={directURL}
-                        className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 underline break-all"
-                      >
+                      <Link href={directURL} className="lnk break-all">
                         {directURL}
                       </Link>
                     </p>
