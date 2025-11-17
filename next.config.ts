@@ -160,6 +160,11 @@ const nextConfig = {
         destination: "/to/cv",
         permanent: true,
       },
+      {
+        source: "/carbon",
+        destination: "/green",
+        permanent: true,
+      },
     ];
 
     redirects.push(...someOtherRedirects);
