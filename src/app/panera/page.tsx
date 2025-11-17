@@ -71,14 +71,34 @@ export default function Panera() {
           overflow: "hidden",
         }}
       >
-        <MENU pageFirstWord="Panera" color="#ffffff" />
+        <MENU
+          pageFirstWord="Panera"
+          color="#ffffff"
+          addBackground={true}
+          disableSquig={true}
+        />
         <main className="max-w-4xl mx-auto px-4 py-8">
-          <div className="text-center mb-4">
-            <div className="inline-block bg-white rounded-lg p-4 mb-4">
-              <h1 className="text-3xl font-bold mb-2">
+          <div className="text-center mb-8">
+            <div
+              className="inline-block rounded-lg p-8 mb-4"
+              style={{
+                background: "#fff",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+              }}
+            >
+              <div
+                className="text-3xl font-bold mb-4"
+                style={{
+                  color: "#051402",
+                  fontWeight: 600,
+                }}
+              >
                 Jasper's Panera Bread Order
-              </h1>
-              <p className="text-gray-600 max-w-2xl mx-auto">
+              </div>
+              <p
+                className="text-gray-600 max-w-2xl mx-auto"
+                style={{ lineHeight: "1.6" }}
+              >
                 Inspired by people creating /chipotle pages with their Chipotle
                 order for when their friends get them Chipotle, here's what I
                 usually get at Panera in case anyone wants to get me Panera and
@@ -112,7 +132,7 @@ export default function Panera() {
             />
           </div>
           <div className="h-5" />
-          <FOOTER color="#ffffff" />
+          <FOOTER color="#ffffff" addBackground={true} />
         </main>
       </div>
     </>

@@ -5,16 +5,29 @@ import Link from "next/link";
 
 interface FooterProps {
   color?: string;
+  addBackground?: boolean;
 }
 
-export default function FOOTER({ color }: FooterProps) {
-  const textColor = color || "#4a5565";
+export default function FOOTER({ color, addBackground }: FooterProps) {
+  const textColor = addBackground ? "#1d4321" : color || "#4a5565";
   const currentYear = new Date().getFullYear().toString();
 
   return (
-    <footer className="w-full">
+    <footer className="w-full flex justify-center">
       {/* Constrain width and center content */}
-      <div className="max-w-screen-md mx-auto px-4">
+      <div
+        className="max-w-screen-md px-4"
+        style={
+          addBackground
+            ? {
+                background: "#e0eb60",
+                padding: "1rem 2rem",
+                borderRadius: "50px",
+                boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+              }
+            : {}
+        }
+      >
         {/* Social icons row */}
         <div className="flex w-full items-center justify-center gap-1.5 pt-2 overflow-x-hidden">
           {socialLinks.map(({ href, label, Icon }) => (

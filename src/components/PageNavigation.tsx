@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from "react";
 
 interface PageNavigationProps {
   color?: string;
+  addTextShadow?: boolean;
 }
 
 // Centralized route map for aliases and nested routes
@@ -21,13 +22,14 @@ const ROUTE_MAP: Record<string, string> = {
 };
 
 export default function PageNavigation(props: PageNavigationProps) {
-  const { color } = props;
+  const { color, addTextShadow } = props;
   const router = useRouter();
   const pathname = usePathname();
   const [showMoreDropdown, setShowMoreDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const textColor = color || "inherit";
+  const textColor = addTextShadow ? "#1d4321" : color || "inherit";
+  const textShadowStyle = {}; // No text shadow needed with solid background
 
   // Get pages that don't show in main nav
   const morePages = pages
@@ -136,7 +138,19 @@ export default function PageNavigation(props: PageNavigationProps) {
   };
 
   return (
-    <div className={styles.menuContainer}>
+    <div
+      className={styles.menuContainer}
+      style={
+        addTextShadow
+          ? {
+              background: "#e0eb60",
+              padding: "0.75rem 2rem",
+              borderRadius: "50px",
+              boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+            }
+          : {}
+      }
+    >
       <div
         className={`${styles.menu} flex items-center`}
         aria-label="main menu"
@@ -153,7 +167,11 @@ export default function PageNavigation(props: PageNavigationProps) {
                 className={`${styles.menuItem} ${item.slug === selectedTab ? "lnk" : ""} hover:!text-[#56ba8e] cursor-pointer flex items-center`}
                 onClick={() => handleMenuClick(item.slug)}
                 title={`Go to ${item.slug}`}
-                style={item.slug === selectedTab ? {} : { color: textColor }}
+                style={
+                  item.slug === selectedTab
+                    ? { ...textShadowStyle }
+                    : { color: textColor, ...textShadowStyle }
+                }
               >
                 /{item.slug}
               </p>
@@ -168,7 +186,11 @@ export default function PageNavigation(props: PageNavigationProps) {
             className={`${styles.menuItem} ${showMoreDropdown ? "lnk" : ""} hover:!text-[#56ba8e] cursor-pointer flex items-center`}
             onClick={() => setShowMoreDropdown(!showMoreDropdown)}
             title={`see more pages`}
-            style={showMoreDropdown ? {} : { color: textColor }}
+            style={
+              showMoreDropdown
+                ? { ...textShadowStyle }
+                : { color: textColor, ...textShadowStyle }
+            }
           >
             /more
           </p>

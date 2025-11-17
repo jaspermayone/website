@@ -6,13 +6,15 @@ interface AnimatedTitleProps {
   secondWord?: string;
   thirdWord?: string;
   color?: string;
+  addTextShadow?: boolean;
 }
 
 const AnimatedTitle = (props: AnimatedTitleProps) => {
   const firstWord = props.firstWord;
   const secondWord = props.secondWord;
   const thirdWord = props.thirdWord;
-  const color = props.color || "inherit";
+  const addTextShadow = props.addTextShadow || false;
+  const color = addTextShadow ? "#051402" : props.color || "inherit";
 
   const totalLength =
     firstWord.length +
