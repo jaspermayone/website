@@ -51,6 +51,19 @@ const concertsPageSchema = {
 };
 
 export default function Concerts() {
+  // Sort years in descending order and concerts within each year by date (newest first)
+  const sortedConcerts = concertsByYear
+    .map((yearGroup) => ({
+      ...yearGroup,
+      concerts: [...yearGroup.concerts].sort((a, b) => {
+        // Sort by date in descending order (newest first)
+        const dateA = a.date ? new Date(a.date).getTime() : 0;
+        const dateB = b.date ? new Date(b.date).getTime() : 0;
+        return dateB - dateA;
+      }),
+    }))
+    .sort((a, b) => b.year - a.year); // Sort years in descending order
+
   return (
     <>
       <Script
@@ -74,7 +87,7 @@ export default function Concerts() {
             </p>
 
             <div className="space-y-8">
-              {concertsByYear.map((yearGroup) => (
+              {sortedConcerts.map((yearGroup) => (
                 <div key={yearGroup.year}>
                   <h2 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
                     {yearGroup.year}
