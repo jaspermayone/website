@@ -50,7 +50,9 @@ const nextConfig = {
     optimizePackageImports: ["@opentelemetry/api", "ua-parser-js"],
   },
   // Turbo mode for faster builds
-  turbopack: {},
+  turbopack: {
+    root: __dirname,
+  },
   async redirects() {
     let redirects: NextRedirectItem[] = [];
 
