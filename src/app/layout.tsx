@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     default: "Jasper Mayone",
   },
   description:
-    "Creative organizer from Vermont with passion for programming, photography and adventure. Turning big ideas into meaningful projects.",
+    "A 19-year-old college student from rural Vermont, currently residing in Boston, while attending Wentworth Institute of Technology as a computer science major. When not in school or at work, Jasper's hobbies include reading, being in the great outdoors, photography, computer programming, cooking, and running away to join the circus.",
   applicationName: "Jasper Mayone",
   keywords: ["Jasper", "Mayone", "Jasper Mayone"],
   authors: [
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Jasper Mayone",
     description:
-      "Creative organizer from Vermont with passion for programming, photography and adventure. Turning big ideas into meaningful projects.",
+      "A 19-year-old college student from rural Vermont, currently residing in Boston, while attending Wentworth Institute of Technology as a computer science major. When not in school or at work, Jasper's hobbies include reading, being in the great outdoors, photography, computer programming, cooking, and running away to join the circus.",
     url: "https://www.jaspermayone.com",
     siteName: "Jasper Mayone",
     type: "website",
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     creator: "@jaspermayone", // Add if John has a Twitter
     title: "Jasper Mayone",
     description:
-      "Creative organizer from Vermont with passion for programming, photography and adventure. Turning big ideas into meaningful projects.",
+      "A 19-year-old college student from rural Vermont, currently residing in Boston, while attending Wentworth Institute of Technology as a computer science major. When not in school or at work, Jasper's hobbies include reading, being in the great outdoors, photography, computer programming, cooking, and running away to join the circus.",
     images: [
       {
         url: "/opengraph-image.png",
