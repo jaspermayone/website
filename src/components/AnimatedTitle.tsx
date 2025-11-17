@@ -89,6 +89,7 @@ const AnimatedTitle = (props: AnimatedTitleProps) => {
           marginBottom: ".25rem",
           fontSize: "3.5em",
           fontFamily: "var(--font-cuteNotes)",
+          viewTransitionName: "page-title",
         }}
         title={`${firstWord} ${secondWord || ""}`}
       >

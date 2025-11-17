@@ -24,8 +24,11 @@ export default function FOOTER({ color, addBackground }: FooterProps) {
                 padding: "1rem 2rem",
                 borderRadius: "50px",
                 boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+                viewTransitionName: "footer",
               }
-            : {}
+            : {
+                viewTransitionName: "footer",
+              }
         }
       >
         {/* Social icons row */}

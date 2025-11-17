@@ -1,7 +1,7 @@
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import { Metadata } from "next";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import Script from "next/script";
 
 export const metadata: Metadata = {

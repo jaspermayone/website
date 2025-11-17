@@ -51,6 +51,7 @@ export default function Home() {
               alt="Jasper Mayone"
               size={250}
               isPriority={true} // Add priority for above-the-fold images
+              transitionName="profile-image"
             />
           </div>
           <div className="flex flex-col justify-center">

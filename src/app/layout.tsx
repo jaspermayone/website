@@ -6,6 +6,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import Script from "next/script";
+import { ViewTransitions } from "next-view-transitions";
 
 const cuteNotes = localFont({
   src: [
@@ -394,7 +395,7 @@ export default function RootLayout({
             src="https://kit.fontawesome.com/96163f3b63.js"
             crossOrigin="anonymous"
           />
-          {children}
+          <ViewTransitions>{children}</ViewTransitions>
           <SpeedInsights />
         </ThemeProvider>
       </body>

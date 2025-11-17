@@ -60,3 +60,63 @@ body {
 .lnk:hover {
   color: light-dark(#003e73, #aad5fb);
 }
+
+/* View Transitions API Styles */
+@layer base {
+  /* Default page transition - smooth crossfade */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.3s;
+  }
+
+  /* Slide and fade transition for page changes */
+  ::view-transition-old(root) {
+    animation-name: fade-out;
+  }
+
+  ::view-transition-new(root) {
+    animation-name: fade-in;
+  }
+
+  /* Shared element transitions for specific elements */
+  ::view-transition-old(page-title),
+  ::view-transition-new(page-title) {
+    animation-duration: 0.4s;
+  }
+
+  ::view-transition-old(main-navigation),
+  ::view-transition-new(main-navigation) {
+    animation-duration: 0.35s;
+  }
+
+  /* Profile image shared element transition */
+  ::view-transition-old(profile-image),
+  ::view-transition-new(profile-image) {
+    animation-duration: 0.5s;
+    mix-blend-mode: normal;
+  }
+
+  /* Footer stays in place */
+  ::view-transition-old(footer),
+  ::view-transition-new(footer) {
+    animation-duration: 0.2s;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

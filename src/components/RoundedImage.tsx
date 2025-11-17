@@ -7,6 +7,7 @@ interface RoundedImageProps {
   size: number;
   loading?: "lazy" | "eager";
   isPriority?: boolean;
+  transitionName?: string;
 }
 
 const RoundedImage: React.FC<RoundedImageProps> = ({
@@ -15,6 +16,7 @@ const RoundedImage: React.FC<RoundedImageProps> = ({
   size,
   loading,
   isPriority = false,
+  transitionName,
 }) => {
   return (
     <>
@@ -34,6 +36,7 @@ const RoundedImage: React.FC<RoundedImageProps> = ({
         style={{
           maxWidth: "100%",
           height: "auto",
+          viewTransitionName: transitionName,
         }}
       />
     </>

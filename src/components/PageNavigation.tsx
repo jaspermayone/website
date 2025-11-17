@@ -4,7 +4,8 @@
 import { pages } from "@/lib/defs";
 import { PageItem } from "@/lib/types";
 import styles from "@/styles/Home.module.css";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
+import { useTransitionRouter } from "next-view-transitions";
 import { useEffect, useRef, useState } from "react";
 
 interface PageNavigationProps {
@@ -23,7 +24,7 @@ const ROUTE_MAP: Record<string, string> = {
 
 export default function PageNavigation(props: PageNavigationProps) {
   const { color, addTextShadow } = props;
-  const router = useRouter();
+  const router = useTransitionRouter();
   const pathname = usePathname();
   const [showMoreDropdown, setShowMoreDropdown] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -147,8 +148,11 @@ export default function PageNavigation(props: PageNavigationProps) {
               padding: "0.75rem 2rem",
               borderRadius: "50px",
               boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
+              viewTransitionName: "main-navigation",
             }
-          : {}
+          : {
+              viewTransitionName: "main-navigation",
+            }
       }
     >
       <div

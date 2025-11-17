@@ -1,6 +1,6 @@
 "use client";
 import SquigglyLine from "@/components/SquigglyLine";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 const Error = () => {
   // Array of configurations for bottom squiggly lines

@@ -1,5 +1,5 @@
 import SquigglyLine from "@/components/SquigglyLine";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 const NotFound = () => {
   // Array of configurations for bottom squiggly lines
