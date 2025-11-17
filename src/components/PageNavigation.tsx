@@ -188,6 +188,7 @@ export default function PageNavigation(props: PageNavigationProps) {
         <div
           key={"more"}
           className={`${styles.menuItemContainer} flex items-center relative`}
+          style={{ isolation: "isolate" }}
           ref={dropdownRef}
         >
           <p
@@ -208,7 +209,7 @@ export default function PageNavigation(props: PageNavigationProps) {
           </p>
           {showMoreDropdown && morePages.length > 0 && (
             <div
-              className="absolute top-full mt-2 rounded-[10px] py-2 px-3 min-w-[150px] z-50 backdrop-blur-[10px]"
+              className="absolute top-full mt-2 rounded-[10px] py-2 px-3 min-w-[150px] z-[9999] backdrop-blur-[10px] border-2 border-dashed border-stone-950 dark:border-stone-50"
               style={{
                 background: "light-dark(#f8fbf8, #151922)",
                 boxShadow:
