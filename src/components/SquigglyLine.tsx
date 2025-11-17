@@ -81,6 +81,7 @@ const SquigglyLine: FC<SquigglyLineProps> = ({
       preserveAspectRatio="none"
       viewBox={`0 -${amplitude * 1.5} ${screenWidth} ${amplitude * 3}`}
       style={{ maxWidth: "100%" }}
+      aria-hidden="true"
     >
       <path
         d={generatePath}
