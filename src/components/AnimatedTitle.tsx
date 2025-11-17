@@ -19,45 +19,63 @@ const AnimatedTitle = (props: AnimatedTitleProps) => {
     (secondWord ? secondWord.length : 0) +
     (thirdWord ? thirdWord.length : 0);
 
-  const LETTER_DELAY = 0.3; // 300ms in seconds
+  const LETTER_DELAY = 0.3; // 300ms between each letter within a word
+  const WORD_GAP = 0.6; // 600ms extra pause between words
+  const LETTER_ACTIVE_TIME = 0.3; // 300ms - how long each letter stays highlighted
   const CYCLE_PAUSE = 2; // 2000ms in seconds
-  const ACTIVE_DURATION = 0.3; // How long each letter stays highlighted
 
-  // Calculate total animation duration
-  const totalDuration = totalLength * LETTER_DELAY + CYCLE_PAUSE;
+  // Calculate total animation duration including word gaps
+  const wordCount = (secondWord ? 1 : 0) + (thirdWord ? 1 : 0);
+  const totalDuration =
+    totalLength * LETTER_DELAY + wordCount * WORD_GAP + CYCLE_PAUSE;
 
-  // Generate keyframes as a string to inject into a style tag
+  // Generate a single keyframe animation for the glow effect
   const keyframesStyle = useMemo(() => {
-    const keyframePercentages: string[] = [];
+    // Calculate when the letter should be active (green) and when it fades
+    const activePercent = (LETTER_ACTIVE_TIME / totalDuration) * 100;
+    const fadePercent = ((LETTER_ACTIVE_TIME + 0.3) / totalDuration) * 100; // Transition duration
 
-    for (let i = 0; i < totalLength; i++) {
-      const startTime = i * LETTER_DELAY;
-      const endTime = startTime + ACTIVE_DURATION;
-      const startPercent = (startTime / totalDuration) * 100;
-      const endPercent = (endTime / totalDuration) * 100;
-
-      keyframePercentages.push(`
-        @keyframes letter-glow-${i} {
-          0%, ${startPercent}% {
-            color: ${color};
-          }
-          ${startPercent}%, ${endPercent}% {
-            color: #56ba8e;
-          }
-          ${endPercent}%, 100% {
-            color: ${color};
-          }
+    return `
+      @keyframes letter-glow {
+        0% {
+          color: #56ba8e;
         }
-      `);
+        ${activePercent}% {
+          color: #56ba8e;
+        }
+        ${fadePercent}% {
+          color: ${color};
+        }
+        100% {
+          color: ${color};
+        }
+      }
+    `;
+  }, [totalDuration, LETTER_ACTIVE_TIME, color]);
+
+  const getLetterStyle = (index: number) => {
+    // Calculate delay with word gaps
+    let delay = index * LETTER_DELAY;
+
+    // Add extra delay for letters after the first word
+    if (secondWord && index >= firstWord.length) {
+      delay += WORD_GAP;
+    }
+    // Add extra delay for letters after the second word
+    if (
+      thirdWord &&
+      secondWord &&
+      index >= firstWord.length + secondWord.length
+    ) {
+      delay += WORD_GAP;
     }
 
-    return keyframePercentages.join("\n");
-  }, [totalLength, totalDuration, LETTER_DELAY, ACTIVE_DURATION, color]);
-
-  const getLetterStyle = (index: number) => ({
-    color: color,
-    animation: `letter-glow-${index} ${totalDuration}s infinite`,
-  });
+    return {
+      color: color,
+      animation: `letter-glow ${totalDuration}s infinite`,
+      animationDelay: `${delay}s`,
+    };
+  };
 
   return (
     <>
