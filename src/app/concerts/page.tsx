@@ -77,7 +77,10 @@ export default function Concerts() {
         <MENU pageFirstWord="Concerts" />
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
-            <h1 className="text-xl font-bold mb-4 text-gray-800 dark:text-white">
+            <h1
+              className="text-xl font-bold mb-4 text-gray-800 dark:text-white"
+              style={{ fontFamily: "var(--font-balgin)" }}
+            >
               Concerts I've Attended
             </h1>
 
@@ -89,7 +92,10 @@ export default function Concerts() {
             <div className="space-y-8">
               {sortedConcerts.map((yearGroup) => (
                 <div key={yearGroup.year}>
-                  <h2 className="text-lg font-semibold mb-3 text-gray-900 dark:text-white">
+                  <h2
+                    className="text-lg font-semibold mb-3 text-gray-900 dark:text-white"
+                    style={{ fontFamily: "var(--font-balgin)" }}
+                  >
                     {yearGroup.year}
                   </h2>
                   <ul className="space-y-3">
@@ -104,12 +110,18 @@ export default function Concerts() {
                               {concert.headliner}
                             </div>
                             {concert.openers && concert.openers.length > 0 && (
-                              <div className="text-sm text-gray-600 dark:text-gray-400">
+                              <div
+                                className="text-sm text-gray-600 dark:text-gray-400"
+                                style={{ fontFamily: "var(--font-balgin)" }}
+                              >
                                 with {concert.openers.join(", ")}
                               </div>
                             )}
                             {concert.tour && (
-                              <div className="text-sm text-gray-600 dark:text-gray-400">
+                              <div
+                                className="text-sm text-gray-600 dark:text-gray-400"
+                                style={{ fontFamily: "var(--font-balgin)" }}
+                              >
                                 {concert.tour}
                               </div>
                             )}
@@ -120,7 +132,10 @@ export default function Concerts() {
                               </div>
                             )}
                             {concert.setlist && (
-                              <div className="text-xs mt-1">
+                              <div
+                                className="text-xs mt-1"
+                                style={{ fontFamily: "var(--font-balgin)" }}
+                              >
                                 <a
                                   href={concert.setlist}
                                   target="_blank"

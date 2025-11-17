@@ -145,6 +145,7 @@ export default function Portfolio() {
                         <span
                           key={tagIndex}
                           className="px-2 py-1 text-xs rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300"
+                          style={{ fontFamily: "var(--font-balgin)" }}
                         >
                           {tag}
                         </span>

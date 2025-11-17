@@ -16,7 +16,12 @@ export default function ToIndex() {
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold mb-8">All /to Routes</h1>
+        <h1
+          className="text-3xl font-bold mb-8"
+          style={{ fontFamily: "var(--font-balgin)" }}
+        >
+          All /to Routes
+        </h1>
 
         <div className="grid gap-4">
           {toRoutes.map((redirect) => (

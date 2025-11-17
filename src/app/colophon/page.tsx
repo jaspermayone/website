@@ -121,7 +121,10 @@ export default function Colophon() {
         <main className="flex-1">
           <div className="max-w-4xl mx-auto px-6 py-12">
             <div className="mb-16">
-              <h1 className="text-4xl font-bold mb-4 text-gray-900 dark:text-white">
+              <h1
+                className="text-4xl font-bold mb-4 text-gray-900 dark:text-white"
+                style={{ fontFamily: "var(--font-balgin)" }}
+              >
                 Colophon
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-300">
@@ -131,7 +134,10 @@ export default function Colophon() {
 
             {/* Site History Section */}
             <section className="mb-16">
-              <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+              <h2
+                className="text-2xl font-bold mb-6 text-gray-900 dark:text-white"
+                style={{ fontFamily: "var(--font-balgin)" }}
+              >
                 Site History
               </h2>
               <div className="border border-gray-200 dark:border-gray-700 rounded-2xl p-8">
@@ -152,7 +158,10 @@ export default function Colophon() {
 
             {/* Technology Stack Section */}
             <section className="mb-16">
-              <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+              <h2
+                className="text-2xl font-bold mb-6 text-gray-900 dark:text-white"
+                style={{ fontFamily: "var(--font-balgin)" }}
+              >
                 Technology Stack
               </h2>
               <div className="grid lg:grid-cols-2 gap-6">
@@ -165,7 +174,10 @@ export default function Colophon() {
                       <h3 className="text-lg font-bold text-gray-900 dark:text-white">
                         {tech.name}
                       </h3>
-                      <span className="px-3 py-1 text-sm font-medium text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-full">
+                      <span
+                        className="px-3 py-1 text-sm font-medium text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-full"
+                        style={{ fontFamily: "var(--font-balgin)" }}
+                      >
                         {tech.category}
                       </span>
                     </div>
@@ -179,7 +191,10 @@ export default function Colophon() {
 
             {/* Hosting & Deployment Section */}
             <section className="mb-16">
-              <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+              <h2
+                className="text-2xl font-bold mb-6 text-gray-900 dark:text-white"
+                style={{ fontFamily: "var(--font-balgin)" }}
+              >
                 Hosting & Deployment
               </h2>
               <div className="border border-gray-200 dark:border-gray-700 rounded-2xl p-8">
@@ -199,7 +214,10 @@ export default function Colophon() {
                   , which provides seamless deployment from GitHub, automatic
                   HTTPS, and global CDN distribution.
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div
+                  className="flex flex-wrap gap-2"
+                  style={{ fontFamily: "var(--font-balgin)" }}
+                >
                   <span className="px-3 py-1 text-sm font-medium text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 rounded-full">
                     GitHub Integration
                   </span>
@@ -215,7 +233,10 @@ export default function Colophon() {
 
             {/* Development Tools Section */}
             <section className="mb-16">
-              <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+              <h2
+                className="text-2xl font-bold mb-6 text-gray-900 dark:text-white"
+                style={{ fontFamily: "var(--font-balgin)" }}
+              >
                 Development Tools
               </h2>
               <div className="border border-gray-200 dark:border-gray-700 rounded-2xl p-8">
@@ -236,7 +257,10 @@ export default function Colophon() {
 
             {/* Hardware Section */}
             <section className="mb-16">
-              <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
+              <h2
+                className="text-2xl font-bold mb-6 text-gray-900 dark:text-white"
+                style={{ fontFamily: "var(--font-balgin)" }}
+              >
                 Hardware
               </h2>
               <div className="border border-gray-200 dark:border-gray-700 rounded-2xl p-8">

@@ -101,7 +101,10 @@ export default function Contact() {
         <MENU pageFirstWord="Contact" />
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
-            <h1 className="text-xl font-bold mb-4 text-gray-800 dark:text-white">
+            <h1
+              className="text-xl font-bold mb-4 text-gray-800 dark:text-white"
+              style={{ fontFamily: "var(--font-balgin)" }}
+            >
               Get in Touch
             </h1>
 

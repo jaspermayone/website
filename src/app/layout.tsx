@@ -1,21 +1,31 @@
-import { redirects } from "@/lib/defs";
-import "@/styles/globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeUpdater } from "@/components/theme-updater";
+import { redirects } from "@/lib/defs";
+import "@/styles/globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
+import { ViewTransitions } from "next-view-transitions";
 import localFont from "next/font/local";
 import Script from "next/script";
-import { ViewTransitions } from "next-view-transitions";
 
 const cuteNotes = localFont({
   src: [
     {
-      path: "../../public/fonts/CuteNotes.ttf",
+      path: "../../public/fonts/CuteNotes/CuteNotes.ttf",
       style: "normal",
     },
   ],
   variable: "--font-cuteNotes",
+});
+
+const balgin = localFont({
+  src: [
+    {
+      path: "../../public/fonts/Balgin/BalginText-Light.otf",
+      style: "normal",
+    },
+  ],
+  variable: "--font-balgin",
 });
 
 export const metadata: Metadata = {
@@ -318,7 +328,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={cuteNotes.variable} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${cuteNotes.variable} ${balgin.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <meta charSet="utf-8" />
         <meta name="og:type" content="website" />
@@ -383,7 +397,7 @@ export default function RootLayout({
 
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body className={`${cuteNotes.variable} font-sans`}>
+      <body className={`${cuteNotes.variable} ${balgin.variable} font-sans`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

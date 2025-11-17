@@ -71,8 +71,11 @@ export default function Elsewhere() {
         <MENU pageFirstWord="Elsewhere" />
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
-            <h1 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
-              /elsewhere or /appearances
+            <h1
+              className="text-xl font-bold mb-2 text-gray-800 dark:text-white"
+              style={{ fontFamily: "var(--font-balgin)" }}
+            >
+              My appearances elsewhere.
             </h1>
             <p className="text-gray-600 dark:text-white/70 mb-6 italic">
               a list of output or writings on sites other than one's own
@@ -97,7 +100,10 @@ export default function Elsewhere() {
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1 min-w-0">
                         <div className="flex items-start gap-2 mb-1">
-                          <h2 className="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          <h2
+                            className="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                            style={{ fontFamily: "var(--font-balgin)" }}
+                          >
                             {appearance.title}
                           </h2>
                           <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 flex-shrink-0 mt-0.5" />
@@ -110,7 +116,10 @@ export default function Elsewhere() {
                           {appearance.type && (
                             <>
                               <span>•</span>
-                              <span className="px-2 py-0.5 text-xs rounded-full bg-gray-100 dark:bg-gray-700">
+                              <span
+                                className="px-2 py-0.5 text-xs rounded-full bg-gray-100 dark:bg-gray-700"
+                                style={{ fontFamily: "var(--font-balgin)" }}
+                              >
                                 {appearance.type}
                               </span>
                             </>

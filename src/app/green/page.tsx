@@ -62,7 +62,10 @@ export default function Green() {
         <MENU pageFirstWord="Green" />
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
-            <h1 className="text-xl font-bold mb-4 text-gray-800 dark:text-white">
+            <h1
+              className="text-xl font-bold mb-4 text-gray-800 dark:text-white"
+              style={{ fontFamily: "var(--font-balgin)" }}
+            >
               Living Green
             </h1>
 
@@ -76,11 +79,17 @@ export default function Green() {
               {/* Carbon Rating Card */}
               <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 bg-white dark:bg-gray-800/20">
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-lg font-semibold text-gray-800 dark:text-white">
+                  <h2
+                    className="text-lg font-semibold text-gray-800 dark:text-white"
+                    style={{ fontFamily: "var(--font-balgin)" }}
+                  >
                     Website Carbon Rating
                   </h2>
                   <div className="flex items-center justify-center w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30">
-                    <span className="text-2xl font-bold text-green-700 dark:text-green-400">
+                    <span
+                      className="text-2xl font-bold text-green-700 dark:text-green-400"
+                      style={{ fontFamily: "var(--font-balgin)" }}
+                    >
                       A
                     </span>
                   </div>
@@ -88,7 +97,10 @@ export default function Green() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                   <div className="text-center p-3 rounded-md bg-gray-50 dark:bg-gray-700/30">
-                    <div className="text-2xl font-bold text-gray-900 dark:text-white">
+                    <div
+                      className="text-2xl font-bold text-gray-900 dark:text-white"
+                      style={{ fontFamily: "var(--font-balgin)" }}
+                    >
                       0.17g
                     </div>
                     <div className="text-xs text-gray-600 dark:text-gray-400">
@@ -97,7 +109,10 @@ export default function Green() {
                   </div>
 
                   <div className="text-center p-3 rounded-md bg-gray-50 dark:bg-gray-700/30">
-                    <div className="text-2xl font-bold text-gray-900 dark:text-white">
+                    <div
+                      className="text-2xl font-bold text-gray-900 dark:text-white"
+                      style={{ fontFamily: "var(--font-balgin)" }}
+                    >
                       20.7kg
                     </div>
                     <div className="text-xs text-gray-600 dark:text-gray-400">
@@ -106,7 +121,10 @@ export default function Green() {
                   </div>
 
                   <div className="text-center p-3 rounded-md bg-gray-50 dark:bg-gray-700/30">
-                    <div className="text-2xl font-bold text-gray-900 dark:text-white">
+                    <div
+                      className="text-2xl font-bold text-gray-900 dark:text-white"
+                      style={{ fontFamily: "var(--font-balgin)" }}
+                    >
                       0.47
                     </div>
                     <div className="text-xs text-gray-600 dark:text-gray-400">

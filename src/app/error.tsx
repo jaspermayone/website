@@ -43,7 +43,7 @@ const Error = () => {
         /> */}
 
         <div className="max-w-lg text-center">
-          <p className="inline">
+          <p className="inline" style={{ fontFamily: "var(--font-balgin)" }}>
             Uh oh! This page seems to have lost artistic direction. Please try
             to
           </p>{" "}

@@ -20,8 +20,8 @@ export default {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        // "cute-notes": ['"Cute Notes"', "sans-serif"],
         "cute-notes": "var(--font-cuteNotes)",
+        balgin: "var(--font-balgin)",
       },
       textDecorationStyle: {
         wavy: "wavy",

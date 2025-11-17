@@ -1,8 +1,8 @@
 "use client";
 
-import { formatRelative, format } from "date-fns";
+import { formatRelative } from "date-fns";
 import { formatInTimeZone } from "date-fns-tz";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
 interface Post {
   text: string;
@@ -65,7 +65,12 @@ export default function PostList() {
       <div className="space-y-3">
         <div className="flex items-center justify-center py-8">
           <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-600"></div>
-          <span className="ml-3 text-gray-600">Loading updates...</span>
+          <span
+            className="ml-3 text-gray-600"
+            style={{ fontFamily: "var(--font-balgin)" }}
+          >
+            Loading updates...
+          </span>
         </div>
       </div>
     );
@@ -76,7 +81,12 @@ export default function PostList() {
       <div className="space-y-3">
         <div className="flex items-center justify-center py-8">
           <div className="text-red-600">
-            <p className="font-medium">Failed to load updates</p>
+            <p
+              className="font-medium"
+              style={{ fontFamily: "var(--font-balgin)" }}
+            >
+              Failed to load updates
+            </p>
             <p className="text-sm mt-1">{error}</p>
           </div>
         </div>
@@ -91,9 +101,14 @@ export default function PostList() {
     <div className="space-y-3">
       {postsToShow.map((post, index) => (
         <div key={index} className="flex items-start gap-3">
-          <div className="w-2 h-2 bg-gray-400 rounded-full mt-2 flex-shrink-0"></div>
+          <div className="w-2 h-2 bg-gray-400 rounded-full mt-2 shrink-0"></div>
           <div className="flex-1">
-            <p className="text-gray-800">{post.text}</p>
+            <p
+              className="text-gray-800"
+              style={{ fontFamily: "var(--font-balgin)" }}
+            >
+              {post.text}
+            </p>
             <p className="text-xs text-gray-500 mt-1">
               {formatTimeAgo(post.createdAt)}
             </p>

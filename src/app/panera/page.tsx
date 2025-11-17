@@ -1,8 +1,7 @@
-import { PaneraCard } from "@/components/PaneraCard";
-import Image from "next/image";
-import { Metadata } from "next";
-import MENU from "@/components/MENU";
 import FOOTER from "@/components/FOOTER";
+import MENU from "@/components/MENU";
+import { PaneraCard } from "@/components/PaneraCard";
+import { Metadata } from "next";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -89,6 +88,7 @@ export default function Panera() {
               <div
                 className="text-3xl font-bold mb-4"
                 style={{
+                  fontFamily: "var(--font-balgin)",
                   color: "#051402",
                   fontWeight: 600,
                 }}
@@ -97,7 +97,7 @@ export default function Panera() {
               </div>
               <p
                 className="text-gray-600 max-w-2xl mx-auto"
-                style={{ lineHeight: "1.6" }}
+                style={{ lineHeight: "1.6", fontFamily: "var(--font-balgin)" }}
               >
                 Inspired by people creating /chipotle pages with their Chipotle
                 order for when their friends get them Chipotle, here's what I

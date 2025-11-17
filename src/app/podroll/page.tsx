@@ -102,7 +102,10 @@ export default function Podroll() {
         <MENU pageFirstWord="Podcasts" />
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
-            <h1 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
+            <h1
+              className="text-xl font-bold mb-2 text-gray-800 dark:text-white"
+              style={{ fontFamily: "var(--font-balgin)" }}
+            >
               Recommended Podcasts
             </h1>
 

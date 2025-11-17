@@ -57,7 +57,9 @@ export default function Home() {
           <div className="flex flex-col justify-center">
             <div className="space-y-4">
               <p className="font-medium text-xl">
-                Jasper Mayone [<i>he/they</i>]{" "}
+                <span style={{ fontFamily: "var(--font-balgin)" }}>
+                  Jasper Mayone [<i>he/they</i>]
+                </span>{" "}
                 <span className="text-gray-700 dark:text-white/70 font-normal">
                   is a 19-year-old college student from rural Vermont, currently
                   residing in Boston.

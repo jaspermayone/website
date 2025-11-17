@@ -70,7 +70,10 @@ export default function PFP() {
         <MENU pageFirstWord="PFPs" />
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
-            <h1 className="text-xl font-bold mb-4 text-gray-800 dark:text-white">
+            <h1
+              className="text-xl font-bold underline mb-4 text-gray-800 dark:text-white"
+              style={{ fontFamily: "var(--font-balgin)" }}
+            >
               Profile Photos
             </h1>
 

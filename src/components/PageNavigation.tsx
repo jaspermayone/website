@@ -173,8 +173,12 @@ export default function PageNavigation(props: PageNavigationProps) {
                 title={`Go to ${item.slug}`}
                 style={
                   item.slug === selectedTab
-                    ? { ...textShadowStyle }
-                    : { color: textColor, ...textShadowStyle }
+                    ? { fontFamily: "var(--font-balgin)", ...textShadowStyle }
+                    : {
+                        fontFamily: "var(--font-balgin)",
+                        color: textColor,
+                        ...textShadowStyle,
+                      }
                 }
               >
                 /{item.slug}
@@ -192,8 +196,12 @@ export default function PageNavigation(props: PageNavigationProps) {
             title={`see more pages`}
             style={
               showMoreDropdown
-                ? { ...textShadowStyle }
-                : { color: textColor, ...textShadowStyle }
+                ? { fontFamily: "var(--font-balgin)", ...textShadowStyle }
+                : {
+                    fontFamily: "var(--font-balgin)",
+                    color: textColor,
+                    ...textShadowStyle,
+                  }
             }
           >
             /more
@@ -215,7 +223,10 @@ export default function PageNavigation(props: PageNavigationProps) {
                       handleMenuClick(item.slug);
                       setShowMoreDropdown(false);
                     }}
-                    style={{ color: textColor }}
+                    style={{
+                      fontFamily: "var(--font-balgin)",
+                      color: textColor,
+                    }}
                   >
                     /{item.slug}
                   </p>
