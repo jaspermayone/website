@@ -349,7 +349,7 @@ export const concertsByYear: YearGroup[] = [
         tour: "The Maybe Man Tour",
         setlist:
           "https://www.setlist.fm/setlist/ajr/2024/td-garden-boston-ma-23ab80cf.html",
-        openers: ["mxmtoon"],
+        openers: ["mxmtoon", "almost monday"],
         venue: "TD Garden, Boston, MA",
         date: "2024-08-03",
         favorite: true,
