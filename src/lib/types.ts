@@ -43,3 +43,13 @@ export interface YearGroup {
   year: number;
   concerts: Concert[];
 }
+
+export interface Appearance {
+  title: string;
+  date: string;
+  platform: string;
+  url: string;
+  type?: string;
+  role?: string;
+  description?: string;
+}

@@ -6,7 +6,13 @@ import {
   SiThreads,
   SiX,
 } from "react-icons/si";
-import { PageItem, ProjectItem, RedirectItem, YearGroup } from "./types";
+import {
+  Appearance,
+  PageItem,
+  ProjectItem,
+  RedirectItem,
+  YearGroup,
+} from "./types";
 
 /*
   "home",
@@ -39,6 +45,7 @@ export const pages: PageItem[] = [
   { text: "Podroll", slug: "podroll", showInNav: false, order: 99 },
   { text: "Green", slug: "green", showInNav: false, order: 99 },
   { text: "Concerts", slug: "concerts", showInNav: false, order: 99 },
+  { text: "Elsewhere", slug: "elsewhere", showInNav: false, order: 99 },
   { text: "Colophon", slug: "colophon", showInNav: false, order: 8 },
 ];
 
@@ -344,5 +351,62 @@ export const concertsByYear: YearGroup[] = [
         favorite: false,
       },
     ],
+  },
+];
+
+export const appearances: Appearance[] = [
+  {
+    title: "Staff Writer",
+    date: "2022-01-01",
+    platform: "Harwood Union High School Newspaper",
+    url: "https://huhsnewspaper.com/staff_name/jasper-mayone/",
+    type: "profile",
+    role: "staff writer",
+  },
+  {
+    title: "Staff Member",
+    date: "2021-01-01",
+    platform: "Mad River Mentoring",
+    url: "https://www.madrivermentoring.com/staff",
+    type: "organization",
+    role: "staff",
+  },
+  {
+    title: "Oliver! The Musical",
+    date: "2019-03-01",
+    platform: "Valley Players",
+    url: "https://www.valleyplayers.com/oliver-2019",
+    type: "theater",
+    role: "performer",
+  },
+  {
+    title: "The Art of A-Frame Building",
+    date: "2019-03-01",
+    platform: "Seven Days",
+    url: "https://www.sevendaysvt.com/guides/the-art-of-a-frame-building-35270341",
+    type: "article",
+  },
+  {
+    title: "The Mousetrap",
+    date: "2019-01-01",
+    platform: "Our Herald",
+    url: "https://www.ourherald.com/articles/the-valley-players-will-present-the-mousetrap-in-waitsfield/",
+    type: "article",
+    description: "Valley Players production announcement",
+  },
+  {
+    title: "Willy Wonka: A World of Pure Imagination",
+    date: "2018-01-01",
+    platform: "The Valley Reporter",
+    url: "https://www.valleyreporter.com/index.php/news/artsent/18053-willy-wonka-a-world-of-pure-imagination",
+    type: "theater",
+    role: "performer",
+  },
+  {
+    title: "New York Times Archive",
+    date: "2009-03-01",
+    platform: "New York Times",
+    url: "https://archive.nytimes.com/query.nytimes.com/gst/fullpage-9F06E4DE153AF936A35750C0A96F9C8B63.html",
+    type: "article",
   },
 ];

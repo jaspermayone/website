@@ -165,6 +165,11 @@ const nextConfig = {
         destination: "/green",
         permanent: true,
       },
+      {
+        source: "/appearances",
+        destination: "/elsewhere",
+        permanent: true,
+      },
     ];
 
     redirects.push(...someOtherRedirects);
