@@ -29,3 +29,17 @@ export interface ProjectItem {
   date?: string;
   image?: string;
 }
+
+export interface Concert {
+  headliner: string;
+  openers?: string[];
+  tour?: string;
+  venue?: string;
+  date?: string;
+  favorite?: boolean;
+}
+
+export interface YearGroup {
+  year: number;
+  concerts: Concert[];
+}

@@ -6,7 +6,7 @@ import {
   SiThreads,
   SiX,
 } from "react-icons/si";
-import { PageItem, ProjectItem, RedirectItem } from "./types";
+import { PageItem, ProjectItem, RedirectItem, YearGroup } from "./types";
 
 /*
   "home",
@@ -38,6 +38,7 @@ export const pages: PageItem[] = [
   { text: "Uses", slug: "uses", showInNav: false, order: 7 },
   { text: "Podroll", slug: "podroll", showInNav: false, order: 99 },
   { text: "Green", slug: "green", showInNav: false, order: 99 },
+  { text: "Concerts", slug: "concerts", showInNav: false, order: 99 },
   { text: "Colophon", slug: "colophon", showInNav: false, order: 8 },
 ];
 
@@ -288,4 +289,60 @@ export const navSocialLinks = [
   { href: "/threads", label: "Threads", Icon: SiThreads },
   { href: "/bluesky", label: "Bluesky", Icon: SiBluesky },
   { href: "/x", label: "X", Icon: SiX },
+];
+
+export const concertsByYear: YearGroup[] = [
+  {
+    /* Lake Street Dive
+     */
+    year: 2025,
+    concerts: [
+      {
+        headliner: "Lake Street Dive",
+        openers: ["Sammy Rae & the Friends"],
+        venue: "Thompson Point, Portland, ME",
+        date: "2025-08-17",
+        favorite: true,
+      },
+      {
+        headliner: "AJR",
+        tour: "Somewhere in the Sky Tour",
+        openers: ["Madilyn Mei", "Cavetown", "Valley"],
+        venue: "Xfinity Center, Mansfield, MA",
+        date: "2025-08-09",
+      },
+    ],
+  },
+  {
+    year: 2024,
+    concerts: [
+      {
+        headliner: "Sammy Rae & the Friends",
+        tour: "Something for Everybody Tour",
+        venue: "Flynn Theater for the Performing Arts, Burlington, VT",
+        date: "2024-11-1",
+        favorite: false,
+      },
+      {
+        headliner: "AJR",
+        tour: "The Maybe Man Tour",
+        openers: ["mxmtoon"],
+        venue: "TD Garden, Boston, MA",
+        date: "2024-08-03",
+        favorite: true,
+      },
+    ],
+  },
+  {
+    year: 2023,
+    concerts: [
+      {
+        headliner: "Sammy Rae & the Friends",
+        tour: "CAMP",
+        venue: "Higher Ground, Burlington, VT",
+        date: "2023-09-18",
+        favorite: false,
+      },
+    ],
+  },
 ];
