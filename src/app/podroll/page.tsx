@@ -118,7 +118,7 @@ export default function Podroll() {
                   rel="noopener noreferrer"
                   className="flex p-3 bg-white/50 dark:bg-gray-800/20 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
                 >
-                  <div className="flex-shrink-0 mr-3 text-blue-500">
+                  <div className="shrink-0 mr-3 text-blue-500">
                     <HeadphonesIcon size={20} />
                   </div>
                   <div>
