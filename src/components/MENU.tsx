@@ -22,9 +22,9 @@ const MENU = (props: MENUProps) => {
     addBackground,
   } = props;
   return (
-    <div className="pb-2 w-full">
-      <div className="pt-5 w-full">
-        <div className="flex w-full justify-center items-center mb-6 text-center">
+    <div className="pb-1 w-full">
+      <div className="pt-3 w-full">
+        <div className="flex w-full justify-center items-center mb-4 text-center">
           <div
             style={
               addBackground
@@ -46,7 +46,7 @@ const MENU = (props: MENUProps) => {
             />
           </div>
         </div>
-        <div className="flex w-full justify-center mb-4">
+        <div className="flex w-full justify-center">
           <PageNavigation color={color} addTextShadow={addBackground} />
         </div>
       </div>
