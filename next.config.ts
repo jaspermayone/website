@@ -44,6 +44,11 @@ interface NextRedirectItem {
 }
 
 const nextConfig = {
+  productionBrowserSourceMaps: false,
+  experimental: {
+    serverSourceMaps: false,
+    optimizePackageImports: ["@opentelemetry/api", "ua-parser-js"],
+  },
   // Turbo mode for faster builds
   turbopack: {},
   async redirects() {
@@ -148,10 +153,6 @@ const nextConfig = {
     redirects.push(...someOtherRedirects);
 
     return redirects;
-  },
-  // Bun-specific optimizations
-  experimental: {
-    optimizePackageImports: ["@opentelemetry/api", "ua-parser-js"],
   },
   compiler: {
     removeConsole:
