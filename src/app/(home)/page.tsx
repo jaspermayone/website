@@ -45,7 +45,7 @@ export default function Home() {
       <main className="flex-1">
         <ConfettiWrapper />
         <div className="flex flex-col md:flex-row gap-8 mx-5 mt-5 mb-5">
-          <div className="w-64 flex-shrink-0 mt-8 mx-auto md:mx-0 md:self-start">
+          <div className="w-64 flex-shrink-0 mt-8 mx-auto md:mx-0 md:self-start overflow-hidden">
             <RoundedImage
               src={imgpath}
               alt="Jasper Mayone"
