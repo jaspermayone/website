@@ -3,9 +3,8 @@ import ConfettiWrapper from "@/components/ConfettiWrapper";
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import RoundedImage from "@/components/RoundedImage";
-import styles from "@/styles/Home.module.css";
-import JmDark from "@public/images/jmdark-min.jpeg";
-import JmLight from "@public/images/jmlite-min.jpeg";
+import JmDark from "@public/images/jmdark-min.webp";
+import JmLight from "@public/images/jmlite-min.webp";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -91,7 +90,7 @@ export default function Home() {
                 Recently they've been focusing their time (outside of their
                 degree) on{" "}
                 <Link
-                  className={styles.lnk}
+                  className="lnk"
                   href="https://patchworklabs.org?utm_source=jaspermayone.com&utm_medium=referral"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -106,7 +105,7 @@ export default function Home() {
               <p className="text-gray-600 dark:text-white/70 text-sm">
                 Previously, Jasper's adventures included working at{" "}
                 <Link
-                  className={styles.lnk}
+                  className="lnk"
                   href="https://mlh.io/?utm_source=jaspermayone.com&utm_medium=referral"
                   target="_blank"
                   rel="noopener noreferrer"

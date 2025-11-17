@@ -2,7 +2,6 @@
 "use client";
 import { socialLinks } from "@/lib/defs";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 interface FooterProps {
   color?: string;
@@ -10,11 +9,7 @@ interface FooterProps {
 
 export default function FOOTER({ color }: FooterProps) {
   const textColor = color || "#4a5565";
-  const [currentYear, setCurrentYear] = useState("");
-
-  useEffect(() => {
-    setCurrentYear(new Date().getFullYear().toString());
-  }, []);
+  const currentYear = new Date().getFullYear().toString();
 
   return (
     <footer className="w-full">

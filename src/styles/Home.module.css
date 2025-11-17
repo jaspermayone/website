@@ -101,11 +101,6 @@
   border-radius: 50%;
 }
 
-.title {
-  font-size: 3.5em;
-  font-family: "Cute Notes", sans-serif;
-}
-
 .hidden {
   display: none;
 }
@@ -129,14 +124,4 @@
   color: #56ba8e; /* Link color */
   text-decoration: underline wavy; /* Add an underline */
   transition: color 0.3s ease; /* Smooth color transition on hover */
-}
-
-.lnk {
-  color: #56ba8e; /* Link color */
-  text-decoration: underline wavy; /* Add an underline */
-  transition: color 0.3s ease; /* Smooth color transition on hover */
-}
-
-.lnk:hover {
-  color: light-dark(#003e73, #aad5fb); /* Change color on hover */
 }

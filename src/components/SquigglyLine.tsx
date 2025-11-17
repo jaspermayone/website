@@ -26,9 +26,19 @@ const SquigglyLine: FC<SquigglyLineProps> = ({
       setScreenWidth(window.innerWidth);
     };
 
-    updateWidth();
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
+    // Debounce resize handler
+    let timeoutId: NodeJS.Timeout;
+    const debouncedUpdateWidth = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(updateWidth, 250);
+    };
+
+    updateWidth(); // Initial call
+    window.addEventListener("resize", debouncedUpdateWidth);
+    return () => {
+      window.removeEventListener("resize", debouncedUpdateWidth);
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   const generatePath = useMemo(() => {

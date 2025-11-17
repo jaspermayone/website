@@ -55,11 +55,11 @@ body {
 }
 
 .lnk {
-  color: #56ba8e; /* Link color */
-  text-decoration: underline wavy; /* Add an underline */
-  transition: color 0.3s ease; /* Smooth color transition on hover */
+  color: #56ba8e;
+  text-decoration: underline wavy;
+  transition: color 0.3s ease;
 }
 
 .lnk:hover {
-  color: #003e73; /* Change color on hover */
+  color: light-dark(#003e73, #aad5fb);
 }

@@ -227,7 +227,7 @@ export const projects: ProjectItem[] = [
     github: "jaspermayone/website",
     tags: ["Next.js", "TypeScript", "Tailwind"],
     date: "2025",
-    image: "/images/projects/website.png",
+    image: "/images/projects/website.webp",
   },
   {
     title: "LaTex Generated CV/Resume",
@@ -253,7 +253,7 @@ export const projects: ProjectItem[] = [
       "Discord bot that integrates with MyMLH identity platform for tighter linking of roles and user experience enhancement.",
     tags: ["Discord", "Ruby", "Ruby on Rails"],
     date: "2025",
-    image: "/images/projects/mlh-discord.png",
+    image: "/images/projects/mlh-discord.webp",
   },
   {
     title: "WIP - Metro",
@@ -263,7 +263,7 @@ export const projects: ProjectItem[] = [
     link: "https://metro.jaspermayone.com",
     tags: ["Next.js", "TypeScript", "Tailwind"],
     date: "2024",
-    image: "/images/projects/metro.png",
+    image: "/images/projects/metro.webp",
   },
   {
     title: "Obsidian AI Note Tagger",

@@ -89,7 +89,7 @@ export default function Panera() {
 
           <div className="flex justify-center gap-6">
             <PaneraCard
-              imagesrc="/images/panera/toastedgardencaprese.jpg"
+              imagesrc="/images/panera/toastedgardencaprese.webp"
               name="Toasted Garden Caprese"
               calories={890}
               size="Whole"
@@ -98,14 +98,14 @@ export default function Panera() {
             />
 
             <PaneraCard
-              imagesrc="/images/panera/mangosmoothie.jpg"
+              imagesrc="/images/panera/mangosmoothie.webp"
               name="Mango Smoothie"
               calories={300}
               link="https://www.panerabread.com/content/panerabread_com/en-us/menu/products/mango-smoothie.html"
             />
 
             <PaneraCard
-              imagesrc="/images/panera/cinnamonroll.jpg"
+              imagesrc="/images/panera/cinnamonroll.webp"
               name="Cinnamon Roll"
               calories={520}
               link="https://www.panerabread.com/content/panerabread_com/en-us/menu/products/cinnamon-roll.html"

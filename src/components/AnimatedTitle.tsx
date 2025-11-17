@@ -1,12 +1,5 @@
 "use client";
-import localFont from "next/font/local";
-import { useEffect, useState } from "react";
-
-const CuteNotes = localFont({
-  src: "../../public/fonts/CuteNotes.ttf",
-  display: "swap",
-  variable: "--font-cute-notes",
-});
+import { useMemo } from "react";
 
 interface AnimatedTitleProps {
   firstWord: string;
@@ -16,92 +9,94 @@ interface AnimatedTitleProps {
 }
 
 const AnimatedTitle = (props: AnimatedTitleProps) => {
-  const [activeIndex, setActiveIndex] = useState(-1);
   const firstWord = props.firstWord;
   const secondWord = props.secondWord;
   const thirdWord = props.thirdWord;
+  const color = props.color || "inherit";
+
   const totalLength =
     firstWord.length +
     (secondWord ? secondWord.length : 0) +
     (thirdWord ? thirdWord.length : 0);
-  const LETTER_DELAY = 300;
-  const CYCLE_PAUSE = 2000;
 
-  const color = props.color || "inherit";
+  const LETTER_DELAY = 0.3; // 300ms in seconds
+  const CYCLE_PAUSE = 2; // 2000ms in seconds
+  const ACTIVE_DURATION = 0.3; // How long each letter stays highlighted
 
-  useEffect(() => {
-    let cancelled = false;
+  // Calculate total animation duration
+  const totalDuration = totalLength * LETTER_DELAY + CYCLE_PAUSE;
 
-    const animate = async () => {
-      while (!cancelled) {
-        for (let i = 0; i <= totalLength; i++) {
-          if (cancelled) break;
-          setActiveIndex(i === totalLength ? -1 : i);
-          await new Promise((resolve) => setTimeout(resolve, LETTER_DELAY));
+  // Generate keyframes as a string to inject into a style tag
+  const keyframesStyle = useMemo(() => {
+    const keyframePercentages: string[] = [];
+
+    for (let i = 0; i < totalLength; i++) {
+      const startTime = i * LETTER_DELAY;
+      const endTime = startTime + ACTIVE_DURATION;
+      const startPercent = (startTime / totalDuration) * 100;
+      const endPercent = (endTime / totalDuration) * 100;
+
+      keyframePercentages.push(`
+        @keyframes letter-glow-${i} {
+          0%, ${startPercent}% {
+            color: ${color};
+          }
+          ${startPercent}%, ${endPercent}% {
+            color: #56ba8e;
+          }
+          ${endPercent}%, 100% {
+            color: ${color};
+          }
         }
-        if (!cancelled) {
-          await new Promise((resolve) => setTimeout(resolve, CYCLE_PAUSE));
-        }
-      }
-    };
+      `);
+    }
 
-    animate();
-    return () => {
-      cancelled = true;
-      setActiveIndex(-1);
-    };
-  }, [totalLength, LETTER_DELAY, CYCLE_PAUSE]);
+    return keyframePercentages.join("\n");
+  }, [totalLength, totalDuration, LETTER_DELAY, ACTIVE_DURATION, color]);
+
+  const getLetterStyle = (index: number) => ({
+    color: color,
+    animation: `letter-glow-${index} ${totalDuration}s infinite`,
+  });
 
   return (
-    <h1
-      className={`m-0 text-5xl ${CuteNotes.className}`}
-      style={{
-        margin: 0,
-        marginBottom: ".25rem",
-        fontSize: "3.5em",
-      }}
-      title={`${firstWord} ${secondWord}`}
-    >
-      {firstWord.split("").map((letter, index) => (
-        <span
-          key={`first-${index}`}
-          className="transition-colors duration-300"
-          style={{
-            color: index === activeIndex ? "#56ba8e" : color,
-          }}
-        >
-          {letter}
-        </span>
-      ))}{" "}
-      {secondWord?.split("").map((letter, index) => (
-        <span
-          key={`second-${index}`}
-          className="transition-colors duration-300"
-          style={{
-            color: index + firstWord.length === activeIndex ? "#56ba8e" : color,
-          }}
-        >
-          {letter}
-        </span>
-      ))}{" "}
-      {thirdWord?.split("").map((letter, index) => (
-        <span
-          key={`third-${index}`}
-          className="transition-colors duration-300"
-          style={{
-            color:
-              index +
-                firstWord.length +
-                (secondWord ? secondWord.length : 0) ===
-              activeIndex
-                ? "#56ba8e"
-                : color,
-          }}
-        >
-          {letter}
-        </span>
-      ))}
-    </h1>
+    <>
+      <style>{keyframesStyle}</style>
+      <h1
+        className="m-0 text-5xl"
+        style={{
+          margin: 0,
+          marginBottom: ".25rem",
+          fontSize: "3.5em",
+          fontFamily: "var(--font-cuteNotes)",
+        }}
+        title={`${firstWord} ${secondWord || ""}`}
+      >
+        {firstWord.split("").map((letter, index) => (
+          <span key={`first-${index}`} style={getLetterStyle(index)}>
+            {letter}
+          </span>
+        ))}{" "}
+        {secondWord?.split("").map((letter, index) => (
+          <span
+            key={`second-${index}`}
+            style={getLetterStyle(index + firstWord.length)}
+          >
+            {letter}
+          </span>
+        ))}{" "}
+        {thirdWord?.split("").map((letter, index) => (
+          <span
+            key={`third-${index}`}
+            style={getLetterStyle(
+              index + firstWord.length + (secondWord ? secondWord.length : 0),
+            )}
+          >
+            {letter}
+          </span>
+        ))}
+      </h1>
+    </>
   );
 };
 

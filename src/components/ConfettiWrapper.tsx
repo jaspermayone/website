@@ -197,36 +197,36 @@ export default function ConfettiWrapper() {
   const images = [
     {
       trigger: confettiTrigger.wit,
-      imagePath: "/images/confetti/wit.png",
-      invertedImagePath: "/images/confetti/wit.png",
+      imagePath: "/images/confetti/wit.webp",
+      invertedImagePath: "/images/confetti/wit.webp",
       urlParam: "wit",
       trackingEvent: "WIT_Confetti",
     },
     {
       trigger: confettiTrigger.socraticaW25,
-      imagePath: "/images/confetti/ss.png",
-      invertedImagePath: "/images/confetti/ss-inverted.png",
+      imagePath: "/images/confetti/ss.webp",
+      invertedImagePath: "/images/confetti/ss-inverted.webp",
       urlParam: "socraticaW25",
       trackingEvent: "SocraticaSymposiumW25_Confetti",
     },
     {
       trigger: confettiTrigger.pwl,
-      imagePath: "/images/confetti/pwl.png",
-      invertedImagePath: "/images/confetti/pwl.png",
+      imagePath: "/images/confetti/pwl.webp",
+      invertedImagePath: "/images/confetti/pwl.webp",
       urlParam: "pwl",
       trackingEvent: "PWL_Confetti",
     },
     {
       trigger: confettiTrigger.pd,
-      imagePath: "/images/confetti/pd.jpeg",
-      invertedImagePath: "/images/confetti/pd.jpeg",
+      imagePath: "/images/confetti/pd.webp",
+      invertedImagePath: "/images/confetti/pd.webp",
       urlParam: "pd",
       trackingEvent: "PD_Confetti",
     },
     {
       trigger: confettiTrigger.mlh,
-      imagePath: "/images/confetti/mlh.jpg",
-      invertedImagePath: "/images/confetti/mlh.jpg",
+      imagePath: "/images/confetti/mlh.webp",
+      invertedImagePath: "/images/confetti/mlh.webp",
       urlParam: "mlh",
       trackingEvent: "MLH_Confetti",
     },
@@ -242,17 +242,15 @@ export default function ConfettiWrapper() {
   // Use a ref to track if we've already shown confetti in this page load
   const [hasShownThisSession, setHasShownThisSession] = useState(false);
 
-  // Preload all images
+  // Preload only the active image when confetti is triggered
   useEffect(() => {
-    if (typeof window === "undefined") return;
+    if (typeof window === "undefined" || !activeImage) return;
 
-    images.forEach((imageConfig) => {
-      const regularImg = new Image();
-      const invertedImg = new Image();
-      regularImg.src = imageConfig.imagePath;
-      invertedImg.src = imageConfig.invertedImagePath;
-    });
-  }, []);
+    const img = new Image();
+    img.src = isDarkMode
+      ? activeImage.invertedImagePath
+      : activeImage.imagePath;
+  }, [activeImage, isDarkMode]);
 
   useEffect(() => {
     // Check if browser environment

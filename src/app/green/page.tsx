@@ -1,6 +1,5 @@
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
-import styles from "@/styles/Home.module.css";
 import { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
@@ -80,7 +79,7 @@ export default function Green() {
               <p className="text-gray-600 dark:text-white/70">
                 I always love seeing cool sustainability and green projects. If
                 you find one or are working on one, please let me know! My{" "}
-                <Link href="/contact" className={styles.lnk}>
+                <Link href="/contact" className="lnk">
                   contact page
                 </Link>{" "}
                 has all the ways I can be reached.

@@ -1,6 +1,5 @@
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
-import styles from "@/styles/Home.module.css";
 import { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
@@ -113,7 +112,7 @@ export default function Contact() {
               <p className="text-gray-600 dark:text-white/70">
                 I can also be reached on Signal at{" "}
                 <Link
-                  className={styles.lnk}
+                  className="lnk"
                   href="https://signal.me/#eu/jaspermayone.10"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -129,7 +128,7 @@ export default function Contact() {
               <p className="text-gray-600 dark:text-white/70">
                 You can verify my identity and all the ways I might contact you
                 on my{" "}
-                <Link className={styles.lnk} href="/verify">
+                <Link className="lnk" href="/verify">
                   identity verification page
                 </Link>
                 .

@@ -24,7 +24,6 @@ import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import WavyDivider from "@/components/WavyDivider";
 import { emails } from "@/lib/defs";
-import styles from "@/styles/Home.module.css";
 import { Metadata } from "next";
 import Script from "next/script";
 
@@ -310,7 +309,7 @@ const VerifyPage = () => {
           <p className="text-neutral-500 dark:text-neutral-400 text-[0.60rem] mb-2">
             Inspired by{" "}
             <Link
-              className={styles.lnk}
+              className="lnk"
               href="https://dunkirk.sh/verify/?utm_source=jaspermayone.com&utm_medium=referral"
               target="_blank"
               rel="noopener noreferrer"
@@ -331,7 +330,7 @@ const VerifyPage = () => {
             My entire identity can also be verified at{" "}
             <Link
               href="https://keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA?utm_source=jaspermayone.com&utm_medium=referral"
-              className={styles.lnk}
+              className="lnk"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -341,11 +340,11 @@ const VerifyPage = () => {
 
           <p className="mt-4 text-sm text-neutral-700 dark:text-neutral-300">
             To view my public cryptographic keys, visit my{" "}
-            <Link className={styles.lnk} href="/keys/gpg">
+            <Link className="lnk" href="/keys/gpg">
               GPG key page
             </Link>{" "}
             or{" "}
-            <Link className={styles.lnk} href="/keys/ssh">
+            <Link className="lnk" href="/keys/ssh">
               SSH key page
             </Link>
             .
@@ -355,7 +354,7 @@ const VerifyPage = () => {
             This page is tracked in version control. You can{" "}
             <Link
               href="https://github.com/jaspermayone/website/blob/main/src/app/verify/page.tsx?utm_source=jaspermayone.com&utm_medium=referral"
-              className={styles.lnk}
+              className="lnk"
               rel="noopener noreferrer"
               target="_blank"
             >

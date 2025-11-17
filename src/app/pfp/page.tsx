@@ -2,11 +2,11 @@ import Image from "next/image";
 
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
-import circus from "@public/images/profiles/circus.jpg";
-import jm from "@public/images/profiles/jm.png";
-import dark from "@public/images/profiles/jmdark-min.jpeg";
-import lite from "@public/images/profiles/jmlite-min.jpeg";
-import waves from "@public/images/profiles/waves.png";
+import circus from "@public/images/profiles/circus.webp";
+import jm from "@public/images/profiles/jm.webp";
+import dark from "@public/images/profiles/jmdark-min.webp";
+import lite from "@public/images/profiles/jmlite-min.webp";
+import waves from "@public/images/profiles/waves.webp";
 import { Metadata } from "next";
 import Script from "next/script";
 
