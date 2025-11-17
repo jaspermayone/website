@@ -63,3 +63,59 @@ This project uses Bun as the primary runtime and package manager. All commands s
 - Preconnect links for external resources
 
 When making changes, ensure you maintain the existing patterns for component structure, TypeScript typing, and Tailwind styling conventions.
+
+## View Transitions
+
+This project uses the **View Transitions API** to provide smooth, animated transitions between pages.
+
+### Implementation
+
+- **Library**: `next-view-transitions` (v0.3.4+)
+- **Setup**: Root layout wrapped with `<ViewTransitions>` component
+- **Router**: All navigation uses `useTransitionRouter()` from `next-view-transitions`
+- **Internal Links**: Use `Link` from `next-view-transitions` instead of `next/link`
+
+### Transition Types
+
+The site implements several types of transitions:
+
+1. **Page Transitions** - Smooth crossfade (300ms) when navigating between pages
+2. **Shared Elements** - Specific elements transition smoothly across pages:
+   - `page-title` - The animated page title (400ms)
+   - `main-navigation` - The navigation menu (350ms)
+   - `profile-image` - Profile picture on home page (500ms)
+   - `footer` - Footer element (200ms)
+
+### CSS Configuration
+
+View transition styles are defined in `/src/styles/globals.css`:
+
+- Default page transition uses fade-in/fade-out animations
+- Shared element transitions have custom durations
+- All animations use browser-native View Transitions API
+
+### Browser Support
+
+- ✅ **Chrome/Edge 111+**: Full support
+- ✅ **Safari 18+**: Full support
+- ⚠️ **Firefox**: Pending (graceful degradation to instant navigation)
+- **Fallback**: Pages navigate normally without transitions in unsupported browsers
+
+### Adding Transitions to New Elements
+
+To add a view transition to a new element:
+
+1. Add `viewTransitionName: "your-element-name"` to the element's style object
+2. Define transition styles in `globals.css`:
+   ```css
+   ::view-transition-old(your-element-name),
+   ::view-transition-new(your-element-name) {
+     animation-duration: 0.4s;
+   }
+   ```
+
+### Important Notes
+
+- View transitions only work for **internal navigation** (same-origin)
+- External links bypass view transitions automatically
+- Transitions are purely visual and don't affect page load performance
