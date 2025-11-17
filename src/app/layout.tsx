@@ -1,5 +1,7 @@
 import { redirects } from "@/lib/defs";
 import "@/styles/globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeUpdater } from "@/components/theme-updater";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
@@ -315,7 +317,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`light ${cuteNotes.variable}`}>
+    <html lang="en" className={cuteNotes.variable} suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="og:type" content="website" />
@@ -381,12 +383,20 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={`${cuteNotes.variable} font-sans`}>
-        <Script
-          src="https://kit.fontawesome.com/96163f3b63.js"
-          crossOrigin="anonymous"
-        />
-        {children}
-        <SpeedInsights />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <ThemeUpdater />
+          <Script
+            src="https://kit.fontawesome.com/96163f3b63.js"
+            crossOrigin="anonymous"
+          />
+          {children}
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   );
