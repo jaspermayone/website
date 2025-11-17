@@ -59,7 +59,17 @@ const nextConfig = {
         // newDestination is redirect.destination but with ?utm_source=jaspermayone.com&utm_medium=referral
         // in some cases a redirect already has query parameters, so we need to merge the utm parameters instead of just appending them
 
-        let url = new URL(redirect.destination);
+        // Ensure destination ends with / if it doesn't have a path
+        let dest = redirect.destination;
+        if (
+          !dest.includes("?") &&
+          !dest.endsWith("/") &&
+          new URL(dest).pathname === "/"
+        ) {
+          dest = dest + "/";
+        }
+
+        let url = new URL(dest);
         url.searchParams.set("utm_source", "jaspermayone.com");
         url.searchParams.set("utm_medium", "referral");
         let newDestination = url.toString();
