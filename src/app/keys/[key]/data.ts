@@ -17,7 +17,7 @@ export async function getKeysIndex(): Promise<KeyRecord[]> {
 }
 
 export async function getKeyByTitle(
-  title: string,
+  title: string
 ): Promise<KeyRecord | undefined> {
   const res = await get();
   const obj = JSON.parse(res.body) as KeysIndex;

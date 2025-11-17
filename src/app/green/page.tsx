@@ -58,12 +58,12 @@ export default function Green() {
           __html: JSON.stringify(greenPageSchema),
         }}
       />
-      <div className="min-h-screen flex flex-col">
+      <div className="flex min-h-screen flex-col">
         <MENU pageFirstWord="Green" />
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
             <h1
-              className="text-xl font-bold mb-4 text-gray-800 dark:text-white"
+              className="mb-4 text-xl font-bold text-gray-800 dark:text-white"
               style={{ fontFamily: "var(--font-balgin)" }}
             >
               Living Green
@@ -77,15 +77,15 @@ export default function Green() {
               </p>
 
               {/* Carbon Rating Card */}
-              <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 bg-white dark:bg-gray-800/20">
-                <div className="flex items-center justify-between mb-4">
+              <div className="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800/20">
+                <div className="mb-4 flex items-center justify-between">
                   <h2
                     className="text-lg font-semibold text-gray-800 dark:text-white"
                     style={{ fontFamily: "var(--font-balgin)" }}
                   >
                     Website Carbon Rating
                   </h2>
-                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
                     <span
                       className="text-2xl font-bold text-green-700 dark:text-green-400"
                       style={{ fontFamily: "var(--font-balgin)" }}
@@ -95,8 +95,8 @@ export default function Green() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                  <div className="text-center p-3 rounded-md bg-gray-50 dark:bg-gray-700/30">
+                <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-3">
+                  <div className="rounded-md bg-gray-50 p-3 text-center dark:bg-gray-700/30">
                     <div
                       className="text-2xl font-bold text-gray-900 dark:text-white"
                       style={{ fontFamily: "var(--font-balgin)" }}
@@ -108,7 +108,7 @@ export default function Green() {
                     </div>
                   </div>
 
-                  <div className="text-center p-3 rounded-md bg-gray-50 dark:bg-gray-700/30">
+                  <div className="rounded-md bg-gray-50 p-3 text-center dark:bg-gray-700/30">
                     <div
                       className="text-2xl font-bold text-gray-900 dark:text-white"
                       style={{ fontFamily: "var(--font-balgin)" }}
@@ -120,7 +120,7 @@ export default function Green() {
                     </div>
                   </div>
 
-                  <div className="text-center p-3 rounded-md bg-gray-50 dark:bg-gray-700/30">
+                  <div className="rounded-md bg-gray-50 p-3 text-center dark:bg-gray-700/30">
                     <div
                       className="text-2xl font-bold text-gray-900 dark:text-white"
                       style={{ fontFamily: "var(--font-balgin)" }}
@@ -133,7 +133,7 @@ export default function Green() {
                   </div>
                 </div>
 
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
+                <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">
                   This website produces minimal carbon emissions with just{" "}
                   <strong>0.17 grams of CO₂</strong> per page view. That's
                   excellent for web sustainability!

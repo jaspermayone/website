@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 
 const ImageConfetti = ({ imagePath, duration = 3000 }) => {
   // Existing confetti implementation remains the same
@@ -80,7 +80,7 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
           ctx.save();
           ctx.translate(
             particle.x + particle.size / 2,
-            particle.y + particle.size / 2,
+            particle.y + particle.size / 2
           );
           ctx.rotate((particle.rotation * Math.PI) / 180);
 
@@ -92,7 +92,7 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
             -particle.size / 2,
             -particle.size / 2,
             particle.size,
-            particle.size,
+            particle.size
           );
           ctx.restore();
 
@@ -185,6 +185,23 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
   return null;
 };
 
+// Subscribe function for dark mode detection
+function subscribeToDarkMode(callback: () => void) {
+  const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+  mediaQuery.addEventListener("change", callback);
+  return () => mediaQuery.removeEventListener("change", callback);
+}
+
+// Get current snapshot for client
+function getDarkModeSnapshot() {
+  return window.matchMedia("(prefers-color-scheme: dark)").matches;
+}
+
+// Get snapshot for server-side rendering
+function getDarkModeServerSnapshot() {
+  return false;
+}
+
 export default function ConfettiWrapper() {
   enum confettiTrigger {
     wit = "wit",
@@ -234,9 +251,13 @@ export default function ConfettiWrapper() {
 
   const pathname = usePathname();
   const [showConfetti, setShowConfetti] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const isDarkMode = useSyncExternalStore(
+    subscribeToDarkMode,
+    getDarkModeSnapshot,
+    getDarkModeServerSnapshot
+  );
   const [activeImage, setActiveImage] = useState<(typeof images)[0] | null>(
-    null,
+    null
   );
 
   // Use a ref to track if we've already shown confetti in this page load
@@ -256,26 +277,8 @@ export default function ConfettiWrapper() {
     // Check if browser environment
     if (typeof window === "undefined") return;
 
-    // Detect dark mode
-    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    setIsDarkMode(mediaQuery.matches);
-
-    // Add listener for theme changes
-    const handleThemeChange = (e: MediaQueryListEvent) => {
-      setIsDarkMode(e.matches);
-    };
-
-    mediaQuery.addEventListener("change", handleThemeChange);
-
-    // Cleanup listener
-    return () => {
-      mediaQuery.removeEventListener("change", handleThemeChange);
-    };
-  }, []);
-
-  useEffect(() => {
-    // Check if browser environment
-    if (typeof window === "undefined") return;
+    // Skip if already shown
+    if (hasShownThisSession || showConfetti) return;
 
     // Check URL parameters for any configured triggers
     const searchParams = new URLSearchParams(window.location.search);
@@ -289,40 +292,43 @@ export default function ConfettiWrapper() {
           })
         : null;
 
-    // Only run once on page load when matched and not shown yet
-    if (matchedConfig && !hasShownThisSession && !showConfetti) {
-      // Mark that we've shown it this session
-      setHasShownThisSession(true);
-      setActiveImage(matchedConfig);
+    // Only run once on page load when matched
+    if (matchedConfig) {
+      // Schedule state updates asynchronously to avoid cascading renders
+      queueMicrotask(() => {
+        // Mark that we've shown it this session
+        setHasShownThisSession(true);
+        setActiveImage(matchedConfig);
 
-      // Show confetti
-      setShowConfetti(true);
+        // Show confetti
+        setShowConfetti(true);
 
-      // Track confetti display with Umami
-      const trackingElement = document.createElement("div");
-      trackingElement.setAttribute(
-        "data-umami-event",
-        matchedConfig.trackingEvent,
-      );
-      trackingElement.setAttribute("data-umami-event-path", pathname);
-      trackingElement.setAttribute(
-        "data-umami-event-triggered-by",
-        "url-param",
-      );
-      trackingElement.style.display = "none";
-      document.body.appendChild(trackingElement);
+        // Track confetti display with Umami
+        const trackingElement = document.createElement("div");
+        trackingElement.setAttribute(
+          "data-umami-event",
+          matchedConfig.trackingEvent
+        );
+        trackingElement.setAttribute("data-umami-event-path", pathname);
+        trackingElement.setAttribute(
+          "data-umami-event-triggered-by",
+          "url-param"
+        );
+        trackingElement.style.display = "none";
+        document.body.appendChild(trackingElement);
 
-      // Clean up the tracking element after a brief delay
-      setTimeout(() => {
-        if (document.body.contains(trackingElement)) {
-          document.body.removeChild(trackingElement);
-        }
-      }, 100);
+        // Clean up the tracking element after a brief delay
+        setTimeout(() => {
+          if (document.body.contains(trackingElement)) {
+            document.body.removeChild(trackingElement);
+          }
+        }, 100);
 
-      // Hide confetti after it finishes (4 seconds total: 2.5s active + 1.5s fade out)
-      setTimeout(() => setShowConfetti(false), 4000);
+        // Hide confetti after it finishes (4 seconds total: 2.5s active + 1.5s fade out)
+        setTimeout(() => setShowConfetti(false), 4000);
+      });
     }
-  }, [pathname, showConfetti, hasShownThisSession]);
+  }, [pathname, showConfetti, hasShownThisSession, images]);
 
   return showConfetti && activeImage ? (
     <ImageConfetti

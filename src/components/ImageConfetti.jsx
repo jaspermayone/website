@@ -17,6 +17,9 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
 
     const ctx = canvas.getContext("2d");
 
+    // Define animation frame reference for cleanup
+    let animationFrame = null;
+
     // Load the image
     const img = new Image();
     img.src = imagePath;
@@ -40,7 +43,6 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
       }
 
       // Animation loop
-      let animationFrame;
       const animate = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -48,7 +50,7 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
           ctx.save();
           ctx.translate(
             particle.x + particle.size / 2,
-            particle.y + particle.size / 2,
+            particle.y + particle.size / 2
           );
           ctx.rotate((particle.rotation * Math.PI) / 180);
           ctx.drawImage(
@@ -56,7 +58,7 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
             -particle.size / 2,
             -particle.size / 2,
             particle.size,
-            particle.size,
+            particle.size
           );
           ctx.restore();
 
@@ -98,7 +100,9 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
       if (document.body.contains(canvas)) {
         document.body.removeChild(canvas);
       }
-      cancelAnimationFrame(animationFrame);
+      if (animationFrame !== null) {
+        cancelAnimationFrame(animationFrame);
+      }
     };
   }, [imagePath, duration]);
 

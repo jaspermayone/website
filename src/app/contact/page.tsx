@@ -97,12 +97,12 @@ export default function Contact() {
           __html: JSON.stringify(contactPageSchema),
         }}
       />
-      <div className="min-h-screen flex flex-col">
+      <div className="flex min-h-screen flex-col">
         <MENU pageFirstWord="Contact" />
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
             <h1
-              className="text-xl font-bold mb-4 text-gray-800 dark:text-white"
+              className="mb-4 text-xl font-bold text-gray-800 dark:text-white"
               style={{ fontFamily: "var(--font-balgin)" }}
             >
               Get in Touch

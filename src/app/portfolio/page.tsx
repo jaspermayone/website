@@ -70,23 +70,23 @@ export default function Portfolio() {
           __html: JSON.stringify(portfolioSchema),
         }}
       />
-      <div className="min-h-screen flex flex-col">
+      <div className="flex min-h-screen flex-col">
         <MENU pageFirstWord="Portfolio" />
         <main className="m-5 flex-1">
           <div className="mb-8">
-            <p className="text-gray-700 dark:text-white/70 mb-3">
+            <p className="mb-3 text-gray-700 dark:text-white/70">
               A collection of projects I've worked on, ranging from web
               applications to creative tools and experiments.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, index) => (
               <div
                 key={index}
-                className="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-200"
+                className="overflow-hidden rounded-lg border border-gray-200 transition-shadow duration-200 hover:shadow-lg dark:border-gray-700"
               >
-                <div className="relative w-full h-48 bg-gray-100 dark:bg-gray-800">
+                <div className="relative h-48 w-full bg-gray-100 dark:bg-gray-800">
                   {project.image ? (
                     <Image
                       src={project.image}
@@ -99,13 +99,13 @@ export default function Portfolio() {
                       blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAE0lEQVR42mNk+P+fgYGBgQEAAP8A/ueJdwEAAAAASUVORK5CYII="
                     />
                   ) : (
-                    <div className="w-full h-full flex items-center justify-center text-gray-400 dark:text-gray-600 text-sm">
+                    <div className="flex h-full w-full items-center justify-center text-sm text-gray-400 dark:text-gray-600">
                       No image provided
                     </div>
                   )}
                 </div>
                 <div className="p-6">
-                  <div className="flex justify-between items-start mb-3">
+                  <div className="mb-3 flex items-start justify-between">
                     <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
                       {project.title}
                     </h2>
@@ -118,7 +118,7 @@ export default function Portfolio() {
                           className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                           aria-label="Visit project"
                         >
-                          <PaperclipIcon className="w-5 h-5" />
+                          <PaperclipIcon className="h-5 w-5" />
                         </Link>
                       )}
                       {project.github && (
@@ -129,22 +129,22 @@ export default function Portfolio() {
                           className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                           aria-label="View on GitHub"
                         >
-                          <GithubLogoIcon className="w-5 h-5" />
+                          <GithubLogoIcon className="h-5 w-5" />
                         </Link>
                       )}
                     </div>
                   </div>
 
-                  <p className="text-gray-600 dark:text-white/70 text-sm mb-4">
+                  <p className="mb-4 text-sm text-gray-600 dark:text-white/70">
                     {project.description}
                   </p>
 
                   {project.tags && project.tags.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mb-3">
+                    <div className="mb-3 flex flex-wrap gap-2">
                       {project.tags.map((tag, tagIndex) => (
                         <span
                           key={tagIndex}
-                          className="px-2 py-1 text-xs rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300"
+                          className="rounded-full bg-blue-100 px-2 py-1 text-xs text-blue-800 dark:bg-blue-900/30 dark:text-blue-300"
                           style={{ fontFamily: "var(--font-balgin)" }}
                         >
                           {tag}

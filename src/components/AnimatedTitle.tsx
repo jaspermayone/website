@@ -110,7 +110,7 @@ const AnimatedTitle = (props: AnimatedTitleProps) => {
           <span
             key={`third-${index}`}
             style={getLetterStyle(
-              index + firstWord.length + (secondWord ? secondWord.length : 0),
+              index + firstWord.length + (secondWord ? secondWord.length : 0)
             )}
           >
             {letter}

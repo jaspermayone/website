@@ -1,5 +1,4 @@
-// pages/api/commits.ts (for Pages Router) or app/api/commits/route.ts (for App Router)
-import { NextApiRequest, NextApiResponse } from "next";
+// app/api/commits/route.ts (for App Router)
 
 interface GitHubCommitResponse {
   sha: string;
@@ -50,17 +49,17 @@ async function getGitHubCommits(limit: number = 50): Promise<Commit[]> {
 
     const response = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/commits?per_page=${limit}`,
-      { headers },
+      { headers }
     );
 
     if (!response.ok) {
       if (response.status === 403) {
         throw new Error(
-          "GitHub API rate limit exceeded or repository access denied",
+          "GitHub API rate limit exceeded or repository access denied"
         );
       }
       throw new Error(
-        `GitHub API error: ${response.status} ${response.statusText}`,
+        `GitHub API error: ${response.status} ${response.statusText}`
       );
     }
 

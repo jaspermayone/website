@@ -25,9 +25,9 @@ export const EmailCard = (cardArgs: cardArgs) => {
   };
 
   return (
-    <div className="group relative bg-white dark:bg-slate-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 transition-all duration-300">
+    <div className="group relative rounded-lg border border-gray-200 bg-white p-4 transition-all duration-300 hover:border-blue-300 dark:border-gray-700 dark:bg-slate-800 dark:hover:border-blue-500">
       <div className="flex items-center gap-2">
-        <Mailbox className="w-4 h-4 text-gray-400 dark:text-gray-500" />
+        <Mailbox className="h-4 w-4 text-gray-400 dark:text-gray-500" />
         <span className="font-mono text-sm text-gray-800 dark:text-gray-200">
           {formatEmail(email)}
         </span>
@@ -39,9 +39,9 @@ export const EmailCard = (cardArgs: cardArgs) => {
           <a
             href={`mailto:${email}`}
             rel="me"
-            className="flex items-center gap-1 text-xs px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/50 text-blue-600 dark:text-blue-200 hover:bg-blue-100 dark:hover:bg-blue-800/50 transition-colors duration-200"
+            className="flex items-center gap-1 rounded-full bg-blue-50 px-3 py-1 text-xs text-blue-600 transition-colors duration-200 hover:bg-blue-100 dark:bg-blue-900/50 dark:text-blue-200 dark:hover:bg-blue-800/50"
           >
-            <Mail className="w-3 h-3" />
+            <Mail className="h-3 w-3" />
             Send Email
           </a>
         )}
@@ -53,8 +53,8 @@ export const EmailCard = (cardArgs: cardArgs) => {
         )}
 
         {isPrimary && (
-          <span className="flex items-center gap-1 bg-rose-100 dark:bg-rose-900/50 text-rose-800 dark:text-rose-200 text-xs px-2 py-1 rounded-full">
-            <Star className="w-3 h-3" />
+          <span className="flex items-center gap-1 rounded-full bg-rose-100 px-2 py-1 text-xs text-rose-800 dark:bg-rose-900/50 dark:text-rose-200">
+            <Star className="h-3 w-3" />
             Primary
           </span>
         )}
@@ -65,14 +65,14 @@ export const EmailCard = (cardArgs: cardArgs) => {
           </span>
         )} */}
         {isSchool && (
-          <span className="flex items-center gap-1 bg-violet-100 dark:bg-violet-900/50 text-violet-800 dark:text-violet-200 text-xs px-2 py-1 rounded-full">
-            <GraduationCap className="w-3 h-3" />
+          <span className="flex items-center gap-1 rounded-full bg-violet-100 px-2 py-1 text-xs text-violet-800 dark:bg-violet-900/50 dark:text-violet-200">
+            <GraduationCap className="h-3 w-3" />
             School
           </span>
         )}
         {isBusiness && (
-          <span className="flex items-center gap-1 bg-green-100 dark:bg-green-900/50 text-green-800 dark:text-green-200 text-xs px-2 py-1 rounded-full">
-            <Briefcase className="w-3 h-3" />
+          <span className="flex items-center gap-1 rounded-full bg-green-100 px-2 py-1 text-xs text-green-800 dark:bg-green-900/50 dark:text-green-200">
+            <Briefcase className="h-3 w-3" />
             Business
           </span>
         )}

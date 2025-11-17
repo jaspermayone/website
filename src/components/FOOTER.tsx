@@ -13,7 +13,7 @@ export default function FOOTER({ color, addBackground }: FooterProps) {
   const currentYear = new Date().getFullYear().toString();
 
   return (
-    <footer className="w-full flex justify-center">
+    <footer className="flex w-full justify-center">
       {/* Constrain width and center content */}
       <div
         className="max-w-screen-md px-4"
@@ -32,7 +32,7 @@ export default function FOOTER({ color, addBackground }: FooterProps) {
         }
       >
         {/* Social icons row */}
-        <div className="flex w-full items-center justify-center gap-1.5 pt-2 overflow-x-hidden">
+        <div className="flex w-full items-center justify-center gap-1.5 overflow-x-hidden pt-2">
           {socialLinks.map(({ href, label, Icon }) => (
             <Link
               key={label}
@@ -40,7 +40,7 @@ export default function FOOTER({ color, addBackground }: FooterProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="transition-colors duration-200 hover:!text-[#56ba8e] inline-flex items-center justify-center"
+              className="inline-flex items-center justify-center transition-colors duration-200 hover:!text-[#56ba8e]"
               style={{ color: textColor }}
             >
               <Icon size={16} />
@@ -54,7 +54,7 @@ export default function FOOTER({ color, addBackground }: FooterProps) {
           style={{ color: textColor }}
         >
           <p
-            className="text-xs text-center leading-relaxed break-words"
+            className="text-center text-xs leading-relaxed break-words"
             style={{ fontFamily: "var(--font-balgin)", color: textColor }}
           >
             ©{currentYear} Jasper Mayone. Made with &lt;3 in{" "}

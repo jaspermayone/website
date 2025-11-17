@@ -55,7 +55,7 @@ const pfpPageSchema = {
 };
 
 export default function PFP() {
-  let paths = [jm, dark, lite, circus, waves];
+  const paths = [jm, dark, lite, circus, waves];
 
   return (
     <>
@@ -66,12 +66,12 @@ export default function PFP() {
           __html: JSON.stringify(pfpPageSchema),
         }}
       />
-      <div className="min-h-screen flex flex-col">
+      <div className="flex min-h-screen flex-col">
         <MENU pageFirstWord="PFPs" />
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
             <h1
-              className="text-xl font-bold underline mb-4 text-gray-800 dark:text-white"
+              className="mb-4 text-xl font-bold text-gray-800 underline dark:text-white"
               style={{ fontFamily: "var(--font-balgin)" }}
             >
               Profile Photos
@@ -81,11 +81,11 @@ export default function PFP() {
               Here's all the profile photos I've used over the years
             </p>
 
-            <div className="grid grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-4">
+            <div className="grid grid-cols-4 gap-4 md:grid-cols-5 lg:grid-cols-6">
               {paths.map((path, index) => (
                 <div
                   key={index}
-                  className="aspect-square overflow-hidden rounded-[10%] w-50 h-50 bg-white/50 dark:bg-gray-800/20 p-1"
+                  className="aspect-square h-50 w-50 overflow-hidden rounded-[10%] bg-white/50 p-1 dark:bg-gray-800/20"
                 >
                   <Image
                     src={path}
@@ -95,7 +95,7 @@ export default function PFP() {
                     aria-label="one of jasper's previous profile photos"
                     placeholder="blur"
                     priority={true}
-                    className="w-full h-full object-cover object-center rounded-[8%]"
+                    className="h-full w-full rounded-[8%] object-cover object-center"
                   />
                 </div>
               ))}

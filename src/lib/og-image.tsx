@@ -162,6 +162,6 @@ export function generateOGImage(data: OGImageData) {
     {
       width: 1200,
       height: 630,
-    },
+    }
   );
 }

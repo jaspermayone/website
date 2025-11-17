@@ -10,7 +10,7 @@ export class Key {
     title: string,
     fingerprint: string,
     key: string,
-    fileExtension: string = "pub",
+    fileExtension: string = "pub"
   ) {
     this.title = title;
     this.fingerprint = fingerprint;
@@ -25,7 +25,7 @@ export async function get() {
       "ssh",
       "256 MD5:b7:e0:9e:44:c3:98:8d:64:3e:6b:da:5f:01:db:58:dc jsp@remus (ED25519)",
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHm7lo7umraewipgQu1Pifmoo/V8jYGDHjBTmt+7SOCe jsp@remus",
-      "pub",
+      "pub"
     ),
     gpg: new Key(
       "gpg",
@@ -255,7 +255,7 @@ BJP94m/RiYPSkfO9YkyUZivpJOC/pHHhoFaAyI0A/1bxA/9AY4TnZjklfGFLaFkN
 ayb88UeQwysyCDxW1JAA
 =gjq7
 -----END PGP PUBLIC KEY BLOCK-----`,
-      "gpg",
+      "gpg"
     ),
   });
 

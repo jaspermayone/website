@@ -64,7 +64,7 @@ export default function PostList() {
     return (
       <div className="space-y-3">
         <div className="flex items-center justify-center py-8">
-          <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-gray-600"></div>
+          <div className="h-6 w-6 animate-spin rounded-full border-b-2 border-gray-600"></div>
           <span
             className="ml-3 text-gray-600"
             style={{ fontFamily: "var(--font-balgin)" }}
@@ -87,7 +87,7 @@ export default function PostList() {
             >
               Failed to load updates
             </p>
-            <p className="text-sm mt-1">{error}</p>
+            <p className="mt-1 text-sm">{error}</p>
           </div>
         </div>
       </div>
@@ -101,7 +101,7 @@ export default function PostList() {
     <div className="space-y-3">
       {postsToShow.map((post, index) => (
         <div key={index} className="flex items-start gap-3">
-          <div className="w-2 h-2 bg-gray-400 rounded-full mt-2 shrink-0"></div>
+          <div className="mt-2 h-2 w-2 shrink-0 rounded-full bg-gray-400"></div>
           <div className="flex-1">
             <p
               className="text-gray-800"
@@ -109,7 +109,7 @@ export default function PostList() {
             >
               {post.text}
             </p>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="mt-1 text-xs text-gray-500">
               {formatTimeAgo(post.createdAt)}
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function PostList() {
         <div className="flex justify-center pt-4">
           <button
             onClick={() => setShowCount((prev) => prev + 5)}
-            className="px-4 py-2 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-md transition-colors"
+            className="rounded-md px-4 py-2 text-sm text-gray-600 transition-colors hover:bg-gray-100 hover:text-gray-800"
           >
             Show more
           </button>

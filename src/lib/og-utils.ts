@@ -97,7 +97,7 @@ export const getPageOGData = (path: string): OGImageData => {
 // Helper function to generate OG image URL for any page
 export const getOGImageUrl = (
   path: string,
-  customData?: Partial<OGImageData>,
+  customData?: Partial<OGImageData>
 ) => {
   const baseUrl = "/api/og";
   const params = new URLSearchParams();
@@ -120,7 +120,7 @@ export const generateOGMetadata = (
   path: string,
   title: string,
   description: string,
-  customData?: Partial<OGImageData>,
+  customData?: Partial<OGImageData>
 ) => {
   const ogImageUrl = getOGImageUrl(path, customData);
 

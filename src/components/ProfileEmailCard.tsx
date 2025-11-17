@@ -15,35 +15,35 @@ const ProfileEmailCard = ({ email }) => {
   const [user, domain] = email.split("@");
 
   return (
-    <div className="w-64 mt-2 p-3 border border-greeen rounded-lg hover:bg-blue-100 transition-all duration-300 bg-white/50">
-      <h3 className="text-gray-700 font-medium text-sm mb-2 text-center">
+    <div className="border-greeen mt-2 w-64 rounded-lg border bg-white/50 p-3 transition-all duration-300 hover:bg-blue-100">
+      <h3 className="mb-2 text-center text-sm font-medium text-gray-700">
         Contact me
       </h3>
-      <div className="text-sm text-gray-600 font-mono mb-2 text-center">
+      <div className="mb-2 text-center font-mono text-sm text-gray-600">
         {user}[at]{domain}
       </div>
       <div className="flex gap-2">
         <Link
           rel="me"
           href={`mailto:${email}`}
-          className="flex items-center justify-center gap-1 px-2 py-1 rounded-md bg-blue-50 text-blue-600 hover:bg-blue-50 transition-colors duration-200 text-xs flex-1"
+          className="flex flex-1 items-center justify-center gap-1 rounded-md bg-blue-50 px-2 py-1 text-xs text-blue-600 transition-colors duration-200 hover:bg-blue-50"
         >
-          <Mail className="w-3 h-3" />
+          <Mail className="h-3 w-3" />
           Email
         </Link>
         <button
           onClick={copyToClipboard}
-          className="flex items-center justify-center space-x-2 px-3 py-2 rounded bg-gray-200 text-gray-600 hover:bg-gray-300 transition-colors duration-200 outline-1 outline-gray-300 text-sm w-full"
+          className="flex w-full items-center justify-center space-x-2 rounded bg-gray-200 px-3 py-2 text-sm text-gray-600 outline-1 outline-gray-300 transition-colors duration-200 hover:bg-gray-300"
           data-umami-event="copy_email"
         >
           {copied ? (
             <>
-              <Check className="w-3 h-3" />
+              <Check className="h-3 w-3" />
               Copied
             </>
           ) : (
             <>
-              <Copy className="w-3 h-3" />
+              <Copy className="h-3 w-3" />
               Copy
             </>
           )}

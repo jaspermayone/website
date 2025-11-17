@@ -22,9 +22,9 @@ const MENU = (props: MENUProps) => {
     addBackground,
   } = props;
   return (
-    <div className="pb-1 w-full">
-      <div className="pt-3 w-full">
-        <div className="flex w-full justify-center items-center mb-4 text-center">
+    <div className="w-full pb-1">
+      <div className="w-full pt-3">
+        <div className="mb-4 flex w-full items-center justify-center text-center">
           <div
             style={
               addBackground

@@ -25,12 +25,12 @@ export function ThemeUpdater() {
 
     // Update the apple-mobile-web-app-status-bar-style
     const appleMetaTag = document.querySelector(
-      'meta[name="apple-mobile-web-app-status-bar-style"]',
+      'meta[name="apple-mobile-web-app-status-bar-style"]'
     );
     if (appleMetaTag) {
       appleMetaTag.setAttribute(
         "content",
-        resolvedTheme === "dark" ? "black-translucent" : "default",
+        resolvedTheme === "dark" ? "black-translucent" : "default"
       );
     }
   }, [resolvedTheme]);

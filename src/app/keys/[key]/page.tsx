@@ -117,12 +117,12 @@ export default async function Page({
         />
         <main className="min-h-screen">
           <div
-            className="max-w-4xl mx-auto px-4 py-8 md:py-12"
+            className="mx-auto max-w-4xl px-4 py-8 md:py-12"
             style={{ fontFamily: "var(--font-balgin)" }}
           >
             {/* Header */}
             <div className="mb-8">
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
+              <h1 className="mb-2 text-3xl font-bold text-gray-900 md:text-4xl dark:text-white">
                 {title.toUpperCase()} Key
               </h1>
               <p className="text-gray-600 dark:text-gray-400">
@@ -131,11 +131,11 @@ export default async function Page({
             </div>
 
             {/* Quick Actions Card */}
-            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 mb-6 shadow-sm">
-              <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+            <div className="mb-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+              <h2 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">
                 Quick Actions
               </h2>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col gap-3 sm:flex-row">
                 <CopyButton label="Copy Key" valueToCopy={keyData} />
                 <Link href={downloadURL} className="flex-1 sm:flex-initial">
                   <Button variant="outline" className="w-full">
@@ -146,31 +146,31 @@ export default async function Page({
             </div>
 
             {/* Key Details Card */}
-            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 mb-6 shadow-sm">
-              <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-5">
+            <div className="mb-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+              <h2 className="mb-5 text-lg font-semibold text-gray-900 dark:text-white">
                 Key Information
               </h2>
 
               <div className="space-y-5">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <div className="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
                     Fingerprint
-                  </label>
-                  <div className="bg-gray-50 dark:bg-gray-900 px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700">
-                    <code className="text-sm font-mono text-gray-800 dark:text-gray-200 break-all">
+                  </div>
+                  <div className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 dark:border-gray-700 dark:bg-gray-900">
+                    <code className="font-mono text-sm break-all text-gray-800 dark:text-gray-200">
                       {fingerprint}
                     </code>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+                  <div className="mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
                     Direct Link
-                  </label>
-                  <div className="bg-gray-50 dark:bg-gray-900 px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700">
+                  </div>
+                  <div className="rounded-lg border border-gray-200 bg-gray-50 px-4 py-3 dark:border-gray-700 dark:bg-gray-900">
                     <Link
                       href={directURL}
-                      className="text-sm text-blue-600 dark:text-blue-400 hover:underline break-all font-mono"
+                      className="font-mono text-sm break-all text-blue-600 hover:underline dark:text-blue-400"
                     >
                       {fullDirectURL}
                     </Link>
@@ -181,17 +181,17 @@ export default async function Page({
 
             {/* Import Command Card */}
             {(title === "ssh" || title === "gpg") && (
-              <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-sm">
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+              <div className="rounded-xl border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800">
+                <h2 className="mb-3 text-lg font-semibold text-gray-900 dark:text-white">
                   Import Command
                 </h2>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                <p className="mb-4 text-sm text-gray-600 dark:text-gray-400">
                   Run this command in your terminal to import the key:
                 </p>
 
                 <div className="space-y-3">
-                  <div className="bg-gray-900 dark:bg-black p-4 rounded-lg border border-gray-700 overflow-x-auto">
-                    <code className="text-sm font-mono text-green-400 block whitespace-nowrap">
+                  <div className="overflow-x-auto rounded-lg border border-gray-700 bg-gray-900 p-4 dark:bg-black">
+                    <code className="block font-mono text-sm whitespace-nowrap text-green-400">
                       {title === "ssh" ? sshImportCommand : gpgImportCommand}
                     </code>
                   </div>

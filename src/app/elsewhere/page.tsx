@@ -55,7 +55,7 @@ const elsewherePageSchema = {
 export default function Elsewhere() {
   // Sort appearances by date (most recent first)
   const sortedAppearances = [...appearances].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
   return (
@@ -67,22 +67,22 @@ export default function Elsewhere() {
           __html: JSON.stringify(elsewherePageSchema),
         }}
       />
-      <div className="min-h-screen flex flex-col">
+      <div className="flex min-h-screen flex-col">
         <MENU pageFirstWord="Elsewhere" />
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
             <h1
-              className="text-xl font-bold mb-2 text-gray-800 dark:text-white"
+              className="mb-2 text-xl font-bold text-gray-800 dark:text-white"
               style={{ fontFamily: "var(--font-balgin)" }}
             >
               My appearances elsewhere.
             </h1>
-            <p className="text-gray-600 dark:text-white/70 mb-6 italic">
+            <p className="mb-6 text-gray-600 italic dark:text-white/70">
               a list of output or writings on sites other than one's own
             </p>
 
             {sortedAppearances.length === 0 ? (
-              <div className="text-center py-12">
+              <div className="py-12 text-center">
                 <p className="text-gray-500 dark:text-gray-400">
                   No appearances yet. Check back soon!
                 </p>
@@ -95,21 +95,21 @@ export default function Elsewhere() {
                     href={`${appearance.url}?utm_source=jaspermayone.com&utm_medium=referral`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:border-gray-300 dark:hover:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors group"
+                    className="group block rounded-lg border border-gray-200 p-4 transition-colors hover:border-gray-300 hover:bg-gray-50 dark:border-gray-700 dark:hover:border-gray-600 dark:hover:bg-gray-800/30"
                   >
                     <div className="flex items-start justify-between gap-4">
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-start gap-2 mb-1">
+                      <div className="min-w-0 flex-1">
+                        <div className="mb-1 flex items-start gap-2">
                           <h2
-                            className="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors"
+                            className="font-semibold text-gray-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400"
                             style={{ fontFamily: "var(--font-balgin)" }}
                           >
                             {appearance.title}
                           </h2>
-                          <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 flex-shrink-0 mt-0.5" />
+                          <ArrowUpRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
                         </div>
 
-                        <div className="flex flex-wrap items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
+                        <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
                           <span className="font-medium">
                             {appearance.platform}
                           </span>
@@ -117,7 +117,7 @@ export default function Elsewhere() {
                             <>
                               <span>•</span>
                               <span
-                                className="px-2 py-0.5 text-xs rounded-full bg-gray-100 dark:bg-gray-700"
+                                className="rounded-full bg-gray-100 px-2 py-0.5 text-xs dark:bg-gray-700"
                                 style={{ fontFamily: "var(--font-balgin)" }}
                               >
                                 {appearance.type}
@@ -141,7 +141,7 @@ export default function Elsewhere() {
                                 year: "numeric",
                                 month: "long",
                                 day: "numeric",
-                              },
+                              }
                             )}
                           </time>
                         </div>

@@ -167,8 +167,9 @@ export default function PageNavigation(props: PageNavigationProps) {
               key={item.slug}
               className={`${styles.menuItemContainer} flex items-center`}
             >
-              <p
-                className={`${styles.menuItem} ${item.slug === selectedTab ? "lnk" : ""} hover:!text-[#56ba8e] cursor-pointer flex items-center`}
+              <button
+                type="button"
+                className={`${styles.menuItem} ${item.slug === selectedTab ? "lnk" : ""} flex cursor-pointer items-center border-0 bg-transparent p-0 hover:!text-[#56ba8e]`}
                 onClick={() => handleMenuClick(item.slug)}
                 title={`Go to ${item.slug}`}
                 style={
@@ -182,17 +183,18 @@ export default function PageNavigation(props: PageNavigationProps) {
                 }
               >
                 /{item.slug}
-              </p>
+              </button>
             </div>
           ))}
         <div
           key={"more"}
-          className={`${styles.menuItemContainer} flex items-center relative`}
+          className={`${styles.menuItemContainer} relative flex items-center`}
           style={{ isolation: "isolate" }}
           ref={dropdownRef}
         >
-          <p
-            className={`${styles.menuItem} ${showMoreDropdown ? "lnk" : ""} hover:!text-[#56ba8e] cursor-pointer flex items-center`}
+          <button
+            type="button"
+            className={`${styles.menuItem} ${showMoreDropdown ? "lnk" : ""} flex cursor-pointer items-center border-0 bg-transparent p-0 hover:!text-[#56ba8e]`}
             onClick={() => setShowMoreDropdown(!showMoreDropdown)}
             title={`see more pages`}
             style={
@@ -206,10 +208,10 @@ export default function PageNavigation(props: PageNavigationProps) {
             }
           >
             /more
-          </p>
+          </button>
           {showMoreDropdown && morePages.length > 0 && (
             <div
-              className="absolute top-full mt-2 rounded-[10px] py-2 px-3 min-w-[150px] z-[9999] backdrop-blur-[10px] border-2 border-dashed border-stone-950 dark:border-stone-50"
+              className="absolute top-full z-[9999] mt-2 min-w-[150px] rounded-[10px] border-2 border-dashed border-stone-950 px-3 py-2 backdrop-blur-[10px] dark:border-stone-50"
               style={{
                 background: "light-dark(#f8fbf8, #151922)",
                 boxShadow:
@@ -218,8 +220,9 @@ export default function PageNavigation(props: PageNavigationProps) {
             >
               {morePages.map((item: PageItem, index) => (
                 <div key={item.slug}>
-                  <p
-                    className="cursor-pointer py-1 px-2 transition-colors duration-300 ease-in-out italic text-sm hover:!text-[#56ba8e] hover:underline hover:decoration-wavy"
+                  <button
+                    type="button"
+                    className="w-full cursor-pointer border-0 bg-transparent px-2 py-1 text-left text-sm italic transition-colors duration-300 ease-in-out hover:!text-[#56ba8e] hover:underline hover:decoration-wavy"
                     onClick={() => {
                       handleMenuClick(item.slug);
                       setShowMoreDropdown(false);
@@ -230,7 +233,7 @@ export default function PageNavigation(props: PageNavigationProps) {
                     }}
                   >
                     /{item.slug}
-                  </p>
+                  </button>
                   {index < morePages.length - 1 && (
                     <div
                       className="my-1 h-px opacity-20"

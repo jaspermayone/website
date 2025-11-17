@@ -11,7 +11,7 @@ const NotFound = () => {
   });
 
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center overflow-hidden py-6">
+    <div className="flex h-screen w-screen flex-col items-center justify-center overflow-hidden py-6">
       {bottomSquiggles.map((config, index) => (
         <SquigglyLine
           key={index}
@@ -22,12 +22,12 @@ const NotFound = () => {
         />
       ))}
 
-      <div className="my-12 flex flex-col items-center justify-center rounded-md bg-linkHover/40 p-10">
-        <div className="flex gap-2 mb-1">
+      <div className="bg-linkHover/40 my-12 flex flex-col items-center justify-center rounded-md p-10">
+        <div className="mb-1 flex gap-2">
           {["4", "0", "4"].map((letter, i) => (
             <div
               key={i}
-              className="font-cute-notes w-12 h-12 flex items-center justify-center text-5xl font-medium"
+              className="font-cute-notes flex h-12 w-12 items-center justify-center text-5xl font-medium"
             >
               {letter}
             </div>
@@ -38,7 +38,7 @@ const NotFound = () => {
           <p className="inline">
             This page seems to have run away to join the circus.
           </p>{" "}
-          <p className="inline underline decoration-wavy decoration-greeen hover:decoration-linkHover hover:bg-blue-400 hover:rounded-md transition-all duration-300">
+          <p className="decoration-greeen hover:decoration-linkHover inline underline decoration-wavy transition-all duration-300 hover:rounded-md hover:bg-blue-400">
             <Link href="/">Go home!</Link>
           </p>
         </div>

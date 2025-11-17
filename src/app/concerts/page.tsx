@@ -73,18 +73,18 @@ export default function Concerts() {
           __html: JSON.stringify(concertsPageSchema),
         }}
       />
-      <div className="min-h-screen flex flex-col">
+      <div className="flex min-h-screen flex-col">
         <MENU pageFirstWord="Concerts" />
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
             <h1
-              className="text-xl font-bold mb-4 text-gray-800 dark:text-white"
+              className="mb-4 text-xl font-bold text-gray-800 dark:text-white"
               style={{ fontFamily: "var(--font-balgin)" }}
             >
               Concerts I've Attended
             </h1>
 
-            <p className="text-gray-600 dark:text-white/70 mb-6">
+            <p className="mb-6 text-gray-600 dark:text-white/70">
               A running list of live shows and concerts I've been to over the
               years.
             </p>
@@ -93,7 +93,7 @@ export default function Concerts() {
               {sortedConcerts.map((yearGroup) => (
                 <div key={yearGroup.year}>
                   <h2
-                    className="text-lg font-semibold mb-3 text-gray-900 dark:text-white"
+                    className="mb-3 text-lg font-semibold text-gray-900 dark:text-white"
                     style={{ fontFamily: "var(--font-balgin)" }}
                   >
                     {yearGroup.year}
@@ -102,7 +102,7 @@ export default function Concerts() {
                     {yearGroup.concerts.map((concert, index) => (
                       <li
                         key={index}
-                        className="pl-4 border-l-2 border-gray-300 dark:border-gray-600"
+                        className="border-l-2 border-gray-300 pl-4 dark:border-gray-600"
                       >
                         <div className="flex items-start gap-2">
                           <div className="flex-1">
@@ -133,14 +133,14 @@ export default function Concerts() {
                             )}
                             {concert.setlist && (
                               <div
-                                className="text-xs mt-1"
+                                className="mt-1 text-xs"
                                 style={{ fontFamily: "var(--font-balgin)" }}
                               >
                                 <a
                                   href={concert.setlist}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="text-blue-600 dark:text-blue-400 hover:underline"
+                                  className="text-blue-600 hover:underline dark:text-blue-400"
                                 >
                                   View Setlist →
                                 </a>

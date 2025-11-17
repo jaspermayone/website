@@ -82,11 +82,11 @@ export default function Now() {
           __html: JSON.stringify(nowPageSchema),
         }}
       />
-      <div className="h-screen flex flex-col">
+      <div className="flex h-screen flex-col">
         <MENU pageFirstWord="Now" />
-        <main className="m-5 flex-1 overflow-hidden flex flex-col">
+        <main className="m-5 flex flex-1 flex-col overflow-hidden">
           <div className="mb-6">
-            <p className="text-gray-700 mb-3">
+            <p className="mb-3 text-gray-700">
               This is a semi-realtime status update system for posting updates
               to{" "}
               <Link
@@ -108,7 +108,7 @@ export default function Now() {
               </Link>{" "}
               that updates automatically.
             </p>
-            <p className="text-gray-600 text-sm">
+            <p className="text-sm text-gray-600">
               The original was called a.status.update and created by{" "}
               <Link
                 href="https://dame.is/creating/shortcuts/a-status-update/?utm_source=jaspermayone.com&utm_medium=referral"

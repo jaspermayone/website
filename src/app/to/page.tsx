@@ -14,10 +14,10 @@ export default function ToIndex() {
   const toRoutes = redirects.filter((redirect) => redirect.slashToLink);
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="bg-background text-foreground min-h-screen">
       <div className="container mx-auto px-4 py-8">
         <h1
-          className="text-3xl font-bold mb-8"
+          className="mb-8 text-3xl font-bold"
           style={{ fontFamily: "var(--font-balgin)" }}
         >
           All /to Routes
@@ -27,11 +27,11 @@ export default function ToIndex() {
           {toRoutes.map((redirect) => (
             <div
               key={redirect.slug}
-              className="border rounded-lg p-4 hover:bg-accent/50 transition-colors"
+              className="hover:bg-accent/50 rounded-lg border p-4 transition-colors"
             >
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="font-semibold text-lg underline decoration-wavy decoration-greeen text-greeen hover:decoration-linkHover">
+                  <h3 className="decoration-greeen text-greeen hover:decoration-linkHover text-lg font-semibold underline decoration-wavy">
                     {redirect.slug}
                   </h3>
                   <p className="text-muted-foreground text-sm break-all">
@@ -40,7 +40,7 @@ export default function ToIndex() {
                 </div>
                 <Link
                   href={`/to/${redirect.slug}?utm_source=jaspermayone.com&utm_medium=referral`}
-                  className="text-primary hover:underline text-sm"
+                  className="text-primary text-sm hover:underline"
                 >
                   Visit →
                 </Link>

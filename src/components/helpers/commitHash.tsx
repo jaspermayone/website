@@ -1,7 +1,7 @@
 "use client";
 
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
-import { formatDistanceToNow, isWeekend } from "date-fns";
+import { formatDistanceToNow } from "date-fns";
 
 interface CommitHashProps {
   color?: string;
@@ -9,7 +9,6 @@ interface CommitHashProps {
 
 export default function CommitHash({ color }: CommitHashProps) {
   const commitDate = new Date(process.env.COMMIT_DATE!);
-  const isitweekend = isWeekend(commitDate);
   const formattedCommitDate = formatDistanceToNow(commitDate, {
     addSuffix: true,
   });
@@ -24,7 +23,7 @@ export default function CommitHash({ color }: CommitHashProps) {
           <TooltipPrimitive.Root>
             <TooltipPrimitive.Trigger asChild>
               <a
-                className="decoration-wavy underline hover:text-blur transition-colors duration-300"
+                className="hover:text-blur underline decoration-wavy transition-colors duration-300"
                 style={{
                   color: linkColor,
                   textDecorationColor: linkColor,
@@ -36,7 +35,7 @@ export default function CommitHash({ color }: CommitHashProps) {
             </TooltipPrimitive.Trigger>
             <TooltipPrimitive.Portal>
               <TooltipPrimitive.Content
-                className="rounded-xl bg-white dark:bg-slate-800 p-3 font-mono text-sm text-slate-800 dark:text-slate-200 shadow-xl border border-slate-200 dark:border-slate-600 backdrop-blur-sm z-50"
+                className="z-50 rounded-xl border border-slate-200 bg-white p-3 font-mono text-sm text-slate-800 shadow-xl backdrop-blur-sm dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200"
                 sideOffset={5}
               >
                 {process.env.FULL_COMMIT_HASH}

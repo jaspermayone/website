@@ -85,26 +85,26 @@ export default function Uses() {
           __html: JSON.stringify(usesPageSchema),
         }}
       />
-      <div className="min-h-screen flex flex-col">
+      <div className="flex min-h-screen flex-col">
         <MENU pageFirstWord="Uses" />
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
-            <h1 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
+            <h1 className="mb-2 text-xl font-bold text-gray-800 dark:text-white">
               What I Use
             </h1>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
               {tools.map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center p-2 bg-white/50 dark:bg-gray-800/20 rounded-md"
+                  className="flex items-center rounded-md bg-white/50 p-2 dark:bg-gray-800/20"
                 >
-                  <div className="text-lg mr-2">{item.emoji}</div>
+                  <div className="mr-2 text-lg">{item.emoji}</div>
                   <div>
-                    <div className="font-medium text-sm text-gray-800 dark:text-gray-100">
+                    <div className="text-sm font-medium text-gray-800 dark:text-gray-100">
                       {item.name}
                     </div>
-                    <div className="text-gray-600 dark:text-white/70 text-xs">
+                    <div className="text-xs text-gray-600 dark:text-white/70">
                       {item.result}
                     </div>
                   </div>

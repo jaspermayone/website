@@ -64,21 +64,21 @@ export default function Email() {
   };
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-4">
+    <div className="mx-auto w-full max-w-6xl px-4">
       {/* h2 with custom .ul class  */}
       <h2 className={styles.lightUl}>Newsletter</h2>
-      <p className="text-gray-700 dark:text-white/70 text-sm mb-4">
+      <p className="mb-4 text-sm text-gray-700 dark:text-white/70">
         Subscribe to my newsletter to get <i>occasioal</i> updates on what I'm
         up to.
       </p>
 
       {!submitted ? (
         <form onSubmit={onSubmit} className="w-full">
-          <div className="flex flex-col sm:flex-row gap-3 w-full">
+          <div className="flex w-full flex-col gap-3 sm:flex-row">
             <Input
               type="email"
               placeholder="example@example.com"
-              className="flex-1 text-sm outline-none border-1 border-gray-300 focus:border-blue-400 focus:ring-blue-400"
+              className="flex-1 border-1 border-gray-300 text-sm outline-none focus:border-blue-400 focus:ring-blue-400"
               value={email}
               onChange={handleInputChange}
               aria-label="email"
@@ -86,7 +86,7 @@ export default function Email() {
             />
             <Button
               type="submit"
-              className="text-sm whitespace-nowrap bg-blue-400"
+              className="bg-blue-400 text-sm whitespace-nowrap"
               aria-label="submit"
               disabled={isLoading}
               data-umami-event="newsletter_submit"
@@ -97,14 +97,14 @@ export default function Email() {
           </div>
 
           {woahThere && (
-            <p className="text-purple-500 text-sm mt-2">
+            <p className="mt-2 text-sm text-purple-500">
               Slow down cowboy! You&apos;re not Jasper!
             </p>
           )}
-          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+          {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
         </form>
       ) : (
-        <p className="text-green-400 text-sm">
+        <p className="text-sm text-green-400">
           Submitted! Be sure to look out for emails in the future!
         </p>
       )}

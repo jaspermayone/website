@@ -46,21 +46,21 @@ const SquigglyLine: FC<SquigglyLineProps> = ({
 
     // Create a smooth sine wave
     const points = [];
-    const steps = screenWidth;
+    const _steps = screenWidth;
     const waveLength = screenWidth / frequency;
 
     for (let x = 0; x <= screenWidth; x++) {
       const y = amplitude * Math.sin((2 * Math.PI * x) / waveLength);
-      // @ts-expect-error
+      // @ts-expect-error - TypeScript infers string[] but we know it's a valid point string
       points.push(`${x},${y}`);
     }
 
     // Create the path with smooth curves
     const path = points.reduce((acc, point, i) => {
       if (i === 0) return `M ${point}`;
-      // @ts-expect-error
+      // @ts-expect-error - Array destructuring from split() returns string[], which is correct here
       const [prevX, prevY] = points[i - 1].split(",");
-      // @ts-expect-error
+      // @ts-expect-error - Array destructuring from split() returns string[], which is correct here
       const [x, y] = point.split(",");
 
       // Calculate control points for smooth curve

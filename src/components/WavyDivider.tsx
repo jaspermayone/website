@@ -1,8 +1,8 @@
 export default function WavyDivider() {
   return (
-    <div className="mb-2 -mt-2.5">
+    <div className="-mt-2.5 mb-2">
       <svg
-        className="w-full h-7"
+        className="h-7 w-full"
         viewBox="0 0 1200 24"
         preserveAspectRatio="none"
       >

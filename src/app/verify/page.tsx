@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 
 const LetterBlock = ({ letter }) => (
   <span
-    className="inline-block py-1 mx-0.5"
+    className="mx-0.5 inline-block py-1"
     style={{ fontFamily: "var(--font-cuteNotes)" }}
   >
     {letter}
@@ -56,7 +56,7 @@ const LetterBlock = ({ letter }) => (
 
 const SectionHeader = ({ children }) => (
   <h2
-    className="text-4xl mb-2 dark:text-white"
+    className="mb-2 text-4xl dark:text-white"
     style={{ fontFamily: "var(--font-cuteNotes)" }}
   >
     {children.split("").map((letter, index) => (
@@ -103,7 +103,7 @@ const verifyPageSchema = {
 };
 
 const VerifyPage = () => {
-  const title = "/VERIFY";
+  const _title = "/VERIFY";
 
   enum domainType {
     personal,
@@ -238,7 +238,7 @@ const VerifyPage = () => {
     },
   ];
 
-  const cryptoKeys = [
+  const _cryptoKeys = [
     {
       type: "GPG",
       fingerprint: "00E6 43C2 1FAC 965F FB28 D3B7 14D0 D45A 1DAD AAFA",
@@ -257,40 +257,40 @@ const VerifyPage = () => {
   const getIcon = (platform) => {
     switch (platform.toLowerCase()) {
       case "github":
-        return <SiGithub className="w-4 h-4" />;
+        return <SiGithub className="h-4 w-4" />;
       case "linkedin":
-        return <SiLinkedin className="w-4 h-4" />;
+        return <SiLinkedin className="h-4 w-4" />;
       case "instagram":
-        return <SiInstagram className="w-4 h-4" />;
+        return <SiInstagram className="h-4 w-4" />;
       case "youtube":
-        return <SiYoutube className="w-4 h-4" />;
+        return <SiYoutube className="h-4 w-4" />;
       case "buy me a coffee":
-        return <SiBuymeacoffee className="w-4 h-4" />;
+        return <SiBuymeacoffee className="h-4 w-4" />;
       case "matrix":
-        return <SiMatrix className="w-4 h-4" />;
+        return <SiMatrix className="h-4 w-4" />;
       case "bluesky":
-        return <SiBluesky className="w-4 h-4" />;
+        return <SiBluesky className="h-4 w-4" />;
       case "threads":
-        return <SiThreads className="w-4 h-4" />;
+        return <SiThreads className="h-4 w-4" />;
       case "signal":
-        return <SiSignal className="w-4 h-4" />;
+        return <SiSignal className="h-4 w-4" />;
       case "reddit":
-        return <SiReddit className="w-4 h-4" />;
+        return <SiReddit className="h-4 w-4" />;
       case "hackerone":
-        return <SiHackerone className="w-4 h-4" />;
+        return <SiHackerone className="h-4 w-4" />;
       case "twitter/x":
-        return <SiX className="w-4 h-4" />;
+        return <SiX className="h-4 w-4" />;
       case "dev.to":
-        return <SiDevdotto className="w-4 h-4" />;
+        return <SiDevdotto className="h-4 w-4" />;
       case "product hunt":
-        return <SiProducthunt className="w-4 h-4" />;
+        return <SiProducthunt className="h-4 w-4" />;
       case "hacker news":
         // HN doesn't have an official icon, use YCombinator as a placeholder
-        return <SiYcombinator className="w-4 h-4" />;
+        return <SiYcombinator className="h-4 w-4" />;
       case "thingiverse":
-        return <SiThingiverse className="w-4 h-4" />;
+        return <SiThingiverse className="h-4 w-4" />;
       default:
-        return <AtSign className="w-4 h-4" />;
+        return <AtSign className="h-4 w-4" />;
     }
   };
 
@@ -304,9 +304,9 @@ const VerifyPage = () => {
         }}
       />
       <MENU pageFirstWord="/verify" />
-      <main className="max-w-4xl mx-auto px-4 pt-6">
+      <main className="mx-auto max-w-4xl px-4 pt-6">
         <header className="mb-8">
-          <p className="text-neutral-500 dark:text-neutral-400 text-[0.60rem] mb-2">
+          <p className="mb-2 text-[0.60rem] text-neutral-500 dark:text-neutral-400">
             Inspired by{" "}
             <Link
               className="lnk"
@@ -326,7 +326,7 @@ const VerifyPage = () => {
             platforms listed below.
           </p>
 
-          <p className="text-neutral-700 dark:text-neutral-300 mt-2">
+          <p className="mt-2 text-neutral-700 dark:text-neutral-300">
             My entire identity can also be verified at{" "}
             <Link
               href="https://keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA?utm_source=jaspermayone.com&utm_medium=referral"
@@ -370,13 +370,13 @@ const VerifyPage = () => {
         {/* Domains Section */}
         <section className="mb-6">
           <SectionHeader>domains</SectionHeader>
-          <div className="bg-gradient-to-br from-blue-50 to-pink-50 dark:from-slate-800 dark:to-slate-900 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+          <div className="rounded-xl border border-gray-200 bg-gradient-to-br from-blue-50 to-pink-50 p-6 dark:border-gray-700 dark:from-slate-800 dark:to-slate-900">
             <p className="mb-4 text-gray-700 dark:text-gray-300">
               These are the domains I own and operate. I also operate a few
               other domains for work and clients that are not listed here for
               privacy reasons.
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
               {domains.map((domain) => {
                 const getBadgeStyles = (type) => {
                   switch (type) {
@@ -396,15 +396,15 @@ const VerifyPage = () => {
                 return (
                   <div
                     key={domain.name}
-                    className="bg-white dark:bg-slate-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-slate-700 hover:shadow-sm transition-all duration-300"
+                    className="rounded-lg border border-gray-200 bg-white p-4 transition-all duration-300 hover:border-blue-300 hover:bg-blue-50 hover:shadow-sm dark:border-gray-700 dark:bg-slate-800 dark:hover:border-blue-500 dark:hover:bg-slate-700"
                   >
-                    <h3 className="font-medium text-lg text-gray-800 dark:text-gray-200">
+                    <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200">
                       {domain.name}
                     </h3>
                     <div className="mt-2 flex items-center gap-2">
                       <span
-                        className={`text-xs px-2 py-1 rounded-full ${getBadgeStyles(
-                          domain.type,
+                        className={`rounded-full px-2 py-1 text-xs ${getBadgeStyles(
+                          domain.type
                         )}`}
                       >
                         {domainType[domain.type].charAt(0).toUpperCase() +
@@ -423,13 +423,13 @@ const VerifyPage = () => {
         {/* Email Section */}
         <section className="mb-12">
           <SectionHeader>email</SectionHeader>
-          <div className="bg-gradient-to-br from-blue-50 to-pink-50 dark:from-slate-800 dark:to-slate-900 p-6 rounded-xl border border-gray-200 dark:border-gray-700">
+          <div className="rounded-xl border border-gray-200 bg-gradient-to-br from-blue-50 to-pink-50 p-6 dark:border-gray-700 dark:from-slate-800 dark:to-slate-900">
             <p className="mb-4 text-gray-700 dark:text-gray-300">
               I maintain email addresses across various domains. Some addresses
               for organizations I am a part of are not published here for
               privacy reasons.
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
               {emails.map((email) => (
                 <EmailCard
                   key={email.address}
@@ -455,13 +455,13 @@ const VerifyPage = () => {
         {/* Accounts Section */}
         <section className="mb-12">
           <SectionHeader>accounts</SectionHeader>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {accounts.map((account) => (
               <Link
                 key={account.platform}
                 href={`${account.url}?utm_source=jaspermayone.com&utm_medium=referral`}
                 rel="me"
-                className="block p-4 rounded-lg border border-gray-200 dark:border-gray-700 transition-all duration-300 bg-white dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-slate-700 hover:border-blue-300 dark:hover:border-blue-500 hover:shadow-sm group"
+                className="group block rounded-lg border border-gray-200 bg-white p-4 transition-all duration-300 hover:border-blue-300 hover:bg-blue-50 hover:shadow-sm dark:border-gray-700 dark:bg-slate-800 dark:hover:border-blue-500 dark:hover:bg-slate-700"
                 style={{
                   height: account.note ? "auto" : "5rem",
                   minHeight: "5rem",

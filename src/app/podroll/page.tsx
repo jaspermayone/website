@@ -98,34 +98,34 @@ export default function Podroll() {
           __html: JSON.stringify(podrollPageSchema),
         }}
       />
-      <div className="min-h-screen flex flex-col">
+      <div className="flex min-h-screen flex-col">
         <MENU pageFirstWord="Podcasts" />
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
             <h1
-              className="text-xl font-bold mb-2 text-gray-800 dark:text-white"
+              className="mb-2 text-xl font-bold text-gray-800 dark:text-white"
               style={{ fontFamily: "var(--font-balgin)" }}
             >
               Recommended Podcasts
             </h1>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
               {podcasts.map((podcast, index) => (
                 <Link
                   key={index}
                   href={`${podcast.url}?utm_source=jaspermayone.com&utm_medium=referral`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex p-3 bg-white/50 dark:bg-gray-800/20 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors"
+                  className="flex rounded-lg bg-white/50 p-3 transition-colors hover:bg-blue-50 dark:bg-gray-800/20 dark:hover:bg-blue-900/20"
                 >
-                  <div className="shrink-0 mr-3 text-blue-500">
+                  <div className="mr-3 shrink-0 text-blue-500">
                     <HeadphonesIcon size={20} />
                   </div>
                   <div>
-                    <h2 className="font-medium text-gray-800 dark:text-gray-100 text-sm">
+                    <h2 className="text-sm font-medium text-gray-800 dark:text-gray-100">
                       {podcast.name}
                     </h2>
-                    <p className="text-gray-600 dark:text-white/70 text-xs mt-1">
+                    <p className="mt-1 text-xs text-gray-600 dark:text-white/70">
                       {podcast.description}
                     </p>
                   </div>

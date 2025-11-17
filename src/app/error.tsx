@@ -12,7 +12,7 @@ const Error = () => {
   });
 
   return (
-    <div className="h-screen w-screen flex flex-col items-center justify-center overflow-hidden py-6">
+    <div className="flex h-screen w-screen flex-col items-center justify-center overflow-hidden py-6">
       {bottomSquiggles.map((config, index) => (
         <SquigglyLine
           key={index}
@@ -23,31 +23,23 @@ const Error = () => {
         />
       ))}
 
-      <div className="my-12 flex flex-col items-center justify-center rounded-md bg-linkHover/40 p-10">
-        <div className="flex gap-2 mb-1">
+      <div className="bg-linkHover/40 my-12 flex flex-col items-center justify-center rounded-md p-10">
+        <div className="mb-1 flex gap-2">
           {["E", "R", "R", "O", "R"].map((letter, i) => (
             <div
               key={i}
-              className="font-cute-notes w-12 h-12 flex items-center justify-center text-5xl font-medium"
+              className="font-cute-notes flex h-12 w-12 items-center justify-center text-5xl font-medium"
             >
               {letter}
             </div>
           ))}
         </div>
-
-        {/* <SquigglyLine
-          frequency={50}
-          amplitude={0.4}
-          className="w-3/4"
-          color="#56ba8e"
-        /> */}
-
         <div className="max-w-lg text-center">
           <p className="inline" style={{ fontFamily: "var(--font-balgin)" }}>
             Uh oh! This page seems to have lost artistic direction. Please try
             to
           </p>{" "}
-          <p className="inline underline decoration-wavy decoration-greeen hover:decoration-linkHover hover:bg-blue-400 hover:rounded-md transition-all duration-300">
+          <p className="decoration-greeen hover:decoration-linkHover inline underline decoration-wavy transition-all duration-300 hover:rounded-md hover:bg-blue-400">
             <Link href="/">return home!</Link>
           </p>
         </div>
