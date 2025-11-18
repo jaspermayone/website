@@ -3,6 +3,7 @@ import ConfettiWrapper from "@/components/ConfettiWrapper";
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import RoundedImage from "@/components/RoundedImage";
+import { age } from "@/lib/defs";
 import JmDark from "@public/images/jmdark-min.webp";
 import JmLight from "@public/images/jmlite-min.webp";
 import Link from "next/link";
@@ -40,7 +41,7 @@ export default function Home() {
       <main className="flex-1">
         <ConfettiWrapper />
         <div className="mx-5 mt-5 mb-5 flex flex-col gap-8 md:flex-row">
-          <div className="mx-auto mt-8 w-64 flex-shrink-0 overflow-hidden md:mx-0 md:self-start">
+          <div className="mx-auto mt-8 w-64 shrink-0 overflow-hidden md:mx-0 md:self-start">
             <RoundedImage
               src={imgpath}
               alt="Jasper Mayone"
@@ -56,8 +57,8 @@ export default function Home() {
                   Jasper Mayone [<i>he/they</i>]
                 </span>{" "}
                 <span className="font-normal text-gray-700 dark:text-white/70">
-                  is a 19-year-old college student from rural Vermont, currently
-                  residing in Boston.
+                  is a {age}-year-old college student from rural Vermont,
+                  currently residing in Boston.
                 </span>
               </p>
               <p className="text-sm text-gray-600 dark:text-white/70">

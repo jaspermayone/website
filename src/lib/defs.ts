@@ -14,6 +14,17 @@ import {
   YearGroup,
 } from "./types";
 
+const birthDate = new Date("2006-08-05T00:00:00Z");
+// Calculate age in full years based on today's date
+const now = new Date();
+export const age =
+  now.getUTCFullYear() -
+  birthDate.getUTCFullYear() -
+  (Number(`${now.getUTCMonth()}${now.getUTCDate()}`) <
+  Number(`${birthDate.getUTCMonth()}${birthDate.getUTCDate()}`)
+    ? 1
+    : 0);
+
 /*
   "home",
   "cv",

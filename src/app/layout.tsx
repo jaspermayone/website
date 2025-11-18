@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeUpdater } from "@/components/theme-updater";
-import { redirects } from "@/lib/defs";
+import { age, redirects } from "@/lib/defs";
 import "@/styles/globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
@@ -33,8 +33,7 @@ export const metadata: Metadata = {
     template: "%s | Jasper Mayone",
     default: "Jasper Mayone",
   },
-  description:
-    "A 19-year-old college student from rural Vermont, currently residing in Boston, while attending Wentworth Institute of Technology as a computer science major. When not in school or at work, Jasper's hobbies include reading, being in the great outdoors, photography, computer programming, cooking, and running away to join the circus.",
+  description: `A ${age}-year-old college student from rural Vermont, currently residing in Boston, while attending Wentworth Institute of Technology as a computer science major. When not in school or at work, Jasper's hobbies include reading, being in the great outdoors, photography, computer programming, cooking, and running away to join the circus.`,
   applicationName: "Jasper Mayone",
   keywords: ["Jasper", "Mayone", "Jasper Mayone"],
   authors: [
@@ -50,8 +49,7 @@ export const metadata: Metadata = {
   // Enhanced Open Graph
   openGraph: {
     title: "Jasper Mayone",
-    description:
-      "A 19-year-old college student from rural Vermont, currently residing in Boston, while attending Wentworth Institute of Technology as a computer science major. When not in school or at work, Jasper's hobbies include reading, being in the great outdoors, photography, computer programming, cooking, and running away to join the circus.",
+    description: `A ${age}-year-old college student from rural Vermont, currently residing in Boston, while attending Wentworth Institute of Technology as a computer science major. When not in school or at work, Jasper's hobbies include reading, being in the great outdoors, photography, computer programming, cooking, and running away to join the circus.`,
     url: "https://www.jaspermayone.com",
     siteName: "Jasper Mayone",
     type: "website",
@@ -73,8 +71,7 @@ export const metadata: Metadata = {
     site: "@jaspermayone", // Add if you have a Twitter account
     creator: "@jaspermayone", // Add if John has a Twitter
     title: "Jasper Mayone",
-    description:
-      "A 19-year-old college student from rural Vermont, currently residing in Boston, while attending Wentworth Institute of Technology as a computer science major. When not in school or at work, Jasper's hobbies include reading, being in the great outdoors, photography, computer programming, cooking, and running away to join the circus.",
+    description: `A ${age}-year-old college student from rural Vermont, currently residing in Boston, while attending Wentworth Institute of Technology as a computer science major. When not in school or at work, Jasper's hobbies include reading, being in the great outdoors, photography, computer programming, cooking, and running away to join the circus.`,
     images: [
       {
         url: "/opengraph-image.png",
@@ -112,8 +109,7 @@ const jsonLdData = {
       familyName: "Mayone",
       gender: "male",
       pronouns: "he/they",
-      description:
-        "19-year-old post college student from rural Vermont. Circus performer, coder, and photographer pursuing a major in Computer Science at Wentworth Institute of Technology in Boston.",
+      description: `A ${age}-year-old post college student from rural Vermont. Circus performer, coder, and photographer pursuing a major in Computer Science at Wentworth Institute of Technology in Boston.`,
       url: "https://www.jaspermayone.com",
       birthPlace: {
         "@type": "Place",
@@ -198,8 +194,7 @@ const jsonLdData = {
       url: "https://www.jaspermayone.com",
       name: "Jasper Mayone - Personal Website",
       alternateName: "Jasper Mayone Portfolio",
-      description:
-        "Personal website of Jasper Mayone - a 19-year-old circus performer, coder, and photographer from rural Vermont",
+      description: `Personal website of Jasper Mayone - a ${age}-year-old circus performer, coder, and photographer from rural Vermont`,
       about: {
         "@id": "https://www.jaspermayone.com/#person",
       },
@@ -222,8 +217,7 @@ const jsonLdData = {
       "@id": "https://www.jaspermayone.com/#webpage",
       url: "https://www.jaspermayone.com",
       name: "Jasper Mayone - Circus Artist, Coder & Photographer",
-      description:
-        "Meet Jasper Mayone, a 19-year-old circus performer, software developer, and photographer from rural Vermont. Currently pursuing a major in Computer Science at Wentworth Institute of Technology in Boston.",
+      description: `Meet Jasper Mayone, a ${age}-year-old circus performer, software developer, and photographer from rural Vermont. Currently pursuing a major in Computer Science at Wentworth Institute of Technology in Boston.`,
       isPartOf: {
         "@id": "https://www.jaspermayone.com/#website",
       },
@@ -372,6 +366,43 @@ export default function RootLayout({
           sizes="180x180"
           href="/apple-touch-icon.png?v=2"
         />
+
+        <link rel="me" href="https://jsp.lat" />
+        <link rel="me" href="https://jaspermayone.cv" />
+        <link rel="me" href="https://jasper.cv" />
+        <link rel="me" href="https://hogwarts.dev" />
+        <link rel="me" href="https://singlefeather.com" />
+        <link rel="me" href="https://singlefeather.dev" />
+
+        {/* <meta name="fediverse:creator" content="@taciturnaxoltol@social.dino.icu" /> */}
+
+        <div className="h-card" style={{ display: "none" }}>
+          <a className="u-url" rel="me home" href="https://jaspermayone.com">
+            <span className="p-name">Jasper Mayone</span>
+          </a>
+          <p className="p-given-name">Jasper</p>
+          <p className="p-family-name">Mayone</p>
+          <p className="dt-bday">2006-08-05</p>
+          <p className="p-sex">male</p>
+          <p className="p-note">
+            {age}, college student from rural Vermont, currently residing in
+            Boston, attending Wentworth Institute of Technology as a computer
+            science major. Hobbies include reading, being in the great outdoors,
+            photography, computer programming, cooking, and running away to join
+            the circus.
+          </p>
+          <a className="u-email" href="mailto:me@dunkirk.sh" rel="me">
+            me@dunkirk.sh
+          </a>
+          <div className="p-adr h-adr">
+            <span className="p-country-name">United States of America</span>
+          </div>
+          <img
+            className="u-photo"
+            src="/images/jmdark-min.webp"
+            alt="Jasper Mayone"
+          />
+        </div>
 
         {redirects
           .filter((redirect) => redirect.linkrelme)
