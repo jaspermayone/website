@@ -72,6 +72,9 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
         });
       }
 
+      // Track when confetti should stop spawning
+      let isEnding = false;
+
       // Animation loop
       const animate = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -101,29 +104,37 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
           particle.y += particle.speedY;
           particle.rotation += particle.rotationSpeed;
 
-          // Handle fading in and out randomly
-          // Occasionally start fading if not already
-          if (particle.fadeDirection === 0 && Math.random() < 0.01) {
-            // 1% chance each frame to start fading out
-            particle.fadeDirection = -1;
-          }
+          // Handle fading in and out randomly (only during active phase)
+          if (!isEnding) {
+            // Occasionally start fading if not already
+            if (particle.fadeDirection === 0 && Math.random() < 0.01) {
+              // 1% chance each frame to start fading out
+              particle.fadeDirection = -1;
+            }
 
-          // Update opacity based on fade direction
-          if (particle.fadeDirection !== 0) {
-            particle.opacity += particle.fadeDirection * particle.fadeSpeed;
+            // Update opacity based on fade direction
+            if (particle.fadeDirection !== 0) {
+              particle.opacity += particle.fadeDirection * particle.fadeSpeed;
 
-            // Cap opacity between 0 and 1
-            if (particle.opacity <= 0) {
-              particle.opacity = 0;
-              particle.fadeDirection = 1; // Start fading in
-            } else if (particle.opacity >= 1) {
-              particle.opacity = 1;
-              particle.fadeDirection = 0; // Stop fading
+              // Cap opacity between 0 and 1
+              if (particle.opacity <= 0) {
+                particle.opacity = 0;
+                particle.fadeDirection = 1; // Start fading in
+              } else if (particle.opacity >= 1) {
+                particle.opacity = 1;
+                particle.fadeDirection = 0; // Stop fading
+              }
+            }
+          } else {
+            // When ending, stop any fading and restore nearly-invisible particles
+            particle.fadeDirection = 0;
+            if (particle.opacity < 0.4) {
+              particle.opacity = 0.4 + Math.random() * 0.3; // Restore to 0.4-0.7
             }
           }
 
-          // Reset particle if it goes off-screen
-          if (particle.y > canvas.height) {
+          // Reset particle if it goes off-screen (only if not ending)
+          if (particle.y > canvas.height && !isEnding) {
             particle.y = Math.random() * -100;
             particle.x = Math.random() * canvas.width;
             particle.opacity = Math.random() * 0.5 + 0.5; // Randomize opacity for new particles
@@ -135,31 +146,37 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
 
       animate();
 
-      // Clean up after duration - start fadeout process
+      // Clean up after duration - let particles fall off naturally
       setTimeout(() => {
-        // Flag all particles to start fading out
-        particles.forEach((particle) => {
-          // Set fade speed for final exit (faster)
-          particle.fadeSpeed = 0.03;
-          particle.fadeDirection = -1;
+        isEnding = true;
 
-          // Also push particles to the sides gradually
-          particle.speedX =
-            particle.x > canvas.width / 2
-              ? Math.max(2, particle.speedX * 1.2)
-              : Math.min(-2, particle.speedX * 1.2);
-        });
+        // Check periodically if all particles have fallen off screen
+        const checkIfDone = setInterval(() => {
+          const allOffScreen = particles.every(
+            (particle) => particle.y > canvas.height
+          );
+          if (allOffScreen) {
+            clearInterval(checkIfDone);
+            if (animationFrame !== null) {
+              cancelAnimationFrame(animationFrame);
+            }
+            if (document.body.contains(canvas)) {
+              document.body.removeChild(canvas);
+            }
+          }
+        }, 100);
 
-        // Then remove canvas after additional time for fade out
+        // Fallback cleanup after max time
         setTimeout(() => {
+          clearInterval(checkIfDone);
           if (animationFrame !== null) {
             cancelAnimationFrame(animationFrame);
           }
           if (document.body.contains(canvas)) {
             document.body.removeChild(canvas);
           }
-        }, 1500); // 1.5 second exit animation
-      }, duration); // Start fadeout after the original duration
+        }, 5000);
+      }, duration);
     };
 
     // Resize handler
@@ -202,52 +219,54 @@ function getDarkModeServerSnapshot() {
   return false;
 }
 
-export default function ConfettiWrapper() {
-  enum confettiTrigger {
-    wit = "wit",
-    socraticaW25 = "socraticaW25",
-    pwl = "pwl",
-    pd = "pd",
-    mlh = "mlh",
-  }
+enum confettiTrigger {
+  wit = "wit",
+  socraticaW25 = "socraticaW25",
+  pwl = "pwl",
+  pd = "pd",
+  mlh = "mlh",
+}
 
-  const images = [
-    {
-      trigger: confettiTrigger.wit,
-      imagePath: "/images/confetti/wit.webp",
-      invertedImagePath: "/images/confetti/wit.webp",
-      urlParam: "wit",
-      trackingEvent: "WIT_Confetti",
-    },
-    {
-      trigger: confettiTrigger.socraticaW25,
-      imagePath: "/images/confetti/ss.webp",
-      invertedImagePath: "/images/confetti/ss-inverted.webp",
-      urlParam: "socraticaW25",
-      trackingEvent: "SocraticaSymposiumW25_Confetti",
-    },
-    {
-      trigger: confettiTrigger.pwl,
-      imagePath: "/images/confetti/pwl.webp",
-      invertedImagePath: "/images/confetti/pwl.webp",
-      urlParam: "pwl",
-      trackingEvent: "PWL_Confetti",
-    },
-    {
-      trigger: confettiTrigger.pd,
-      imagePath: "/images/confetti/pd.webp",
-      invertedImagePath: "/images/confetti/pd.webp",
-      urlParam: "pd",
-      trackingEvent: "PD_Confetti",
-    },
-    {
-      trigger: confettiTrigger.mlh,
-      imagePath: "/images/confetti/mlh.webp",
-      invertedImagePath: "/images/confetti/mlh.webp",
-      urlParam: "mlh",
-      trackingEvent: "MLH_Confetti",
-    },
-  ];
+const CONFETTI_IMAGES = [
+  {
+    trigger: confettiTrigger.wit,
+    imagePath: "/images/confetti/wit.webp",
+    invertedImagePath: "/images/confetti/wit.webp",
+    urlParam: "wit",
+    trackingEvent: "WIT_Confetti",
+  },
+  {
+    trigger: confettiTrigger.socraticaW25,
+    imagePath: "/images/confetti/ss.webp",
+    invertedImagePath: "/images/confetti/ss-inverted.webp",
+    urlParam: "socraticaW25",
+    trackingEvent: "SocraticaSymposiumW25_Confetti",
+  },
+  {
+    trigger: confettiTrigger.pwl,
+    imagePath: "/images/confetti/pwl.webp",
+    invertedImagePath: "/images/confetti/pwl.webp",
+    urlParam: "pwl",
+    trackingEvent: "PWL_Confetti",
+  },
+  {
+    trigger: confettiTrigger.pd,
+    imagePath: "/images/confetti/pd.webp",
+    invertedImagePath: "/images/confetti/pd.webp",
+    urlParam: "pd",
+    trackingEvent: "PD_Confetti",
+  },
+  {
+    trigger: confettiTrigger.mlh,
+    imagePath: "/images/confetti/mlh.webp",
+    invertedImagePath: "/images/confetti/mlh.webp",
+    urlParam: "mlh",
+    trackingEvent: "MLH_Confetti",
+  },
+];
+
+export default function ConfettiWrapper() {
+  const images = CONFETTI_IMAGES;
 
   const pathname = usePathname();
   const [showConfetti, setShowConfetti] = useState(false);
