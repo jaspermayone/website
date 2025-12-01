@@ -13,6 +13,14 @@ export const metadata: Metadata = {
   },
 };
 
+// Flatten all concerts for the schema
+const allConcerts = concertsByYear.flatMap((yearGroup) =>
+  yearGroup.concerts.map((concert) => ({
+    ...concert,
+    year: yearGroup.year,
+  }))
+);
+
 const concertsPageSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -29,8 +37,12 @@ const concertsPageSchema = {
       about: {
         "@id": "https://www.jaspermayone.com/#person",
       },
+      mainEntity: {
+        "@id": "https://www.jaspermayone.com/concerts#concert-list",
+      },
       breadcrumb: {
         "@type": "BreadcrumbList",
+        "@id": "https://www.jaspermayone.com/concerts#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
@@ -46,6 +58,45 @@ const concertsPageSchema = {
           },
         ],
       },
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.jaspermayone.com/concerts#concert-list",
+      name: "Concerts Attended by Jasper Mayone",
+      description:
+        "A chronological list of live music performances attended by Jasper Mayone",
+      numberOfItems: allConcerts.length,
+      itemListElement: allConcerts.map((concert, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "MusicEvent",
+          name: `${concert.headliner}${concert.tour ? ` - ${concert.tour}` : ""}`,
+          performer: {
+            "@type": "MusicGroup",
+            name: concert.headliner,
+          },
+          ...(concert.date && { startDate: concert.date }),
+          ...(concert.venue && {
+            location: {
+              "@type": "Place",
+              name: concert.venue,
+            },
+          }),
+          ...(concert.openers &&
+            concert.openers.length > 0 && {
+              subEvent: concert.openers.map((opener) => ({
+                "@type": "MusicEvent",
+                name: opener,
+                performer: {
+                  "@type": "MusicGroup",
+                  name: opener,
+                },
+              })),
+            }),
+          ...(concert.setlist && { url: concert.setlist }),
+        },
+      })),
     },
   ],
 };

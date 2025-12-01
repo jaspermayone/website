@@ -98,8 +98,6 @@ export const metadata: Metadata = {
 
 const jsonLdData = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Jasper Mayone",
   "@graph": [
     {
       "@type": "Person",

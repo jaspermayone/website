@@ -13,6 +13,61 @@ export const metadata: Metadata = {
   },
 };
 
+const techStack = [
+  {
+    name: "Next.js",
+    description:
+      "React framework that enables server-side rendering and static site generation",
+    url: "https://nextjs.org",
+    category: "framework",
+  },
+  {
+    name: "React",
+    description: "JavaScript library for building user interfaces",
+    url: "https://react.dev",
+    category: "library",
+  },
+  {
+    name: "Tailwind CSS",
+    description: "Utility-first CSS framework",
+    url: "https://tailwindcss.com",
+    category: "styling",
+  },
+  {
+    name: "shadcn/ui",
+    description: "Reusable component library built with Radix UI and Tailwind",
+    url: "https://ui.shadcn.com",
+    category: "components",
+  },
+  {
+    name: "Framer Motion",
+    description: "Animation library for React",
+    url: "https://www.framer.com/motion",
+    category: "animation",
+  },
+  {
+    name: "react-i18next",
+    description: "Internationalization framework",
+    url: "https://react.i18next.com",
+    category: "i18n",
+  },
+  {
+    name: "TypeScript",
+    description:
+      "Strongly typed programming language that builds on JavaScript",
+    url: "https://www.typescriptlang.org",
+    category: "language",
+  },
+];
+
+const devTools = [
+  { name: "Windsurf", description: "AI-powered code editor" },
+  { name: "VS Code", description: "Source code editor" },
+  { name: "GitHub", description: "Version control and collaboration" },
+  { name: "Claude", description: "AI assistant for development" },
+  { name: "Dia Browser", description: "Web development and testing" },
+];
+
 const colophonPageSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -29,8 +84,12 @@ const colophonPageSchema = {
       about: {
         "@id": "https://www.jaspermayone.com/#person",
       },
+      mainEntity: {
+        "@id": "https://www.jaspermayone.com/colophon#tech-stack",
+      },
       breadcrumb: {
         "@type": "BreadcrumbList",
+        "@id": "https://www.jaspermayone.com/colophon#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
@@ -47,66 +106,44 @@ const colophonPageSchema = {
         ],
       },
     },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.jaspermayone.com/colophon#tech-stack",
+      name: "Website Technology Stack",
+      description: "Technologies and frameworks powering jaspermayone.com",
+      numberOfItems: techStack.length,
+      itemListElement: techStack.map((tech, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "SoftwareApplication",
+          name: tech.name,
+          description: tech.description,
+          url: tech.url,
+          applicationCategory: tech.category,
+        },
+      })),
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.jaspermayone.com/colophon#dev-tools",
+      name: "Development Tools",
+      description: "Tools used for developing jaspermayone.com",
+      numberOfItems: devTools.length,
+      itemListElement: devTools.map((tool, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "SoftwareApplication",
+          name: tool.name,
+          description: tool.description,
+        },
+      })),
+    },
   ],
 };
 
 export default function Colophon() {
-  const techStack = [
-    {
-      name: "Next.js",
-      description:
-        "React framework that enables server-side rendering and static site generation",
-      url: "https://nextjs.org",
-      category: "framework",
-    },
-    {
-      name: "React",
-      description: "JavaScript library for building user interfaces",
-      url: "https://react.dev",
-      category: "library",
-    },
-    {
-      name: "Tailwind CSS",
-      description: "Utility-first CSS framework",
-      url: "https://tailwindcss.com",
-      category: "styling",
-    },
-    {
-      name: "shadcn/ui",
-      description:
-        "Reusable component library built with Radix UI and Tailwind",
-      url: "https://ui.shadcn.com",
-      category: "components",
-    },
-    {
-      name: "Framer Motion",
-      description: "Animation library for React",
-      url: "https://www.framer.com/motion",
-      category: "animation",
-    },
-    {
-      name: "react-i18next",
-      description: "Internationalization framework",
-      url: "https://react.i18next.com",
-      category: "i18n",
-    },
-    {
-      name: "TypeScript",
-      description:
-        "Strongly typed programming language that builds on JavaScript",
-      url: "https://www.typescriptlang.org",
-      category: "language",
-    },
-  ];
-
-  const tools = [
-    { name: "Windsurf", description: "AI-powered code editor" },
-    { name: "VS Code", description: "Source code editor" },
-    { name: "GitHub", description: "Version control and collaboration" },
-    { name: "Claude", description: "AI assistant for development" },
-    { name: "Dia Browser", description: "Web development and testing" },
-  ];
-
   return (
     <>
       <Script
@@ -241,7 +278,7 @@ export default function Colophon() {
               </h2>
               <div className="rounded-2xl border border-gray-200 p-8 dark:border-gray-700">
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {tools.map((tool, index) => (
+                  {devTools.map((tool, index) => (
                     <div key={index}>
                       <h3 className="mb-2 font-bold text-gray-900 dark:text-white">
                         {tool.name}

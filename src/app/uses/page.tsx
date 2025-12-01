@@ -1,5 +1,6 @@
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
+import { tools } from "@/lib/defs";
 import { Metadata } from "next";
 import Script from "next/script";
 
@@ -35,8 +36,12 @@ const usesPageSchema = {
       about: {
         "@id": "https://www.jaspermayone.com/#person",
       },
+      mainEntity: {
+        "@id": "https://www.jaspermayone.com/uses#tools-list",
+      },
       breadcrumb: {
         "@type": "BreadcrumbList",
+        "@id": "https://www.jaspermayone.com/uses#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
@@ -53,29 +58,27 @@ const usesPageSchema = {
         ],
       },
     },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.jaspermayone.com/uses#tools-list",
+      name: "Tools and Software Used by Jasper Mayone",
+      description:
+        "Daily tools and software for development, productivity, and creative work",
+      numberOfItems: tools.length,
+      itemListElement: tools.map((tool, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "SoftwareApplication",
+          name: tool.result,
+          applicationCategory: tool.name,
+        },
+      })),
+    },
   ],
 };
 
 export default function Uses() {
-  const tools = [
-    { emoji: "📨", name: "Mail Client", result: "Apple Mail" },
-    { emoji: "📮", name: "Mail Server", result: "Google Workspace, iCloud" },
-    { emoji: "📝", name: "Notes", result: "Notes.app, Obsidian" },
-    { emoji: "✅", name: "To-Do", result: "OmniFocus" },
-    { emoji: "📅", name: "Calendar", result: "Google Calendar" },
-    { emoji: "📁", name: "Storage", result: "Google Drive" },
-    { emoji: "🙍🏻", name: "Contacts", result: "Contacts.app" },
-    { emoji: "🌐", name: "Browser", result: "Dia, Chrome" },
-    { emoji: "💬", name: "Chat", result: "Discord, Slack" },
-    { emoji: "📑", name: "Read Later", result: "Linkace" },
-    { emoji: "📷", name: "Photos", result: "iOS Camera, Immich" },
-    { emoji: "🎵", name: "Music", result: "Apple Music" },
-    { emoji: "🎤", name: "Podcasts", result: "Apple Podcasts" },
-    { emoji: "🔐", name: "Passwords", result: "Vaultwarden" },
-    { emoji: "📊", name: "Presentations", result: "Figma Slides" },
-    { emoji: "🍴", name: "Food Planning", result: "Mealie" },
-  ];
-
   return (
     <>
       <Script

@@ -11,17 +11,46 @@ export const metadata: Metadata = {
 
 const blankPageSchema = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  name: "Blank Page",
-  description: "A page intentionally left blank",
-  url: "https://www.jaspermayone.com/blank",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.jaspermayone.com/blank#webpage",
+      url: "https://www.jaspermayone.com/blank",
+      name: "Blank Page - Jasper Mayone",
+      description: "A page intentionally left blank",
+      isPartOf: {
+        "@id": "https://www.jaspermayone.com/#website",
+      },
+      about: {
+        "@id": "https://www.jaspermayone.com/#person",
+      },
+      breadcrumb: {
+        "@type": "BreadcrumbList",
+        "@id": "https://www.jaspermayone.com/blank#breadcrumb",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://www.jaspermayone.com",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Blank",
+            item: "https://www.jaspermayone.com/blank",
+          },
+        ],
+      },
+    },
+  ],
 };
 
 export default function Blank() {
   return (
     <>
       <Script
-        id="colophon-schema"
+        id="blank-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(blankPageSchema),

@@ -9,8 +9,10 @@ import {
 import {
   Appearance,
   PageItem,
+  Podcast,
   ProjectItem,
   RedirectItem,
+  Tool,
   YearGroup,
 } from "./types";
 
@@ -438,4 +440,56 @@ export const appearances: Appearance[] = [
     url: "https://archive.nytimes.com/query.nytimes.com/gst/fullpage-9F06E4DE153AF936A35750C0A96F9C8B63.html",
     type: "article",
   },
+];
+
+export const podcasts: Podcast[] = [
+  {
+    name: "Mac Power Users",
+    description:
+      "Learn about getting the most from your Apple technology with focused topics and workflow guests.",
+    url: "https://www.relay.fm/mpu",
+  },
+  {
+    name: "Hard Fork",
+    description:
+      "Each week, journalists Kevin Roose and Casey Newton explore the rapidly changing world of tech.",
+    url: "https://www.nytimes.com/column/hard-fork",
+  },
+  {
+    name: "Startups For the Rest of Us",
+    description:
+      "Following founders as they start, acquire, and grow SaaS companies through success and failure.",
+    url: "https://www.startupsfortherestofus.com/",
+  },
+  {
+    name: "Accidental Tech Podcast",
+    description:
+      "Three nerds discussing tech, Apple, programming, and loosely related matters.",
+    url: "https://atp.fm/",
+  },
+  {
+    name: "Automators",
+    url: "https://www.relay.fm/automators",
+    description:
+      "Automation makes your life easier and everyone can do it. Hosted by David Sparks and Rosemary Orchard.",
+  },
+];
+
+export const tools: Tool[] = [
+  { emoji: "📨", name: "Mail Client", result: "Apple Mail" },
+  { emoji: "📮", name: "Mail Server", result: "Google Workspace, iCloud" },
+  { emoji: "📝", name: "Notes", result: "Notes.app, Obsidian" },
+  { emoji: "✅", name: "To-Do", result: "OmniFocus" },
+  { emoji: "📅", name: "Calendar", result: "Google Calendar" },
+  { emoji: "📁", name: "Storage", result: "Google Drive" },
+  { emoji: "🙍🏻", name: "Contacts", result: "Contacts.app" },
+  { emoji: "🌐", name: "Browser", result: "Dia, Chrome" },
+  { emoji: "💬", name: "Chat", result: "Discord, Slack" },
+  { emoji: "📑", name: "Read Later", result: "Linkace" },
+  { emoji: "📷", name: "Photos", result: "iOS Camera, Immich" },
+  { emoji: "🎵", name: "Music", result: "Apple Music" },
+  { emoji: "🎤", name: "Podcasts", result: "Apple Podcasts" },
+  { emoji: "🔐", name: "Passwords", result: "Vaultwarden" },
+  { emoji: "📊", name: "Presentations", result: "Figma Slides" },
+  { emoji: "🍴", name: "Food Planning", result: "Mealie" },
 ];

@@ -1,15 +1,10 @@
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
+import { podcasts } from "@/lib/defs";
 import { HeadphonesIcon } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
-
-interface Podcast {
-  name: string;
-  description: string;
-  url: string;
-}
 
 export const metadata: Metadata = {
   title: "Podroll",
@@ -34,8 +29,12 @@ const podrollPageSchema = {
       about: {
         "@id": "https://www.jaspermayone.com/#person",
       },
+      mainEntity: {
+        "@id": "https://www.jaspermayone.com/podroll#podcast-list",
+      },
       breadcrumb: {
         "@type": "BreadcrumbList",
+        "@id": "https://www.jaspermayone.com/podroll#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
@@ -52,43 +51,27 @@ const podrollPageSchema = {
         ],
       },
     },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.jaspermayone.com/podroll#podcast-list",
+      name: "Recommended Podcasts",
+      description: "Podcasts recommended by Jasper Mayone",
+      numberOfItems: podcasts.length,
+      itemListElement: podcasts.map((podcast, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "PodcastSeries",
+          name: podcast.name,
+          description: podcast.description,
+          url: podcast.url,
+        },
+      })),
+    },
   ],
 };
 
 export default function Podroll() {
-  const podcasts: Podcast[] = [
-    {
-      name: "Mac Power Users",
-      description:
-        "Learn about getting the most from your Apple technology with focused topics and workflow guests.",
-      url: "https://www.relay.fm/mpu",
-    },
-    {
-      name: "Hard Fork",
-      description:
-        "Each week, journalists Kevin Roose and Casey Newton explore the rapidly changing world of tech.",
-      url: "https://www.nytimes.com/column/hard-fork",
-    },
-    {
-      name: "Startups For the Rest of Us",
-      description:
-        "Following founders as they start, acquire, and grow SaaS companies through success and failure.",
-      url: "https://www.startupsfortherestofus.com/",
-    },
-    {
-      name: "Accidental Tech Podcast",
-      description:
-        "Three nerds discussing tech, Apple, programming, and loosely related matters.",
-      url: "https://atp.fm/",
-    },
-    {
-      name: "Automators",
-      url: "https://www.relay.fm/automators",
-      description:
-        "Automation makes your life easier and everyone can do it. Hosted by David Sparks and Rosemary Orchard.",
-    },
-  ];
-
   return (
     <>
       <Script

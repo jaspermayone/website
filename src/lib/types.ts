@@ -54,3 +54,15 @@ export interface Appearance {
   role?: string;
   description?: string;
 }
+
+export interface Podcast {
+  name: string;
+  description: string;
+  url: string;
+}
+
+export interface Tool {
+  emoji: string;
+  name: string;
+  result: string;
+}

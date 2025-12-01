@@ -18,6 +18,14 @@ export const metadata: Metadata = {
   },
 };
 
+const profilePhotos = [
+  { src: "/images/profiles/jm.webp", name: "Current Profile Photo" },
+  { src: "/images/profiles/jmdark-min.webp", name: "Dark Theme Profile" },
+  { src: "/images/profiles/jmlite-min.webp", name: "Light Theme Profile" },
+  { src: "/images/profiles/circus.webp", name: "Circus Profile" },
+  { src: "/images/profiles/waves.webp", name: "Waves Profile" },
+];
+
 const pfpPageSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -33,8 +41,12 @@ const pfpPageSchema = {
       about: {
         "@id": "https://www.jaspermayone.com/#person",
       },
+      mainEntity: {
+        "@id": "https://www.jaspermayone.com/pfp#gallery",
+      },
       breadcrumb: {
         "@type": "BreadcrumbList",
+        "@id": "https://www.jaspermayone.com/pfp#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
@@ -50,6 +62,22 @@ const pfpPageSchema = {
           },
         ],
       },
+    },
+    {
+      "@type": "ImageGallery",
+      "@id": "https://www.jaspermayone.com/pfp#gallery",
+      name: "Jasper Mayone Profile Photos",
+      description:
+        "A collection of profile photos used by Jasper Mayone over the years",
+      author: {
+        "@id": "https://www.jaspermayone.com/#person",
+      },
+      image: profilePhotos.map((photo, index) => ({
+        "@type": "ImageObject",
+        name: photo.name,
+        contentUrl: `https://www.jaspermayone.com${photo.src}`,
+        position: index + 1,
+      })),
     },
   ],
 };

@@ -39,8 +39,12 @@ const portfolioSchema = {
       about: {
         "@id": "https://www.jaspermayone.com/#person",
       },
+      mainEntity: {
+        "@id": "https://www.jaspermayone.com/portfolio#projects",
+      },
       breadcrumb: {
         "@type": "BreadcrumbList",
+        "@id": "https://www.jaspermayone.com/portfolio#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
@@ -56,6 +60,36 @@ const portfolioSchema = {
           },
         ],
       },
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.jaspermayone.com/portfolio#projects",
+      name: "Portfolio Projects",
+      description: "Software projects and creative work by Jasper Mayone",
+      numberOfItems: projects.length,
+      itemListElement: projects.map((project, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": "SoftwareSourceCode",
+          name: project.title,
+          description: project.description,
+          ...(project.link && { url: project.link }),
+          ...(project.github && {
+            codeRepository: `https://github.com/${project.github}`,
+          }),
+          ...(project.date && { dateCreated: project.date }),
+          ...(project.image && {
+            image: project.image.startsWith("http")
+              ? project.image
+              : `https://www.jaspermayone.com${project.image}`,
+          }),
+          ...(project.tags && { keywords: project.tags.join(", ") }),
+          author: {
+            "@id": "https://www.jaspermayone.com/#person",
+          },
+        },
+      })),
     },
   ],
 };

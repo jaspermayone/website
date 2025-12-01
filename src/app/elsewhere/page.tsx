@@ -31,8 +31,12 @@ const elsewherePageSchema = {
       about: {
         "@id": "https://www.jaspermayone.com/#person",
       },
+      mainEntity: {
+        "@id": "https://www.jaspermayone.com/elsewhere#appearances",
+      },
       breadcrumb: {
         "@type": "BreadcrumbList",
+        "@id": "https://www.jaspermayone.com/elsewhere#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
@@ -48,6 +52,38 @@ const elsewherePageSchema = {
           },
         ],
       },
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://www.jaspermayone.com/elsewhere#appearances",
+      name: "Appearances and Writings by Jasper Mayone",
+      description:
+        "Writings, contributions, and appearances on sites other than jaspermayone.com",
+      numberOfItems: appearances.length,
+      itemListElement: appearances.map((appearance, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        item: {
+          "@type": appearance.type === "theater" ? "TheaterEvent" : "Article",
+          name: appearance.title,
+          url: appearance.url,
+          datePublished: appearance.date,
+          publisher: {
+            "@type": "Organization",
+            name: appearance.platform,
+          },
+          ...(appearance.description && {
+            description: appearance.description,
+          }),
+          ...(appearance.role && {
+            contributor: {
+              "@type": "Person",
+              name: "Jasper Mayone",
+              "@id": "https://www.jaspermayone.com/#person",
+            },
+          }),
+        },
+      })),
     },
   ],
 };
