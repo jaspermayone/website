@@ -102,7 +102,7 @@ export default async function handler(
       cm0jsbqcv00rq0mldg90307xj: false,
     };
 
-    const resp = await loops.createContact(email, properties, mailingLists);
+    const resp = await loops.createContact({ email, properties, mailingLists });
 
     if (resp.success) {
       return res.status(200).json({ success: true });
