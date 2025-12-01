@@ -33,6 +33,9 @@ export const metadata: Metadata = {
     template: "%s | Jasper Mayone",
     default: "Jasper Mayone",
   },
+  alternates: {
+    canonical: "https://www.jaspermayone.com",
+  },
   description: `A ${age}-year-old college student from rural Vermont, currently residing in Boston, while attending Wentworth Institute of Technology as a computer science major. When not in school or at work, Jasper's hobbies include reading, being in the great outdoors, photography, computer programming, cooking, and running away to join the circus.`,
   applicationName: "Jasper Mayone",
   keywords: ["Jasper", "Mayone", "Jasper Mayone"],
@@ -403,7 +406,7 @@ export default function RootLayout({
           {" "}
           {/* vcard class added for backward compatibility */}
           {/* === NAMES & IDENTITY === */}
-          <span className="p-name fn">Jasper Mayonee</span>{" "}
+          <span className="p-name fn">Jasper Mayone</span>{" "}
           {/* Full/formatted name */}
           <span className="p-given-name">Jasper</span> {/* First name */}
           <span className="p-additional-name">Devon</span>{" "}
@@ -419,7 +422,7 @@ export default function RootLayout({
           <a className="u-email" href="mailto:me@jaspermayone.com">
             me@jaspermayone.com
           </a>
-          <a className="u-url" href="https://jaspermayone.com" rel="me">
+          <a className="u-url" href="https://www.jaspermayone.com" rel="me">
             jaspermayone.com
           </a>
           <a className="u-url" href="https://github.com/jaspermayone" rel="me">
@@ -708,7 +711,7 @@ ceGgVoDIjQD/VvED/0BjhOdmOSV8YUtoWQ1rJvzxR5DDKzIIPFbUkAA=
           </code>{" "}
           {/* SSH key */}
           {/* === UNIQUE IDENTIFIER === */}
-          <data className="u-uid uid" value="https://jaspermayone.com">
+          <data className="u-uid uid" value="https://www.jaspermayone.com">
             {/* Unique identifier, preferably canonical URL */}
           </data>
           {/* === BIOGRAPHICAL NOTE === */}
