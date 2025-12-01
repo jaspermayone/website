@@ -57,8 +57,7 @@ export default function FOOTER({ color, addBackground }: FooterProps) {
             className="text-center text-xs leading-relaxed break-words"
             style={{ fontFamily: "var(--font-balgin)", color: textColor }}
           >
-            ©{currentYear} Jasper Mayone. Made with &lt;3 in{" "}
-            <i>Boston, Massachusetts</i>.
+            ©{currentYear} Jasper Mayone. Made in <i>Boston, Massachusetts</i>.
           </p>
         </div>
       </div>
