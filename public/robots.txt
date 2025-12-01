@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://jaspermayone.com
+Host: https://www.jaspermayone.com
 
 # Sitemaps
-Sitemap: https://jaspermayone.com/sitemap.xml
+Sitemap: https://www.jaspermayone.com/sitemap.xml
