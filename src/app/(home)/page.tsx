@@ -72,9 +72,9 @@ export default function Home() {
                   Wentworth Institute of Technology
                 </Link>{" "}
                 in Boston, Massachusetts. When not in school or at work,
-                Jasper's hobbies include reading, being in the great outdoors,
-                photography, computer programming, cooking, and running away to
-                join the circus.
+                Jasper&apos;s hobbies include reading, being in the great
+                outdoors, photography, computer programming, cooking, and
+                running away to join the circus.
               </p>
               <p className="text-sm text-gray-600 dark:text-white/70">
                 An avid organizer and big picture thinker, you can often find
@@ -87,7 +87,7 @@ export default function Home() {
                 adventures, both close to home and abroad.
               </p>
               <p className="text-sm text-gray-600 dark:text-white/70">
-                Recently they've been focusing their time (outside of their
+                Recently they&apos;ve been focusing their time (outside of their
                 degree) on{" "}
                 <Link
                   className="lnk"
@@ -103,7 +103,7 @@ export default function Home() {
               </p>
 
               <p className="text-sm text-gray-600 dark:text-white/70">
-                Previously, Jasper's adventures included working at{" "}
+                Previously, Jasper&apos;s adventures included working at{" "}
                 <Link
                   className="lnk"
                   href="https://mlh.io/?utm_source=jaspermayone.com&utm_medium=referral"
@@ -114,9 +114,9 @@ export default function Home() {
                 </Link>{" "}
                 as the Summer 2025 engineering intern, a month-long trip to
                 Rwanda, where they filmed a documentary and managed production
-                for their fellow students' films. They also played a key role in
-                the Waitsfield Elementary PTA's Annual Ski & Skate sale,
-                co-coordinated large scale climate conferences called “See
+                for their fellow students&apos; films. They also played a key
+                role in the Waitsfield Elementary PTA&apos;s Annual Ski & Skate
+                sale, co-coordinated large scale climate conferences called “See
                 Change Sessions” with thousands of attendees, and enjoyed
                 concerts by AJR, Sammy Rae & the Friends, and Lake Street Dive.
               </p>

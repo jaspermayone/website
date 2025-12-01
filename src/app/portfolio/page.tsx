@@ -109,7 +109,7 @@ export default function Portfolio() {
         <main className="m-5 flex-1">
           <div className="mb-8">
             <p className="mb-3 text-gray-700 dark:text-white/70">
-              A collection of projects I've worked on, ranging from web
+              A collection of projects I&apos;ve worked on, ranging from web
               applications to creative tools and experiments.
             </p>
           </div>

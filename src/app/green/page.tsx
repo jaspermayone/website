@@ -71,9 +71,9 @@ export default function Green() {
 
             <div className="space-y-4">
               <p className="text-gray-600 dark:text-white/70">
-                I love the environment! I'm a big fan of green energy and
-                sustainability. I'm always looking for ways to reduce my carbon
-                footprint and make a positive impact on the planet.
+                I love the environment! I&apos;m a big fan of green energy and
+                sustainability. I&apos;m always looking for ways to reduce my
+                carbon footprint and make a positive impact on the planet.
               </p>
 
               {/* Carbon Rating Card */}
@@ -135,7 +135,7 @@ export default function Green() {
 
                 <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">
                   This website produces minimal carbon emissions with just{" "}
-                  <strong>0.17 grams of CO₂</strong> per page view. That's
+                  <strong>0.17 grams of CO₂</strong> per page view. That&apos;s
                   excellent for web sustainability!
                 </p>
 

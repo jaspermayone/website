@@ -114,7 +114,7 @@ export default function Elsewhere() {
               My appearances elsewhere.
             </h1>
             <p className="mb-6 text-gray-600 italic dark:text-white/70">
-              a list of output or writings on sites other than one's own
+              a list of output or writings on sites other than one&apos;s own
             </p>
 
             {sortedAppearances.length === 0 ? (

@@ -132,12 +132,12 @@ export default function Concerts() {
               className="mb-4 text-xl font-bold text-gray-800 dark:text-white"
               style={{ fontFamily: "var(--font-balgin)" }}
             >
-              Concerts I've Attended
+              Concerts I&apos;ve Attended
             </h1>
 
             <p className="mb-6 text-gray-600 dark:text-white/70">
-              A running list of live shows and concerts I've been to over the
-              years.
+              A running list of live shows and concerts I&apos;ve been to over
+              the years.
             </p>
 
             <div className="space-y-8">

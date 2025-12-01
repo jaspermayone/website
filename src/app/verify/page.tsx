@@ -444,8 +444,8 @@ const VerifyPage = () => {
             <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
               If you have questions about my identity at these{" "}
               <b>or any other addresses</b>, you can email me at any of the ones
-              you see above to verify it's me. I also sign my emails with my GPG
-              key (listed below) whenever possible.
+              you see above to verify it&apos;s me. I also sign my emails with
+              my GPG key (listed below) whenever possible.
             </p>
           </div>
         </section>

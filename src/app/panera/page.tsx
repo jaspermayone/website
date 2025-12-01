@@ -93,16 +93,16 @@ export default function Panera() {
                   fontWeight: 600,
                 }}
               >
-                Jasper's Panera Bread Order
+                Jasper&apos;s Panera Bread Order
               </div>
               <p
                 className="mx-auto max-w-2xl text-gray-600"
                 style={{ lineHeight: "1.6", fontFamily: "var(--font-balgin)" }}
               >
                 Inspired by people creating /chipotle pages with their Chipotle
-                order for when their friends get them Chipotle, here's what I
-                usually get at Panera in case anyone wants to get me Panera and
-                is wondering what to get.
+                order for when their friends get them Chipotle, here&apos;s what
+                I usually get at Panera in case anyone wants to get me Panera
+                and is wondering what to get.
               </p>
             </div>
           </div>

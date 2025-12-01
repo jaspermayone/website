@@ -50,115 +50,113 @@ export function generateOGImage(data: OGImageData) {
   const colors = getColors(type);
 
   return new ImageResponse(
-    (
+    <div
+      style={{
+        height: "100%",
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: colors.bg,
+        padding: "40px",
+        fontFamily:
+          'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+      }}
+    >
       <div
         style={{
-          height: "100%",
-          width: "100%",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: colors.bg,
-          padding: "40px",
-          fontFamily:
-            'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+          border: `2px solid ${colors.border}`,
+          borderRadius: "16px",
+          padding: "50px",
+          backgroundColor: colors.cardBg,
+          boxShadow: "0 25px 50px rgba(0, 0, 0, 0.4)",
+          width: "90%",
+          height: "80%",
+          textAlign: "center",
         }}
       >
-        <div
+        <h1
           style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            border: `2px solid ${colors.border}`,
-            borderRadius: "16px",
-            padding: "50px",
-            backgroundColor: colors.cardBg,
-            boxShadow: "0 25px 50px rgba(0, 0, 0, 0.4)",
-            width: "90%",
-            height: "80%",
+            fontSize: title.length > 20 ? "64px" : "80px",
+            fontWeight: "bold",
+            color: "#ffffff",
+            marginBottom: "16px",
             textAlign: "center",
+            borderBottom: `4px solid ${colors.accent}`,
+            paddingBottom: "12px",
+            maxWidth: "100%",
+            lineHeight: 1.1,
           }}
         >
-          <h1
-            style={{
-              fontSize: title.length > 20 ? "64px" : "80px",
-              fontWeight: "bold",
-              color: "#ffffff",
-              marginBottom: "16px",
-              textAlign: "center",
-              borderBottom: `4px solid ${colors.accent}`,
-              paddingBottom: "12px",
-              maxWidth: "100%",
-              lineHeight: 1.1,
-            }}
-          >
-            {title}
-          </h1>
+          {title}
+        </h1>
 
-          {subtitle && (
-            <div
-              style={{
-                fontSize: "36px",
-                color: "#e2e8f0",
-                textAlign: "center",
-                maxWidth: "800px",
-                lineHeight: 1.3,
-                marginBottom: description ? "16px" : "24px",
-              }}
-            >
-              {subtitle}
-            </div>
-          )}
-
-          {description && (
-            <div
-              style={{
-                fontSize: "24px",
-                color: "#94a3b8",
-                textAlign: "center",
-                maxWidth: "700px",
-                lineHeight: 1.4,
-                marginBottom: "24px",
-              }}
-            >
-              {description}
-            </div>
-          )}
-
+        {subtitle && (
           <div
             style={{
-              fontSize: "20px",
-              color: colors.accent,
-              marginTop: "auto",
+              fontSize: "36px",
+              color: "#e2e8f0",
               textAlign: "center",
-              display: "flex",
-              alignItems: "center",
-              gap: "8px",
+              maxWidth: "800px",
+              lineHeight: 1.3,
+              marginBottom: description ? "16px" : "24px",
             }}
           >
-            <div
-              style={{
-                width: "8px",
-                height: "8px",
-                borderRadius: "50%",
-                backgroundColor: colors.accent,
-              }}
-            />
-            jaspermayone.com
-            <div
-              style={{
-                width: "8px",
-                height: "8px",
-                borderRadius: "50%",
-                backgroundColor: colors.accent,
-              }}
-            />
+            {subtitle}
           </div>
+        )}
+
+        {description && (
+          <div
+            style={{
+              fontSize: "24px",
+              color: "#94a3b8",
+              textAlign: "center",
+              maxWidth: "700px",
+              lineHeight: 1.4,
+              marginBottom: "24px",
+            }}
+          >
+            {description}
+          </div>
+        )}
+
+        <div
+          style={{
+            fontSize: "20px",
+            color: colors.accent,
+            marginTop: "auto",
+            textAlign: "center",
+            display: "flex",
+            alignItems: "center",
+            gap: "8px",
+          }}
+        >
+          <div
+            style={{
+              width: "8px",
+              height: "8px",
+              borderRadius: "50%",
+              backgroundColor: colors.accent,
+            }}
+          />
+          jaspermayone.com
+          <div
+            style={{
+              width: "8px",
+              height: "8px",
+              borderRadius: "50%",
+              backgroundColor: colors.accent,
+            }}
+          />
         </div>
       </div>
-    ),
+    </div>,
     {
       width: 1200,
       height: 630,

@@ -106,7 +106,7 @@ export default function PFP() {
             </h1>
 
             <p className="mb-5 text-gray-600 dark:text-white/70">
-              Here's all the profile photos I've used over the years
+              Here&apos;s all the profile photos I&apos;ve used over the years
             </p>
 
             <div className="grid grid-cols-4 gap-4 md:grid-cols-5 lg:grid-cols-6">

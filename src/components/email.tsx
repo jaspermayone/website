@@ -68,8 +68,8 @@ export default function Email() {
       {/* h2 with custom .ul class  */}
       <h2 className={styles.lightUl}>Newsletter</h2>
       <p className="mb-4 text-sm text-gray-700 dark:text-white/70">
-        Subscribe to my newsletter to get <i>occasioal</i> updates on what I'm
-        up to.
+        Subscribe to my newsletter to get <i>occasioal</i> updates on what
+        I&apos;m up to.
       </p>
 
       {!submitted ? (

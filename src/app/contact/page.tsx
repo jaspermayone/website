@@ -124,7 +124,7 @@ export default function Contact() {
                 </Link>
               </p>
               <p className="text-gray-600 dark:text-white/70">
-                Want my phone number? Let's be friends first! I promise I
+                Want my phone number? Let&apos;s be friends first! I promise I
                 respond super quick on the other platforms 😁
               </p>
 
