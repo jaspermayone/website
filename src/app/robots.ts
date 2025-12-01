@@ -30,6 +30,6 @@ export default function robots(): MetadataRoute.Robots {
         allow: ["/", "/api/og/*", "/sitemap.xml", "/robots.txt"],
       },
     ],
-    sitemap: "https://jaspermayone.com/sitemap.xml",
+    sitemap: "https://www.jaspermayone.com/sitemap.xml",
   };
 }
