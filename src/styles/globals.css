@@ -20,6 +20,14 @@ body {
   /* font-family: "Cute Notes", sans-serif; */
   width: 100vw;
   height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Mobile-first responsive utilities */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
 }
 
 @layer utilities {

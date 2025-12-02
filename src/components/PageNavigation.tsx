@@ -145,7 +145,7 @@ export default function PageNavigation(props: PageNavigationProps) {
         addTextShadow
           ? {
               background: "#e0eb60",
-              padding: "0.75rem 2rem",
+              padding: "0.5rem 1rem",
               borderRadius: "50px",
               boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
               viewTransitionName: "main-navigation",
@@ -156,7 +156,7 @@ export default function PageNavigation(props: PageNavigationProps) {
       }
     >
       <div
-        className={`${styles.menu} flex items-center`}
+        className={`${styles.menu} flex flex-wrap items-center justify-center`}
         aria-label="main menu"
       >
         {pages

@@ -22,15 +22,16 @@ const MENU = (props: MENUProps) => {
     addBackground,
   } = props;
   return (
-    <div className="w-full pb-1">
-      <div className="w-full pt-3">
-        <div className="mb-4 flex w-full items-center justify-center text-center">
+    <div className="w-full overflow-x-hidden pb-1">
+      <div className="w-full px-2 pt-3 sm:px-4">
+        <div className="mb-3 flex w-full items-center justify-center text-center sm:mb-4">
           <div
+            className="px-4 sm:px-8"
             style={
               addBackground
                 ? {
                     background: "#e0eb60",
-                    padding: "1rem 3rem",
+                    padding: "0.75rem 1.5rem",
                     borderRadius: "50px",
                     boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
                   }
@@ -46,7 +47,7 @@ const MENU = (props: MENUProps) => {
             />
           </div>
         </div>
-        <div className="flex w-full justify-center">
+        <div className="flex w-full justify-center px-2">
           <PageNavigation color={color} addTextShadow={addBackground} />
         </div>
       </div>
@@ -54,7 +55,7 @@ const MENU = (props: MENUProps) => {
         <SquigglyLine
           frequency={50}
           amplitude={0.4}
-          className="w-full"
+          className="w-full max-w-full"
           color="#56ba8e"
         />
       )}
