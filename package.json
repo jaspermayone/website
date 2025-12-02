@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "bunx --bun next dev",
     "build": "bunx --bun next build",
-    "postbuild": "bunx next-sitemap && mv public/sitemap.xml public/sitemap_index.xml && sed -i '' 's/sitemap-0/sitemap/g' public/sitemap_index.xml && mv public/sitemap-0.xml public/sitemap.xml",
+    "postbuild": "bunx next-sitemap && mv public/sitemap.xml public/sitemap_index.xml && sed 's/sitemap-0/sitemap/g' public/sitemap_index.xml > public/sitemap_index_tmp.xml && mv public/sitemap_index_tmp.xml public/sitemap_index.xml && mv public/sitemap-0.xml public/sitemap.xml",
     "start": "bunx --bun next start",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
