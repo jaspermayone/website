@@ -83,11 +83,10 @@ const AnimatedTitle = (props: AnimatedTitleProps) => {
     <>
       <style>{keyframesStyle}</style>
       <h1
-        className="m-0 text-5xl"
+        className="m-0 text-3xl sm:text-4xl md:text-5xl"
         style={{
           margin: 0,
           marginBottom: ".25rem",
-          fontSize: "3.5em",
           fontFamily: "var(--font-cuteNotes)",
           viewTransitionName: "page-title",
         }}
