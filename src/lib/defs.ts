@@ -96,7 +96,7 @@ export const redirects: RedirectItem[] = [
   {
     slug: "twitter",
     destination: "https://x.com/jaspermayone",
-    linkrelme: true,
+    linkrelme: false, // Alias for "x" - avoid duplicate rel="me"
     slashToLink: true,
   },
   {

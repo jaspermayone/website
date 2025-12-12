@@ -370,7 +370,6 @@ export default function RootLayout({
 
         <link rel="me" href="https://jsp.lat" />
         <link rel="me" href="https://jaspermayone.cv" />
-        <link rel="me" href="https://jasper.cv" />
         <link rel="me" href="https://hogwarts.dev" />
         <link rel="me" href="https://singlefeather.com" />
         <link rel="me" href="https://singlefeather.dev" />
