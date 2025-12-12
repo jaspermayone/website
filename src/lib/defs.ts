@@ -173,6 +173,12 @@ export const redirects: RedirectItem[] = [
     slashToLink: true,
   },
   {
+    slug: "mastodon",
+    destination: "https://mastodon.social/@jaspermayone",
+    linkrelme: true,
+    slashToLink: true,
+  },
+  {
     slug: "theaterengine",
     destination: "https://theaterengine.com/artists/7449",
     slashToLink: false,
