@@ -236,6 +236,21 @@ const VerifyPage = () => {
       url: "/to/matrix",
       note: "i'm not at all active here, contact me elsewhere if you want a response (like ever)",
     },
+    {
+      platform: "Obsidian Publish",
+      username: "jaspermayone",
+      url: "https://publish.obsidian.md/hub/01+-+Community/People/jaspermayone",
+      note: "My Obsidian Publish profile showcasing my published notes and resources.",
+    },
+    {
+      platform: "Flickr",
+      url: "https://www.flickr.com/people/201477119@N04/",
+    },
+    {
+      platform: "Raycast",
+      username: "jaspermayone",
+      url: "https://www.raycast.com/jaspermayone",
+    },
   ];
 
   const _cryptoKeys = [

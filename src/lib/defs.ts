@@ -190,6 +190,19 @@ export const redirects: RedirectItem[] = [
     linkrelme: true,
     slashToLink: true,
   },
+  {
+    slug: "obsidian-publish",
+    destination:
+      "https://publish.obsidian.md/hub/01+-+Community/People/jaspermayone",
+    linkrelme: true,
+    slashToLink: false,
+  },
+  {
+    slug: "flickr",
+    destination: "https://www.flickr.com/people/201477119@N04/",
+    linkrelme: true,
+    slashToLink: false,
+  },
 ];
 
 export const emails = [
