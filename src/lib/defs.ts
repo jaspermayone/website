@@ -261,6 +261,14 @@ export const socialLinks = [
  */
 export const projects: ProjectItem[] = [
   {
+    title: "Receipt Printer Business Card",
+    description:
+      "A creative business card that prints on thermal receipt paper.",
+    github: "jaspermayone/receipt-printer-biz-card",
+    tags: ["HTML"],
+    date: "2025",
+  },
+  {
     title: "Personal Website",
     description: "My personal website showcasing my projects and skills.",
     link: "https://jaspermayone.com",
