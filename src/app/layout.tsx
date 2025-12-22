@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeUpdater } from "@/components/theme-updater";
-import { age, links } from "@/lib/defs";
+import { age, links, primaryEmail, siteUrl } from "@/lib/defs";
 import "@/styles/globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
@@ -175,18 +175,12 @@ const jsonLdData = {
             "Nonprofit providing fiscal sponsorship for hackathons and STEM projects",
         },
       ],
+      // Dynamically generated from links in defs.ts
       sameAs: [
         "https://jaspermayone.com",
-        "https://github.com/jaspermayone",
-        "https://bsky.app/profile/jaspermayone.com",
-        "https://www.linkedin.com/in/jaspermayone",
-        "https://www.instagram.com/jasper.mayone",
-        "https://www.threads.net/@jasper.mayone",
-        "https://www.youtube.com/@jasper.does.circus",
-        "https://x.com/jaspermayone",
-        "https://dev.to/jaspermayone",
-        "https://www.reddit.com/user/j-dogcoder",
-        "https://hackerone.com/jmayone",
+        ...links
+          .filter((link) => link.linkrelme)
+          .map((link) => link.destination),
       ],
     },
     {
@@ -384,6 +378,10 @@ export default function RootLayout({
           rel="authorization_endpoint"
           href="https://indiko.dunkirk.sh/auth/authorize"
         />
+        <link
+          rel="token_endpoint"
+          href="https://indiko.dunkirk.sh/auth/token"
+        />
 
         {/* Webmention - receive mentions from other sites */}
         <link
@@ -401,7 +399,11 @@ export default function RootLayout({
         <link rel="me" href="https://singlefeather.com" />
         <link rel="me" href="https://singlefeather.dev" />
 
-        <meta name="fediverse:creator" content="@jasper.mayone@threads.net" />
+        {/* Fediverse creator derived from threads link in defs.ts */}
+        <meta
+          name="fediverse:creator"
+          content={`${links.find((l) => l.slug === "threads")?.username}@threads.net`}
+        />
 
         {links
           .filter((link) => link.linkrelme)
@@ -449,22 +451,25 @@ export default function RootLayout({
           <span className="p-nickname">jaspermayone</span>{" "}
           {/* Nickname/alias/handle */}
           {/* === CONTACT INFORMATION === */}
-          <a className="u-email" href="mailto:me@jaspermayone.com">
-            me@jaspermayone.com
+          <a className="u-email" href={`mailto:${primaryEmail}`}>
+            {primaryEmail}
           </a>
-          <a className="u-url" href="https://jaspermayone.com" rel="me">
+          <a className="u-url" href={siteUrl} rel="me">
             jaspermayone.com
           </a>
-          <a className="u-url" href="https://github.com/jaspermayone" rel="me">
-            GitHub
-          </a>
-          <a
-            className="u-url"
-            href="https://linkedin.com/in/jaspermayone"
-            rel="me"
-          >
-            LinkedIn
-          </a>
+          {/* Social URLs dynamically generated from links in defs.ts */}
+          {links
+            .filter((link) => link.linkrelme)
+            .map((link) => (
+              <a
+                key={link.slug}
+                className="u-url"
+                href={link.destination}
+                rel="me"
+              >
+                {link.displayName || link.slug}
+              </a>
+            ))}
           {/* === VISUAL IDENTITY === */}
           <img
             className="u-photo"
@@ -753,27 +758,9 @@ ceGgVoDIjQD/VvED/0BjhOdmOSV8YUtoWQ1rJvzxR5DDKzIIPFbUkAA=
             aviation (glider pilot), photography, circus performance, and
             building software for communities.
           </p>
-          {/* === MULTIPLE INSTANCES EXAMPLES === */}
-          {/* You can have multiple of any property: */}
+          {/* === ADDITIONAL NICKNAMES === */}
           <span className="p-nickname">jaspermayone</span>
           <span className="p-nickname">jmayone</span>
-          <a className="u-url" href="https://twitter.com/jaspermayone">
-            Twitter
-          </a>
-          <a
-            className="u-url"
-            href="https://www.threads.net/@jasper.mayone"
-            rel="me"
-          >
-            Threads
-          </a>
-          <a
-            className="u-url"
-            href="https://mastodon.social/@jaspermayone"
-            rel="me"
-          >
-            Mastodon
-          </a>
         </div>
         <ThemeProvider
           attribute="class"

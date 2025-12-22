@@ -1,9 +1,7 @@
-import { appearances } from "@/lib/defs";
+import { appearances, primaryEmail, siteUrl } from "@/lib/defs";
 import { Feed } from "feed";
 
 export async function GET() {
-  const siteUrl = "https://jaspermayone.com";
-
   const feed = new Feed({
     title: "Jasper Mayone - Press & Appearances",
     description:
@@ -21,7 +19,7 @@ export async function GET() {
     },
     author: {
       name: "Jasper Mayone",
-      email: "me@jaspermayone.com",
+      email: primaryEmail,
       link: siteUrl,
     },
   });
@@ -50,7 +48,7 @@ export async function GET() {
       author: [
         {
           name: "Jasper Mayone",
-          email: "me@jaspermayone.com",
+          email: primaryEmail,
           link: siteUrl,
         },
       ],

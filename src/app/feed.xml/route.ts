@@ -1,9 +1,7 @@
-import { slashPages } from "@/lib/defs";
+import { primaryEmail, siteUrl, slashPages } from "@/lib/defs";
 import { Feed } from "feed";
 
 export async function GET() {
-  const siteUrl = "https://jaspermayone.com";
-
   const feed = new Feed({
     title: "Jasper Mayone",
     description: "Personal website of Jasper Mayone - slash pages and updates",
@@ -20,7 +18,7 @@ export async function GET() {
     },
     author: {
       name: "Jasper Mayone",
-      email: "me@jaspermayone.com",
+      email: primaryEmail,
       link: siteUrl,
     },
   });
@@ -35,7 +33,7 @@ export async function GET() {
       author: [
         {
           name: "Jasper Mayone",
-          email: "me@jaspermayone.com",
+          email: primaryEmail,
           link: siteUrl,
         },
       ],

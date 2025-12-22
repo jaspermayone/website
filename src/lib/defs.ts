@@ -23,6 +23,10 @@ import {
   domainType,
 } from "./types";
 
+// Site-wide constants - single source of truth
+export const siteUrl = "https://jaspermayone.com";
+export const primaryEmail = "me@jaspermayone.com";
+
 const birthDate = new Date("2006-08-05T00:00:00Z");
 // Calculate age in full years based on today's date
 const now = new Date();

@@ -1,20 +1,16 @@
 "use client";
+import { emails } from "@/lib/defs";
 import styles from "@/styles/Misc.module.css";
 import { useState, type FormEvent } from "react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 
+// Emails from defs.ts plus any additional aliases not in the main list
 const predefinedEmails = [
-  "jaspermayone@gmail.com",
+  ...emails.map((e) => e.address),
   "jasperphoenixmayone@gmail.com",
-  "me@jaspermayone.com",
   "jasper.mayone@jaspermayone.com",
-  "jasper.mayone@singlefeather.com",
-  "jasper.mayone@phish.directory",
-  "jasper.mayone@icloud.com",
-  "mayonej@wit.edu",
   "jasper.mayone.skiskate@gmail.com",
-  "jasper@patchworklabs.org",
 ];
 
 export default function Email() {
