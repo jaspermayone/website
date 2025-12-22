@@ -386,11 +386,11 @@ export default function RootLayout({
         {/* Webmention - receive mentions from other sites */}
         <link
           rel="webmention"
-          href="https://webmention.io/jaspermayone.com/webmention"
+          href="https://webmention.io/indiko.dunkirk.sh_u_jaspermayone/webmention"
         />
         <link
           rel="pingback"
-          href="https://webmention.io/jaspermayone.com/xmlrpc"
+          href="https://webmention.io/indiko.dunkirk.sh_u_jaspermayone/xmlrpc"
         />
 
         <link rel="me" href="https://jsp.lat" />
