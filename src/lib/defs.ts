@@ -9,6 +9,9 @@ import {
 import {
   Appearance,
   Domain,
+  HostedService,
+  MaintainedProject,
+  OpenSourceContribution,
   PageItem,
   Podcast,
   ProjectItem,
@@ -62,6 +65,9 @@ export const pages: PageItem[] = [
   { text: "Concerts", slug: "concerts", showInNav: false, order: 99 },
   { text: "Elsewhere", slug: "elsewhere", showInNav: false, order: 99 },
   { text: "Colophon", slug: "colophon", showInNav: false, order: 8 },
+  { text: "Open Source", slug: "open-source", showInNav: false, order: 99 },
+  { text: "Blank", slug: "blank", showInNav: false, order: 99 },
+  { text: "Links", slug: "to", showInNav: false, order: 99 },
 ];
 
 export const links: RedirectItem[] = [
@@ -453,10 +459,10 @@ export const projects: ProjectItem[] = [
     image: "/images/projects/metro.webp",
   },
   {
-    title: "Obsidian AI Note Tagger",
+    title: "Obsidian AI Tagger",
     description:
       "An Obsidian plugin that uses AI to automatically tag your notes based on their content.",
-    github: "jaspermayone/obsidian-ai-note-tagger",
+    github: "jaspermayone/obsidian-ai-tagger",
     tags: ["TypeScript", "Obsidian", "AI"],
     date: "2025",
   },
@@ -649,4 +655,62 @@ export const tools: Tool[] = [
   { emoji: "🔐", name: "Passwords", result: "Vaultwarden" },
   { emoji: "📊", name: "Presentations", result: "Figma Slides" },
   { emoji: "🍴", name: "Food Planning", result: "Mealie" },
+];
+
+// Open Source page data
+export const maintainedProjects: MaintainedProject[] = [
+  {
+    name: "Personal Website",
+    description:
+      "This website - built with Next.js, TypeScript, and Tailwind CSS",
+    repo: "jaspermayone/website",
+    featured: true,
+  },
+  {
+    name: "CV/Resume",
+    description: "LaTeX-generated CV with GitHub Actions automation",
+    repo: "jaspermayone/cv",
+  },
+  {
+    name: "Slack Profile CLI",
+    description:
+      "CLI tool for updating Slack user profiles programmatically. Published to npm and RubyGems.",
+    repo: "jaspermayone/slack-profile-cli",
+  },
+  {
+    name: "Receipt Printer Business Card",
+    description: "Creative business card that prints on thermal receipt paper",
+    repo: "jaspermayone/receipt-printer-biz-card",
+  },
+  {
+    name: "Metro Boston",
+    description: "Interactive map of Boston's transit system",
+    repo: "jaspermayone/metro",
+  },
+  {
+    name: "Obsidian AI Tagger",
+    description:
+      "Obsidian plugin that uses AI to automatically tag notes based on content",
+    repo: "jaspermayone/obsidian-ai-tagger",
+  },
+];
+
+export const contributions: OpenSourceContribution[] = [
+  {
+    project: "Hack Club Arcadius",
+    repo: "hackclub/arcadius",
+    description:
+      "Slack bot that managed onboarding for Hack Club's 2024 Arcade summer event",
+    contributionType: "code",
+  },
+];
+
+export const hostedServices: HostedService[] = [
+  {
+    name: "Metro Boston",
+    description: "Interactive map of Boston's transit system",
+    url: "https://metro.jaspermayone.com",
+    repo: "jaspermayone/metro",
+    status: "alpha",
+  },
 ];

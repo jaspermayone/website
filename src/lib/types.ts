@@ -84,3 +84,42 @@ export interface Tool {
   name: string;
   result: string;
 }
+
+// Open Source page types
+export interface MaintainedProject {
+  name: string;
+  description: string;
+  repo: string; // e.g., "jaspermayone/website"
+  language?: string; // Fallback if API fails
+  tags?: string[];
+  featured?: boolean;
+  archived?: boolean;
+}
+
+export interface OpenSourceContribution {
+  project: string; // Display name (e.g., "Next.js")
+  repo: string; // e.g., "vercel/next.js"
+  description?: string;
+  contributionType: "code" | "docs" | "issue" | "review" | "other";
+  prNumbers?: number[];
+  date?: string;
+}
+
+export interface HostedService {
+  name: string;
+  description: string;
+  url: string;
+  repo?: string;
+  status?: "active" | "beta" | "deprecated" | "alpha";
+}
+
+export interface RepoStats {
+  stars: number;
+  forks: number;
+  language: string | null;
+  topics: string[];
+  lastUpdated: string;
+  archived: boolean;
+  license: string | null;
+  error?: boolean;
+}
