@@ -349,6 +349,11 @@ export default function RootLayout({
         />
         <link
           rel="preconnect"
+          href="https://kit.fontawesome.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
           href="https://ka-f.fontawesome.com"
           crossOrigin="anonymous"
         />
