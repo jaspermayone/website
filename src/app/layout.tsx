@@ -377,6 +377,16 @@ export default function RootLayout({
         {/* IndieAuth - using IndieLogin.com which verifies via rel="me" links */}
         <link rel="authorization_endpoint" href="https://indielogin.com/auth" />
 
+        {/* Webmention - receive mentions from other sites */}
+        <link
+          rel="webmention"
+          href="https://webmention.io/jaspermayone.com/webmention"
+        />
+        <link
+          rel="pingback"
+          href="https://webmention.io/jaspermayone.com/xmlrpc"
+        />
+
         <link rel="me" href="https://jsp.lat" />
         <link rel="me" href="https://jaspermayone.cv" />
         <link rel="me" href="https://hogwarts.dev" />

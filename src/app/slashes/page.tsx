@@ -110,16 +110,28 @@ export default function Slashes() {
               </p>
             </div>
 
-            <div className="grid gap-4">
+            {/* h-feed microformat for IndieWeb compatibility */}
+            <div className="h-feed grid gap-4">
+              <data
+                className="p-name"
+                value="Jasper Mayone - Slash Pages"
+                hidden
+              />
+              <data className="p-author h-card" hidden>
+                <span className="p-name">Jasper Mayone</span>
+                <a className="u-url" href="https://jaspermayone.com">
+                  jaspermayone.com
+                </a>
+              </data>
               {slashPages.map((page) => (
                 <Link
                   key={page.slug}
                   href={`/${page.slug}`}
-                  className="group rounded-xl border border-gray-200 p-5 transition-all hover:border-gray-300 hover:bg-gray-50 dark:border-gray-700 dark:hover:border-gray-600 dark:hover:bg-gray-800/50"
+                  className="h-entry group rounded-xl border border-gray-200 p-5 transition-all hover:border-gray-300 hover:bg-gray-50 dark:border-gray-700 dark:hover:border-gray-600 dark:hover:bg-gray-800/50"
                 >
                   <div className="flex items-start justify-between">
                     <div>
-                      <h2 className="mb-1 text-lg font-semibold text-gray-900 group-hover:text-gray-700 dark:text-white dark:group-hover:text-gray-200">
+                      <h2 className="p-name mb-1 text-lg font-semibold text-gray-900 group-hover:text-gray-700 dark:text-white dark:group-hover:text-gray-200">
                         <span
                           className="text-gray-400 dark:text-gray-500"
                           style={{ fontFamily: "var(--font-balgin)" }}
@@ -128,9 +140,14 @@ export default function Slashes() {
                         </span>
                         {page.slug}
                       </h2>
-                      <p className="text-gray-600 dark:text-gray-400">
+                      <p className="p-summary text-gray-600 dark:text-gray-400">
                         {page.description}
                       </p>
+                      <data
+                        className="u-url"
+                        value={`https://jaspermayone.com/${page.slug}`}
+                        hidden
+                      />
                     </div>
                     <span className="text-gray-400 transition-transform group-hover:translate-x-1 dark:text-gray-500">
                       &rarr;
