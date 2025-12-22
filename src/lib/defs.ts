@@ -203,6 +203,18 @@ export const redirects: RedirectItem[] = [
     linkrelme: true,
     slashToLink: false,
   },
+  {
+    slug: "statsfm",
+    destination: "https://stats.fm/jaspermayone",
+    linkrelme: true,
+    slashToLink: true,
+  },
+  {
+    slug: "lastfm",
+    destination: "https://www.last.fm/user/jaspermayone",
+    linkrelme: true,
+    slashToLink: true,
+  },
 ];
 
 export const emails = [
