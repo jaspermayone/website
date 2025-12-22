@@ -16,20 +16,8 @@ export default function FOOTER({ color, addBackground }: FooterProps) {
     <footer className="flex w-full justify-center">
       {/* Constrain width and center content */}
       <div
-        className="max-w-screen-md px-4"
-        style={
-          addBackground
-            ? {
-                background: "#e0eb60",
-                padding: "1rem 2rem",
-                borderRadius: "50px",
-                boxShadow: "0 2px 8px rgba(0,0,0,0.08)",
-                viewTransitionName: "footer",
-              }
-            : {
-                viewTransitionName: "footer",
-              }
-        }
+        className={`max-w-screen-md ${addBackground ? "rounded-full bg-[#e0eb60] px-8 py-4 shadow-md" : "px-4"}`}
+        style={{ viewTransitionName: "footer" }}
       >
         {/* IndieWeb Webring */}
         <div
@@ -78,8 +66,8 @@ export default function FOOTER({ color, addBackground }: FooterProps) {
             ©{currentYear} Jasper Mayone. Made in <i>Boston, Massachusetts</i>.
           </span>
           <span
-            className="leading-none"
-            style={{ color: textColor, opacity: 0.4 }}
+            className="leading-none opacity-40"
+            style={{ color: textColor }}
           >
             |
           </span>
