@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title: "PFPs",
   description: "All the profile photos I've used over the years.",
   alternates: {
-    canonical: "https://www.jaspermayone.com/pfp",
+    canonical: "https://jaspermayone.com/pfp",
   },
 };
 
@@ -31,51 +31,51 @@ const pfpPageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.jaspermayone.com/pfp#webpage",
-      url: "https://www.jaspermayone.com/pfp",
+      "@id": "https://jaspermayone.com/pfp#webpage",
+      url: "https://jaspermayone.com/pfp",
       name: "Profile Photos - Jasper Mayone",
       description: "All the profile photos I've used over the years.",
       isPartOf: {
-        "@id": "https://www.jaspermayone.com/#website",
+        "@id": "https://jaspermayone.com/#website",
       },
       about: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       mainEntity: {
-        "@id": "https://www.jaspermayone.com/pfp#gallery",
+        "@id": "https://jaspermayone.com/pfp#gallery",
       },
       breadcrumb: {
         "@type": "BreadcrumbList",
-        "@id": "https://www.jaspermayone.com/pfp#breadcrumb",
+        "@id": "https://jaspermayone.com/pfp#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://www.jaspermayone.com",
+            item: "https://jaspermayone.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Profile Photos",
-            item: "https://www.jaspermayone.com/pfp",
+            item: "https://jaspermayone.com/pfp",
           },
         ],
       },
     },
     {
       "@type": "ImageGallery",
-      "@id": "https://www.jaspermayone.com/pfp#gallery",
+      "@id": "https://jaspermayone.com/pfp#gallery",
       name: "Jasper Mayone Profile Photos",
       description:
         "A collection of profile photos used by Jasper Mayone over the years",
       author: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       image: profilePhotos.map((photo, index) => ({
         "@type": "ImageObject",
         name: photo.name,
-        contentUrl: `https://www.jaspermayone.com${photo.src}`,
+        contentUrl: `https://jaspermayone.com${photo.src}`,
         position: index + 1,
       })),
     },

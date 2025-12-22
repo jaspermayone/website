@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "jasper mayone tools",
   ],
   alternates: {
-    canonical: "https://www.jaspermayone.com/uses",
+    canonical: "https://jaspermayone.com/uses",
   },
 };
 
@@ -25,42 +25,42 @@ const usesPageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.jaspermayone.com/uses#webpage",
-      url: "https://www.jaspermayone.com/uses",
+      "@id": "https://jaspermayone.com/uses#webpage",
+      url: "https://jaspermayone.com/uses",
       name: "Uses - Jasper Mayone",
       description:
         "Tools and software I use daily for development, productivity, and creative work - from code editors to project management apps.",
       isPartOf: {
-        "@id": "https://www.jaspermayone.com/#website",
+        "@id": "https://jaspermayone.com/#website",
       },
       about: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       mainEntity: {
-        "@id": "https://www.jaspermayone.com/uses#tools-list",
+        "@id": "https://jaspermayone.com/uses#tools-list",
       },
       breadcrumb: {
         "@type": "BreadcrumbList",
-        "@id": "https://www.jaspermayone.com/uses#breadcrumb",
+        "@id": "https://jaspermayone.com/uses#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://www.jaspermayone.com",
+            item: "https://jaspermayone.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Uses",
-            item: "https://www.jaspermayone.com/uses",
+            item: "https://jaspermayone.com/uses",
           },
         ],
       },
     },
     {
       "@type": "ItemList",
-      "@id": "https://www.jaspermayone.com/uses#tools-list",
+      "@id": "https://jaspermayone.com/uses#tools-list",
       name: "Tools and Software Used by Jasper Mayone",
       description:
         "Daily tools and software for development, productivity, and creative work",

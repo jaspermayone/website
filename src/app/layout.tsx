@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     default: "Jasper Mayone",
   },
   alternates: {
-    canonical: "https://www.jaspermayone.com",
+    canonical: "https://jaspermayone.com",
   },
   description: `A ${age}-year-old college student from rural Vermont, currently residing in Boston, while attending Wentworth Institute of Technology as a computer science major. When not in school or at work, Jasper's hobbies include reading, being in the great outdoors, photography, computer programming, cooking, and running away to join the circus.`,
   applicationName: "Jasper Mayone",
@@ -42,18 +42,18 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Jasper Mayone",
-      url: "https://www.jaspermayone.com",
+      url: "https://jaspermayone.com",
     },
   ],
   creator: "Jasper Mayone",
   publisher: "Jasper Mayone",
-  metadataBase: new URL("https://www.jaspermayone.com"),
+  metadataBase: new URL("https://jaspermayone.com"),
 
   // Enhanced Open Graph
   openGraph: {
     title: "Jasper Mayone",
     description: `A ${age}-year-old college student from rural Vermont, currently residing in Boston, while attending Wentworth Institute of Technology as a computer science major. When not in school or at work, Jasper's hobbies include reading, being in the great outdoors, photography, computer programming, cooking, and running away to join the circus.`,
-    url: "https://www.jaspermayone.com",
+    url: "https://jaspermayone.com",
     siteName: "Jasper Mayone",
     type: "website",
     locale: "en_US",
@@ -104,14 +104,14 @@ const jsonLdData = {
   "@graph": [
     {
       "@type": "Person",
-      "@id": "https://www.jaspermayone.com/#person",
+      "@id": "https://jaspermayone.com/#person",
       name: "Jasper Mayone",
       givenName: "Jasper",
       familyName: "Mayone",
       gender: "male",
       pronouns: "he/they",
       description: `A ${age}-year-old post college student from rural Vermont. Circus performer, coder, and photographer pursuing a major in Computer Science at Wentworth Institute of Technology in Boston.`,
-      url: "https://www.jaspermayone.com",
+      url: "https://jaspermayone.com",
       birthPlace: {
         "@type": "Place",
         name: "Vermont",
@@ -176,7 +176,7 @@ const jsonLdData = {
         },
       ],
       sameAs: [
-        "https://www.jaspermayone.com",
+        "https://jaspermayone.com",
         "https://github.com/jaspermayone",
         "https://bsky.app/profile/jaspermayone.com",
         "https://www.linkedin.com/in/jaspermayone",
@@ -191,42 +191,42 @@ const jsonLdData = {
     },
     {
       "@type": "WebSite",
-      "@id": "https://www.jaspermayone.com/#website",
-      url: "https://www.jaspermayone.com",
+      "@id": "https://jaspermayone.com/#website",
+      url: "https://jaspermayone.com",
       name: "Jasper Mayone - Personal Website",
       alternateName: "Jasper Mayone Portfolio",
       description: `Personal website of Jasper Mayone - a ${age}-year-old circus performer, coder, and photographer from rural Vermont`,
       about: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       author: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       creator: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       publisher: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       inLanguage: "en-US",
       copyrightHolder: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
     },
     {
       "@type": "WebPage",
-      "@id": "https://www.jaspermayone.com/#webpage",
-      url: "https://www.jaspermayone.com",
+      "@id": "https://jaspermayone.com/#webpage",
+      url: "https://jaspermayone.com",
       name: "Jasper Mayone - Circus Artist, Coder & Photographer",
       description: `Meet Jasper Mayone, a ${age}-year-old circus performer, software developer, and photographer from rural Vermont. Currently pursuing a major in Computer Science at Wentworth Institute of Technology in Boston.`,
       isPartOf: {
-        "@id": "https://www.jaspermayone.com/#website",
+        "@id": "https://jaspermayone.com/#website",
       },
       about: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       mainEntity: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       breadcrumb: {
         "@type": "BreadcrumbList",
@@ -235,7 +235,7 @@ const jsonLdData = {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://www.jaspermayone.com",
+            item: "https://jaspermayone.com",
           },
         ],
       },
@@ -428,7 +428,7 @@ export default function RootLayout({
           <a className="u-email" href="mailto:me@jaspermayone.com">
             me@jaspermayone.com
           </a>
-          <a className="u-url" href="https://www.jaspermayone.com" rel="me">
+          <a className="u-url" href="https://jaspermayone.com" rel="me">
             jaspermayone.com
           </a>
           <a className="u-url" href="https://github.com/jaspermayone" rel="me">
@@ -717,7 +717,7 @@ ceGgVoDIjQD/VvED/0BjhOdmOSV8YUtoWQ1rJvzxR5DDKzIIPFbUkAA=
           </code>{" "}
           {/* SSH key */}
           {/* === UNIQUE IDENTIFIER === */}
-          <data className="u-uid uid" value="https://www.jaspermayone.com">
+          <data className="u-uid uid" value="https://jaspermayone.com">
             {/* Unique identifier, preferably canonical URL */}
           </data>
           {/* === BIOGRAPHICAL NOTE === */}

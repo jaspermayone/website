@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: "Green",
   description: "How I try to live sustainably.",
   alternates: {
-    canonical: "https://www.jaspermayone.com/green",
+    canonical: "https://jaspermayone.com/green",
   },
 };
 
@@ -18,15 +18,15 @@ const greenPageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.jaspermayone.com/green#webpage",
-      url: "https://www.jaspermayone.com/green",
+      "@id": "https://jaspermayone.com/green#webpage",
+      url: "https://jaspermayone.com/green",
       name: "Green - Jasper Mayone",
       description: "How I try to live sustainably.",
       isPartOf: {
-        "@id": "https://www.jaspermayone.com/#website",
+        "@id": "https://jaspermayone.com/#website",
       },
       about: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       breadcrumb: {
         "@type": "BreadcrumbList",
@@ -35,13 +35,13 @@ const greenPageSchema = {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://www.jaspermayone.com",
+            item: "https://jaspermayone.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Green",
-            item: "https://www.jaspermayone.com/green",
+            item: "https://jaspermayone.com/green",
           },
         ],
       },

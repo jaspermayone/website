@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "slashpages",
   ],
   alternates: {
-    canonical: "https://www.jaspermayone.com/slashes",
+    canonical: "https://jaspermayone.com/slashes",
   },
 };
 
@@ -27,16 +27,16 @@ const slashesPageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.jaspermayone.com/slashes#webpage",
-      url: "https://www.jaspermayone.com/slashes",
+      "@id": "https://jaspermayone.com/slashes#webpage",
+      url: "https://jaspermayone.com/slashes",
       name: "Slashes - Jasper Mayone",
       description:
         "A directory of all slash pages on jaspermayone.com - top-level URLs that may be of interest.",
       isPartOf: {
-        "@id": "https://www.jaspermayone.com/#website",
+        "@id": "https://jaspermayone.com/#website",
       },
       about: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       breadcrumb: {
         "@type": "BreadcrumbList",
@@ -45,20 +45,20 @@ const slashesPageSchema = {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://www.jaspermayone.com",
+            item: "https://jaspermayone.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Slashes",
-            item: "https://www.jaspermayone.com/slashes",
+            item: "https://jaspermayone.com/slashes",
           },
         ],
       },
     },
     {
       "@type": "ItemList",
-      "@id": "https://www.jaspermayone.com/slashes#list",
+      "@id": "https://jaspermayone.com/slashes#list",
       name: "Slash Pages Directory",
       description: "Top-level URL pages on jaspermayone.com",
       numberOfItems: slashPages.length,
@@ -69,7 +69,7 @@ const slashesPageSchema = {
           "@type": "WebPage",
           name: page.name,
           description: page.description,
-          url: `https://www.jaspermayone.com/${page.slug}`,
+          url: `https://jaspermayone.com/${page.slug}`,
         },
       })),
     },

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "foss",
   ],
   alternates: {
-    canonical: "https://www.jaspermayone.com/open-source",
+    canonical: "https://jaspermayone.com/open-source",
   },
 };
 
@@ -27,19 +27,19 @@ const openSourceSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.jaspermayone.com/open-source#webpage",
-      url: "https://www.jaspermayone.com/open-source",
+      "@id": "https://jaspermayone.com/open-source#webpage",
+      url: "https://jaspermayone.com/open-source",
       name: "Open Source - Jasper Mayone",
       description:
         "Jasper Mayone's open source contributions, maintained projects, and hosted services.",
       isPartOf: {
-        "@id": "https://www.jaspermayone.com/#website",
+        "@id": "https://jaspermayone.com/#website",
       },
       about: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       mainEntity: {
-        "@id": "https://www.jaspermayone.com/open-source#projects",
+        "@id": "https://jaspermayone.com/open-source#projects",
       },
       breadcrumb: {
         "@type": "BreadcrumbList",
@@ -48,20 +48,20 @@ const openSourceSchema = {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://www.jaspermayone.com",
+            item: "https://jaspermayone.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Open Source",
-            item: "https://www.jaspermayone.com/open-source",
+            item: "https://jaspermayone.com/open-source",
           },
         ],
       },
     },
     {
       "@type": "ItemList",
-      "@id": "https://www.jaspermayone.com/open-source#projects",
+      "@id": "https://jaspermayone.com/open-source#projects",
       name: "Open Source Projects",
       numberOfItems: maintainedProjects.length,
       itemListElement: maintainedProjects.map((project, index) => ({

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Links - Jasper Mayone",
   description: "All my redirect links and social media profiles",
   alternates: {
-    canonical: "https://www.jaspermayone.com/to",
+    canonical: "https://jaspermayone.com/to",
   },
 };
 

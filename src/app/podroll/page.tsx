@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Podroll",
   description: "Podcasts I recommend.",
   alternates: {
-    canonical: "https://www.jaspermayone.com/podroll",
+    canonical: "https://jaspermayone.com/podroll",
   },
 };
 
@@ -19,41 +19,41 @@ const podrollPageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.jaspermayone.com/podroll#webpage",
-      url: "https://www.jaspermayone.com/podroll",
+      "@id": "https://jaspermayone.com/podroll#webpage",
+      url: "https://jaspermayone.com/podroll",
       name: "Podroll - Jasper Mayone",
       description: "Podcasts I recommend.",
       isPartOf: {
-        "@id": "https://www.jaspermayone.com/#website",
+        "@id": "https://jaspermayone.com/#website",
       },
       about: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       mainEntity: {
-        "@id": "https://www.jaspermayone.com/podroll#podcast-list",
+        "@id": "https://jaspermayone.com/podroll#podcast-list",
       },
       breadcrumb: {
         "@type": "BreadcrumbList",
-        "@id": "https://www.jaspermayone.com/podroll#breadcrumb",
+        "@id": "https://jaspermayone.com/podroll#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://www.jaspermayone.com",
+            item: "https://jaspermayone.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Podroll",
-            item: "https://www.jaspermayone.com/podroll",
+            item: "https://jaspermayone.com/podroll",
           },
         ],
       },
     },
     {
       "@type": "ItemList",
-      "@id": "https://www.jaspermayone.com/podroll#podcast-list",
+      "@id": "https://jaspermayone.com/podroll#podcast-list",
       name: "Recommended Podcasts",
       description: "Podcasts recommended by Jasper Mayone",
       numberOfItems: podcasts.length,

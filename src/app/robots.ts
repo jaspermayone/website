@@ -36,6 +36,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/wp-admin/"],
       },
     ],
-    sitemap: "https://www.jaspermayone.com/sitemap_index.xml",
+    sitemap: "https://jaspermayone.com/sitemap_index.xml",
   };
 }

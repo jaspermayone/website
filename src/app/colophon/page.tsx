@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "A comprehensive look at the evolution, tools, and technologies that power this website.",
   alternates: {
-    canonical: "https://www.jaspermayone.com/colophon",
+    canonical: "https://jaspermayone.com/colophon",
   },
 };
 
@@ -73,42 +73,42 @@ const colophonPageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.jaspermayone.com/colophon#webpage",
-      url: "https://www.jaspermayone.com/colophon",
+      "@id": "https://jaspermayone.com/colophon#webpage",
+      url: "https://jaspermayone.com/colophon",
       name: "Colophon - Jasper Mayone",
       description:
         "A comprehensive look at the evolution, tools, and technologies that power this website.",
       isPartOf: {
-        "@id": "https://www.jaspermayone.com/#website",
+        "@id": "https://jaspermayone.com/#website",
       },
       about: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       mainEntity: {
-        "@id": "https://www.jaspermayone.com/colophon#tech-stack",
+        "@id": "https://jaspermayone.com/colophon#tech-stack",
       },
       breadcrumb: {
         "@type": "BreadcrumbList",
-        "@id": "https://www.jaspermayone.com/colophon#breadcrumb",
+        "@id": "https://jaspermayone.com/colophon#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://www.jaspermayone.com",
+            item: "https://jaspermayone.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Colophon",
-            item: "https://www.jaspermayone.com/colophon",
+            item: "https://jaspermayone.com/colophon",
           },
         ],
       },
     },
     {
       "@type": "ItemList",
-      "@id": "https://www.jaspermayone.com/colophon#tech-stack",
+      "@id": "https://jaspermayone.com/colophon#tech-stack",
       name: "Website Technology Stack",
       description: "Technologies and frameworks powering jaspermayone.com",
       numberOfItems: techStack.length,
@@ -126,7 +126,7 @@ const colophonPageSchema = {
     },
     {
       "@type": "ItemList",
-      "@id": "https://www.jaspermayone.com/colophon#dev-tools",
+      "@id": "https://jaspermayone.com/colophon#dev-tools",
       name: "Development Tools",
       description: "Tools used for developing jaspermayone.com",
       numberOfItems: devTools.length,

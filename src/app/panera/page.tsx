@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "What I usually get at Panera, in case anyone wants to get me Panera.",
   alternates: {
-    canonical: "https://www.jaspermayone.com/panera",
+    canonical: "https://jaspermayone.com/panera",
   },
 };
 
@@ -18,16 +18,16 @@ const paneraPageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.jaspermayone.com/panera#webpage",
-      url: "https://www.jaspermayone.com/panera",
+      "@id": "https://jaspermayone.com/panera#webpage",
+      url: "https://jaspermayone.com/panera",
       name: "Panera - Jasper Mayone",
       description:
         "What I usually get at Panera, in case anyone wants to get me Panera.",
       isPartOf: {
-        "@id": "https://www.jaspermayone.com/#website",
+        "@id": "https://jaspermayone.com/#website",
       },
       about: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       breadcrumb: {
         "@type": "BreadcrumbList",
@@ -36,13 +36,13 @@ const paneraPageSchema = {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://www.jaspermayone.com",
+            item: "https://jaspermayone.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Panera",
-            item: "https://www.jaspermayone.com/panera",
+            item: "https://jaspermayone.com/panera",
           },
         ],
       },

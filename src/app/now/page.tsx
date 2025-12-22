@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "real-time updates",
   ],
   alternates: {
-    canonical: "https://www.jaspermayone.com/now",
+    canonical: "https://jaspermayone.com/now",
   },
 };
 
@@ -26,16 +26,16 @@ const nowPageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.jaspermayone.com/now#webpage",
-      url: "https://www.jaspermayone.com/now",
+      "@id": "https://jaspermayone.com/now#webpage",
+      url: "https://jaspermayone.com/now",
       name: "Now - Jasper Mayone",
       description:
         "Real-time status updates from Jasper Mayone - current activities, projects, and location updates via automated system.",
       isPartOf: {
-        "@id": "https://www.jaspermayone.com/#website",
+        "@id": "https://jaspermayone.com/#website",
       },
       about: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       breadcrumb: {
         "@type": "BreadcrumbList",
@@ -44,28 +44,28 @@ const nowPageSchema = {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://www.jaspermayone.com",
+            item: "https://jaspermayone.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Now",
-            item: "https://www.jaspermayone.com/now",
+            item: "https://jaspermayone.com/now",
           },
         ],
       },
     },
     {
       "@type": "Blog",
-      "@id": "https://www.jaspermayone.com/now#blog",
-      url: "https://www.jaspermayone.com/now",
+      "@id": "https://jaspermayone.com/now#blog",
+      url: "https://jaspermayone.com/now",
       name: "Now Updates - Jasper Mayone",
       description: "Real-time status updates and current activities",
       author: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       publisher: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       inLanguage: "en-US",
     },

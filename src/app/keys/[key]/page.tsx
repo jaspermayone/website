@@ -34,7 +34,7 @@ export async function generateMetadata({
     title: `${key.toUpperCase()} Key`,
     description: `Public ${key.toUpperCase()} key for Jasper Mayone`,
     alternates: {
-      canonical: `https://www.jaspermayone.com/keys/${key}`,
+      canonical: `https://jaspermayone.com/keys/${key}`,
     },
   };
 }
@@ -53,7 +53,7 @@ export default async function Page({
   const { title, fingerprint, key: keyData, fileExtension } = record;
   const directURL = buildDirectURL(title);
   const downloadURL = buildDownloadURL(title, fileExtension);
-  const fullDirectURL = `https://www.jaspermayone.com${directURL}`;
+  const fullDirectURL = `https://jaspermayone.com${directURL}`;
 
   const sshImportCommand = `curl -s ${fullDirectURL} >> ~/.ssh/authorized_keys`;
   const gpgImportCommand = `curl -s ${fullDirectURL} | gpg --import`;
@@ -63,15 +63,15 @@ export default async function Page({
     "@graph": [
       {
         "@type": "WebPage",
-        "@id": `https://www.jaspermayone.com/keys/${title}#webpage`,
-        url: `https://www.jaspermayone.com/keys/${title}`,
+        "@id": `https://jaspermayone.com/keys/${title}#webpage`,
+        url: `https://jaspermayone.com/keys/${title}`,
         name: `${title.toUpperCase()} Key - Jasper Mayone`,
         description: `Public ${title.toUpperCase()} key for Jasper Mayone`,
         isPartOf: {
-          "@id": "https://www.jaspermayone.com/#website",
+          "@id": "https://jaspermayone.com/#website",
         },
         about: {
-          "@id": "https://www.jaspermayone.com/#person",
+          "@id": "https://jaspermayone.com/#person",
         },
         breadcrumb: {
           "@type": "BreadcrumbList",
@@ -80,19 +80,19 @@ export default async function Page({
               "@type": "ListItem",
               position: 1,
               name: "Home",
-              item: "https://www.jaspermayone.com",
+              item: "https://jaspermayone.com",
             },
             {
               "@type": "ListItem",
               position: 2,
               name: "Keys",
-              item: "https://www.jaspermayone.com/keys",
+              item: "https://jaspermayone.com/keys",
             },
             {
               "@type": "ListItem",
               position: 3,
               name: title.toUpperCase(),
-              item: `https://www.jaspermayone.com/keys/${title}`,
+              item: `https://jaspermayone.com/keys/${title}`,
             },
           ],
         },

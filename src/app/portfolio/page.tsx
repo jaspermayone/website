@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "coding portfolio",
   ],
   alternates: {
-    canonical: "https://www.jaspermayone.com/portfolio",
+    canonical: "https://jaspermayone.com/portfolio",
   },
 };
 
@@ -28,42 +28,42 @@ const portfolioSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.jaspermayone.com/portfolio#webpage",
-      url: "https://www.jaspermayone.com/portfolio",
+      "@id": "https://jaspermayone.com/portfolio#webpage",
+      url: "https://jaspermayone.com/portfolio",
       name: "Portfolio - Jasper Mayone",
       description:
         "A collection of projects and work by Jasper Mayone - web applications, tools, and creative endeavors.",
       isPartOf: {
-        "@id": "https://www.jaspermayone.com/#website",
+        "@id": "https://jaspermayone.com/#website",
       },
       about: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       mainEntity: {
-        "@id": "https://www.jaspermayone.com/portfolio#projects",
+        "@id": "https://jaspermayone.com/portfolio#projects",
       },
       breadcrumb: {
         "@type": "BreadcrumbList",
-        "@id": "https://www.jaspermayone.com/portfolio#breadcrumb",
+        "@id": "https://jaspermayone.com/portfolio#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://www.jaspermayone.com",
+            item: "https://jaspermayone.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Portfolio",
-            item: "https://www.jaspermayone.com/portfolio",
+            item: "https://jaspermayone.com/portfolio",
           },
         ],
       },
     },
     {
       "@type": "ItemList",
-      "@id": "https://www.jaspermayone.com/portfolio#projects",
+      "@id": "https://jaspermayone.com/portfolio#projects",
       name: "Portfolio Projects",
       description: "Software projects and creative work by Jasper Mayone",
       numberOfItems: projects.length,
@@ -82,11 +82,11 @@ const portfolioSchema = {
           ...(project.image && {
             image: project.image.startsWith("http")
               ? project.image
-              : `https://www.jaspermayone.com${project.image}`,
+              : `https://jaspermayone.com${project.image}`,
           }),
           ...(project.tags && { keywords: project.tags.join(", ") }),
           author: {
-            "@id": "https://www.jaspermayone.com/#person",
+            "@id": "https://jaspermayone.com/#person",
           },
         },
       })),

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description:
     "A chronological list of concerts and live performances attended by Jasper Mayone.",
   alternates: {
-    canonical: "https://www.jaspermayone.com/concerts",
+    canonical: "https://jaspermayone.com/concerts",
   },
 };
 
@@ -27,42 +27,42 @@ const concertsPageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.jaspermayone.com/concerts#webpage",
-      url: "https://www.jaspermayone.com/concerts",
+      "@id": "https://jaspermayone.com/concerts#webpage",
+      url: "https://jaspermayone.com/concerts",
       name: "Concerts - Jasper Mayone",
       description:
         "A chronological list of concerts and live performances attended by Jasper Mayone.",
       isPartOf: {
-        "@id": "https://www.jaspermayone.com/#website",
+        "@id": "https://jaspermayone.com/#website",
       },
       about: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       mainEntity: {
-        "@id": "https://www.jaspermayone.com/concerts#concert-list",
+        "@id": "https://jaspermayone.com/concerts#concert-list",
       },
       breadcrumb: {
         "@type": "BreadcrumbList",
-        "@id": "https://www.jaspermayone.com/concerts#breadcrumb",
+        "@id": "https://jaspermayone.com/concerts#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://www.jaspermayone.com",
+            item: "https://jaspermayone.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Concerts",
-            item: "https://www.jaspermayone.com/concerts",
+            item: "https://jaspermayone.com/concerts",
           },
         ],
       },
     },
     {
       "@type": "ItemList",
-      "@id": "https://www.jaspermayone.com/concerts#concert-list",
+      "@id": "https://jaspermayone.com/concerts#concert-list",
       name: "Concerts Attended by Jasper Mayone",
       description:
         "A chronological list of live music performances attended by Jasper Mayone",

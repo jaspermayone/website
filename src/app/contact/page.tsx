@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "professional inquiries",
   ],
   alternates: {
-    canonical: "https://www.jaspermayone.com/contact",
+    canonical: "https://jaspermayone.com/contact",
   },
 };
 
@@ -27,16 +27,16 @@ const contactPageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.jaspermayone.com/contact#webpage",
-      url: "https://www.jaspermayone.com/contact",
+      "@id": "https://jaspermayone.com/contact#webpage",
+      url: "https://jaspermayone.com/contact",
       name: "Contact - Jasper Mayone",
       description:
         "Contact Jasper Mayone - Email, Signal, and verified communication channels for professional inquiries and collaboration.",
       isPartOf: {
-        "@id": "https://www.jaspermayone.com/#website",
+        "@id": "https://jaspermayone.com/#website",
       },
       about: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       breadcrumb: {
         "@type": "BreadcrumbList",
@@ -45,13 +45,13 @@ const contactPageSchema = {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://www.jaspermayone.com",
+            item: "https://jaspermayone.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Contact",
-            item: "https://www.jaspermayone.com/contact",
+            item: "https://jaspermayone.com/contact",
           },
         ],
       },

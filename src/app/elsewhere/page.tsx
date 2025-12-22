@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "A list of Jasper Mayone's writings, contributions, and appearances on sites other than this one.",
   alternates: {
-    canonical: "https://www.jaspermayone.com/elsewhere",
+    canonical: "https://jaspermayone.com/elsewhere",
   },
 };
 
@@ -20,42 +20,42 @@ const elsewherePageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.jaspermayone.com/elsewhere#webpage",
-      url: "https://www.jaspermayone.com/elsewhere",
+      "@id": "https://jaspermayone.com/elsewhere#webpage",
+      url: "https://jaspermayone.com/elsewhere",
       name: "Elsewhere - Jasper Mayone",
       description:
         "A list of Jasper Mayone's writings, contributions, and appearances on sites other than this one.",
       isPartOf: {
-        "@id": "https://www.jaspermayone.com/#website",
+        "@id": "https://jaspermayone.com/#website",
       },
       about: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       mainEntity: {
-        "@id": "https://www.jaspermayone.com/elsewhere#appearances",
+        "@id": "https://jaspermayone.com/elsewhere#appearances",
       },
       breadcrumb: {
         "@type": "BreadcrumbList",
-        "@id": "https://www.jaspermayone.com/elsewhere#breadcrumb",
+        "@id": "https://jaspermayone.com/elsewhere#breadcrumb",
         itemListElement: [
           {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://www.jaspermayone.com",
+            item: "https://jaspermayone.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Elsewhere",
-            item: "https://www.jaspermayone.com/elsewhere",
+            item: "https://jaspermayone.com/elsewhere",
           },
         ],
       },
     },
     {
       "@type": "ItemList",
-      "@id": "https://www.jaspermayone.com/elsewhere#appearances",
+      "@id": "https://jaspermayone.com/elsewhere#appearances",
       name: "Appearances and Writings by Jasper Mayone",
       description:
         "Writings, contributions, and appearances on sites other than jaspermayone.com",
@@ -79,7 +79,7 @@ const elsewherePageSchema = {
             contributor: {
               "@type": "Person",
               name: "Jasper Mayone",
-              "@id": "https://www.jaspermayone.com/#person",
+              "@id": "https://jaspermayone.com/#person",
             },
           }),
         },

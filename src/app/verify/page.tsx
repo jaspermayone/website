@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     "security",
   ],
   alternates: {
-    canonical: "https://www.jaspermayone.com/verify",
+    canonical: "https://jaspermayone.com/verify",
   },
 };
 
@@ -78,16 +78,16 @@ const verifyPageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.jaspermayone.com/verify#webpage",
-      url: "https://www.jaspermayone.com/verify",
+      "@id": "https://jaspermayone.com/verify#webpage",
+      url: "https://jaspermayone.com/verify",
       name: "Verify - Jasper Mayone",
       description:
         "Verify Jasper Mayone's identity across domains, email addresses, social accounts, and cryptographic keys for secure communication.",
       isPartOf: {
-        "@id": "https://www.jaspermayone.com/#website",
+        "@id": "https://jaspermayone.com/#website",
       },
       about: {
-        "@id": "https://www.jaspermayone.com/#person",
+        "@id": "https://jaspermayone.com/#person",
       },
       breadcrumb: {
         "@type": "BreadcrumbList",
@@ -96,13 +96,13 @@ const verifyPageSchema = {
             "@type": "ListItem",
             position: 1,
             name: "Home",
-            item: "https://www.jaspermayone.com",
+            item: "https://jaspermayone.com",
           },
           {
             "@type": "ListItem",
             position: 2,
             name: "Verify",
-            item: "https://www.jaspermayone.com/verify",
+            item: "https://jaspermayone.com/verify",
           },
         ],
       },
