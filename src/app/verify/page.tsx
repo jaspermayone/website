@@ -476,6 +476,7 @@ const VerifyPage = () => {
                 key={account.platform}
                 href={`${account.url}?utm_source=jaspermayone.com&utm_medium=referral`}
                 rel="me"
+                prefetch={false}
                 className="group block rounded-lg border border-gray-200 bg-white p-4 transition-all duration-300 hover:border-blue-300 hover:bg-blue-50 hover:shadow-sm dark:border-gray-700 dark:bg-slate-800 dark:hover:border-blue-500 dark:hover:bg-slate-700"
                 style={{
                   height: account.note ? "auto" : "5rem",

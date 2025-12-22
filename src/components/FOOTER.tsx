@@ -40,6 +40,7 @@ export default function FOOTER({ color, addBackground }: FooterProps) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
+              prefetch={false}
               className="inline-flex items-center justify-center transition-colors duration-200 hover:!text-[#56ba8e]"
               style={{ color: textColor }}
             >
