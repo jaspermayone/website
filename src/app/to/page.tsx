@@ -39,7 +39,7 @@ export default function ToIndex() {
                   </p>
                 </div>
                 <Link
-                  href={`/to/${redirect.slug}?utm_source=jaspermayone.com&utm_medium=referral`}
+                  href={`/to/${redirect.slug}`}
                   prefetch={false}
                   className="text-primary text-sm hover:underline"
                 >

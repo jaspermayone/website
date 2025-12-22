@@ -1,6 +1,7 @@
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import { Metadata } from "next";
+import ExternalLink from "@/components/ExternalLink";
 import { Link } from "next-view-transitions";
 import Script from "next/script";
 
@@ -139,14 +140,12 @@ export default function Green() {
                   excellent for web sustainability!
                 </p>
 
-                <Link
-                  href="https://www.websitecarbon.com/website/jaspermayone-com/?utm_source=jaspermayone.com&utm_medium=referral"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <ExternalLink
+                  href="https://www.websitecarbon.com/website/jaspermayone-com/"
                   className="lnk text-sm"
                 >
                   View full report on Website Carbon →
-                </Link>
+                </ExternalLink>
               </div>
 
               <p className="text-gray-600 dark:text-white/70">

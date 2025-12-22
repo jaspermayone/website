@@ -3,7 +3,7 @@ import MENU from "@/components/MENU";
 import { appearances } from "@/lib/defs";
 import { ArrowUpRight } from "lucide-react";
 import { Metadata } from "next";
-import Link from "next/link";
+import ExternalLink from "@/components/ExternalLink";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -126,12 +126,9 @@ export default function Elsewhere() {
             ) : (
               <div className="space-y-4">
                 {sortedAppearances.map((appearance, index) => (
-                  <Link
+                  <ExternalLink
                     key={index}
-                    href={`${appearance.url}?utm_source=jaspermayone.com&utm_medium=referral`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    prefetch={false}
+                    href={appearance.url}
                     className="group block rounded-lg border border-gray-200 p-4 transition-colors hover:border-gray-300 hover:bg-gray-50 dark:border-gray-700 dark:hover:border-gray-600 dark:hover:bg-gray-800/30"
                   >
                     <div className="flex items-start justify-between gap-4">
@@ -190,7 +187,7 @@ export default function Elsewhere() {
                         )}
                       </div>
                     </div>
-                  </Link>
+                  </ExternalLink>
                 ))}
               </div>
             )}

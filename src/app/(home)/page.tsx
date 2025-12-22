@@ -1,12 +1,12 @@
 "use client";
 import ConfettiWrapper from "@/components/ConfettiWrapper";
+import ExternalLink from "@/components/ExternalLink";
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import RoundedImage from "@/components/RoundedImage";
 import { age } from "@/lib/defs";
 import JmDark from "@public/images/jmdark-min.webp";
 import JmLight from "@public/images/jmlite-min.webp";
-import Link from "next/link";
 import { useSyncExternalStore } from "react";
 
 // Subscribe function for useSyncExternalStore
@@ -63,15 +63,9 @@ export default function Home() {
               </p>
               <p className="text-sm text-gray-600 dark:text-white/70">
                 A computer science major at{" "}
-                <Link
-                  className="lnk"
-                  href="https://wit.edu?utm_source=jaspermayone.com&utm_medium=referral"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  prefetch={false}
-                >
+                <ExternalLink className="lnk" href="https://wit.edu">
                   Wentworth Institute of Technology
-                </Link>{" "}
+                </ExternalLink>{" "}
                 in Boston, Massachusetts. When not in school or at work,
                 Jasper&apos;s hobbies include reading, being in the great
                 outdoors, photography, computer programming, cooking, and
@@ -90,31 +84,37 @@ export default function Home() {
               <p className="text-sm text-gray-600 dark:text-white/70">
                 Recently they&apos;ve been focusing their time (outside of their
                 degree) on{" "}
-                <Link
+                <ExternalLink
                   className="lnk"
-                  href="https://patchworklabs.org?utm_source=jaspermayone.com&utm_medium=referral"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  prefetch={false}
+                  href="https://patchworklabs.org"
                   aria-label="patchworklabs.org"
                 >
                   Patchwork Labs
-                </Link>
+                </ExternalLink>
                 , a nonprofit they started with the mission to bring back
                 creativity and support the next generation of makers.
               </p>
 
               <p className="text-sm text-gray-600 dark:text-white/70">
-                Previously, Jasper&apos;s adventures included working at{" "}
-                <Link
+                Jasper is also passionate about making the internet a safer
+                place! They contrinbute to several open source projects focused
+                on web security and privacy, including{" "}
+                <ExternalLink
                   className="lnk"
-                  href="https://mlh.io/?utm_source=jaspermayone.com&utm_medium=referral"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  prefetch={false}
+                  href="phish.directory"
+                  aria-label="phish.directory"
                 >
+                  phish.directory
+                </ExternalLink>
+                , a free and open source phishing directory, for which Jasper
+                serves as the lead maintainer.
+              </p>
+
+              <p className="text-sm text-gray-600 dark:text-white/70">
+                Previously, Jasper&apos;s adventures included working at{" "}
+                <ExternalLink className="lnk" href="https://mlh.io">
                   MLH
-                </Link>{" "}
+                </ExternalLink>{" "}
                 as the Summer 2025 engineering intern, a month-long trip to
                 Rwanda, where they filmed a documentary and managed production
                 for their fellow students&apos; films. They also played a key

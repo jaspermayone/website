@@ -1,3 +1,4 @@
+import ExternalLink from "@/components/ExternalLink";
 import { AtSign } from "lucide-react";
 import { Link } from "next-view-transitions";
 import {
@@ -323,14 +324,9 @@ const VerifyPage = () => {
         <header className="mb-8">
           <p className="mb-2 text-[0.60rem] text-neutral-500 dark:text-neutral-400">
             Inspired by{" "}
-            <Link
-              className="lnk"
-              href="https://dunkirk.sh/verify/?utm_source=jaspermayone.com&utm_medium=referral"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <ExternalLink className="lnk" href="https://dunkirk.sh/verify/">
               @Kieran Klukas
-            </Link>
+            </ExternalLink>
             , this page serves as verification of my various accounts.
           </p>
           <p>
@@ -343,14 +339,12 @@ const VerifyPage = () => {
 
           <p className="mt-2 text-neutral-700 dark:text-neutral-300">
             My entire identity can also be verified at{" "}
-            <Link
-              href="https://keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA?utm_source=jaspermayone.com&utm_medium=referral"
+            <ExternalLink
+              href="https://keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA"
               className="lnk"
-              rel="noopener noreferrer"
-              target="_blank"
             >
               keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA
-            </Link>
+            </ExternalLink>
           </p>
 
           <p className="mt-4 text-sm text-neutral-700 dark:text-neutral-300">
@@ -367,14 +361,12 @@ const VerifyPage = () => {
 
           <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400">
             This page is tracked in version control. You can{" "}
-            <Link
-              href="https://github.com/jaspermayone/website/blob/main/src/app/verify/page.tsx?utm_source=jaspermayone.com&utm_medium=referral"
+            <ExternalLink
+              href="https://github.com/jaspermayone/website/blob/main/src/app/verify/page.tsx"
               className="lnk"
-              rel="noopener noreferrer"
-              target="_blank"
             >
               view the source code on GitHub
-            </Link>
+            </ExternalLink>
             . If you find any errors or have any questions, please let me know
             via email or any of the platforms listed below.
           </p>
@@ -474,7 +466,7 @@ const VerifyPage = () => {
             {accounts.map((account) => (
               <Link
                 key={account.platform}
-                href={`${account.url}?utm_source=jaspermayone.com&utm_medium=referral`}
+                href={account.url}
                 rel="me"
                 prefetch={false}
                 className="group block rounded-lg border border-gray-200 bg-white p-4 transition-all duration-300 hover:border-blue-300 hover:bg-blue-50 hover:shadow-sm dark:border-gray-700 dark:bg-slate-800 dark:hover:border-blue-500 dark:hover:bg-slate-700"

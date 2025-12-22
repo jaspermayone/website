@@ -2,7 +2,7 @@ import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import PostList from "@/components/PostList";
 import { Metadata } from "next";
-import Link from "next/link";
+import ExternalLink from "@/components/ExternalLink";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -89,38 +89,26 @@ export default function Now() {
             <p className="mb-3 text-gray-700">
               This is a semi-realtime status update system for posting updates
               to{" "}
-              <Link
-                href="https://bsky.app/profile/rightnow.jaspermayone.com?utm_source=jaspermayone.com&utm_medium=referral"
-                target="_blank"
-                rel="noopener noreferrer"
-                prefetch={false}
+              <ExternalLink
+                href="https://bsky.app/profile/rightnow.jaspermayone.com"
                 className="lnk"
               >
                 @rightnow.jaspermayone.com
-              </Link>{" "}
+              </ExternalLink>{" "}
               on Bluesky. Think of it as a{" "}
-              <Link
-                href="https://nownownow.com/about?utm_source=jaspermayone.com&utm_medium=referral"
-                target="_blank"
-                rel="noopener noreferrer"
-                prefetch={false}
-                className="lnk"
-              >
+              <ExternalLink href="https://nownownow.com/about" className="lnk">
                 /now page
-              </Link>{" "}
+              </ExternalLink>{" "}
               that updates automatically.
             </p>
             <p className="text-sm text-gray-600">
               The original was called a.status.update and created by{" "}
-              <Link
-                href="https://dame.is/creating/shortcuts/a-status-update/?utm_source=jaspermayone.com&utm_medium=referral"
-                target="_blank"
-                rel="noopener noreferrer"
-                prefetch={false}
+              <ExternalLink
+                href="https://dame.is/creating/shortcuts/a-status-update/"
                 className="lnk"
               >
                 @dame.is
-              </Link>
+              </ExternalLink>
               . I have since modified/adapted it to auto-update for things like
               sleeping, driving, and school based on indicators from various
               devices.

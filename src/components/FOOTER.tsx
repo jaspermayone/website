@@ -36,7 +36,7 @@ export default function FOOTER({ color, addBackground }: FooterProps) {
           {socialLinks.map(({ href, label, Icon }) => (
             <Link
               key={label}
-              href={`${href}?utm_source=jaspermayone.com&utm_medium=referral`}
+              href={href}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}

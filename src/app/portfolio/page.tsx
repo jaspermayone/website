@@ -4,7 +4,7 @@ import { projects } from "@/lib/defs";
 import { GithubLogoIcon, PaperclipIcon } from "@phosphor-icons/react/dist/ssr";
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import ExternalLink from "@/components/ExternalLink";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -145,28 +145,22 @@ export default function Portfolio() {
                     </h2>
                     <div className="flex gap-2">
                       {project.link && (
-                        <Link
-                          href={`${project.link}?utm_source=jaspermayone.com&utm_medium=referral&utm_campaign=portfolio`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          prefetch={false}
+                        <ExternalLink
+                          href={project.link}
                           className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                           aria-label="Visit project"
                         >
                           <PaperclipIcon className="h-5 w-5" />
-                        </Link>
+                        </ExternalLink>
                       )}
                       {project.github && (
-                        <Link
-                          href={`https://github.com/${project.github}?utm_source=jaspermayone.com&utm_medium=referral&utm_campaign=portfolio`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          prefetch={false}
+                        <ExternalLink
+                          href={`https://github.com/${project.github}`}
                           className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                           aria-label="View on GitHub"
                         >
                           <GithubLogoIcon className="h-5 w-5" />
-                        </Link>
+                        </ExternalLink>
                       )}
                     </div>
                   </div>

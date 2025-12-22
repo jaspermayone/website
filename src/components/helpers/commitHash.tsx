@@ -1,5 +1,6 @@
 "use client";
 
+import ExternalLink from "@/components/ExternalLink";
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import { formatDistanceToNow } from "date-fns";
 
@@ -22,16 +23,16 @@ export default function CommitHash({ color }: CommitHashProps) {
         <TooltipPrimitive.Provider>
           <TooltipPrimitive.Root>
             <TooltipPrimitive.Trigger asChild>
-              <a
+              <ExternalLink
                 className="hover:text-blur underline decoration-wavy transition-colors duration-300"
                 style={{
                   color: linkColor,
                   textDecorationColor: linkColor,
                 }}
-                href={`https://github.com/jaspermayone/website/tree/${process.env.COMMIT_HASH}?utm_source=jaspermayone.com&utm_medium=referral`}
+                href={`https://github.com/jaspermayone/website/tree/${process.env.COMMIT_HASH}`}
               >
                 {process.env.COMMIT_HASH}
-              </a>
+              </ExternalLink>
             </TooltipPrimitive.Trigger>
             <TooltipPrimitive.Portal>
               <TooltipPrimitive.Content

@@ -1,6 +1,7 @@
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import { Metadata } from "next";
+import ExternalLink from "@/components/ExternalLink";
 import { Link } from "next-view-transitions";
 import Script from "next/script";
 
@@ -114,15 +115,12 @@ export default function Contact() {
               </p>
               <p className="text-gray-600 dark:text-white/70">
                 I can also be reached on Signal at{" "}
-                <Link
+                <ExternalLink
                   className="lnk"
                   href="https://signal.me/#eu/jaspermayone.10"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  prefetch={false}
                 >
                   @jaspermayone.10
-                </Link>
+                </ExternalLink>
               </p>
               <p className="text-gray-600 dark:text-white/70">
                 Want my phone number? Let&apos;s be friends first! I promise I

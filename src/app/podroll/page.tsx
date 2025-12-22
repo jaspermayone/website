@@ -3,7 +3,7 @@ import MENU from "@/components/MENU";
 import { podcasts } from "@/lib/defs";
 import { HeadphonesIcon } from "lucide-react";
 import { Metadata } from "next";
-import Link from "next/link";
+import ExternalLink from "@/components/ExternalLink";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -94,12 +94,9 @@ export default function Podroll() {
 
             <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
               {podcasts.map((podcast, index) => (
-                <Link
+                <ExternalLink
                   key={index}
-                  href={`${podcast.url}?utm_source=jaspermayone.com&utm_medium=referral`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  prefetch={false}
+                  href={podcast.url}
                   className="flex rounded-lg bg-white/50 p-3 transition-colors hover:bg-blue-50 dark:bg-gray-800/20 dark:hover:bg-blue-900/20"
                 >
                   <div className="mr-3 shrink-0 text-blue-500">
@@ -113,7 +110,7 @@ export default function Podroll() {
                       {podcast.description}
                     </p>
                   </div>
-                </Link>
+                </ExternalLink>
               ))}
             </div>
           </div>

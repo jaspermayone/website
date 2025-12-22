@@ -1,7 +1,7 @@
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import { Metadata } from "next";
-import Link from "next/link";
+import ExternalLink from "@/components/ExternalLink";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -180,15 +180,9 @@ export default function Colophon() {
               <div className="rounded-2xl border border-gray-200 p-8 dark:border-gray-700">
                 <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
                   The original site was developed by{" "}
-                  <Link
-                    href="https://aram.sh?utm_source=jaspermayone.com&utm_medium=referral"
-                    className="lnk"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    prefetch={false}
-                  >
+                  <ExternalLink href="https://aram.sh" className="lnk">
                     Aram Shiva
-                  </Link>
+                  </ExternalLink>
                   .
                 </p>
               </div>
@@ -241,15 +235,9 @@ export default function Colophon() {
                 </h3>
                 <p className="mb-4 leading-relaxed text-gray-600 dark:text-gray-300">
                   The site is hosted on{" "}
-                  <Link
-                    href="https://vercel.com?utm_source=jaspermayone.com&utm_medium=referral"
-                    className="lnk"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    prefetch={false}
-                  >
+                  <ExternalLink href="https://vercel.com" className="lnk">
                     Vercel
-                  </Link>
+                  </ExternalLink>
                   , which provides seamless deployment from GitHub, automatic
                   HTTPS, and global CDN distribution.
                 </p>
