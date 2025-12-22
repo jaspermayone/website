@@ -1,6 +1,6 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeUpdater } from "@/components/theme-updater";
-import { age, redirects } from "@/lib/defs";
+import { age, links } from "@/lib/defs";
 import "@/styles/globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
@@ -376,10 +376,10 @@ export default function RootLayout({
 
         {/* <meta name="fediverse:creator" content="@taciturnaxoltol@social.dino.icu" /> */}
 
-        {redirects
-          .filter((redirect) => redirect.linkrelme)
-          .map((redirect) => (
-            <link rel="me" href={redirect.destination} key={redirect.slug} />
+        {links
+          .filter((link) => link.linkrelme)
+          .map((link) => (
+            <link rel="me" href={link.destination} key={link.slug} />
           ))}
 
         <script

@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const pkg = require("./package.json");
 const childProcess = require("child_process");
-import { redirects as rees } from "./src/lib/defs";
+import { links as rees } from "./src/lib/defs";
 
 // Get git information
 const getGitInfo = () => {

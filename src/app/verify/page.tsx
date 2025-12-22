@@ -5,12 +5,18 @@ import {
   SiBluesky,
   SiBuymeacoffee,
   SiDevdotto,
+  SiFigma,
+  SiFlickr,
   SiGithub,
   SiHackerone,
   SiInstagram,
+  SiLastdotfm,
   SiLinkedin,
+  SiMastodon,
   SiMatrix,
+  SiObsidian,
   SiProducthunt,
+  SiRaycast,
   SiReddit,
   SiSignal,
   SiThingiverse,
@@ -24,7 +30,7 @@ import { EmailCard } from "@/components/EmailCard";
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import WavyDivider from "@/components/WavyDivider";
-import { emails } from "@/lib/defs";
+import { emails, links } from "@/lib/defs";
 import { Metadata } from "next";
 import Script from "next/script";
 
@@ -155,104 +161,8 @@ const VerifyPage = () => {
     },
   ];
 
-  const accounts = [
-    {
-      platform: "Github",
-      username: "jaspermayone",
-      url: "/to/github",
-    },
-    {
-      platform: "Bluesky",
-      username: "@jaspermayone.com",
-      url: "/to/bluesky",
-    },
-    {
-      platform: "Linkedin",
-      username: "jaspermayone",
-      url: "/to/linkedin",
-    },
-    {
-      platform: "Instagram",
-      username: "jasper.mayone",
-      url: "/to/instagram",
-    },
-    {
-      platform: "Threads",
-      username: "@jasper.mayone",
-      url: "/to/threads",
-    },
-    {
-      platform: "Youtube",
-      username: "@jasper.does.circus",
-      url: "/to/youtube",
-    },
-    {
-      platform: "Signal",
-      username: "jaspermayone.10",
-      url: "/to/signal",
-    },
-    {
-      platform: "Buy Me a Coffee",
-      username: "jaspermayone",
-      url: "/to/buy-me-a-coffee",
-    },
-    {
-      platform: "Reddit",
-      username: "j-dogcoder",
-      url: "/to/reddit",
-    },
-    {
-      platform: "HackerOne",
-      username: "jmayone",
-      url: "/to/hackerone",
-    },
-    {
-      platform: "Twitter/X",
-      username: "jaspermayone",
-      url: "/to/x",
-    },
-    {
-      platform: "Dev.to",
-      username: "jaspermayone",
-      url: "/to/devto",
-    },
-    {
-      platform: "Product Hunt",
-      username: "jaspermayone",
-      url: "/to/producthunt",
-    },
-    {
-      platform: "Hacker News",
-      username: "jaspermayone",
-      url: "/to/hackernews",
-    },
-    {
-      platform: "Thingiverse", // Added Thingiverse as an example
-      username: "preamble6098", // Assuming this is the username on Thingiverse
-      url: "/to/thingiverse", // Assuming a custom URL for Thingiverse
-    },
-    {
-      platform: "Matrix",
-      username: "@jasper.mayone:matrix.org",
-      url: "/to/matrix",
-      note: "i'm not at all active here, contact me elsewhere if you want a response (like ever)",
-    },
-    {
-      platform: "Obsidian Publish",
-      username: "jaspermayone",
-      url: "https://publish.obsidian.md/hub/01+-+Community/People/jaspermayone",
-      note: "My Obsidian Publish profile showcasing my published notes and resources.",
-    },
-    {
-      platform: "Flickr",
-      url: "https://www.flickr.com/people/201477119@N04/",
-    },
-    {
-      platform: "Raycast",
-      username: "jaspermayone",
-      url: "https://www.raycast.com/jaspermayone",
-    },
-  ];
+  // Filter links to only show social accounts on verify page
+  const socialAccounts = links.filter((link) => link.social);
 
   const _cryptoKeys = [
     {
@@ -270,7 +180,7 @@ const VerifyPage = () => {
     },
   ];
 
-  const getIcon = (platform) => {
+  const getIcon = (platform: string) => {
     switch (platform.toLowerCase()) {
       case "github":
         return <SiGithub className="h-4 w-4" />;
@@ -301,10 +211,21 @@ const VerifyPage = () => {
       case "product hunt":
         return <SiProducthunt className="h-4 w-4" />;
       case "hacker news":
-        // HN doesn't have an official icon, use YCombinator as a placeholder
         return <SiYcombinator className="h-4 w-4" />;
       case "thingiverse":
         return <SiThingiverse className="h-4 w-4" />;
+      case "mastodon":
+        return <SiMastodon className="h-4 w-4" />;
+      case "last.fm":
+        return <SiLastdotfm className="h-4 w-4" />;
+      case "figma":
+        return <SiFigma className="h-4 w-4" />;
+      case "obsidian publish":
+        return <SiObsidian className="h-4 w-4" />;
+      case "flickr":
+        return <SiFlickr className="h-4 w-4" />;
+      case "raycast":
+        return <SiRaycast className="h-4 w-4" />;
       default:
         return <AtSign className="h-4 w-4" />;
     }
@@ -463,32 +384,33 @@ const VerifyPage = () => {
         <section className="mb-12">
           <SectionHeader>accounts</SectionHeader>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-            {accounts.map((account) => (
-              <Link
-                key={account.platform}
-                href={account.url}
-                rel="me"
-                prefetch={false}
-                className="group block rounded-lg border border-gray-200 bg-white p-4 transition-all duration-300 hover:border-blue-300 hover:bg-blue-50 hover:shadow-sm dark:border-gray-700 dark:bg-slate-800 dark:hover:border-blue-500 dark:hover:bg-slate-700"
-                style={{
-                  height: account.note ? "auto" : "5rem",
-                  minHeight: "5rem",
-                }}
-              >
-                <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
-                  {getIcon(account.platform)}
-                  <span className="font-medium">{account.platform}</span>
-                </div>
-                <div className="mt-1 text-sm text-gray-500 dark:text-gray-400">
-                  {account.username}
-                </div>
-                {account.note && (
-                  <div className="mt-2 text-xs text-gray-400 dark:text-gray-500">
-                    {account.note}
+            {socialAccounts.map((account) => {
+              const platformName =
+                account.displayName ||
+                account.slug.charAt(0).toUpperCase() + account.slug.slice(1);
+              return (
+                <Link
+                  key={account.slug}
+                  href={`/to/${account.slug}`}
+                  rel="me"
+                  prefetch={false}
+                  className="group flex flex-col rounded-lg border border-gray-200 bg-white p-4 transition-all duration-300 hover:border-blue-300 hover:bg-blue-50 hover:shadow-sm dark:border-gray-700 dark:bg-slate-800 dark:hover:border-blue-500 dark:hover:bg-slate-700"
+                >
+                  <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                    {getIcon(platformName)}
+                    <span className="font-medium">{platformName}</span>
                   </div>
-                )}
-              </Link>
-            ))}
+                  <div className="mt-1 text-sm break-all text-gray-500 dark:text-gray-400">
+                    {account.username || "\u00A0"}
+                  </div>
+                  {account.socialNote && (
+                    <div className="mt-auto pt-2 text-xs text-gray-400 dark:text-gray-500">
+                      {account.socialNote}
+                    </div>
+                  )}
+                </Link>
+              );
+            })}
           </div>
         </section>
 

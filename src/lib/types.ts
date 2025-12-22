@@ -18,7 +18,25 @@ export interface RedirectItem {
   destination: string;
   linkrelme: boolean;
   slashToLink: boolean;
+  social: boolean;
+  socialNote?: string;
+  username?: string;
+  displayName?: string; // Override for platform name display (e.g., "Twitter/X" instead of "x")
 }
+
+export enum domainType {
+  personal,
+  project,
+  work,
+  business,
+  other,
+}
+
+export type Domain = {
+  name: string;
+  type: domainType;
+  icon?: React.ReactNode;
+};
 
 export interface ProjectItem {
   title: string;

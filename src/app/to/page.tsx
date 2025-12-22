@@ -1,4 +1,4 @@
-import { redirects } from "@/lib/defs";
+import { links } from "@/lib/defs";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default function ToIndex() {
-  const toRoutes = redirects.filter((redirect) => redirect.slashToLink);
+  const toRoutes = links.filter((link) => link.slashToLink);
 
   return (
     <div className="bg-background text-foreground min-h-screen">
@@ -24,22 +24,22 @@ export default function ToIndex() {
         </h1>
 
         <div className="grid gap-4">
-          {toRoutes.map((redirect) => (
+          {toRoutes.map((link) => (
             <div
-              key={redirect.slug}
+              key={link.slug}
               className="hover:bg-accent/50 rounded-lg border p-4 transition-colors"
             >
               <div className="flex items-center justify-between">
                 <div>
                   <h3 className="decoration-greeen text-greeen hover:decoration-linkHover text-lg font-semibold underline decoration-wavy">
-                    {redirect.slug}
+                    {link.slug}
                   </h3>
                   <p className="text-muted-foreground text-sm break-all">
-                    {redirect.destination}
+                    {link.destination}
                   </p>
                 </div>
                 <Link
-                  href={`/to/${redirect.slug}`}
+                  href={`/to/${link.slug}`}
                   prefetch={false}
                   className="text-primary text-sm hover:underline"
                 >
