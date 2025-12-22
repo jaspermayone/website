@@ -72,6 +72,7 @@ export const pages: PageItem[] = [
   { text: "Blank", slug: "blank", showInNav: false, order: 99 },
   { text: "Links", slug: "to", showInNav: false, order: 99 },
   { text: "Slashes", slug: "slashes", showInNav: false, order: 99 },
+  { text: "Support Me", slug: "support-me", showInNav: false, order: 99 },
 ];
 
 export const links: RedirectItem[] = [
@@ -954,5 +955,10 @@ export const slashPages: SlashPage[] = [
     slug: "slashes",
     name: "Slashes",
     description: "This page - a directory of all slash pages",
+  },
+  {
+    slug: "support-me",
+    name: "Support Me",
+    description: "Ways to support my work",
   },
 ];
