@@ -149,6 +149,7 @@ export default function Portfolio() {
                           href={`${project.link}?utm_source=jaspermayone.com&utm_medium=referral&utm_campaign=portfolio`}
                           target="_blank"
                           rel="noopener noreferrer"
+                          prefetch={false}
                           className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                           aria-label="Visit project"
                         >
@@ -160,6 +161,7 @@ export default function Portfolio() {
                           href={`https://github.com/${project.github}?utm_source=jaspermayone.com&utm_medium=referral&utm_campaign=portfolio`}
                           target="_blank"
                           rel="noopener noreferrer"
+                          prefetch={false}
                           className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                           aria-label="View on GitHub"
                         >

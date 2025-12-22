@@ -341,15 +341,6 @@ export const projects: ProjectItem[] = [
   },
 ];
 
-export const navSocialLinks = [
-  { href: "/github", label: "GitHub", Icon: SiGithub },
-  { href: "/linkedin", label: "Linkedin", Icon: SiLinkedin },
-  { href: "/instagram", label: "Instagram", Icon: SiInstagram },
-  { href: "/threads", label: "Threads", Icon: SiThreads },
-  { href: "/bluesky", label: "Bluesky", Icon: SiBluesky },
-  { href: "/x", label: "X", Icon: SiX },
-];
-
 export const concertsByYear: YearGroup[] = [
   {
     /* Lake Street Dive

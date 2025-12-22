@@ -2,6 +2,7 @@ import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import { concertsByYear } from "@/lib/defs";
 import { Metadata } from "next";
+import Link from "next/link";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -187,14 +188,15 @@ export default function Concerts() {
                                 className="mt-1 text-xs"
                                 style={{ fontFamily: "var(--font-balgin)" }}
                               >
-                                <a
+                                <Link
                                   href={concert.setlist}
                                   target="_blank"
                                   rel="noopener noreferrer"
+                                  prefetch={false}
                                   className="text-blue-600 hover:underline dark:text-blue-400"
                                 >
                                   View Setlist →
-                                </a>
+                                </Link>
                               </div>
                             )}
                           </div>

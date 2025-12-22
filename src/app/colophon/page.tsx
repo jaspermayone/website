@@ -185,6 +185,7 @@ export default function Colophon() {
                     className="lnk"
                     target="_blank"
                     rel="noopener noreferrer"
+                    prefetch={false}
                   >
                     Aram Shiva
                   </Link>
@@ -245,6 +246,7 @@ export default function Colophon() {
                     className="lnk"
                     target="_blank"
                     rel="noopener noreferrer"
+                    prefetch={false}
                   >
                     Vercel
                   </Link>

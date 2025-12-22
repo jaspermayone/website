@@ -131,6 +131,7 @@ export default function Elsewhere() {
                     href={`${appearance.url}?utm_source=jaspermayone.com&utm_medium=referral`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    prefetch={false}
                     className="group block rounded-lg border border-gray-200 p-4 transition-colors hover:border-gray-300 hover:bg-gray-50 dark:border-gray-700 dark:hover:border-gray-600 dark:hover:bg-gray-800/30"
                   >
                     <div className="flex items-start justify-between gap-4">

@@ -99,6 +99,7 @@ export default function Podroll() {
                   href={`${podcast.url}?utm_source=jaspermayone.com&utm_medium=referral`}
                   target="_blank"
                   rel="noopener noreferrer"
+                  prefetch={false}
                   className="flex rounded-lg bg-white/50 p-3 transition-colors hover:bg-blue-50 dark:bg-gray-800/20 dark:hover:bg-blue-900/20"
                 >
                   <div className="mr-3 shrink-0 text-blue-500">

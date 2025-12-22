@@ -68,6 +68,7 @@ export default function Home() {
                   href="https://wit.edu?utm_source=jaspermayone.com&utm_medium=referral"
                   target="_blank"
                   rel="noopener noreferrer"
+                  prefetch={false}
                 >
                   Wentworth Institute of Technology
                 </Link>{" "}
@@ -94,6 +95,7 @@ export default function Home() {
                   href="https://patchworklabs.org?utm_source=jaspermayone.com&utm_medium=referral"
                   target="_blank"
                   rel="noopener noreferrer"
+                  prefetch={false}
                   aria-label="patchworklabs.org"
                 >
                   Patchwork Labs
@@ -109,6 +111,7 @@ export default function Home() {
                   href="https://mlh.io/?utm_source=jaspermayone.com&utm_medium=referral"
                   target="_blank"
                   rel="noopener noreferrer"
+                  prefetch={false}
                 >
                   MLH
                 </Link>{" "}
