@@ -383,7 +383,7 @@ export default function RootLayout({
         <link rel="me" href="https://singlefeather.com" />
         <link rel="me" href="https://singlefeather.dev" />
 
-        {/* <meta name="fediverse:creator" content="@taciturnaxoltol@social.dino.icu" /> */}
+        <meta name="fediverse:creator" content="@jasper.mayone@threads.net" />
 
         {links
           .filter((link) => link.linkrelme)
@@ -741,6 +741,20 @@ ceGgVoDIjQD/VvED/0BjhOdmOSV8YUtoWQ1rJvzxR5DDKzIIPFbUkAA=
           <span className="p-nickname">jmayone</span>
           <a className="u-url" href="https://twitter.com/jaspermayone">
             Twitter
+          </a>
+          <a
+            className="u-url"
+            href="https://www.threads.net/@jasper.mayone"
+            rel="me"
+          >
+            Threads
+          </a>
+          <a
+            className="u-url"
+            href="https://mastodon.social/@jaspermayone"
+            rel="me"
+          >
+            Mastodon
           </a>
         </div>
         <ThemeProvider
