@@ -150,6 +150,11 @@ export function OpenSourceContent({
                     <h3 className="font-semibold text-gray-900 dark:text-white">
                       {service.name}
                     </h3>
+                    {service.status === "alpha" && (
+                      <span className="rounded-full bg-purple-100 px-2 py-0.5 text-xs text-purple-800 dark:bg-purple-900/30 dark:text-purple-300">
+                        Alpha
+                      </span>
+                    )}
                     {service.status === "beta" && (
                       <span className="rounded-full bg-yellow-100 px-2 py-0.5 text-xs text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-300">
                         Beta
