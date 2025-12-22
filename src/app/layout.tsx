@@ -368,6 +368,9 @@ export default function RootLayout({
           href="/apple-touch-icon.png?v=2"
         />
 
+        {/* IndieAuth - using IndieLogin.com which verifies via rel="me" links */}
+        <link rel="authorization_endpoint" href="https://indielogin.com/auth" />
+
         <link rel="me" href="https://jsp.lat" />
         <link rel="me" href="https://jaspermayone.cv" />
         <link rel="me" href="https://hogwarts.dev" />
@@ -379,7 +382,11 @@ export default function RootLayout({
         {links
           .filter((link) => link.linkrelme)
           .map((link) => (
-            <link rel="me" href={link.destination} key={link.slug} />
+            <link
+              rel={link.atproto ? "me atproto" : "me"}
+              href={link.destination}
+              key={link.slug}
+            />
           ))}
 
         <script

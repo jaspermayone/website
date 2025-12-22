@@ -22,6 +22,7 @@ export interface RedirectItem {
   socialNote?: string;
   username?: string;
   displayName?: string; // Override for platform name display (e.g., "Twitter/X" instead of "x")
+  atproto?: boolean; // For ATProto/Bluesky IndieAuth support
 }
 
 export enum domainType {

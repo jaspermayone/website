@@ -96,6 +96,7 @@ export const links: RedirectItem[] = [
     slashToLink: true,
     social: true,
     username: "@jaspermayone.com",
+    atproto: true,
   },
   {
     slug: "threads",
