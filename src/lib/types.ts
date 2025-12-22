@@ -130,3 +130,17 @@ export interface SlashPage {
   name: string;
   description: string;
 }
+
+export interface HardwareItem {
+  name: string;
+  device: string;
+  details?: string;
+  category:
+    | "computer"
+    | "mobile"
+    | "wearable"
+    | "accessory"
+    | "smart-home"
+    | "3d-printer"
+    | "networking";
+}

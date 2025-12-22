@@ -337,6 +337,12 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="alternate" type="application/rss+xml" href="/press.xml" />
         <link
+          rel="alternate"
+          type="application/atom+xml"
+          title="slash pages"
+          href="/feed.xml"
+        />
+        <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"

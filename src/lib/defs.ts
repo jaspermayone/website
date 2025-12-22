@@ -9,6 +9,7 @@ import {
 import {
   Appearance,
   Domain,
+  HardwareItem,
   HostedService,
   MaintainedProject,
   OpenSourceContribution,
@@ -61,6 +62,7 @@ export const pages: PageItem[] = [
   { text: "Now", slug: "now", showInNav: false, order: 99 },
   { text: "Panera", slug: "panera", showInNav: false, order: 99 },
   { text: "Uses", slug: "uses", showInNav: false, order: 7 },
+  { text: "Hardware", slug: "hardware", showInNav: false, order: 99 },
   { text: "Podroll", slug: "podroll", showInNav: false, order: 99 },
   { text: "Green", slug: "green", showInNav: false, order: 99 },
   { text: "Concerts", slug: "concerts", showInNav: false, order: 99 },
@@ -660,6 +662,158 @@ export const tools: Tool[] = [
   { emoji: "🍴", name: "Food Planning", result: "Mealie" },
 ];
 
+export const hardware: HardwareItem[] = [
+  // Computers
+  {
+    name: "Remus",
+    device: "14-inch MacBook Pro",
+    details: "Space Black",
+    category: "computer",
+  },
+  {
+    name: "Albus",
+    device: "MacBook Pro 13-inch",
+    category: "computer",
+  },
+  {
+    name: "Dippet",
+    device: "Mac mini",
+    category: "computer",
+  },
+  // Mobile
+  {
+    name: "Minerva",
+    device: "iPhone 15 Pro",
+    category: "mobile",
+  },
+  {
+    name: "Jasper's iPad",
+    device: "11-inch iPad Air",
+    details: "Wi-Fi 128GB - Blue",
+    category: "mobile",
+  },
+  // Wearables
+  {
+    name: "Moody",
+    device: "Apple Watch Series 6",
+    category: "wearable",
+  },
+  {
+    name: "",
+    device: "AirPods Pro 3",
+    category: "wearable",
+  },
+  // Accessories
+  {
+    name: "",
+    device: "Apple Pencil Pro",
+    category: "accessory",
+  },
+  // Smart Home
+  {
+    name: "Bedroom",
+    device: "HomePod mini",
+    category: "smart-home",
+  },
+  {
+    name: "Jasper's Bedroom",
+    device: "HomePod mini",
+    category: "smart-home",
+  },
+  {
+    name: "",
+    device: "Philips Hue Bridge",
+    details: "Dorm smart home setup",
+    category: "smart-home",
+  },
+  {
+    name: "",
+    device: "Philips Hue Smart Plugs",
+    details: "Dorm smart home setup",
+    category: "smart-home",
+  },
+  {
+    name: "",
+    device: "Aqara Home Hub M2",
+    details: "Home smart home setup",
+    category: "smart-home",
+  },
+  {
+    name: "",
+    device: "Aqara Smart Switches",
+    details: "Home smart home setup",
+    category: "smart-home",
+  },
+  // 3D Printer
+  {
+    name: "",
+    device: "Bambu Lab P1S",
+    details: "with AMS v1",
+    category: "3d-printer",
+  },
+  // Networking
+  {
+    name: "",
+    device: "Ubiquiti UniFi UX7",
+    details: "Home router",
+    category: "networking",
+  },
+  {
+    name: "",
+    device: "Ubiquiti UniFi UCG Ultra",
+    details: "Dorm router",
+    category: "networking",
+  },
+  {
+    name: "",
+    device: "Ubiquiti UniFi USW Lite 8 PoE",
+    details: "Dorm",
+    category: "networking",
+  },
+  {
+    name: "",
+    device: "Ubiquiti UniFi U7 Pro Max",
+    details: "Access point - Dorm",
+    category: "networking",
+  },
+  {
+    name: "",
+    device: "Ubiquiti UniFi US-48-500W",
+    details: "48-port PoE switch - Home",
+    category: "networking",
+  },
+  {
+    name: "",
+    device: "Ubiquiti UniFi USW Flex Mini",
+    details: "Home",
+    category: "networking",
+  },
+  {
+    name: "",
+    device: "Ubiquiti UniFi AC Lite",
+    details: "Access point - Home",
+    category: "networking",
+  },
+  {
+    name: "",
+    device: "Ubiquiti UniFi AC Mesh",
+    details: "Access point - Home",
+    category: "networking",
+  },
+  {
+    name: "",
+    device: "Ubiquiti UniFi AC Pro",
+    details: "Access points (x2) - Home",
+    category: "networking",
+  },
+  {
+    name: "",
+    device: "Ubiquiti UniFi UDB",
+    details: "Home",
+    category: "networking",
+  },
+];
+
 // Open Source page data
 export const maintainedProjects: MaintainedProject[] = [
   {
@@ -730,6 +884,11 @@ export const slashPages: SlashPage[] = [
     slug: "uses",
     name: "Uses",
     description: "Software and tools I use daily",
+  },
+  {
+    slug: "hardware",
+    name: "Hardware",
+    description: "My tech setup and devices",
   },
   {
     slug: "elsewhere",
