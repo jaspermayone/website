@@ -379,8 +379,11 @@ export default function RootLayout({
           href="/apple-touch-icon.png?v=2"
         />
 
-        {/* IndieAuth - using IndieLogin.com which verifies via rel="me" links */}
-        <link rel="authorization_endpoint" href="https://indielogin.com/auth" />
+        {/* IndieAuth - using Indiko for passkey-based authentication */}
+        <link
+          rel="authorization_endpoint"
+          href="https://indiko.dunkirk.sh/auth/authorize"
+        />
 
         {/* Webmention - receive mentions from other sites */}
         <link
