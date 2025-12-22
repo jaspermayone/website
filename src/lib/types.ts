@@ -123,3 +123,9 @@ export interface RepoStats {
   license: string | null;
   error?: boolean;
 }
+
+export interface SlashPage {
+  slug: string;
+  name: string;
+  description: string;
+}

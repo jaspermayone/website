@@ -16,6 +16,7 @@ import {
   Podcast,
   ProjectItem,
   RedirectItem,
+  SlashPage,
   Tool,
   YearGroup,
   domainType,
@@ -68,6 +69,7 @@ export const pages: PageItem[] = [
   { text: "Open Source", slug: "open-source", showInNav: false, order: 99 },
   { text: "Blank", slug: "blank", showInNav: false, order: 99 },
   { text: "Links", slug: "to", showInNav: false, order: 99 },
+  { text: "Slashes", slug: "slashes", showInNav: false, order: 99 },
 ];
 
 export const links: RedirectItem[] = [
@@ -712,5 +714,85 @@ export const hostedServices: HostedService[] = [
     url: "https://metro.jaspermayone.com",
     repo: "jaspermayone/metro",
     status: "alpha",
+  },
+];
+
+// Slash pages - top-level URL pages that may be of interest
+// Inspired by https://slashpages.net/
+export const slashPages: SlashPage[] = [
+  {
+    slug: "now",
+    name: "Now",
+    description: "What I'm currently up to - auto-updating status",
+  },
+  {
+    slug: "uses",
+    name: "Uses",
+    description: "Software and tools I use daily",
+  },
+  {
+    slug: "elsewhere",
+    name: "Elsewhere",
+    description: "Find me on other platforms",
+  },
+  {
+    slug: "podroll",
+    name: "Podroll",
+    description: "Podcasts I listen to and recommend",
+  },
+  {
+    slug: "concerts",
+    name: "Concerts",
+    description: "Live shows I've attended",
+  },
+  {
+    slug: "open-source",
+    name: "Open Source",
+    description: "My open source projects and contributions",
+  },
+  {
+    slug: "green",
+    name: "Green",
+    description: "How I try to live sustainably",
+  },
+  {
+    slug: "colophon",
+    name: "Colophon",
+    description: "The tech stack and tools behind this site",
+  },
+  {
+    slug: "contact",
+    name: "Contact",
+    description: "Ways to reach me",
+  },
+  {
+    slug: "keys",
+    name: "Keys",
+    description: "My GPG and SSH public keys",
+  },
+  {
+    slug: "verify",
+    name: "Verify",
+    description: "Verify my identity and cryptographic signatures",
+  },
+  {
+    slug: "panera",
+    name: "Panera",
+    description: "My go-to Panera Bread order",
+  },
+  {
+    slug: "pfp",
+    name: "PFP",
+    description: "My profile picture",
+  },
+  {
+    slug: "to",
+    name: "Links",
+    description: "Short redirect links to various profiles",
+  },
+  {
+    slug: "slashes",
+    name: "Slashes",
+    description: "This page - a directory of all slash pages",
   },
 ];
