@@ -31,35 +31,74 @@ export default function FOOTER({ color, addBackground }: FooterProps) {
               }
         }
       >
-        {/* Social icons row */}
-        <div className="flex w-full items-center justify-center gap-1.5 overflow-x-hidden pt-2">
-          {socialLinks.map(({ href, label, Icon }) => (
-            <Link
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={label}
-              prefetch={false}
-              className="inline-flex items-center justify-center transition-colors duration-200 hover:!text-[#56ba8e]"
-              style={{ color: textColor }}
-            >
-              <Icon size={16} />
-            </Link>
-          ))}
-        </div>
-
-        {/* Copyright line */}
+        {/* IndieWeb Webring */}
         <div
-          className="flex w-full items-center justify-center py-2"
+          className="flex w-full items-center justify-center gap-2 pt-2"
           style={{ color: textColor }}
         >
-          <p
-            className="text-center text-xs leading-relaxed break-words"
+          <a
+            href="https://xn--sr8hvo.ws/previous"
+            rel="noopener noreferrer"
+            className="transition-colors duration-200 hover:!text-[#56ba8e]"
+            style={{ color: textColor }}
+            aria-label="Previous site in IndieWeb Webring"
+          >
+            &larr;
+          </a>
+          <a
+            href="https://xn--sr8hvo.ws"
+            rel="noopener noreferrer"
+            className="text-xs transition-colors duration-200 hover:!text-[#56ba8e]"
+            style={{ color: textColor, fontFamily: "var(--font-balgin)" }}
+            aria-label="IndieWeb Webring"
+          >
+            IndieWeb Webring
+          </a>
+          <span>🕸💍</span>
+          <a
+            href="https://xn--sr8hvo.ws/next"
+            rel="noopener noreferrer"
+            className="transition-colors duration-200 hover:!text-[#56ba8e]"
+            style={{ color: textColor }}
+            aria-label="Next site in IndieWeb Webring"
+          >
+            &rarr;
+          </a>
+        </div>
+
+        {/* Copyright and social icons */}
+        <div
+          className="flex w-full items-baseline justify-center gap-2 py-2"
+          style={{ color: textColor }}
+        >
+          <span
+            className="text-xs leading-none"
             style={{ fontFamily: "var(--font-balgin)", color: textColor }}
           >
             ©{currentYear} Jasper Mayone. Made in <i>Boston, Massachusetts</i>.
-          </p>
+          </span>
+          <span
+            className="leading-none"
+            style={{ color: textColor, opacity: 0.4 }}
+          >
+            |
+          </span>
+          <div className="flex items-center gap-1.5">
+            {socialLinks.map(({ href, label, Icon }) => (
+              <Link
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                prefetch={false}
+                className="inline-flex items-center justify-center transition-colors duration-200 hover:!text-[#56ba8e]"
+                style={{ color: textColor }}
+              >
+                <Icon size={14} />
+              </Link>
+            ))}
+          </div>
         </div>
       </div>
     </footer>
