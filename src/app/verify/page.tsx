@@ -30,7 +30,8 @@ import { EmailCard } from "@/components/EmailCard";
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import WavyDivider from "@/components/WavyDivider";
-import { emails, links } from "@/lib/defs";
+import { domains, emails, links } from "@/lib/defs";
+import { domainType } from "@/lib/types";
 import { Metadata } from "next";
 import Script from "next/script";
 
@@ -112,73 +113,8 @@ const verifyPageSchema = {
 const VerifyPage = () => {
   const _title = "/VERIFY";
 
-  enum domainType {
-    personal,
-    project,
-    work,
-    business,
-    other,
-  }
-
-  type Domain = {
-    name: string;
-    type: domainType;
-    icon?: React.ReactNode;
-  };
-
-  const domains: Domain[] = [
-    {
-      name: "jaspermayone.com",
-      type: domainType.personal,
-    },
-    {
-      name: "jsp.lat",
-      type: domainType.personal,
-    },
-    {
-      name: "hogwarts.dev",
-      type: domainType.personal,
-    },
-    {
-      name: "hogwarts.channel",
-      type: domainType.personal,
-    },
-    {
-      name: "singlefeather.com",
-      type: domainType.business,
-    },
-    {
-      name: "singlefeather.dev",
-      type: domainType.business,
-    },
-    {
-      name: "phish.directory",
-      type: domainType.project,
-    },
-    {
-      name: "patchworklabs.org",
-      type: domainType.project,
-    },
-  ];
-
   // Filter links to only show social accounts on verify page
   const socialAccounts = links.filter((link) => link.social);
-
-  const _cryptoKeys = [
-    {
-      type: "GPG",
-      fingerprint: "00E6 43C2 1FAC 965F FB28 D3B7 14D0 D45A 1DAD AAFA",
-      publicKey: "https://keys.openpgp.org/search?q=me%40jaspermayone.com",
-      note: "Used for email signing and encryption. Download my public key from keys.openpgp.org.",
-    },
-    {
-      type: "SSH",
-      fingerprint: "SHA256:YdDj3JLvVy12zDrJLLDVl5OLsW4t0/20KoJbm6YGfzg",
-      publicKey:
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDxnv44DTFIO2cIiy4blF/UjJxDY+j8AJo9Wwq25inA2 jasper@jaspermayone.com",
-      note: "Used for Git authentication and server access",
-    },
-  ];
 
   const getIcon = (platform: string) => {
     switch (platform.toLowerCase()) {
@@ -298,7 +234,7 @@ const VerifyPage = () => {
         {/* Domains Section */}
         <section className="mb-6">
           <SectionHeader>domains</SectionHeader>
-          <div className="rounded-xl border border-gray-200 bg-gradient-to-br from-blue-50 to-pink-50 p-6 dark:border-gray-700 dark:from-slate-800 dark:to-slate-900">
+          <div className="rounded-xl border border-gray-200 bg-linear-to-br from-blue-50 to-pink-50 p-6 dark:border-gray-700 dark:from-slate-800 dark:to-slate-900">
             <p className="mb-4 text-gray-700 dark:text-gray-300">
               These are the domains I own and operate. I also operate a few
               other domains for work and clients that are not listed here for
@@ -351,7 +287,7 @@ const VerifyPage = () => {
         {/* Email Section */}
         <section className="mb-12">
           <SectionHeader>email</SectionHeader>
-          <div className="rounded-xl border border-gray-200 bg-gradient-to-br from-blue-50 to-pink-50 p-6 dark:border-gray-700 dark:from-slate-800 dark:to-slate-900">
+          <div className="rounded-xl border border-gray-200 bg-linear-to-br from-blue-50 to-pink-50 p-6 dark:border-gray-700 dark:from-slate-800 dark:to-slate-900">
             <p className="mb-4 text-gray-700 dark:text-gray-300">
               I maintain email addresses across various domains. Some addresses
               for organizations I am a part of are not published here for
