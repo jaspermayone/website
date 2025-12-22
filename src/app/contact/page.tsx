@@ -119,6 +119,7 @@ export default function Contact() {
                   href="https://signal.me/#eu/jaspermayone.10"
                   target="_blank"
                   rel="noopener noreferrer"
+                  prefetch={false}
                 >
                   @jaspermayone.10
                 </Link>

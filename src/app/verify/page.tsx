@@ -1,5 +1,5 @@
 import { AtSign } from "lucide-react";
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import {
   SiBluesky,
   SiBuymeacoffee,
@@ -193,7 +193,7 @@ const VerifyPage = () => {
     {
       platform: "Buy Me a Coffee",
       username: "jaspermayone",
-      url: "/to/coffee",
+      url: "/to/buy-me-a-coffee",
     },
     {
       platform: "Reddit",
