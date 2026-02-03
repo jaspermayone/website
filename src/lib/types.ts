@@ -47,6 +47,7 @@ export interface ProjectItem {
   tags?: string[];
   date?: string;
   image?: string;
+  order?: number;
 }
 
 export interface Concert {

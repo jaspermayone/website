@@ -95,6 +95,14 @@ const portfolioSchema = {
 };
 
 export default function Portfolio() {
+  // Sort projects by order field, with projects without order at the end
+  const sortedProjects = [...projects].sort((a, b) => {
+    if (a.order === undefined && b.order === undefined) return 0;
+    if (a.order === undefined) return 1;
+    if (b.order === undefined) return -1;
+    return a.order - b.order;
+  });
+
   return (
     <>
       <Script
@@ -115,7 +123,7 @@ export default function Portfolio() {
           </div>
 
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project, index) => (
+            {sortedProjects.map((project, index) => (
               <div
                 key={index}
                 className="overflow-hidden rounded-lg border border-gray-200 transition-shadow duration-200 hover:shadow-lg dark:border-gray-700"

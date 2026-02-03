@@ -416,14 +416,6 @@ export const domains: Domain[] = [
  */
 export const projects: ProjectItem[] = [
   {
-    title: "Receipt Printer Business Card",
-    description:
-      "A creative business card that prints on thermal receipt paper.",
-    github: "jaspermayone/receipt-printer-biz-card",
-    tags: ["HTML"],
-    date: "2025",
-  },
-  {
     title: "Personal Website",
     description: "My personal website showcasing my projects and skills.",
     link: "https://jaspermayone.com",
@@ -431,15 +423,7 @@ export const projects: ProjectItem[] = [
     tags: ["Next.js", "TypeScript", "Tailwind"],
     date: "2025",
     image: "/images/projects/website.webp",
-  },
-  {
-    title: "LaTex Generated CV/Resume",
-    description: "My personal cv/resume built with LaTex.",
-    link: "https://jasper.cv",
-    github: "jaspermayone/cv",
-    tags: ["LaTex", "Github Actions"],
-    date: "2025",
-    image: "https://jasper.cv/jaspermayone-cv.jpeg",
+    order: 1,
   },
   {
     title: "Slack Profile CLI",
@@ -449,14 +433,17 @@ export const projects: ProjectItem[] = [
     github: "jaspermayone/slack-profile-cli",
     tags: ["Node.js", "Ruby", "CLI", "Slack API"],
     date: "2025",
+    order: 2,
   },
   {
-    title: "MLH Discord Integration",
-    description:
-      "Discord bot that integrates with MyMLH identity platform for tighter linking of roles and user experience enhancement.",
-    tags: ["Discord", "Ruby", "Ruby on Rails"],
+    title: "LaTex Generated CV/Resume",
+    description: "My personal cv/resume built with LaTex.",
+    link: "https://jasper.cv",
+    github: "jaspermayone/cv",
+    tags: ["LaTex", "Github Actions"],
     date: "2025",
-    image: "/images/projects/mlh-discord.webp",
+    image: "https://jasper.cv/jaspermayone-cv.jpeg",
+    order: 3,
   },
   {
     title: "WIP - Metro",
@@ -467,6 +454,16 @@ export const projects: ProjectItem[] = [
     tags: ["Next.js", "TypeScript", "Tailwind"],
     date: "2024",
     image: "/images/projects/metro.webp",
+    order: 4,
+  },
+  {
+    title: "Receipt Printer Business Card",
+    description:
+      "A creative business card that prints on thermal receipt paper.",
+    github: "jaspermayone/receipt-printer-biz-card",
+    tags: ["HTML"],
+    date: "2025",
+    order: 5,
   },
   {
     title: "Obsidian AI Tagger",
@@ -475,12 +472,58 @@ export const projects: ProjectItem[] = [
     github: "jaspermayone/obsidian-ai-tagger",
     tags: ["TypeScript", "Obsidian", "AI"],
     date: "2025",
+    order: 6,
+  },
+  {
+    title: "Calendar Backend",
+    description:
+      "Backend service that fetches Wentworth University courses and helps students add them to Google Calendar.",
+    github: "WITCodingClub/calendar-backend",
+    tags: ["Ruby", "Ruby on Rails"],
+    date: "2025",
+    order: 7,
+  },
+  {
+    title: "MLH Discord Integration",
+    description:
+      "Discord bot that integrates with MyMLH identity platform for tighter linking of roles and user experience enhancement.",
+    tags: ["Discord", "Ruby", "Ruby on Rails"],
+    date: "2025",
+    image: "/images/projects/mlh-discord.webp",
+    order: 8,
   },
   {
     title: "Hack Club - Arcadius",
     description:
       "A freindly dino (slack bot) that managed the onboarding flow for Hack Club's 2024 summer event Arcade. (https://arcade.hackclub.com)",
     github: "hackclub/arcadius",
+    order: 9,
+  },
+  {
+    title: "Strings",
+    description:
+      "Simple strings server for the Wentworth Coding Club and personal use.",
+    github: "jaspermayone/strings",
+    tags: ["TypeScript"],
+    date: "2026",
+    order: 10,
+  },
+  {
+    title: "ZipMerge",
+    description:
+      "Simple app to help make it through COMP1050 with a professor who won't use version control.",
+    github: "jaspermayone/ZipMerge",
+    tags: ["Swift"],
+    date: "2026",
+    order: 11,
+  },
+  {
+    title: "Boxcar",
+    description: "My opinionated Ruby on Rails template.",
+    github: "jaspermayone/boxcar",
+    tags: ["Ruby", "Ruby on Rails"],
+    date: "2025",
+    order: 12,
   },
 ];
 
