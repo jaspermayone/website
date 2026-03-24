@@ -12,7 +12,8 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "analyze": "ANALYZE=true bunx --bun next build",
-    "prepare": "husky"
+    "prepare": "husky",
+    "indexnow": "bun run scripts/submit-indexnow.ts"
   },
   "dependencies": {
     "@arcjet/bun": "1.0.0-beta.15",
