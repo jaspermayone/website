@@ -529,6 +529,19 @@ export const projects: ProjectItem[] = [
 
 export const concertsByYear: YearGroup[] = [
   {
+    year: 2026,
+    concerts: [
+      {
+        headliner: "The Neighbourhood",
+        setlist:
+          "https://www.setlist.fm/setlist/the-neighbourhood/2026/td-garden-boston-ma-234f944b.html",
+        tour: "The World Tour",
+        venue: "TD Garden, Boston, MA",
+        date: "2026-04-08",
+      },
+    ],
+  },
+  {
     /* Lake Street Dive
      */
     year: 2025,
