@@ -260,7 +260,7 @@ export const links: RedirectItem[] = [
       "https://publish.obsidian.md/hub/01+-+Community/People/jaspermayone",
     linkrelme: true,
     slashToLink: false,
-    social: true,
+    social: false,
     displayName: "Obsidian Publish",
     username: "jaspermayone",
     socialNote:
@@ -279,7 +279,7 @@ export const links: RedirectItem[] = [
     destination: "https://stats.fm/jaspermayone",
     linkrelme: true,
     slashToLink: true,
-    social: true,
+    social: false,
     username: "jaspermayone",
   },
   {
@@ -287,7 +287,7 @@ export const links: RedirectItem[] = [
     destination: "https://www.last.fm/user/jaspermayone",
     linkrelme: true,
     slashToLink: true,
-    social: true,
+    social: false,
     displayName: "Last.fm",
     username: "jaspermayone",
   },
@@ -296,7 +296,7 @@ export const links: RedirectItem[] = [
     destination: "https://figma.com/@jasper_mayone",
     linkrelme: true,
     slashToLink: true,
-    social: true,
+    social: false,
     username: "jasper_mayone",
   },
   {
