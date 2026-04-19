@@ -28,15 +28,15 @@ export const siteUrl = "https://jaspermayone.com";
 export const primaryEmail = "me@jaspermayone.com";
 
 const birthDate = new Date("2006-08-05T00:00:00Z");
-// Calculate age in full years based on today's date
 const now = new Date();
+
+const hasBirthdayPassed =
+  now.getUTCMonth() > birthDate.getUTCMonth() ||
+  (now.getUTCMonth() === birthDate.getUTCMonth() &&
+    now.getUTCDate() >= birthDate.getUTCDate());
+
 export const age =
-  now.getUTCFullYear() -
-  birthDate.getUTCFullYear() -
-  (Number(`${now.getUTCMonth()}${now.getUTCDate()}`) <
-  Number(`${birthDate.getUTCMonth()}${birthDate.getUTCDate()}`)
-    ? 1
-    : 0);
+  now.getUTCFullYear() - birthDate.getUTCFullYear() - (hasBirthdayPassed ? 0 : 1);
 
 /*
   "home",
