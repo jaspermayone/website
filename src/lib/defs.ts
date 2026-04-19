@@ -304,9 +304,16 @@ export const links: RedirectItem[] = [
     destination: "https://www.raycast.com/jaspermayone",
     linkrelme: true,
     slashToLink: true,
-    social: true,
+    social: false,
     username: "jaspermayone",
   },
+  {
+    slug: "theantijobboard",
+    destination: "https://theantijobboard.com/p/jasper-mayone",
+    linkrelme: true,
+    slashToLink: false,
+    social: false,
+  }
 ];
 
 export const cryptoKeys = [
