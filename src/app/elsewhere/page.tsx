@@ -90,7 +90,7 @@ const elsewherePageSchema = {
 
 export default function Elsewhere() {
   // Sort appearances by date (most recent first)
-  const sortedAppearances = [...appearances].sort(
+  const sortedAppearances = appearances.toSorted(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 
@@ -108,42 +108,42 @@ export default function Elsewhere() {
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
             <h1
-              className="mb-2 text-xl font-bold text-gray-800 dark:text-white"
+              className="mb-2 text-xl font-semibold text-zinc-800 dark:text-white"
               style={{ fontFamily: "var(--font-balgin)" }}
             >
               My appearances elsewhere.
             </h1>
-            <p className="mb-6 text-gray-600 italic dark:text-white/70">
+            <p className="mb-6 text-zinc-600 italic dark:text-white/70">
               a list of output or writings on sites other than one&apos;s own
             </p>
 
             {sortedAppearances.length === 0 ? (
               <div className="py-12 text-center">
-                <p className="text-gray-500 dark:text-gray-400">
+                <p className="text-zinc-500 dark:text-zinc-400">
                   No appearances yet. Check back soon!
                 </p>
               </div>
             ) : (
               <div className="space-y-4">
-                {sortedAppearances.map((appearance, index) => (
+                {sortedAppearances.map((appearance) => (
                   <ExternalLink
-                    key={index}
+                    key={appearance.url}
                     href={appearance.url}
-                    className="group block rounded-lg border border-gray-200 p-4 transition-colors hover:border-gray-300 hover:bg-gray-50 dark:border-gray-700 dark:hover:border-gray-600 dark:hover:bg-gray-800/30"
+                    className="group block rounded-lg border border-zinc-200 p-4 transition-colors hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700 dark:hover:border-zinc-600 dark:hover:bg-zinc-800/30"
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="min-w-0 flex-1">
                         <div className="mb-1 flex items-start gap-2">
                           <h2
-                            className="font-semibold text-gray-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400"
+                            className="font-semibold text-zinc-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400"
                             style={{ fontFamily: "var(--font-balgin)" }}
                           >
                             {appearance.title}
                           </h2>
-                          <ArrowUpRight className="mt-0.5 h-4 w-4 flex-shrink-0 text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
+                          <ArrowUpRight className="mt-0.5 size-4 flex-shrink-0 text-zinc-400 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
                         </div>
 
-                        <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                        <div className="mb-2 flex flex-wrap items-center gap-2 text-sm text-zinc-600 dark:text-zinc-400">
                           <span className="font-medium">
                             {appearance.platform}
                           </span>
@@ -151,7 +151,7 @@ export default function Elsewhere() {
                             <>
                               <span>•</span>
                               <span
-                                className="rounded-full bg-gray-100 px-2 py-0.5 text-xs dark:bg-gray-700"
+                                className="rounded-full bg-zinc-100 px-2 py-0.5 text-xs dark:bg-zinc-700"
                                 style={{ fontFamily: "var(--font-balgin)" }}
                               >
                                 {appearance.type}
@@ -167,7 +167,8 @@ export default function Elsewhere() {
                           <span>•</span>
                           <time
                             dateTime={appearance.date}
-                            className="text-gray-500 dark:text-gray-500"
+                            className="text-zinc-500 dark:text-zinc-500"
+                            suppressHydrationWarning
                           >
                             {new Date(appearance.date).toLocaleDateString(
                               "en-US",
@@ -181,7 +182,7 @@ export default function Elsewhere() {
                         </div>
 
                         {appearance.description && (
-                          <p className="text-sm text-gray-600 dark:text-gray-400">
+                          <p className="text-sm text-zinc-600 dark:text-zinc-400">
                             {appearance.description}
                           </p>
                         )}

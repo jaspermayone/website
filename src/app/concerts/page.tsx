@@ -107,7 +107,7 @@ export default function Concerts() {
   const sortedConcerts = concertsByYear
     .map((yearGroup) => ({
       ...yearGroup,
-      concerts: [...yearGroup.concerts].sort((a, b) => {
+      concerts: yearGroup.concerts.toSorted((a, b) => {
         // Sort by date in descending order (newest first)
         const dateA = a.date ? new Date(a.date).getTime() : 0;
         const dateB = b.date ? new Date(b.date).getTime() : 0;
@@ -130,13 +130,13 @@ export default function Concerts() {
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
             <h1
-              className="mb-4 text-xl font-bold text-gray-800 dark:text-white"
+              className="mb-4 text-xl font-semibold text-zinc-800 dark:text-white"
               style={{ fontFamily: "var(--font-balgin)" }}
             >
               Concerts I&apos;ve Attended
             </h1>
 
-            <p className="mb-6 text-gray-600 dark:text-white/70">
+            <p className="mb-6 text-zinc-600 dark:text-white/70">
               A running list of live shows and concerts I&apos;ve been to over
               the years.
             </p>
@@ -145,25 +145,25 @@ export default function Concerts() {
               {sortedConcerts.map((yearGroup) => (
                 <div key={yearGroup.year}>
                   <h2
-                    className="mb-3 text-lg font-semibold text-gray-900 dark:text-white"
+                    className="mb-3 text-lg font-semibold text-zinc-900 dark:text-white"
                     style={{ fontFamily: "var(--font-balgin)" }}
                   >
                     {yearGroup.year}
                   </h2>
                   <ul className="space-y-3">
-                    {yearGroup.concerts.map((concert, index) => (
+                    {yearGroup.concerts.map((concert) => (
                       <li
-                        key={index}
-                        className="border-l-2 border-gray-300 pl-4 dark:border-gray-600"
+                        key={`${yearGroup.year}-${concert.headliner}-${concert.date ?? ""}`}
+                        className="border-l-2 border-zinc-300 pl-4 dark:border-zinc-600"
                       >
                         <div className="flex items-start gap-2">
                           <div className="flex-1">
-                            <div className="font-medium text-gray-900 dark:text-white">
+                            <div className="font-medium text-zinc-900 dark:text-white">
                               {concert.headliner}
                             </div>
                             {concert.openers && concert.openers.length > 0 && (
                               <div
-                                className="text-sm text-gray-600 dark:text-gray-400"
+                                className="text-sm text-zinc-600 dark:text-zinc-400"
                                 style={{ fontFamily: "var(--font-balgin)" }}
                               >
                                 with {concert.openers.join(", ")}
@@ -171,14 +171,14 @@ export default function Concerts() {
                             )}
                             {concert.tour && (
                               <div
-                                className="text-sm text-gray-600 dark:text-gray-400"
+                                className="text-sm text-zinc-600 dark:text-zinc-400"
                                 style={{ fontFamily: "var(--font-balgin)" }}
                               >
                                 {concert.tour}
                               </div>
                             )}
                             {concert.venue && (
-                              <div className="text-xs text-gray-500 dark:text-gray-500">
+                              <div className="text-xs text-zinc-500 dark:text-zinc-500">
                                 {concert.venue}
                                 {concert.date && ` • ${concert.date}`}
                               </div>

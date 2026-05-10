@@ -86,27 +86,27 @@ export default function Podroll() {
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
             <h1
-              className="mb-2 text-xl font-bold text-gray-800 dark:text-white"
+              className="mb-2 text-xl font-semibold text-zinc-800 dark:text-white"
               style={{ fontFamily: "var(--font-balgin)" }}
             >
               Recommended Podcasts
             </h1>
 
             <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-              {podcasts.map((podcast, index) => (
+              {podcasts.map((podcast) => (
                 <ExternalLink
-                  key={index}
+                  key={podcast.url}
                   href={podcast.url}
-                  className="flex rounded-lg bg-white/50 p-3 transition-colors hover:bg-blue-50 dark:bg-gray-800/20 dark:hover:bg-blue-900/20"
+                  className="flex rounded-lg bg-white/50 p-3 transition-colors hover:bg-blue-50 dark:bg-zinc-800/20 dark:hover:bg-blue-900/20"
                 >
                   <div className="mr-3 shrink-0 text-blue-500">
                     <HeadphonesIcon size={20} />
                   </div>
                   <div>
-                    <h2 className="text-sm font-medium text-gray-800 dark:text-gray-100">
+                    <h2 className="text-sm font-medium text-zinc-800 dark:text-zinc-100">
                       {podcast.name}
                     </h2>
-                    <p className="mt-1 text-xs text-gray-600 dark:text-white/70">
+                    <p className="mt-1 text-xs text-zinc-600 dark:text-white/70">
                       {podcast.description}
                     </p>
                   </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useEffect, useReducer, useRef, useSyncExternalStore } from "react";
 
 const ImageConfetti = ({ imagePath, duration = 3000 }) => {
   // Existing confetti implementation remains the same
@@ -10,11 +10,13 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
     const canvas = document.createElement("canvas");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    canvas.style.position = "fixed";
-    canvas.style.top = "0";
-    canvas.style.left = "0";
-    canvas.style.pointerEvents = "none";
-    canvas.style.zIndex = "9999";
+    Object.assign(canvas.style, {
+      position: "fixed",
+      top: "0",
+      left: "0",
+      pointerEvents: "none",
+      zIndex: "9999",
+    });
     document.body.appendChild(canvas);
 
     const ctx = canvas.getContext("2d");
@@ -265,44 +267,57 @@ const CONFETTI_IMAGES = [
   },
 ];
 
+type ConfettiState = {
+  show: boolean;
+  activeImage: (typeof CONFETTI_IMAGES)[0] | null;
+};
+type ConfettiAction =
+  | { type: "show"; image: (typeof CONFETTI_IMAGES)[0] }
+  | { type: "hide" };
+
+function confettiReducer(
+  _: ConfettiState,
+  action: ConfettiAction
+): ConfettiState {
+  if (action.type === "show") return { show: true, activeImage: action.image };
+  return { show: false, activeImage: null };
+}
+
 export default function ConfettiWrapper() {
   const images = CONFETTI_IMAGES;
 
   const pathname = usePathname();
-  const [showConfetti, setShowConfetti] = useState(false);
+  const [confetti, dispatch] = useReducer(confettiReducer, {
+    show: false,
+    activeImage: null,
+  });
   const isDarkMode = useSyncExternalStore(
     subscribeToDarkMode,
     getDarkModeSnapshot,
     getDarkModeServerSnapshot
   );
-  const [activeImage, setActiveImage] = useState<(typeof images)[0] | null>(
-    null
-  );
 
-  // Use a ref to track if we've already shown confetti in this page load
-  const [hasShownThisSession, setHasShownThisSession] = useState(false);
+  const hasShownThisSession = useRef(false);
 
-  // Preload only the active image when confetti is triggered
+  // Preload active image when confetti is triggered
   useEffect(() => {
-    if (typeof window === "undefined" || !activeImage) return;
-
+    if (typeof window === "undefined" || !confetti.activeImage) return;
     const img = new Image();
     img.src = isDarkMode
-      ? activeImage.invertedImagePath
-      : activeImage.imagePath;
-  }, [activeImage, isDarkMode]);
+      ? confetti.activeImage.invertedImagePath
+      : confetti.activeImage.imagePath;
+  }, [confetti.activeImage, isDarkMode]);
 
   useEffect(() => {
-    // Check if browser environment
-    if (typeof window === "undefined") return;
+    if (
+      typeof window === "undefined" ||
+      hasShownThisSession.current ||
+      confetti.show
+    ) {
+      return;
+    }
 
-    // Skip if already shown
-    if (hasShownThisSession || showConfetti) return;
-
-    // Check URL parameters for any configured triggers
     const searchParams = new URLSearchParams(window.location.search);
-
-    // Find which image config matches the current URL params (homepage only)
     const matchedConfig =
       pathname === "/"
         ? images.find((config) => {
@@ -311,48 +326,43 @@ export default function ConfettiWrapper() {
           })
         : null;
 
-    // Only run once on page load when matched
-    if (matchedConfig) {
-      // Schedule state updates asynchronously to avoid cascading renders
-      queueMicrotask(() => {
-        // Mark that we've shown it this session
-        setHasShownThisSession(true);
-        setActiveImage(matchedConfig);
+    if (!matchedConfig) return;
 
-        // Show confetti
-        setShowConfetti(true);
+    hasShownThisSession.current = true;
+    dispatch({ type: "show", image: matchedConfig });
 
-        // Track confetti display with Umami
-        const trackingElement = document.createElement("div");
-        trackingElement.setAttribute(
-          "data-umami-event",
-          matchedConfig.trackingEvent
-        );
-        trackingElement.setAttribute("data-umami-event-path", pathname);
-        trackingElement.setAttribute(
-          "data-umami-event-triggered-by",
-          "url-param"
-        );
-        trackingElement.style.display = "none";
-        document.body.appendChild(trackingElement);
+    const trackingElement = document.createElement("div");
+    trackingElement.setAttribute(
+      "data-umami-event",
+      matchedConfig.trackingEvent
+    );
+    trackingElement.setAttribute("data-umami-event-path", pathname);
+    trackingElement.setAttribute("data-umami-event-triggered-by", "url-param");
+    trackingElement.style.display = "none";
+    document.body.appendChild(trackingElement);
 
-        // Clean up the tracking element after a brief delay
-        setTimeout(() => {
-          if (document.body.contains(trackingElement)) {
-            document.body.removeChild(trackingElement);
-          }
-        }, 100);
+    const cleanupId = setTimeout(() => {
+      if (document.body.contains(trackingElement)) {
+        document.body.removeChild(trackingElement);
+      }
+    }, 100);
+    const hideId = setTimeout(() => dispatch({ type: "hide" }), 4000);
 
-        // Hide confetti after it finishes (4 seconds total: 2.5s active + 1.5s fade out)
-        setTimeout(() => setShowConfetti(false), 4000);
-      });
-    }
-  }, [pathname, showConfetti, hasShownThisSession, images]);
+    return () => {
+      clearTimeout(cleanupId);
+      clearTimeout(hideId);
+      if (document.body.contains(trackingElement)) {
+        document.body.removeChild(trackingElement);
+      }
+    };
+  }, [pathname, confetti.show, images]);
 
-  return showConfetti && activeImage ? (
+  return confetti.show && confetti.activeImage ? (
     <ImageConfetti
       imagePath={
-        isDarkMode ? activeImage.invertedImagePath : activeImage.imagePath
+        isDarkMode
+          ? confetti.activeImage.invertedImagePath
+          : confetti.activeImage.imagePath
       }
       duration={2500}
     />

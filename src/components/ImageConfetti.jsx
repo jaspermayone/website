@@ -8,11 +8,13 @@ const ImageConfetti = ({ imagePath, duration = 3000 }) => {
     const canvas = document.createElement("canvas");
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
-    canvas.style.position = "fixed";
-    canvas.style.top = "0";
-    canvas.style.left = "0";
-    canvas.style.pointerEvents = "none";
-    canvas.style.zIndex = "9999";
+    Object.assign(canvas.style, {
+      position: "fixed",
+      top: "0",
+      left: "0",
+      pointerEvents: "none",
+      zIndex: "9999",
+    });
     document.body.appendChild(canvas);
 
     const ctx = canvas.getContext("2d");

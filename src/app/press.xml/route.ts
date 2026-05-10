@@ -25,7 +25,7 @@ export async function GET() {
   });
 
   // Sort appearances by date (newest first)
-  const sortedAppearances = [...appearances].sort(
+  const sortedAppearances = appearances.toSorted(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
 

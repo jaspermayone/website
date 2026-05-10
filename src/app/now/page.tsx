@@ -86,7 +86,7 @@ export default function Now() {
         <MENU pageFirstWord="Now" />
         <main className="m-5 flex flex-1 flex-col overflow-hidden">
           <div className="mb-6">
-            <p className="mb-3 text-gray-700">
+            <p className="mb-3 text-zinc-700">
               This is a semi-realtime status update system for posting updates
               to{" "}
               <ExternalLink
@@ -101,7 +101,7 @@ export default function Now() {
               </ExternalLink>{" "}
               that updates automatically.
             </p>
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-zinc-600">
               The original was called a.status.update and created by{" "}
               <ExternalLink
                 href="https://dame.is/creating/shortcuts/a-status-update/"

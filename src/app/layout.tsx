@@ -5,6 +5,7 @@ import "@/styles/globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata, Viewport } from "next";
 import { ViewTransitions } from "next-view-transitions";
+import Image from "next/image";
 import localFont from "next/font/local";
 import Script from "next/script";
 
@@ -178,9 +179,7 @@ const jsonLdData = {
       // Dynamically generated from links in defs.ts
       sameAs: [
         "https://jaspermayone.com",
-        ...links
-          .filter((link) => link.linkrelme)
-          .map((link) => link.destination),
+        ...links.flatMap((link) => (link.linkrelme ? [link.destination] : [])),
       ],
     },
     {
@@ -328,18 +327,12 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         {/* Preconnect to external domains for performance */}
         <link rel="preconnect" href="https://umami.hogwarts.dev" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="alternate" type="application/rss+xml" href="/press.xml" />
         <link
           rel="alternate"
           type="application/atom+xml"
           title="slash pages"
           href="/feed.xml"
-        />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
         />
         <link
           rel="preconnect"
@@ -352,8 +345,8 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
 
-        <script
-          defer
+        <Script
+          strategy="afterInteractive"
           src="https://umami.hogwarts.dev/script.js"
           data-website-id="00bdf44f-0b0b-4c26-bc25-730672583d82"
         />
@@ -405,15 +398,17 @@ export default function RootLayout({
           content={`${links.find((l) => l.slug === "threads")?.username}@threads.net`}
         />
 
-        {links
-          .filter((link) => link.linkrelme)
-          .map((link) => (
-            <link
-              rel={link.atproto ? "me atproto" : "me"}
-              href={link.destination}
-              key={link.slug}
-            />
-          ))}
+        {links.flatMap((link) =>
+          link.linkrelme
+            ? [
+                <link
+                  rel={link.atproto ? "me atproto" : "me"}
+                  href={link.destination}
+                  key={link.slug}
+                />,
+              ]
+            : []
+        )}
 
         <script
           type="application/ld+json"
@@ -458,23 +453,27 @@ export default function RootLayout({
             jaspermayone.com
           </a>
           {/* Social URLs dynamically generated from links in defs.ts */}
-          {links
-            .filter((link) => link.linkrelme)
-            .map((link) => (
-              <a
-                key={link.slug}
-                className="u-url"
-                href={link.destination}
-                rel="me"
-              >
-                {link.displayName || link.slug}
-              </a>
-            ))}
+          {links.flatMap((link) =>
+            link.linkrelme
+              ? [
+                  <a
+                    key={link.slug}
+                    className="u-url"
+                    href={link.destination}
+                    rel="me"
+                  >
+                    {link.displayName || link.slug}
+                  </a>,
+                ]
+              : []
+          )}
           {/* === VISUAL IDENTITY === */}
-          <img
+          <Image
             className="u-photo"
             src="/images/jmdark-min.webp"
             alt="Jasper Mayone"
+            width={200}
+            height={200}
           />{" "}
           {/* Photo */}
           {/* === PERSONAL DETAILS === */}

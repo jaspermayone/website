@@ -96,7 +96,7 @@ export default function Panera() {
                 Jasper&apos;s Panera Bread Order
               </div>
               <p
-                className="mx-auto max-w-2xl text-gray-600"
+                className="mx-auto max-w-2xl text-zinc-600"
                 style={{ lineHeight: "1.6", fontFamily: "var(--font-balgin)" }}
               >
                 Inspired by people creating /chipotle pages with their Chipotle

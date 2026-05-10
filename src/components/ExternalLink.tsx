@@ -19,20 +19,18 @@ interface ExternalLinkProps extends Omit<
  * External link component that adds UTM params on click.
  * Shows clean URL on hover, but navigates with tracking params.
  */
-export function ExternalLink({
+export default function ExternalLink({
   href,
   children,
   onClick,
   ...props
 }: ExternalLinkProps) {
-  const handleClick = useCallback(
+  const navigateWithTracking = useCallback(
     (e: MouseEvent<HTMLAnchorElement>) => {
       e.preventDefault();
 
-      // Call any passed onClick handler
       onClick?.(e);
 
-      // Add UTM params
       const url = new URL(href);
       url.searchParams.set("utm_source", "jaspermayone.com");
       url.searchParams.set("utm_medium", "referral");
@@ -45,7 +43,7 @@ export function ExternalLink({
   return (
     <a
       href={href}
-      onClick={handleClick}
+      onClick={navigateWithTracking}
       target="_blank"
       rel="noopener noreferrer"
       {...props}
@@ -54,5 +52,3 @@ export function ExternalLink({
     </a>
   );
 }
-
-export default ExternalLink;

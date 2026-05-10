@@ -56,12 +56,12 @@ export default function Home() {
                 <span style={{ fontFamily: "var(--font-balgin)" }}>
                   Jasper Mayone [<i>he/they</i>]
                 </span>{" "}
-                <span className="font-normal text-gray-700 dark:text-white/70">
+                <span className="font-normal text-zinc-700 dark:text-white/70">
                   is a {age}-year-old college student from rural Vermont,
                   currently residing in Boston.
                 </span>
               </p>
-              <p className="text-sm text-gray-600 dark:text-white/70">
+              <p className="text-sm text-zinc-600 dark:text-white/70">
                 A computer science major at{" "}
                 <ExternalLink className="lnk" href="https://wit.edu">
                   Wentworth Institute of Technology
@@ -71,7 +71,7 @@ export default function Home() {
                 outdoors, photography, computer programming, cooking, and
                 running away to join the circus.
               </p>
-              <p className="text-sm text-gray-600 dark:text-white/70">
+              <p className="text-sm text-zinc-600 dark:text-white/70">
                 An avid organizer and big picture thinker, you can often find
                 them scheming up some sort of business venture. From developing
                 a small app to drafting large scale plans for a world domination
@@ -81,7 +81,7 @@ export default function Home() {
                 Jasper to take on exciting roles in various projects and
                 adventures, both close to home and abroad.
               </p>
-              <p className="text-sm text-gray-600 dark:text-white/70">
+              <p className="text-sm text-zinc-600 dark:text-white/70">
                 Recently they&apos;ve been focusing their time (outside of their
                 degree) on{" "}
                 <ExternalLink
@@ -95,7 +95,7 @@ export default function Home() {
                 creativity and support the next generation of makers.
               </p>
 
-              <p className="text-sm text-gray-600 dark:text-white/70">
+              <p className="text-sm text-zinc-600 dark:text-white/70">
                 Jasper is also passionate about making the internet a safer
                 place! They contrinbute to several open source projects focused
                 on web security and privacy, including{" "}
@@ -110,7 +110,7 @@ export default function Home() {
                 serves as the lead maintainer.
               </p>
 
-              <p className="text-sm text-gray-600 dark:text-white/70">
+              <p className="text-sm text-zinc-600 dark:text-white/70">
                 Previously, Jasper&apos;s adventures included working at{" "}
                 <ExternalLink className="lnk" href="https://mlh.io">
                   MLH

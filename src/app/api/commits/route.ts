@@ -49,7 +49,7 @@ async function getGitHubCommits(limit: number = 50): Promise<Commit[]> {
 
     const response = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/commits?per_page=${limit}`,
-      { headers }
+      { headers, next: { revalidate: 3600 } }
     );
 
     if (!response.ok) {

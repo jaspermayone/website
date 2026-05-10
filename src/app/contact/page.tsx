@@ -103,17 +103,17 @@ export default function Contact() {
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
             <h1
-              className="mb-4 text-xl font-bold text-gray-800 dark:text-white"
+              className="mb-4 text-xl font-semibold text-zinc-800 dark:text-white"
               style={{ fontFamily: "var(--font-balgin)" }}
             >
               Get in Touch
             </h1>
 
             <div className="space-y-4">
-              <p className="text-gray-600 dark:text-white/70">
+              <p className="text-zinc-600 dark:text-white/70">
                 You can email me at me [at] jaspermayone [dot] com
               </p>
-              <p className="text-gray-600 dark:text-white/70">
+              <p className="text-zinc-600 dark:text-white/70">
                 I can also be reached on Signal at{" "}
                 <ExternalLink
                   className="lnk"
@@ -122,12 +122,12 @@ export default function Contact() {
                   @jaspermayone.10
                 </ExternalLink>
               </p>
-              <p className="text-gray-600 dark:text-white/70">
+              <p className="text-zinc-600 dark:text-white/70">
                 Want my phone number? Let&apos;s be friends first! I promise I
                 respond super quick on the other platforms 😁
               </p>
 
-              <p className="text-gray-600 dark:text-white/70">
+              <p className="text-zinc-600 dark:text-white/70">
                 You can verify my identity and all the ways I might contact you
                 on my{" "}
                 <Link className="lnk" href="/verify">

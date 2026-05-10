@@ -64,31 +64,31 @@ export default function Green() {
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
             <h1
-              className="mb-4 text-xl font-bold text-gray-800 dark:text-white"
+              className="mb-4 text-xl font-semibold text-zinc-800 dark:text-white"
               style={{ fontFamily: "var(--font-balgin)" }}
             >
               Living Green
             </h1>
 
             <div className="space-y-4">
-              <p className="text-gray-600 dark:text-white/70">
+              <p className="text-zinc-600 dark:text-white/70">
                 I love the environment! I&apos;m a big fan of green energy and
                 sustainability. I&apos;m always looking for ways to reduce my
                 carbon footprint and make a positive impact on the planet.
               </p>
 
               {/* Carbon Rating Card */}
-              <div className="rounded-lg border border-gray-200 bg-white p-6 dark:border-gray-700 dark:bg-gray-800/20">
+              <div className="rounded-lg border border-zinc-200 bg-white p-6 dark:border-zinc-700 dark:bg-zinc-800/20">
                 <div className="mb-4 flex items-center justify-between">
                   <h2
-                    className="text-lg font-semibold text-gray-800 dark:text-white"
+                    className="text-lg font-semibold text-zinc-800 dark:text-white"
                     style={{ fontFamily: "var(--font-balgin)" }}
                   >
                     Website Carbon Rating
                   </h2>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
+                  <div className="flex size-12 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
                     <span
-                      className="text-2xl font-bold text-green-700 dark:text-green-400"
+                      className="text-2xl font-semibold text-green-700 dark:text-green-400"
                       style={{ fontFamily: "var(--font-balgin)" }}
                     >
                       A
@@ -97,44 +97,44 @@ export default function Green() {
                 </div>
 
                 <div className="mb-4 grid grid-cols-1 gap-4 md:grid-cols-3">
-                  <div className="rounded-md bg-gray-50 p-3 text-center dark:bg-gray-700/30">
+                  <div className="rounded-md bg-zinc-50 p-3 text-center dark:bg-zinc-700/30">
                     <div
-                      className="text-2xl font-bold text-gray-900 dark:text-white"
+                      className="text-2xl font-semibold text-zinc-900 dark:text-white"
                       style={{ fontFamily: "var(--font-balgin)" }}
                     >
                       0.17g
                     </div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                    <div className="text-xs text-zinc-600 dark:text-zinc-400">
                       CO₂ per page view
                     </div>
                   </div>
 
-                  <div className="rounded-md bg-gray-50 p-3 text-center dark:bg-gray-700/30">
+                  <div className="rounded-md bg-zinc-50 p-3 text-center dark:bg-zinc-700/30">
                     <div
-                      className="text-2xl font-bold text-gray-900 dark:text-white"
+                      className="text-2xl font-semibold text-zinc-900 dark:text-white"
                       style={{ fontFamily: "var(--font-balgin)" }}
                     >
                       20.7kg
                     </div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                    <div className="text-xs text-zinc-600 dark:text-zinc-400">
                       Annual CO₂ (10k views/mo)
                     </div>
                   </div>
 
-                  <div className="rounded-md bg-gray-50 p-3 text-center dark:bg-gray-700/30">
+                  <div className="rounded-md bg-zinc-50 p-3 text-center dark:bg-zinc-700/30">
                     <div
-                      className="text-2xl font-bold text-gray-900 dark:text-white"
+                      className="text-2xl font-semibold text-zinc-900 dark:text-white"
                       style={{ fontFamily: "var(--font-balgin)" }}
                     >
                       0.47
                     </div>
-                    <div className="text-xs text-gray-600 dark:text-gray-400">
+                    <div className="text-xs text-zinc-600 dark:text-zinc-400">
                       kWh per year
                     </div>
                   </div>
                 </div>
 
-                <p className="mb-2 text-sm text-gray-600 dark:text-gray-400">
+                <p className="mb-2 text-sm text-zinc-600 dark:text-zinc-400">
                   This website produces minimal carbon emissions with just{" "}
                   <strong>0.17 grams of CO₂</strong> per page view. That&apos;s
                   excellent for web sustainability!
@@ -148,11 +148,11 @@ export default function Green() {
                 </ExternalLink>
               </div>
 
-              <p className="text-gray-600 dark:text-white/70">
+              <p className="text-zinc-600 dark:text-white/70">
                 My house has solar panels and we also store that energy in
                 batteries in case of a power outage.
               </p>
-              <p className="text-gray-600 dark:text-white/70">
+              <p className="text-zinc-600 dark:text-white/70">
                 I always love seeing cool sustainability and green projects. If
                 you find one or are working on one, please let me know! My{" "}
                 <Link href="/contact" className="lnk">

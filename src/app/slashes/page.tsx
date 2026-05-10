@@ -95,12 +95,12 @@ export default function Slashes() {
           <div className="mx-auto max-w-4xl px-6 py-12">
             <div className="mb-12">
               <h1
-                className="mb-4 text-4xl font-bold text-gray-900 dark:text-white"
+                className="mb-4 text-4xl font-semibold text-zinc-900 dark:text-white"
                 style={{ fontFamily: "var(--font-balgin)" }}
               >
                 Slash Pages
               </h1>
-              <p className="text-lg text-gray-600 dark:text-gray-300">
+              <p className="text-lg text-zinc-600 dark:text-zinc-300">
                 These are pages on my website, found at a top-level URL, which
                 may be of interest. Inspired by{" "}
                 <ExternalLink href="https://slashpages.net/" className="lnk">
@@ -127,20 +127,20 @@ export default function Slashes() {
                 <Link
                   key={page.slug}
                   href={`/${page.slug}`}
-                  className="h-entry group rounded-xl border border-gray-200 p-5 transition-all hover:border-gray-300 hover:bg-gray-50 dark:border-gray-700 dark:hover:border-gray-600 dark:hover:bg-gray-800/50"
+                  className="h-entry group rounded-xl border border-zinc-200 p-5 transition-all hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700 dark:hover:border-zinc-600 dark:hover:bg-zinc-800/50"
                 >
                   <div className="flex items-start justify-between">
                     <div>
-                      <h2 className="p-name mb-1 text-lg font-semibold text-gray-900 group-hover:text-gray-700 dark:text-white dark:group-hover:text-gray-200">
+                      <h2 className="p-name mb-1 text-lg font-semibold text-zinc-900 group-hover:text-zinc-700 dark:text-white dark:group-hover:text-zinc-200">
                         <span
-                          className="text-gray-400 dark:text-gray-500"
+                          className="text-zinc-400 dark:text-zinc-500"
                           style={{ fontFamily: "var(--font-balgin)" }}
                         >
                           /
                         </span>
                         {page.slug}
                       </h2>
-                      <p className="p-summary text-gray-600 dark:text-gray-400">
+                      <p className="p-summary text-zinc-600 dark:text-zinc-400">
                         {page.description}
                       </p>
                       <data
@@ -149,7 +149,7 @@ export default function Slashes() {
                         hidden
                       />
                     </div>
-                    <span className="text-gray-400 transition-transform group-hover:translate-x-1 dark:text-gray-500">
+                    <span className="text-zinc-400 transition-transform group-hover:translate-x-1 dark:text-zinc-500">
                       &rarr;
                     </span>
                   </div>

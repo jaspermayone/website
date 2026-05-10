@@ -62,16 +62,21 @@ const LetterBlock = ({ letter }) => (
   </span>
 );
 
-const SectionHeader = ({ children }) => (
-  <h2
-    className="mb-2 text-4xl dark:text-white"
-    style={{ fontFamily: "var(--font-cuteNotes)" }}
-  >
-    {children.split("").map((letter, index) => (
-      <LetterBlock key={index} letter={letter} />
-    ))}
-  </h2>
-);
+const SectionHeader = ({ children }) => {
+  const letters = (children as string)
+    .split("")
+    .map((char, i) => ({ id: `sh-${i}`, char }));
+  return (
+    <h2
+      className="mb-2 text-4xl dark:text-white"
+      style={{ fontFamily: "var(--font-cuteNotes)" }}
+    >
+      {letters.map(({ id, char }) => (
+        <LetterBlock key={id} letter={char} />
+      ))}
+    </h2>
+  );
+};
 
 const verifyPageSchema = {
   "@context": "https://schema.org",
@@ -119,51 +124,51 @@ const VerifyPage = () => {
   const getIcon = (platform: string) => {
     switch (platform.toLowerCase()) {
       case "github":
-        return <SiGithub className="h-4 w-4" />;
+        return <SiGithub className="size-4" />;
       case "linkedin":
-        return <SiLinkedin className="h-4 w-4" />;
+        return <SiLinkedin className="size-4" />;
       case "instagram":
-        return <SiInstagram className="h-4 w-4" />;
+        return <SiInstagram className="size-4" />;
       case "youtube":
-        return <SiYoutube className="h-4 w-4" />;
+        return <SiYoutube className="size-4" />;
       case "buy me a coffee":
-        return <SiBuymeacoffee className="h-4 w-4" />;
+        return <SiBuymeacoffee className="size-4" />;
       case "matrix":
-        return <SiMatrix className="h-4 w-4" />;
+        return <SiMatrix className="size-4" />;
       case "bluesky":
-        return <SiBluesky className="h-4 w-4" />;
+        return <SiBluesky className="size-4" />;
       case "threads":
-        return <SiThreads className="h-4 w-4" />;
+        return <SiThreads className="size-4" />;
       case "signal":
-        return <SiSignal className="h-4 w-4" />;
+        return <SiSignal className="size-4" />;
       case "reddit":
-        return <SiReddit className="h-4 w-4" />;
+        return <SiReddit className="size-4" />;
       case "hackerone":
-        return <SiHackerone className="h-4 w-4" />;
+        return <SiHackerone className="size-4" />;
       case "twitter/x":
-        return <SiX className="h-4 w-4" />;
+        return <SiX className="size-4" />;
       case "dev.to":
-        return <SiDevdotto className="h-4 w-4" />;
+        return <SiDevdotto className="size-4" />;
       case "product hunt":
-        return <SiProducthunt className="h-4 w-4" />;
+        return <SiProducthunt className="size-4" />;
       case "hacker news":
-        return <SiYcombinator className="h-4 w-4" />;
+        return <SiYcombinator className="size-4" />;
       case "thingiverse":
-        return <SiThingiverse className="h-4 w-4" />;
+        return <SiThingiverse className="size-4" />;
       case "mastodon":
-        return <SiMastodon className="h-4 w-4" />;
+        return <SiMastodon className="size-4" />;
       case "last.fm":
-        return <SiLastdotfm className="h-4 w-4" />;
+        return <SiLastdotfm className="size-4" />;
       case "figma":
-        return <SiFigma className="h-4 w-4" />;
+        return <SiFigma className="size-4" />;
       case "obsidian publish":
-        return <SiObsidian className="h-4 w-4" />;
+        return <SiObsidian className="size-4" />;
       case "flickr":
-        return <SiFlickr className="h-4 w-4" />;
+        return <SiFlickr className="size-4" />;
       case "raycast":
-        return <SiRaycast className="h-4 w-4" />;
+        return <SiRaycast className="size-4" />;
       default:
-        return <AtSign className="h-4 w-4" />;
+        return <AtSign className="size-4" />;
     }
   };
 
@@ -234,8 +239,8 @@ const VerifyPage = () => {
         {/* Domains Section */}
         <section className="mb-6">
           <SectionHeader>domains</SectionHeader>
-          <div className="rounded-xl border border-gray-200 bg-linear-to-br from-blue-50 to-pink-50 p-6 dark:border-gray-700 dark:from-slate-800 dark:to-slate-900">
-            <p className="mb-4 text-gray-700 dark:text-gray-300">
+          <div className="rounded-xl border border-zinc-200 bg-linear-to-br from-blue-50 to-pink-50 p-6 dark:border-zinc-700 dark:from-zinc-800 dark:to-zinc-900">
+            <p className="mb-4 text-zinc-700 dark:text-zinc-300">
               These are the domains I own and operate. I also operate a few
               other domains for work and clients that are not listed here for
               privacy reasons.
@@ -253,16 +258,16 @@ const VerifyPage = () => {
                     case domainType.other:
                       return "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200";
                     default:
-                      return "bg-slate-100 text-slate-800 dark:bg-slate-800 dark:text-slate-200";
+                      return "bg-zinc-100 text-zinc-800 dark:bg-zinc-800 dark:text-zinc-200";
                   }
                 };
 
                 return (
                   <div
                     key={domain.name}
-                    className="rounded-lg border border-gray-200 bg-white p-4 transition-all duration-300 hover:border-blue-300 hover:bg-blue-50 hover:shadow-sm dark:border-gray-700 dark:bg-slate-800 dark:hover:border-blue-500 dark:hover:bg-slate-700"
+                    className="rounded-lg border border-zinc-200 bg-white p-4 transition-all duration-300 hover:border-blue-300 hover:bg-blue-50 hover:shadow-sm dark:border-zinc-700 dark:bg-zinc-800 dark:hover:border-blue-500 dark:hover:bg-zinc-700"
                   >
-                    <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200">
+                    <h3 className="text-lg font-medium text-zinc-800 dark:text-zinc-200">
                       {domain.name}
                     </h3>
                     <div className="mt-2 flex items-center gap-2">
@@ -287,8 +292,8 @@ const VerifyPage = () => {
         {/* Email Section */}
         <section className="mb-12">
           <SectionHeader>email</SectionHeader>
-          <div className="rounded-xl border border-gray-200 bg-linear-to-br from-blue-50 to-pink-50 p-6 dark:border-gray-700 dark:from-slate-800 dark:to-slate-900">
-            <p className="mb-4 text-gray-700 dark:text-gray-300">
+          <div className="rounded-xl border border-zinc-200 bg-linear-to-br from-blue-50 to-pink-50 p-6 dark:border-zinc-700 dark:from-zinc-800 dark:to-zinc-900">
+            <p className="mb-4 text-zinc-700 dark:text-zinc-300">
               I maintain email addresses across various domains. Some addresses
               for organizations I am a part of are not published here for
               privacy reasons.
@@ -305,7 +310,7 @@ const VerifyPage = () => {
                 />
               ))}
             </div>
-            <p className="mt-4 text-sm text-gray-500 dark:text-gray-400">
+            <p className="mt-4 text-sm text-zinc-500 dark:text-zinc-400">
               If you have questions about my identity at these{" "}
               <b>or any other addresses</b>, you can email me at any of the ones
               you see above to verify it&apos;s me. I also sign my emails with
@@ -330,17 +335,17 @@ const VerifyPage = () => {
                   href={`/to/${account.slug}`}
                   rel="me"
                   prefetch={false}
-                  className="group flex flex-col rounded-lg border border-gray-200 bg-white p-4 transition-all duration-300 hover:border-blue-300 hover:bg-blue-50 hover:shadow-sm dark:border-gray-700 dark:bg-slate-800 dark:hover:border-blue-500 dark:hover:bg-slate-700"
+                  className="group flex flex-col rounded-lg border border-zinc-200 bg-white p-4 transition-all duration-300 hover:border-blue-300 hover:bg-blue-50 hover:shadow-sm dark:border-zinc-700 dark:bg-zinc-800 dark:hover:border-blue-500 dark:hover:bg-zinc-700"
                 >
-                  <div className="flex items-center gap-2 text-gray-600 dark:text-gray-300">
+                  <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-300">
                     {getIcon(platformName)}
                     <span className="font-medium">{platformName}</span>
                   </div>
-                  <div className="mt-1 text-sm break-all text-gray-500 dark:text-gray-400">
+                  <div className="mt-1 text-sm break-all text-zinc-500 dark:text-zinc-400">
                     {account.username || "\u00A0"}
                   </div>
                   {account.socialNote && (
-                    <div className="mt-auto pt-2 text-xs text-gray-400 dark:text-gray-500">
+                    <div className="mt-auto pt-2 text-xs text-zinc-400 dark:text-zinc-500">
                       {account.socialNote}
                     </div>
                   )}

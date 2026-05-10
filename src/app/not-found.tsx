@@ -2,19 +2,20 @@ import SquigglyLine from "@/components/SquigglyLine";
 import { Link } from "next-view-transitions";
 
 const NotFound = () => {
-  // Array of configurations for bottom squiggly lines
-  const bottomSquiggles = Array(20).fill({
+  const bottomSquiggles = Array.from({ length: 20 }, (_, i) => ({
+    id: `squiggle-${i}`,
     frequency: 10,
     amplitude: 5.4,
     className: "min-w-max",
     color: "#56ba8e",
-  });
+  }));
+  const nfLetters = ["4", "0", "4"].map((char, i) => ({ id: `nf-${i}`, char }));
 
   return (
     <div className="flex h-screen w-screen flex-col items-center justify-center overflow-hidden py-6">
-      {bottomSquiggles.map((config, index) => (
+      {bottomSquiggles.map((config) => (
         <SquigglyLine
-          key={index}
+          key={config.id}
           frequency={config.frequency}
           amplitude={config.amplitude}
           className={config.className}
@@ -24,12 +25,12 @@ const NotFound = () => {
 
       <div className="bg-linkHover/40 my-12 flex flex-col items-center justify-center rounded-md p-10">
         <div className="mb-1 flex gap-2">
-          {["4", "0", "4"].map((letter, i) => (
+          {nfLetters.map(({ id, char }) => (
             <div
-              key={i}
-              className="font-cute-notes flex h-12 w-12 items-center justify-center text-5xl font-medium"
+              key={id}
+              className="font-cute-notes flex size-12 items-center justify-center text-5xl font-medium"
             >
-              {letter}
+              {char}
             </div>
           ))}
         </div>
@@ -44,9 +45,9 @@ const NotFound = () => {
         </div>
       </div>
 
-      {bottomSquiggles.map((config, index) => (
+      {bottomSquiggles.map((config) => (
         <SquigglyLine
-          key={index}
+          key={config.id}
           frequency={config.frequency}
           amplitude={config.amplitude}
           className={config.className}

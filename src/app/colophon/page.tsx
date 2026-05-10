@@ -159,12 +159,12 @@ export default function Colophon() {
           <div className="mx-auto max-w-4xl px-6 py-12">
             <div className="mb-16">
               <h1
-                className="mb-4 text-4xl font-bold text-gray-900 dark:text-white"
+                className="mb-4 text-4xl font-semibold text-zinc-900 dark:text-white"
                 style={{ fontFamily: "var(--font-balgin)" }}
               >
                 Colophon
               </h1>
-              <p className="text-lg text-gray-600 dark:text-gray-300">
+              <p className="text-lg text-zinc-600 dark:text-zinc-300">
                 The tools, technologies, and people behind this website.
               </p>
             </div>
@@ -172,13 +172,13 @@ export default function Colophon() {
             {/* Site History Section */}
             <section className="mb-16">
               <h2
-                className="mb-6 text-2xl font-bold text-gray-900 dark:text-white"
+                className="mb-6 text-2xl font-semibold text-zinc-900 dark:text-white"
                 style={{ fontFamily: "var(--font-balgin)" }}
               >
                 Site History
               </h2>
-              <div className="rounded-2xl border border-gray-200 p-8 dark:border-gray-700">
-                <p className="text-lg leading-relaxed text-gray-600 dark:text-gray-300">
+              <div className="rounded-2xl border border-zinc-200 p-8 dark:border-zinc-700">
+                <p className="text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
                   The original site was developed by{" "}
                   <ExternalLink href="https://aram.sh" className="lnk">
                     Aram Shiva
@@ -191,29 +191,29 @@ export default function Colophon() {
             {/* Technology Stack Section */}
             <section className="mb-16">
               <h2
-                className="mb-6 text-2xl font-bold text-gray-900 dark:text-white"
+                className="mb-6 text-2xl font-semibold text-zinc-900 dark:text-white"
                 style={{ fontFamily: "var(--font-balgin)" }}
               >
                 Technology Stack
               </h2>
               <div className="grid gap-6 lg:grid-cols-2">
-                {techStack.map((tech, index) => (
+                {techStack.map((tech) => (
                   <div
-                    key={index}
-                    className="rounded-2xl border border-gray-200 p-6 transition-colors hover:border-gray-300 dark:border-gray-700 dark:hover:border-gray-600"
+                    key={tech.name}
+                    className="rounded-2xl border border-zinc-200 p-6 transition-colors hover:border-zinc-300 dark:border-zinc-700 dark:hover:border-zinc-600"
                   >
                     <div className="mb-3 flex items-start justify-between">
-                      <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                      <h3 className="text-lg font-semibold text-zinc-900 dark:text-white">
                         {tech.name}
                       </h3>
                       <span
-                        className="rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-300"
+                        className="rounded-full bg-zinc-100 px-3 py-1 text-sm font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300"
                         style={{ fontFamily: "var(--font-balgin)" }}
                       >
                         {tech.category}
                       </span>
                     </div>
-                    <p className="leading-relaxed text-gray-600 dark:text-gray-300">
+                    <p className="leading-relaxed text-zinc-600 dark:text-zinc-300">
                       {tech.description}
                     </p>
                   </div>
@@ -224,16 +224,16 @@ export default function Colophon() {
             {/* Hosting & Deployment Section */}
             <section className="mb-16">
               <h2
-                className="mb-6 text-2xl font-bold text-gray-900 dark:text-white"
+                className="mb-6 text-2xl font-semibold text-zinc-900 dark:text-white"
                 style={{ fontFamily: "var(--font-balgin)" }}
               >
                 Hosting & Deployment
               </h2>
-              <div className="rounded-2xl border border-gray-200 p-8 dark:border-gray-700">
-                <h3 className="mb-3 text-xl font-bold text-gray-900 dark:text-white">
+              <div className="rounded-2xl border border-zinc-200 p-8 dark:border-zinc-700">
+                <h3 className="mb-3 text-xl font-semibold text-zinc-900 dark:text-white">
                   Vercel Platform
                 </h3>
-                <p className="mb-4 leading-relaxed text-gray-600 dark:text-gray-300">
+                <p className="mb-4 leading-relaxed text-zinc-600 dark:text-zinc-300">
                   The site is hosted on{" "}
                   <ExternalLink href="https://vercel.com" className="lnk">
                     Vercel
@@ -245,13 +245,13 @@ export default function Colophon() {
                   className="flex flex-wrap gap-2"
                   style={{ fontFamily: "var(--font-balgin)" }}
                 >
-                  <span className="rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-300">
+                  <span className="rounded-full bg-zinc-100 px-3 py-1 text-sm font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
                     GitHub Integration
                   </span>
-                  <span className="rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-300">
+                  <span className="rounded-full bg-zinc-100 px-3 py-1 text-sm font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
                     Automatic HTTPS
                   </span>
-                  <span className="rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-600 dark:bg-gray-800 dark:text-gray-300">
+                  <span className="rounded-full bg-zinc-100 px-3 py-1 text-sm font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-300">
                     Global CDN
                   </span>
                 </div>
@@ -261,19 +261,19 @@ export default function Colophon() {
             {/* Development Tools Section */}
             <section className="mb-16">
               <h2
-                className="mb-6 text-2xl font-bold text-gray-900 dark:text-white"
+                className="mb-6 text-2xl font-semibold text-zinc-900 dark:text-white"
                 style={{ fontFamily: "var(--font-balgin)" }}
               >
                 Development Tools
               </h2>
-              <div className="rounded-2xl border border-gray-200 p-8 dark:border-gray-700">
+              <div className="rounded-2xl border border-zinc-200 p-8 dark:border-zinc-700">
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                  {devTools.map((tool, index) => (
-                    <div key={index}>
-                      <h3 className="mb-2 font-bold text-gray-900 dark:text-white">
+                  {devTools.map((tool) => (
+                    <div key={tool.name}>
+                      <h3 className="mb-2 font-semibold text-zinc-900 dark:text-white">
                         {tool.name}
                       </h3>
-                      <p className="leading-relaxed text-gray-600 dark:text-gray-300">
+                      <p className="leading-relaxed text-zinc-600 dark:text-zinc-300">
                         {tool.description}
                       </p>
                     </div>
@@ -285,16 +285,16 @@ export default function Colophon() {
             {/* Hardware Section */}
             <section className="mb-16">
               <h2
-                className="mb-6 text-2xl font-bold text-gray-900 dark:text-white"
+                className="mb-6 text-2xl font-semibold text-zinc-900 dark:text-white"
                 style={{ fontFamily: "var(--font-balgin)" }}
               >
                 Hardware
               </h2>
-              <div className="rounded-2xl border border-gray-200 p-8 dark:border-gray-700">
-                <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-white">
+              <div className="rounded-2xl border border-zinc-200 p-8 dark:border-zinc-700">
+                <h3 className="mb-2 text-xl font-semibold text-zinc-900 dark:text-white">
                   Apple M4 Pro MacBook Pro
                 </h3>
-                <p className="text-lg text-gray-600 dark:text-gray-300">
+                <p className="text-lg text-zinc-600 dark:text-zinc-300">
                   Primary development machine for coding, design, and testing
                 </p>
               </div>

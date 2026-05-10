@@ -66,6 +66,7 @@
     "postcss": "^8.5.6",
     "prettier": "^3.8.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
+    "react-doctor": "^0.1.4",
     "string-replace-loader": "^3.3.0",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3"

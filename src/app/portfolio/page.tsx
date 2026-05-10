@@ -96,7 +96,7 @@ const portfolioSchema = {
 
 export default function Portfolio() {
   // Sort projects by order field, with projects without order at the end
-  const sortedProjects = [...projects].sort((a, b) => {
+  const sortedProjects = projects.toSorted((a, b) => {
     if (a.order === undefined && b.order === undefined) return 0;
     if (a.order === undefined) return 1;
     if (b.order === undefined) return -1;
@@ -116,7 +116,7 @@ export default function Portfolio() {
         <MENU pageFirstWord="Portfolio" />
         <main className="m-5 flex-1">
           <div className="mb-8">
-            <p className="mb-3 text-gray-700 dark:text-white/70">
+            <p className="mb-3 text-zinc-700 dark:text-white/70">
               A collection of projects I&apos;ve worked on, ranging from web
               applications to creative tools and experiments.
             </p>
@@ -125,10 +125,10 @@ export default function Portfolio() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             {sortedProjects.map((project, index) => (
               <div
-                key={index}
-                className="overflow-hidden rounded-lg border border-gray-200 transition-shadow duration-200 hover:shadow-lg dark:border-gray-700"
+                key={project.title}
+                className="overflow-hidden rounded-lg border border-zinc-200 transition-shadow duration-200 hover:shadow-lg dark:border-zinc-700"
               >
-                <div className="relative h-48 w-full bg-gray-100 dark:bg-gray-800">
+                <div className="relative h-48 w-full bg-zinc-100 dark:bg-zinc-800">
                   {project.image ? (
                     <Image
                       src={project.image}
@@ -141,39 +141,39 @@ export default function Portfolio() {
                       blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAE0lEQVR42mNk+P+fgYGBgQEAAP8A/ueJdwEAAAAASUVORK5CYII="
                     />
                   ) : (
-                    <div className="flex h-full w-full items-center justify-center text-sm text-gray-400 dark:text-gray-600">
+                    <div className="flex h-full w-full items-center justify-center text-sm text-zinc-400 dark:text-zinc-600">
                       No image provided
                     </div>
                   )}
                 </div>
                 <div className="p-6">
                   <div className="mb-3 flex items-start justify-between">
-                    <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+                    <h2 className="text-xl font-semibold text-zinc-900 dark:text-white">
                       {project.title}
                     </h2>
                     <div className="flex gap-2">
                       {project.link && (
                         <ExternalLink
                           href={project.link}
-                          className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                          className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
                           aria-label="Visit project"
                         >
-                          <PaperclipIcon className="h-5 w-5" />
+                          <PaperclipIcon className="size-5" />
                         </ExternalLink>
                       )}
                       {project.github && (
                         <ExternalLink
                           href={`https://github.com/${project.github}`}
-                          className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+                          className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
                           aria-label="View on GitHub"
                         >
-                          <GithubLogoIcon className="h-5 w-5" />
+                          <GithubLogoIcon className="size-5" />
                         </ExternalLink>
                       )}
                     </div>
                   </div>
 
-                  <p className="mb-4 text-sm text-gray-600 dark:text-white/70">
+                  <p className="mb-4 text-sm text-zinc-600 dark:text-white/70">
                     {project.description}
                   </p>
 
@@ -192,7 +192,7 @@ export default function Portfolio() {
                   )}
 
                   {project.date && (
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                    <p className="text-xs text-zinc-500 dark:text-zinc-400">
                       {project.date}
                     </p>
                   )}

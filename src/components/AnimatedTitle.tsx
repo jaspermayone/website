@@ -79,6 +79,34 @@ const AnimatedTitle = (props: AnimatedTitleProps) => {
     };
   };
 
+  const firstLetters = useMemo(
+    () =>
+      firstWord
+        .split("")
+        .map((letter, i) => ({ letter, k: `first-${i}`, si: i })),
+    [firstWord]
+  );
+  const secondLetters = useMemo(
+    () =>
+      secondWord
+        ?.split("")
+        .map((letter, i) => ({
+          letter,
+          k: `second-${i}`,
+          si: i + firstWord.length,
+        })),
+    [secondWord, firstWord]
+  );
+  const thirdLetters = useMemo(
+    () =>
+      thirdWord?.split("").map((letter, i) => ({
+        letter,
+        k: `third-${i}`,
+        si: i + firstWord.length + (secondWord ? secondWord.length : 0),
+      })),
+    [thirdWord, firstWord, secondWord]
+  );
+
   return (
     <>
       <style>{keyframesStyle}</style>
@@ -93,26 +121,18 @@ const AnimatedTitle = (props: AnimatedTitleProps) => {
         }}
         title={`${firstWord} ${secondWord || ""}`}
       >
-        {firstWord.split("").map((letter, index) => (
-          <span key={`first-${index}`} style={getLetterStyle(index)}>
+        {firstLetters.map(({ letter, k, si }) => (
+          <span key={k} style={getLetterStyle(si)}>
             {letter}
           </span>
         ))}{" "}
-        {secondWord?.split("").map((letter, index) => (
-          <span
-            key={`second-${index}`}
-            style={getLetterStyle(index + firstWord.length)}
-          >
+        {secondLetters?.map(({ letter, k, si }) => (
+          <span key={k} style={getLetterStyle(si)}>
             {letter}
           </span>
         ))}{" "}
-        {thirdWord?.split("").map((letter, index) => (
-          <span
-            key={`third-${index}`}
-            style={getLetterStyle(
-              index + firstWord.length + (secondWord ? secondWord.length : 0)
-            )}
-          >
+        {thirdLetters?.map(({ letter, k, si }) => (
+          <span key={k} style={getLetterStyle(si)}>
             {letter}
           </span>
         ))}

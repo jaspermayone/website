@@ -17,19 +17,19 @@ const ExperienceColumn = ({ items }: { items: ExperienceItem[] }) => (
           value={`item-${index}`}
           className="mb-2 border-b-0 last:mb-0"
         >
-          <AccordionTrigger className="rounded-lg px-2 py-2 text-sm hover:bg-blue-50 hover:no-underline data-[state=open]:bg-blue-50 dark:hover:bg-slate-600 dark:data-[state=open]:bg-slate-600">
-            <div className="text-left group-hover:bg-blue-50 dark:group-hover:bg-slate-700">
+          <AccordionTrigger className="rounded-lg p-2 text-sm hover:bg-blue-50 hover:no-underline data-[state=open]:bg-blue-50 dark:hover:bg-zinc-600 dark:data-[state=open]:bg-zinc-600">
+            <div className="text-left group-hover:bg-blue-50 dark:group-hover:bg-zinc-700">
               {item.company}
             </div>
           </AccordionTrigger>
-          <AccordionContent className="px-2 py-2">
-            <p className="text-sm text-gray-700 dark:text-stone-200">
+          <AccordionContent className="p-2">
+            <p className="text-sm text-zinc-700 dark:text-stone-200">
               {item.role}
             </p>
-            <p className="mt-1 text-xs text-gray-500 dark:text-stone-400">
+            <p className="mt-1 text-xs text-zinc-500 dark:text-stone-400">
               {item.location}
             </p>
-            <p className="text-xs text-gray-500 italic dark:text-stone-400">
+            <p className="text-xs text-zinc-500 italic dark:text-stone-400">
               {item.date}
             </p>
           </AccordionContent>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Star, GitFork, ArrowUpRight } from "lucide-react";
-import { ExternalLink } from "@/components/ExternalLink";
+import ExternalLink from "@/components/ExternalLink";
 import { RepoStats } from "@/lib/types";
 import { SiGithub } from "react-icons/si";
 
@@ -67,12 +67,12 @@ export function OpenSourceCard({
       className={`rounded-lg border p-4 transition-all hover:shadow-md ${
         featured
           ? "border-blue-200 bg-blue-50/50 dark:border-blue-800 dark:bg-blue-900/10"
-          : "border-gray-200 bg-white dark:border-gray-700 dark:bg-slate-800"
+          : "border-zinc-200 bg-white dark:border-zinc-700 dark:bg-slate-800"
       }`}
     >
       <div className="mb-2 flex items-start justify-between">
         <div className="flex items-center gap-2">
-          <h3 className="font-semibold text-gray-900 dark:text-white">
+          <h3 className="font-semibold text-zinc-900 dark:text-white">
             {name}
           </h3>
           {status === "alpha" && (
@@ -95,48 +95,48 @@ export function OpenSourceCard({
           {liveUrl && (
             <ExternalLink
               href={liveUrl}
-              className="text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              className="text-zinc-500 hover:text-blue-600 dark:text-zinc-400 dark:hover:text-blue-400"
               aria-label="Visit live site"
             >
-              <ArrowUpRight className="h-4 w-4" />
+              <ArrowUpRight className="size-4" />
             </ExternalLink>
           )}
           <ExternalLink
             href={repoUrl}
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+            className="text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
             aria-label="View repository"
           >
-            <SiGithub className="h-4 w-4" />
+            <SiGithub className="size-4" />
           </ExternalLink>
         </div>
       </div>
 
-      <p className="mb-3 text-sm text-gray-600 dark:text-white/70">
+      <p className="mb-3 text-sm text-zinc-600 dark:text-white/70">
         {description}
       </p>
 
       {/* Stats row */}
-      <div className="flex flex-wrap items-center gap-3 text-xs text-gray-500 dark:text-gray-400">
+      <div className="flex flex-wrap items-center gap-3 text-xs text-zinc-500 dark:text-zinc-400">
         {loading ? (
-          <span className="animate-pulse">Loading stats...</span>
+          <span className="animate-pulse">Loading stats…</span>
         ) : stats && !stats.error ? (
           <>
             {stats.language && (
               <span className="flex items-center gap-1">
                 <span
-                  className="h-2 w-2 rounded-full"
+                  className="size-2 rounded-full"
                   style={{ backgroundColor: getLanguageColor(stats.language) }}
                 />
                 {stats.language}
               </span>
             )}
             <span className="flex items-center gap-1">
-              <Star className="h-3 w-3" />
+              <Star className="size-3" />
               {stats.stars}
             </span>
             {stats.forks > 0 && (
               <span className="flex items-center gap-1">
-                <GitFork className="h-3 w-3" />
+                <GitFork className="size-3" />
                 {stats.forks}
               </span>
             )}

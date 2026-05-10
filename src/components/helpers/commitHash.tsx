@@ -36,11 +36,11 @@ export default function CommitHash({ color }: CommitHashProps) {
             </TooltipPrimitive.Trigger>
             <TooltipPrimitive.Portal>
               <TooltipPrimitive.Content
-                className="z-50 rounded-xl border border-slate-200 bg-white p-3 font-mono text-sm text-slate-800 shadow-xl backdrop-blur-sm dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200"
+                className="z-50 rounded-xl border border-zinc-200 bg-white p-3 font-mono text-sm text-zinc-800 shadow-xl backdrop-blur-sm dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-200"
                 sideOffset={5}
               >
                 {process.env.FULL_COMMIT_HASH}
-                <TooltipPrimitive.Arrow className="fill-white dark:fill-slate-800" />
+                <TooltipPrimitive.Arrow className="fill-white dark:fill-zinc-800" />
               </TooltipPrimitive.Content>
             </TooltipPrimitive.Portal>
           </TooltipPrimitive.Root>

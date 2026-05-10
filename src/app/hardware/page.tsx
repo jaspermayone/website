@@ -128,12 +128,12 @@ export default function Hardware() {
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
             <h1
-              className="mb-2 text-xl font-bold text-gray-800 dark:text-white"
+              className="mb-2 text-xl font-semibold text-zinc-800 dark:text-white"
               style={{ fontFamily: "var(--font-balgin)" }}
             >
               My Hardware
             </h1>
-            <p className="mb-6 text-gray-600 italic dark:text-white/70">
+            <p className="mb-6 text-zinc-600 italic dark:text-white/70">
               All my Apple devices are named after Harry Potter characters.
             </p>
 
@@ -146,7 +146,7 @@ export default function Hardware() {
                 return (
                   <section key={category}>
                     <h2
-                      className="mb-3 flex items-center gap-2 text-lg font-semibold text-gray-700 dark:text-gray-200"
+                      className="mb-3 flex items-center gap-2 text-lg font-semibold text-zinc-700 dark:text-zinc-200"
                       style={{ fontFamily: "var(--font-balgin)" }}
                     >
                       <Icon
@@ -154,17 +154,17 @@ export default function Hardware() {
                         className="text-green-600 dark:text-green-400"
                       />
                       <span>{categoryLabels[category]}</span>
-                      <span className="ml-1 text-sm font-normal text-gray-400 dark:text-gray-500">
+                      <span className="ml-1 text-sm font-normal text-zinc-400 dark:text-zinc-500">
                         ({items.length})
                       </span>
                     </h2>
                     <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                      {items.map((item, index) => (
+                      {items.map((item) => (
                         <div
-                          key={index}
-                          className="rounded-lg border border-gray-200 bg-white/50 p-4 transition-all hover:border-gray-300 hover:shadow-sm dark:border-gray-700 dark:bg-gray-800/20 dark:hover:border-gray-600"
+                          key={item.device}
+                          className="rounded-lg border border-zinc-200 bg-white/50 p-4 transition-all hover:border-zinc-300 hover:shadow-sm dark:border-zinc-700 dark:bg-zinc-800/20 dark:hover:border-zinc-600"
                         >
-                          <div className="font-medium text-gray-800 dark:text-gray-100">
+                          <div className="font-medium text-zinc-800 dark:text-zinc-100">
                             {item.device}
                           </div>
                           {item.name && (
@@ -173,7 +173,7 @@ export default function Hardware() {
                             </div>
                           )}
                           {item.details && (
-                            <div className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+                            <div className="mt-1 text-sm text-zinc-500 dark:text-zinc-400">
                               {item.details}
                             </div>
                           )}

@@ -99,21 +99,21 @@ export default function PFP() {
         <main className="flex-1">
           <div className="mx-5 mt-4 mb-4">
             <h1
-              className="mb-4 text-xl font-bold text-gray-800 underline dark:text-white"
+              className="mb-4 text-xl font-semibold text-zinc-800 underline dark:text-white"
               style={{ fontFamily: "var(--font-balgin)" }}
             >
               Profile Photos
             </h1>
 
-            <p className="mb-5 text-gray-600 dark:text-white/70">
+            <p className="mb-5 text-zinc-600 dark:text-white/70">
               Here&apos;s all the profile photos I&apos;ve used over the years
             </p>
 
             <div className="grid grid-cols-4 gap-4 md:grid-cols-5 lg:grid-cols-6">
-              {paths.map((path, index) => (
+              {paths.map((path) => (
                 <div
-                  key={index}
-                  className="aspect-square h-50 w-50 overflow-hidden rounded-[10%] bg-white/50 p-1 dark:bg-gray-800/20"
+                  key={path.src}
+                  className="aspect-square size-50 overflow-hidden rounded-[10%] bg-white/50 p-1 dark:bg-zinc-800/20"
                 >
                   <Image
                     src={path}

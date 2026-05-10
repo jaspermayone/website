@@ -17,7 +17,7 @@ export default function ToIndex() {
     <div className="bg-background text-foreground min-h-screen">
       <div className="container mx-auto px-4 py-8">
         <h1
-          className="mb-8 text-3xl font-bold"
+          className="mb-8 text-3xl font-semibold"
           style={{ fontFamily: "var(--font-balgin)" }}
         >
           All /to Routes
