@@ -4,9 +4,6 @@ import { RepoStats } from "@/lib/types";
 // Cache duration in seconds (1 hour to avoid rate limits)
 const CACHE_DURATION = 3600;
 
-// In-memory cache with timestamps
-const cache = new Map<string, { data: RepoStats; timestamp: number }>();
-
 interface GitHubRepoResponse {
   stargazers_count: number;
   forks_count: number;
@@ -20,14 +17,6 @@ interface GitHubRepoResponse {
 }
 
 async function fetchRepoStats(owner: string, repo: string): Promise<RepoStats> {
-  const cacheKey = `${owner}/${repo}`;
-  const cached = cache.get(cacheKey);
-
-  // Return cached data if still valid
-  if (cached && Date.now() - cached.timestamp < CACHE_DURATION * 1000) {
-    return cached.data;
-  }
-
   try {
     const headers: HeadersInit = {
       Accept: "application/vnd.github.v3+json",
@@ -62,9 +51,6 @@ async function fetchRepoStats(owner: string, repo: string): Promise<RepoStats> {
       archived: data.archived,
       license: data.license?.spdx_id || null,
     };
-
-    // Update cache
-    cache.set(cacheKey, { data: stats, timestamp: Date.now() });
 
     return stats;
   } catch (error) {
