@@ -34,6 +34,7 @@ export function useGitHubStats(repos: string[]) {
     }
 
     dispatch({ type: "reset" });
+    let cancelled = false;
     const controller = new AbortController();
 
     const fetchStats = async () => {
@@ -44,8 +45,10 @@ export function useGitHubStats(repos: string[]) {
         );
         if (!response.ok) throw new Error("Failed to fetch stats");
         const data = await response.json();
+        if (cancelled) return;
         dispatch({ type: "success", data });
       } catch (err) {
+        if (cancelled) return;
         if (err instanceof Error && err.name === "AbortError") return;
         dispatch({
           type: "error",
@@ -55,7 +58,10 @@ export function useGitHubStats(repos: string[]) {
     };
 
     fetchStats();
-    return () => controller.abort();
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [repos.join(",")]);
 
