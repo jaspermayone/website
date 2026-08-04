@@ -1,0 +1,27 @@
+{
+  "cli_version": "0.7.3",
+  "checkpoint_id": "678f220dd9d6",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "src/app/error.tsx",
+    "src/app/not-found.tsx",
+    "src/components/EmailCard.tsx"
+  ],
+  "sessions": [
+    {
+      "metadata": "/67/8f220dd9d6/0/metadata.json",
+      "transcript": "/67/8f220dd9d6/0/full.jsonl",
+      "content_hash": "/67/8f220dd9d6/0/content_hash.txt",
+      "prompt": "/67/8f220dd9d6/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 6888,
+    "cache_creation_tokens": 167111,
+    "cache_read_tokens": 9224249,
+    "output_tokens": 72983,
+    "api_call_count": 83
+  }
+}
