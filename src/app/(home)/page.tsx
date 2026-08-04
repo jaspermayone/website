@@ -4,7 +4,7 @@ import ExternalLink from "@/components/ExternalLink";
 import FOOTER from "@/components/FOOTER";
 import MENU from "@/components/MENU";
 import RoundedImage from "@/components/RoundedImage";
-import { age } from "@/lib/defs";
+import { getAge } from "@/lib/defs";
 import JmDark from "@public/images/jmdark-min.webp";
 import JmLight from "@public/images/jmlite-min.webp";
 import { useSyncExternalStore } from "react";
@@ -57,7 +57,7 @@ export default function Home() {
                   Jasper Mayone [<i>he/they</i>]
                 </span>{" "}
                 <span className="font-normal text-zinc-700 dark:text-white/70">
-                  is a {age}-year-old college student from rural Vermont,
+                  is a {getAge()}-year-old college student from rural Vermont,
                   currently residing in Boston.
                 </span>
               </p>
