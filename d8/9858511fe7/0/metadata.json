@@ -1,0 +1,116 @@
+{
+  "cli_version": "0.7.3",
+  "checkpoint_id": "d89858511fe7",
+  "session_id": "34d84374-ad19-445e-8f11-9e4b6f661568",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-04T19:13:51.297201Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "src/app/verify/page.tsx",
+    "src/lib/defs.ts"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-fable-5[1m]",
+  "turn_id": "f2a167f1cd8a",
+  "token_usage": {
+    "input_tokens": 6873,
+    "cache_creation_tokens": 158187,
+    "cache_read_tokens": 7762501,
+    "output_tokens": 65312,
+    "api_call_count": 75
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "claude-skill-toolu_01UDqF1pJPq2ZYNK1sNTV6pi",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "react-doctor"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "f2a167f1cd8a",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 13,
+        "end": 14,
+        "entry_ids": [
+          "1dbd12f9-7bcf-4233-a723-689e06cb382f"
+        ],
+        "tool_use_id": "toolu_01UDqF1pJPq2ZYNK1sNTV6pi"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01UDqF1pJPq2ZYNK1sNTV6pi"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: react-doctor",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 1
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-08-04T19:13:51.284555Z",
+    "agent_lines": 4,
+    "agent_removed": 4,
+    "human_added": 13,
+    "human_modified": 69,
+    "human_removed": 0,
+    "total_committed": 86,
+    "total_lines_changed": 90,
+    "agent_percentage": 8.88888888888889,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 774,
+      "user_lines_removed": 12,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0,
+      "user_added_per_file": {
+        ".claude/skills/react-doctor/SKILL.md": 35,
+        ".claude/skills/react-doctor/references/explain.md": 73,
+        ".github/workflows/react-doctor.yml": 1,
+        ".husky/pre-commit": 1,
+        ".prettierignore": 3,
+        "README.md": 36,
+        "postcss.config.mjs": 9,
+        "public/.well-known/discord": 1,
+        "public/favicon.svg": 1,
+        "public/keys/jaspermayone-gpg.gpg": 225,
+        "public/keys/jaspermayone-ssh-pub": 1,
+        "public/robots.txt": 9,
+        "src/app/keys/[key]/CopyButton.tsx": 32,
+        "src/app/opengraph-image.tsx": 15,
+        "src/components/PaneraCard.tsx": 116,
+        "src/components/SquareImage.tsx": 30,
+        "src/lib/interfaces.ts": 25,
+        "src/lib/jasper.ts": 1,
+        "src/styles/404.module.css": 69,
+        "src/styles/500.module.css": 69,
+        "src/styles/Misc.module.css": 15,
+        "src/styles/Projects.module.css": 7
+      },
+      "user_removed_per_file": {
+        ".claude/skills/react-doctor/SKILL.md": 11,
+        ".github/workflows/react-doctor.yml": 1
+      }
+    },
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 897,
+      "agent_lines_removed": 1888
+    }
+  ]
+}
