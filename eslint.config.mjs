@@ -4,7 +4,6 @@ import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import react from "eslint-plugin-react";
 import reactHooks from "eslint-plugin-react-hooks";
 import jsxA11Y from "eslint-plugin-jsx-a11y";
-import reactDoctor from "react-doctor/eslint-plugin";
 import globals from "globals";
 import tsParser from "@typescript-eslint/parser";
 import path from "node:path";
@@ -21,8 +20,6 @@ const compat = new FlatCompat({
 });
 
 export default defineConfig([
-  reactDoctor.configs.recommended,
-  reactDoctor.configs.next,
   globalIgnores([
     "**/node_modules/",
     "**/.next/",
