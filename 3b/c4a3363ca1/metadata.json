@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.7.3",
+  "checkpoint_id": "3bc4a3363ca1",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    ".github/workflows/react-doctor.yml",
+    "eslint.config.mjs"
+  ],
+  "sessions": [
+    {
+      "metadata": "/3b/c4a3363ca1/0/metadata.json",
+      "transcript": "/3b/c4a3363ca1/0/full.jsonl",
+      "content_hash": "/3b/c4a3363ca1/0/content_hash.txt",
+      "prompt": "/3b/c4a3363ca1/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 6895,
+    "cache_creation_tokens": 169909,
+    "cache_read_tokens": 9983010,
+    "output_tokens": 74706,
+    "api_call_count": 87
+  }
+}
