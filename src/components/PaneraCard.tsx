@@ -87,7 +87,7 @@ export const PaneraCard = (props: PaneraCardProps) => {
         </div>
         <div style={{ display: "flex", gap: "12px" }}>
           <button
-            onClick={() => window.open(link, "_blank")}
+            onClick={() => window.open(link, "_blank", "noopener,noreferrer")}
             style={{
               background: "#e0eb60",
               color: "#1d4321",
