@@ -88,13 +88,11 @@ const AnimatedTitle = (props: AnimatedTitleProps) => {
   );
   const secondLetters = useMemo(
     () =>
-      secondWord
-        ?.split("")
-        .map((letter, i) => ({
-          letter,
-          k: `second-${i}`,
-          si: i + firstWord.length,
-        })),
+      secondWord?.split("").map((letter, i) => ({
+        letter,
+        k: `second-${i}`,
+        si: i + firstWord.length,
+      })),
     [secondWord, firstWord]
   );
   const thirdLetters = useMemo(
@@ -115,7 +113,7 @@ const AnimatedTitle = (props: AnimatedTitleProps) => {
         style={{
           margin: 0,
           marginBottom: ".25rem",
-          fontSize: "3.5em",
+          fontSize: "clamp(2.25em, 12vw, 3.5em)",
           fontFamily: "var(--font-cuteNotes)",
           viewTransitionName: "page-title",
         }}

@@ -2,6 +2,20 @@ import { ExperienceItem } from "./types";
 
 export const experience: ExperienceItem[] = [
   {
+    company: "Patchwork Labs",
+    location: "Remote",
+    role: "Founder & Operations Director",
+    date: "April 2025 - Present",
+    link: "https://www.patchworklabs.org/",
+  },
+  {
+    company: "Single Feather LLC",
+    location: "Vermont",
+    role: "Founder",
+    date: "April 2023 - Present",
+    link: "https://www.singlefeather.com/",
+  },
+  {
     company: "Major League Hacking (MLH)",
     location: "Remote (NYC, NY)",
     role: "Software Engineering Intern",

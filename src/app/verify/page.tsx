@@ -4,6 +4,7 @@ import { Link } from "next-view-transitions";
 import {
   SiBluesky,
   SiBuymeacoffee,
+  SiCloudflare,
   SiDevdotto,
   SiFigma,
   SiFlickr,
@@ -133,6 +134,8 @@ const VerifyPage = () => {
         return <SiYoutube className="size-4" />;
       case "buy me a coffee":
         return <SiBuymeacoffee className="size-4" />;
+      case "cloudflare wallet":
+        return <SiCloudflare className="size-4" />;
       case "matrix":
         return <SiMatrix className="size-4" />;
       case "bluesky":
@@ -203,7 +206,7 @@ const VerifyPage = () => {
             My entire identity can also be verified at{" "}
             <ExternalLink
               href="https://keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA"
-              className="lnk"
+              className="lnk break-all"
             >
               keyoxide.org/00E643C21FAC965FFB28D3B714D0D45A1DADAAFA
             </ExternalLink>

@@ -53,6 +53,7 @@
 
 .menu {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 0.5vw; /* Space between menu items */
   font-size: 0.8em;

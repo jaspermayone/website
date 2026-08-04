@@ -36,7 +36,9 @@ const hasBirthdayPassed =
     now.getUTCDate() >= birthDate.getUTCDate());
 
 export const age =
-  now.getUTCFullYear() - birthDate.getUTCFullYear() - (hasBirthdayPassed ? 0 : 1);
+  now.getUTCFullYear() -
+  birthDate.getUTCFullYear() -
+  (hasBirthdayPassed ? 0 : 1);
 
 /*
   "home",
@@ -147,6 +149,15 @@ export const links: RedirectItem[] = [
     username: "jaspermayone",
   },
   {
+    slug: "cloudflare-pay",
+    destination: "https://cloudflare.pay/?handle=jaspermayone",
+    linkrelme: true,
+    slashToLink: true,
+    social: true,
+    displayName: "Cloudflare Wallet",
+    username: "jaspermayone",
+  },
+  {
     slug: "reddit",
     destination: "https://www.reddit.com/user/j-dogcoder",
     linkrelme: true,
@@ -241,6 +252,20 @@ export const links: RedirectItem[] = [
     username: "@jaspermayone",
   },
   {
+    slug: "patchwork",
+    destination: "https://www.patchworklabs.org/",
+    linkrelme: false,
+    slashToLink: true,
+    social: false,
+  },
+  {
+    slug: "singlefeather",
+    destination: "https://www.singlefeather.com/",
+    linkrelme: false,
+    slashToLink: true,
+    social: false,
+  },
+  {
     slug: "theaterengine",
     destination: "https://theaterengine.com/artists/7449",
     slashToLink: false,
@@ -313,7 +338,7 @@ export const links: RedirectItem[] = [
     linkrelme: true,
     slashToLink: false,
     social: false,
-  }
+  },
 ];
 
 export const cryptoKeys = [

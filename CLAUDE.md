@@ -119,3 +119,26 @@ To add a view transition to a new element:
 - View transitions only work for **internal navigation** (same-origin)
 - External links bypass view transitions automatically
 - Transitions are purely visual and don't affect page load performance
+
+## Stacked PRs (gh-stack)
+
+Use the `gh stack` GitHub CLI extension for stacked branches / dependent PRs. Full reference lives in the globally installed `gh-stack` skill (`~/.agents/skills/gh-stack/SKILL.md`) — consult it for any stacked-diff work. Install if missing: `gh extension install github/gh-stack`.
+
+Key commands:
+
+- `gh stack init <branch...>` — create a stack (always pass branch names)
+- `gh stack add <branch>` — add a branch on top of the current stack
+- `gh stack submit --auto` — push branches and create draft PRs (`--open` for ready-for-review)
+- `gh stack sync` — fetch, rebase, push, and sync PR state (`--prune` to delete merged branches)
+- `gh stack rebase [--upstack|--downstack|--continue|--abort]` — cascade rebase
+- `gh stack view --json` — inspect stack state (branches, PRs, needsRebase)
+- `gh stack up|down|top|bottom|trunk`, `gh stack checkout <n|branch>` — navigate
+- `gh stack merge --yes` — merge the whole stack bottom-to-top (`gh pr merge` does NOT work on stacks)
+
+Agent rules (interactive prompts will hang — run everything non-interactively):
+
+- Always pass `--auto` to `submit`, `--json` to `view`, and explicit branch names to `init`/`add`/`checkout`.
+- One-time repo setup: `git config rerere.enabled true` and `git config remote.pushDefault origin`.
+- Plan layers by dependency: foundational changes (models, APIs, shared utils) in lower branches; each branch is one reviewable concern.
+- To change a lower layer: navigate down, commit there, `gh stack rebase --upstack`, then navigate back up.
+- On rebase conflict (exit code 3): resolve markers, `git add`, then `gh stack rebase --continue` (or `--abort`).

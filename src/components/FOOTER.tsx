@@ -54,6 +54,34 @@ export default function FOOTER({ color, addBackground }: FooterProps) {
           </a>
         </div>
 
+        {/* Projects and businesses */}
+        <div
+          className="flex w-full items-center justify-center gap-3 pt-2"
+          style={{ color: textColor }}
+        >
+          <Link
+            href="/to/patchwork"
+            target="_blank"
+            rel="noopener noreferrer"
+            prefetch={false}
+            className="text-xs transition-colors duration-200 hover:!text-[#56ba8e]"
+            style={{ color: textColor, fontFamily: "var(--font-balgin)" }}
+          >
+            Patchwork Labs
+          </Link>
+          <span className="leading-none opacity-40">|</span>
+          <Link
+            href="/to/singlefeather"
+            target="_blank"
+            rel="noopener noreferrer"
+            prefetch={false}
+            className="text-xs transition-colors duration-200 hover:!text-[#56ba8e]"
+            style={{ color: textColor, fontFamily: "var(--font-balgin)" }}
+          >
+            Single Feather
+          </Link>
+        </div>
+
         {/* Copyright and social icons */}
         <div
           className="flex w-full items-baseline justify-center gap-2 py-2"
