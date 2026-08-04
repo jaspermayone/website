@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import ExternalLink from "@/components/ExternalLink";
 import { Link } from "next-view-transitions";
 import Script from "next/script";
+import { safeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -95,7 +96,7 @@ export default function Contact() {
         id="contact-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(contactPageSchema),
+          __html: safeJsonLd(contactPageSchema),
         }}
       />
       <div className="flex min-h-screen flex-col">

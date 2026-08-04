@@ -4,6 +4,7 @@ import { concertsByYear } from "@/lib/defs";
 import { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
+import { safeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Concerts",
@@ -122,7 +123,7 @@ export default function Concerts() {
         id="concerts-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(concertsPageSchema),
+          __html: safeJsonLd(concertsPageSchema),
         }}
       />
       <div className="flex min-h-screen flex-col">

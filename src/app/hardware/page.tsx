@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Metadata } from "next";
 import Script from "next/script";
+import { safeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Hardware",
@@ -120,7 +121,7 @@ export default function Hardware() {
         id="hardware-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(hardwarePageSchema),
+          __html: safeJsonLd(hardwarePageSchema),
         }}
       />
       <div className="flex min-h-screen flex-col">

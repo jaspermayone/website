@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import { Metadata } from "next";
 import ExternalLink from "@/components/ExternalLink";
 import Script from "next/script";
+import { safeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Elsewhere",
@@ -100,7 +101,7 @@ export default function Elsewhere() {
         id="elsewhere-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(elsewherePageSchema),
+          __html: safeJsonLd(elsewherePageSchema),
         }}
       />
       <div className="flex min-h-screen flex-col">

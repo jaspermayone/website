@@ -4,6 +4,7 @@ import PostList from "@/components/PostList";
 import { Metadata } from "next";
 import ExternalLink from "@/components/ExternalLink";
 import Script from "next/script";
+import { safeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Now",
@@ -79,7 +80,7 @@ export default function Now() {
         id="now-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(nowPageSchema),
+          __html: safeJsonLd(nowPageSchema),
         }}
       />
       <div className="flex h-screen flex-col">

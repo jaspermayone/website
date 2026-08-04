@@ -4,6 +4,7 @@ import { Coffee, Heart } from "lucide-react";
 import { Link } from "next-view-transitions";
 import { Metadata } from "next";
 import Script from "next/script";
+import { safeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Support Me",
@@ -60,7 +61,7 @@ export default function SupportMe() {
         id="support-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(supportPageSchema),
+          __html: safeJsonLd(supportPageSchema),
         }}
       />
       <div className="flex min-h-screen flex-col">

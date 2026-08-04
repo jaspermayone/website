@@ -8,6 +8,7 @@ import { ViewTransitions } from "next-view-transitions";
 import Image from "next/image";
 import localFont from "next/font/local";
 import Script from "next/script";
+import { safeJsonLd } from "@/lib/jsonld";
 
 const cuteNotes = localFont({
   src: [
@@ -413,7 +414,7 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLdData),
+            __html: safeJsonLd(jsonLdData),
           }}
         />
 

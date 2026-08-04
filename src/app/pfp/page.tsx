@@ -9,6 +9,7 @@ import lite from "@public/images/profiles/jmlite-min.webp";
 import waves from "@public/images/profiles/waves.webp";
 import { Metadata } from "next";
 import Script from "next/script";
+import { safeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "PFPs",
@@ -91,7 +92,7 @@ export default function PFP() {
         id="pfp-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(pfpPageSchema),
+          __html: safeJsonLd(pfpPageSchema),
         }}
       />
       <div className="flex min-h-screen flex-col">

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Script from "next/script";
 import CopyButton from "./CopyButton";
+import { safeJsonLd } from "@/lib/jsonld";
 import {
   buildDirectURL,
   buildDownloadURL,
@@ -106,7 +107,7 @@ export default async function Page({
         id="key-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(keyPageSchema),
+          __html: safeJsonLd(keyPageSchema),
         }}
       />
       <div>

@@ -3,6 +3,7 @@ import MENU from "@/components/MENU";
 import { PaneraCard } from "@/components/PaneraCard";
 import { Metadata } from "next";
 import Script from "next/script";
+import { safeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Panera",
@@ -57,7 +58,7 @@ export default function Panera() {
         id="panera-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(paneraPageSchema),
+          __html: safeJsonLd(paneraPageSchema),
         }}
       />
       <div

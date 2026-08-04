@@ -3,6 +3,7 @@ import MENU from "@/components/MENU";
 import { tools } from "@/lib/defs";
 import { Metadata } from "next";
 import Script from "next/script";
+import { safeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Uses",
@@ -85,7 +86,7 @@ export default function Uses() {
         id="uses-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(usesPageSchema),
+          __html: safeJsonLd(usesPageSchema),
         }}
       />
       <div className="flex min-h-screen flex-col">

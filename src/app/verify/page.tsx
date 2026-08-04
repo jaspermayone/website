@@ -36,6 +36,7 @@ import { domains, emails, links } from "@/lib/defs";
 import { domainType } from "@/lib/types";
 import { Metadata } from "next";
 import Script from "next/script";
+import { safeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Verify",
@@ -182,7 +183,7 @@ const VerifyPage = () => {
         id="verify-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(verifyPageSchema),
+          __html: safeJsonLd(verifyPageSchema),
         }}
       />
       <MENU pageFirstWord="/verify" />

@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import Script from "next/script";
 import { maintainedProjects, contributions, hostedServices } from "@/lib/defs";
 import { OpenSourceContent } from "./OpenSourceContent";
+import { safeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Open Source",
@@ -85,7 +86,7 @@ export default function OpenSourcePage() {
         id="open-source-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(openSourceSchema),
+          __html: safeJsonLd(openSourceSchema),
         }}
       />
       <div className="flex min-h-screen flex-col">

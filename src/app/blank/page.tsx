@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Script from "next/script";
+import { safeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Blank",
@@ -53,7 +54,7 @@ export default function Blank() {
         id="blank-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(blankPageSchema),
+          __html: safeJsonLd(blankPageSchema),
         }}
       />
     </>

@@ -6,6 +6,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import ExternalLink from "@/components/ExternalLink";
 import Script from "next/script";
+import { safeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Portfolio",
@@ -109,7 +110,7 @@ export default function Portfolio() {
         id="portfolio-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(portfolioSchema),
+          __html: safeJsonLd(portfolioSchema),
         }}
       />
       <div className="flex min-h-screen flex-col">

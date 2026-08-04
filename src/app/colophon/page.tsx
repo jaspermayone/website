@@ -3,6 +3,7 @@ import MENU from "@/components/MENU";
 import { Metadata } from "next";
 import ExternalLink from "@/components/ExternalLink";
 import Script from "next/script";
+import { safeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Colophon",
@@ -150,7 +151,7 @@ export default function Colophon() {
         id="colophon-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(colophonPageSchema),
+          __html: safeJsonLd(colophonPageSchema),
         }}
       />
       <div className="flex min-h-screen flex-col">

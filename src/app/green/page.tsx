@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import ExternalLink from "@/components/ExternalLink";
 import { Link } from "next-view-transitions";
 import Script from "next/script";
+import { safeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Green",
@@ -56,7 +57,7 @@ export default function Green() {
         id="green-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(greenPageSchema),
+          __html: safeJsonLd(greenPageSchema),
         }}
       />
       <div className="flex min-h-screen flex-col">

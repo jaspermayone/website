@@ -5,6 +5,7 @@ import { Metadata } from "next";
 import { Link } from "next-view-transitions";
 import Script from "next/script";
 import ExternalLink from "@/components/ExternalLink";
+import { safeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Slashes",
@@ -77,8 +78,7 @@ const slashesPageSchema = {
 };
 
 export default function Slashes() {
-  // JSON-LD schema content - static data from defs.ts, safe for injection
-  const schemaContent = JSON.stringify(slashesPageSchema);
+  const schemaContent = safeJsonLd(slashesPageSchema);
 
   return (
     <>

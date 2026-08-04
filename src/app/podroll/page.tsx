@@ -5,6 +5,7 @@ import { HeadphonesIcon } from "lucide-react";
 import { Metadata } from "next";
 import ExternalLink from "@/components/ExternalLink";
 import Script from "next/script";
+import { safeJsonLd } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Podroll",
@@ -78,7 +79,7 @@ export default function Podroll() {
         id="podroll-schema"
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(podrollPageSchema),
+          __html: safeJsonLd(podrollPageSchema),
         }}
       />
       <div className="flex min-h-screen flex-col">
