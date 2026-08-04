@@ -1,0 +1,71 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e4]:
+      - heading "Jasper Mayone" [level=1] [ref=e7]
+      - generic "main menu" [ref=e10]:
+        - button "/home" [ref=e12] [cursor=pointer]
+        - button "/cv" [ref=e14] [cursor=pointer]
+        - button "/portfolio" [ref=e16] [cursor=pointer]
+        - button "/contact" [ref=e18] [cursor=pointer]
+        - button "/gpg" [ref=e20] [cursor=pointer]
+        - button "/ssh" [ref=e22] [cursor=pointer]
+        - button "/verify" [ref=e24] [cursor=pointer]
+        - button "/more" [ref=e26] [cursor=pointer]
+    - main [ref=e29]:
+      - generic [ref=e30]:
+        - img "Jasper Mayone" [ref=e32]
+        - generic [ref=e34]:
+          - paragraph [ref=e35]:
+            - generic [ref=e36]: Jasper Mayone [he/they]
+            - generic [ref=e37]: is a 19-year-old college student from rural Vermont, currently residing in Boston.
+          - paragraph [ref=e38]:
+            - text: A computer science major at
+            - link "Wentworth Institute of Technology" [ref=e39] [cursor=pointer]:
+              - /url: https://wit.edu
+            - text: in Boston, Massachusetts. When not in school or at work, Jasper's hobbies include reading, being in the great outdoors, photography, computer programming, cooking, and running away to join the circus.
+          - paragraph [ref=e40]: An avid organizer and big picture thinker, you can often find them scheming up some sort of business venture. From developing a small app to drafting large scale plans for a world domination scheme, Jasper is always looking for ways to combine their diverse interests and skills into enterprising projects. This knack for organization and leadership has opened doors for Jasper to take on exciting roles in various projects and adventures, both close to home and abroad.
+          - paragraph [ref=e41]:
+            - text: Recently they've been focusing their time (outside of their degree) on
+            - link "patchworklabs.org" [ref=e42] [cursor=pointer]:
+              - /url: https://patchworklabs.org
+              - text: Patchwork Labs
+            - text: ", a nonprofit they started with the mission to bring back creativity and support the next generation of makers."
+          - paragraph [ref=e43]:
+            - text: Jasper is also passionate about making the internet a safer place! They contrinbute to several open source projects focused on web security and privacy, including
+            - link "phish.directory" [ref=e44] [cursor=pointer]:
+              - /url: phish.directory
+            - text: ", a free and open source phishing directory, for which Jasper serves as the lead maintainer."
+          - paragraph [ref=e45]:
+            - text: Previously, Jasper's adventures included working at
+            - link "MLH" [ref=e46] [cursor=pointer]:
+              - /url: https://mlh.io
+            - text: as the Summer 2025 engineering intern, a month-long trip to Rwanda, where they filmed a documentary and managed production for their fellow students' films. They also played a key role in the Waitsfield Elementary PTA's Annual Ski & Skate sale, co-coordinated large scale climate conferences called “See Change Sessions” with thousands of attendees, and enjoyed concerts by AJR, Sammy Rae & the Friends, and Lake Street Dive.
+    - contentinfo [ref=e47]:
+      - generic [ref=e49]:
+        - generic [ref=e50]:
+          - link "Previous site in IndieWeb Webring" [ref=e51] [cursor=pointer]:
+            - /url: https://xn--sr8hvo.ws/previous
+            - text: ←
+          - link "IndieWeb Webring" [ref=e52] [cursor=pointer]:
+            - /url: https://xn--sr8hvo.ws
+          - generic [ref=e53]: 🕸💍
+          - link "Next site in IndieWeb Webring" [ref=e54] [cursor=pointer]:
+            - /url: https://xn--sr8hvo.ws/next
+            - text: →
+        - generic [ref=e55]: "|"
+        - generic [ref=e56]: ©2026 Jasper Mayone. Made in Boston, Massachusetts.
+        - generic [ref=e57]: "|"
+        - generic [ref=e58]:
+          - link "GitHub" [ref=e59] [cursor=pointer]:
+            - /url: /to/github
+          - link "Linkedin" [ref=e62] [cursor=pointer]:
+            - /url: /to/linkedin
+          - link "Instagram" [ref=e65] [cursor=pointer]:
+            - /url: /to/instagram
+          - link "Threads" [ref=e68] [cursor=pointer]:
+            - /url: /to/threads
+          - link "Bluesky" [ref=e71] [cursor=pointer]:
+            - /url: /to/bluesky
+          - link "X" [ref=e74] [cursor=pointer]:
+            - /url: /to/x
+  - alert [ref=e77]

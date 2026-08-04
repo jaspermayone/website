@@ -19,46 +19,47 @@ export default function FOOTER({ color, addBackground }: FooterProps) {
         className={`max-w-screen-md ${addBackground ? "rounded-full bg-[#e0eb60] px-8 py-4 shadow-md" : "px-4"}`}
         style={{ viewTransitionName: "footer" }}
       >
-        {/* IndieWeb Webring */}
+        {/* Webring, copyright, and social icons */}
         <div
-          className="flex w-full items-center justify-center gap-2 pt-2"
+          className="flex w-full flex-wrap items-center justify-center gap-2 py-2"
           style={{ color: textColor }}
         >
-          <a
-            href="https://xn--sr8hvo.ws/previous"
-            rel="noopener noreferrer"
-            className="transition-colors duration-200 hover:!text-[#56ba8e]"
+          <div className="flex items-center gap-2">
+            <a
+              href="https://xn--sr8hvo.ws/previous"
+              rel="noopener noreferrer"
+              className="text-sm leading-none transition-colors duration-200 hover:!text-[#56ba8e]"
+              style={{ color: textColor }}
+              aria-label="Previous site in IndieWeb Webring"
+            >
+              &larr;
+            </a>
+            <a
+              href="https://xn--sr8hvo.ws"
+              rel="noopener noreferrer"
+              className="text-xs transition-colors duration-200 hover:!text-[#56ba8e]"
+              style={{ color: textColor, fontFamily: "var(--font-balgin)" }}
+              aria-label="IndieWeb Webring"
+            >
+              IndieWeb Webring
+            </a>
+            <span className="text-xs leading-none">🕸💍</span>
+            <a
+              href="https://xn--sr8hvo.ws/next"
+              rel="noopener noreferrer"
+              className="text-sm leading-none transition-colors duration-200 hover:!text-[#56ba8e]"
+              style={{ color: textColor }}
+              aria-label="Next site in IndieWeb Webring"
+            >
+              &rarr;
+            </a>
+          </div>
+          <span
+            className="hidden leading-none opacity-40 sm:inline"
             style={{ color: textColor }}
-            aria-label="Previous site in IndieWeb Webring"
           >
-            &larr;
-          </a>
-          <a
-            href="https://xn--sr8hvo.ws"
-            rel="noopener noreferrer"
-            className="text-xs transition-colors duration-200 hover:!text-[#56ba8e]"
-            style={{ color: textColor, fontFamily: "var(--font-balgin)" }}
-            aria-label="IndieWeb Webring"
-          >
-            IndieWeb Webring
-          </a>
-          <span>🕸💍</span>
-          <a
-            href="https://xn--sr8hvo.ws/next"
-            rel="noopener noreferrer"
-            className="transition-colors duration-200 hover:!text-[#56ba8e]"
-            style={{ color: textColor }}
-            aria-label="Next site in IndieWeb Webring"
-          >
-            &rarr;
-          </a>
-        </div>
-
-        {/* Copyright and social icons */}
-        <div
-          className="flex w-full items-baseline justify-center gap-2 py-2"
-          style={{ color: textColor }}
-        >
+            |
+          </span>
           <span
             className="text-xs leading-none"
             style={{ fontFamily: "var(--font-balgin)", color: textColor }}
@@ -66,7 +67,7 @@ export default function FOOTER({ color, addBackground }: FooterProps) {
             ©{currentYear} Jasper Mayone. Made in <i>Boston, Massachusetts</i>.
           </span>
           <span
-            className="leading-none opacity-40"
+            className="hidden leading-none opacity-40 sm:inline"
             style={{ color: textColor }}
           >
             |
