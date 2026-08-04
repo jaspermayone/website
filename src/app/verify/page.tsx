@@ -118,64 +118,64 @@ const verifyPageSchema = {
   ],
 };
 
+const getIcon = (platform: string) => {
+  switch (platform.toLowerCase()) {
+    case "github":
+      return <SiGithub className="size-4" />;
+    case "linkedin":
+      return <FaLinkedin className="size-4" />;
+    case "instagram":
+      return <SiInstagram className="size-4" />;
+    case "youtube":
+      return <SiYoutube className="size-4" />;
+    case "buy me a coffee":
+      return <SiBuymeacoffee className="size-4" />;
+    case "cloudflare wallet":
+      return <SiCloudflare className="size-4" />;
+    case "matrix":
+      return <SiMatrix className="size-4" />;
+    case "bluesky":
+      return <SiBluesky className="size-4" />;
+    case "threads":
+      return <SiThreads className="size-4" />;
+    case "signal":
+      return <SiSignal className="size-4" />;
+    case "reddit":
+      return <SiReddit className="size-4" />;
+    case "hackerone":
+      return <SiHackerone className="size-4" />;
+    case "twitter/x":
+      return <SiX className="size-4" />;
+    case "dev.to":
+      return <SiDevdotto className="size-4" />;
+    case "product hunt":
+      return <SiProducthunt className="size-4" />;
+    case "hacker news":
+      return <SiYcombinator className="size-4" />;
+    case "thingiverse":
+      return <SiThingiverse className="size-4" />;
+    case "mastodon":
+      return <SiMastodon className="size-4" />;
+    case "last.fm":
+      return <SiLastdotfm className="size-4" />;
+    case "figma":
+      return <SiFigma className="size-4" />;
+    case "obsidian publish":
+      return <SiObsidian className="size-4" />;
+    case "flickr":
+      return <SiFlickr className="size-4" />;
+    case "raycast":
+      return <SiRaycast className="size-4" />;
+    default:
+      return <AtSign className="size-4" />;
+  }
+};
+
 const VerifyPage = () => {
   const _title = "/VERIFY";
 
   // Filter links to only show social accounts on verify page
   const socialAccounts = links.filter((link) => link.social);
-
-  const getIcon = (platform: string) => {
-    switch (platform.toLowerCase()) {
-      case "github":
-        return <SiGithub className="size-4" />;
-      case "linkedin":
-        return <FaLinkedin className="size-4" />;
-      case "instagram":
-        return <SiInstagram className="size-4" />;
-      case "youtube":
-        return <SiYoutube className="size-4" />;
-      case "buy me a coffee":
-        return <SiBuymeacoffee className="size-4" />;
-      case "cloudflare wallet":
-        return <SiCloudflare className="size-4" />;
-      case "matrix":
-        return <SiMatrix className="size-4" />;
-      case "bluesky":
-        return <SiBluesky className="size-4" />;
-      case "threads":
-        return <SiThreads className="size-4" />;
-      case "signal":
-        return <SiSignal className="size-4" />;
-      case "reddit":
-        return <SiReddit className="size-4" />;
-      case "hackerone":
-        return <SiHackerone className="size-4" />;
-      case "twitter/x":
-        return <SiX className="size-4" />;
-      case "dev.to":
-        return <SiDevdotto className="size-4" />;
-      case "product hunt":
-        return <SiProducthunt className="size-4" />;
-      case "hacker news":
-        return <SiYcombinator className="size-4" />;
-      case "thingiverse":
-        return <SiThingiverse className="size-4" />;
-      case "mastodon":
-        return <SiMastodon className="size-4" />;
-      case "last.fm":
-        return <SiLastdotfm className="size-4" />;
-      case "figma":
-        return <SiFigma className="size-4" />;
-      case "obsidian publish":
-        return <SiObsidian className="size-4" />;
-      case "flickr":
-        return <SiFlickr className="size-4" />;
-      case "raycast":
-        return <SiRaycast className="size-4" />;
-      default:
-        return <AtSign className="size-4" />;
-    }
-  };
 
   return (
     <>

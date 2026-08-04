@@ -15,14 +15,31 @@ type FetchState =
   | { status: "error"; message: string };
 
 type FetchAction =
-  | { type: "success"; posts: Post[] }
-  | { type: "error"; message: string };
+  { type: "success"; posts: Post[] } | { type: "error"; message: string };
 
 function fetchReducer(_: FetchState, action: FetchAction): FetchState {
   if (action.type === "success")
     return { status: "success", posts: action.posts };
   return { status: "error", message: action.message };
 }
+
+const formatTimeAgo = (dateString: string) => {
+  const date = new Date(dateString);
+  const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  const relative = formatRelative(date, new Date());
+
+  // If the relative format shows just a date (like "last Friday"), add the time in user's timezone
+  if (
+    relative.includes("last ") ||
+    relative.includes("yesterday") ||
+    (!relative.includes("at ") && !relative.includes("ago"))
+  ) {
+    const timeInUserTz = formatInTimeZone(date, userTimeZone, "h:mm a zzz");
+    return `${relative} at ${timeInUserTz}`;
+  }
+
+  return relative;
+};
 
 export default function PostList() {
   const [fetchState, dispatch] = useReducer(fetchReducer, {
@@ -58,24 +75,6 @@ export default function PostList() {
     fetchPosts();
     return () => controller.abort();
   }, []);
-
-  const formatTimeAgo = (dateString: string) => {
-    const date = new Date(dateString);
-    const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const relative = formatRelative(date, new Date());
-
-    // If the relative format shows just a date (like "last Friday"), add the time in user's timezone
-    if (
-      relative.includes("last ") ||
-      relative.includes("yesterday") ||
-      (!relative.includes("at ") && !relative.includes("ago"))
-    ) {
-      const timeInUserTz = formatInTimeZone(date, userTimeZone, "h:mm a zzz");
-      return `${relative} at ${timeInUserTz}`;
-    }
-
-    return relative;
-  };
 
   if (fetchState.status === "loading") {
     return (

@@ -13,16 +13,16 @@ type cardArgs = {
   description?: string;
 };
 
+const formatEmail = (email: string) => {
+  const [localPart, domainPart] = email.split("@");
+  const domainSegments = domainPart.split(".");
+  const formattedDomain = domainSegments.join("[dot]");
+  return `${localPart}[at]${formattedDomain}`;
+};
+
 export const EmailCard = (cardArgs: cardArgs) => {
   const { email, isPrimary, isSchool, isBusiness, service, description } =
     cardArgs;
-
-  const formatEmail = (email: string) => {
-    const [localPart, domainPart] = email.split("@");
-    const domainSegments = domainPart.split(".");
-    const formattedDomain = domainSegments.join("[dot]");
-    return `${localPart}[at]${formattedDomain}`;
-  };
 
   return (
     <div className="group relative rounded-lg border border-zinc-200 bg-white p-4 transition-colors duration-300 hover:border-blue-300 dark:border-zinc-700 dark:bg-zinc-800 dark:hover:border-blue-500">

@@ -22,6 +22,25 @@ const ROUTE_MAP: Record<string, string> = {
   // Add any other explicit aliases here
 };
 
+const textShadowStyle = {}; // No text shadow needed with solid background
+
+/**
+ * Normalize a menu item into the canonical key used for navigation.
+ * This ensures items like "keys/gpg" are treated as "gpg".
+ */
+const normalizeItem = (item: string): string => {
+  if (!item) return "home";
+  // strip leading slashes
+  const trimmed = item.replace(/^\/+/, "");
+  // map nested keys to leaf tabs
+  if (trimmed.startsWith("keys/gpg")) return "gpg";
+  if (trimmed.startsWith("keys/ssh")) return "ssh";
+  if (trimmed.startsWith("to/cv")) return "cv";
+  // default to first segment
+  const seg = trimmed.split("/")[0];
+  return seg || "home";
+};
+
 export default function PageNavigation(props: PageNavigationProps) {
   const { color, addTextShadow } = props;
   const router = useTransitionRouter();
@@ -30,7 +49,6 @@ export default function PageNavigation(props: PageNavigationProps) {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const textColor = addTextShadow ? "#1d4321" : color || "inherit";
-  const textShadowStyle = {}; // No text shadow needed with solid background
 
   // Get pages that don't show in main nav
   const morePages = pages
@@ -86,23 +104,6 @@ export default function PageNavigation(props: PageNavigationProps) {
   };
 
   const selectedTab = getSelectedTab();
-
-  /**
-   * Normalize a menu item into the canonical key used for navigation.
-   * This ensures items like "keys/gpg" are treated as "gpg".
-   */
-  const normalizeItem = (item: string): string => {
-    if (!item) return "home";
-    // strip leading slashes
-    const trimmed = item.replace(/^\/+/, "");
-    // map nested keys to leaf tabs
-    if (trimmed.startsWith("keys/gpg")) return "gpg";
-    if (trimmed.startsWith("keys/ssh")) return "ssh";
-    if (trimmed.startsWith("to/cv")) return "cv";
-    // default to first segment
-    const seg = trimmed.split("/")[0];
-    return seg || "home";
-  };
 
   const handleMenuClick = async (rawItem: string) => {
     const item = normalizeItem(rawItem);

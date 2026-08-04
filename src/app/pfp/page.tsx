@@ -83,9 +83,9 @@ const pfpPageSchema = {
   ],
 };
 
-export default function PFP() {
-  const paths = [jm, dark, lite, circus, waves];
+const paths = [jm, dark, lite, circus, waves];
 
+export default function PFP() {
   return (
     <>
       <Script
