@@ -1,0 +1,28 @@
+I just reserved my Cloudflare Wallet tag: http://jaspermayone.cloudflare.pay.
+https://cloudflare.pay/?handle=jaspermayone
+
+add this to my verifys, /to/'s etc
+
+---
+
+remus …/website  main ⇡2  v1.3.13
+❯ bun run dev
+$ bunx --bun next dev
+▲ Next.js 16.2.12 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://10.248.235.75:3000
+- Environments: .env
+✓ Ready in 179ms
+⨯ Failed to load next.config.ts, see more info here https://nextjs.org/docs/messages/next-config-error
+SyntaxError: Export named 'SiLinkedin' not found in module '/Users/jsp/dev/projects/website/node_modules/react-icons/si/index.mjs'.
+    at link (null)
+    at linkAndEvaluateModule (null)
+    at <anonymous> (next.config.compiled.js:5:22)
+    at _compile (null)
+    at processTicksAndRejections (null)
+
+error: script "dev" exited with code 1
+
+---
+
+lets remove the footer thing actually

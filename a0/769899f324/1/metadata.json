@@ -1,0 +1,57 @@
+{
+  "cli_version": "0.7.3",
+  "checkpoint_id": "a0769899f324",
+  "session_id": "6ad77722-c06f-4dea-a50c-6310efaf0bf4",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-04T19:18:49.92933Z",
+  "branch": "main",
+  "checkpoints_count": 0,
+  "files_touched": [
+    "src/app/blank/page.tsx",
+    "src/app/colophon/page.tsx",
+    "src/app/concerts/page.tsx",
+    "src/app/contact/page.tsx",
+    "src/app/elsewhere/page.tsx",
+    "src/app/green/page.tsx",
+    "src/app/hardware/page.tsx",
+    "src/app/keys/[key]/page.tsx",
+    "src/app/layout.tsx",
+    "src/app/now/page.tsx",
+    "src/app/open-source/page.tsx",
+    "src/app/panera/page.tsx",
+    "src/app/pfp/page.tsx",
+    "src/app/podroll/page.tsx",
+    "src/app/portfolio/page.tsx",
+    "src/app/slashes/page.tsx",
+    "src/app/support-me/page.tsx",
+    "src/app/uses/page.tsx",
+    "src/lib/jsonld.ts"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-fable-5[1m]",
+  "turn_id": "35064e134d17",
+  "checkpoint_transcript_start": 324,
+  "transcript_lines_at_start": 324,
+  "token_usage": {
+    "input_tokens": 0,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 0,
+    "api_call_count": 0
+  },
+  "session_metrics": {
+    "turn_count": 2
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-08-04T19:18:49.921398Z",
+    "agent_lines": 44,
+    "agent_removed": 19,
+    "human_added": 323,
+    "human_modified": 260,
+    "human_removed": 0,
+    "total_committed": 627,
+    "total_lines_changed": 1015,
+    "agent_percentage": 6.206896551724138,
+    "metric_version": 2
+  }
+}
