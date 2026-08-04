@@ -1,0 +1,89 @@
+{
+  "cli_version": "0.7.3",
+  "checkpoint_id": "a0769899f324",
+  "session_id": "34d84374-ad19-445e-8f11-9e4b6f661568",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-04T19:18:49.699996Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "src/app/blank/page.tsx",
+    "src/app/colophon/page.tsx",
+    "src/app/concerts/page.tsx",
+    "src/app/contact/page.tsx",
+    "src/app/elsewhere/page.tsx",
+    "src/app/green/page.tsx",
+    "src/app/hardware/page.tsx",
+    "src/app/keys/[key]/page.tsx",
+    "src/app/layout.tsx",
+    "src/app/now/page.tsx",
+    "src/app/open-source/page.tsx",
+    "src/app/panera/page.tsx",
+    "src/app/pfp/page.tsx",
+    "src/app/podroll/page.tsx",
+    "src/app/portfolio/page.tsx",
+    "src/app/slashes/page.tsx",
+    "src/app/support-me/page.tsx",
+    "src/app/uses/page.tsx",
+    "src/lib/jsonld.ts"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-fable-5[1m]",
+  "turn_id": "f2a167f1cd8a",
+  "token_usage": {
+    "input_tokens": 6882,
+    "cache_creation_tokens": 162263,
+    "cache_read_tokens": 8669045,
+    "output_tokens": 69137,
+    "api_call_count": 80
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "claude-skill-toolu_01UDqF1pJPq2ZYNK1sNTV6pi",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "react-doctor"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "f2a167f1cd8a",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 13,
+        "end": 14,
+        "entry_ids": [
+          "1dbd12f9-7bcf-4233-a723-689e06cb382f"
+        ],
+        "tool_use_id": "toolu_01UDqF1pJPq2ZYNK1sNTV6pi"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01UDqF1pJPq2ZYNK1sNTV6pi"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: react-doctor",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 1
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-08-04T19:18:49.687846Z",
+    "agent_lines": 44,
+    "agent_removed": 19,
+    "human_added": 323,
+    "human_modified": 260,
+    "human_removed": 0,
+    "total_committed": 627,
+    "total_lines_changed": 1015,
+    "agent_percentage": 6.206896551724138,
+    "metric_version": 2
+  }
+}
