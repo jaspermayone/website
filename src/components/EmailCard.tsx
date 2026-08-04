@@ -25,7 +25,7 @@ export const EmailCard = (cardArgs: cardArgs) => {
   };
 
   return (
-    <div className="group relative rounded-lg border border-zinc-200 bg-white p-4 transition-all duration-300 hover:border-blue-300 dark:border-zinc-700 dark:bg-zinc-800 dark:hover:border-blue-500">
+    <div className="group relative rounded-lg border border-zinc-200 bg-white p-4 transition-colors duration-300 hover:border-blue-300 dark:border-zinc-700 dark:bg-zinc-800 dark:hover:border-blue-500">
       <div className="flex items-center gap-2">
         <Mailbox className="size-4 text-zinc-400 dark:text-zinc-500" />
         <span className="min-w-0 font-mono text-sm break-all text-zinc-800 dark:text-zinc-200">

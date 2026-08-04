@@ -43,7 +43,7 @@ const Error = () => {
             Uh oh! This page seems to have lost artistic direction. Please try
             to
           </p>{" "}
-          <p className="decoration-greeen hover:decoration-linkHover inline underline decoration-wavy transition-all duration-300 hover:rounded-md hover:bg-blue-400">
+          <p className="decoration-greeen hover:decoration-linkHover inline underline decoration-wavy transition-[background-color,border-radius,text-decoration-color] duration-300 hover:rounded-md hover:bg-blue-400">
             <Link href="/">return home!</Link>
           </p>
         </div>

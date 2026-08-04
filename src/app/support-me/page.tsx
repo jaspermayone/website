@@ -83,7 +83,7 @@ export default function SupportMe() {
             <div className="max-w-md">
               <Link
                 href="/to/buy-me-a-coffee"
-                className="group flex items-center gap-4 rounded-lg border border-zinc-200 bg-white/50 p-5 transition-all hover:border-yellow-400 hover:bg-yellow-50 hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800/20 dark:hover:border-yellow-500 dark:hover:bg-yellow-900/20"
+                className="group flex items-center gap-4 rounded-lg border border-zinc-200 bg-white/50 p-5 transition-[border-color,background-color,box-shadow] hover:border-yellow-400 hover:bg-yellow-50 hover:shadow-md dark:border-zinc-700 dark:bg-zinc-800/20 dark:hover:border-yellow-500 dark:hover:bg-yellow-900/20"
               >
                 <div className="flex size-12 shrink-0 items-center justify-center rounded-full bg-yellow-100 text-yellow-600 transition-colors group-hover:bg-yellow-200 dark:bg-yellow-900/30 dark:text-yellow-400">
                   <Coffee size={24} />

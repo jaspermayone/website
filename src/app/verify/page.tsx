@@ -270,7 +270,7 @@ const VerifyPage = () => {
                 return (
                   <div
                     key={domain.name}
-                    className="rounded-lg border border-zinc-200 bg-white p-4 transition-all duration-300 hover:border-blue-300 hover:bg-blue-50 hover:shadow-sm dark:border-zinc-700 dark:bg-zinc-800 dark:hover:border-blue-500 dark:hover:bg-zinc-700"
+                    className="rounded-lg border border-zinc-200 bg-white p-4 transition-[border-color,background-color,box-shadow] duration-300 hover:border-blue-300 hover:bg-blue-50 hover:shadow-sm dark:border-zinc-700 dark:bg-zinc-800 dark:hover:border-blue-500 dark:hover:bg-zinc-700"
                   >
                     <h3 className="text-lg font-medium text-zinc-800 dark:text-zinc-200">
                       {domain.name}
@@ -340,7 +340,7 @@ const VerifyPage = () => {
                   href={`/to/${account.slug}`}
                   rel="me"
                   prefetch={false}
-                  className="group flex flex-col rounded-lg border border-zinc-200 bg-white p-4 transition-all duration-300 hover:border-blue-300 hover:bg-blue-50 hover:shadow-sm dark:border-zinc-700 dark:bg-zinc-800 dark:hover:border-blue-500 dark:hover:bg-zinc-700"
+                  className="group flex flex-col rounded-lg border border-zinc-200 bg-white p-4 transition-[border-color,background-color,box-shadow] duration-300 hover:border-blue-300 hover:bg-blue-50 hover:shadow-sm dark:border-zinc-700 dark:bg-zinc-800 dark:hover:border-blue-500 dark:hover:bg-zinc-700"
                 >
                   <div className="flex items-center gap-2 text-zinc-600 dark:text-zinc-300">
                     {getIcon(platformName)}

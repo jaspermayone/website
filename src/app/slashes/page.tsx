@@ -127,7 +127,7 @@ export default function Slashes() {
                 <Link
                   key={page.slug}
                   href={`/${page.slug}`}
-                  className="h-entry group rounded-xl border border-zinc-200 p-5 transition-all hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700 dark:hover:border-zinc-600 dark:hover:bg-zinc-800/50"
+                  className="h-entry group rounded-xl border border-zinc-200 p-5 transition-colors hover:border-zinc-300 hover:bg-zinc-50 dark:border-zinc-700 dark:hover:border-zinc-600 dark:hover:bg-zinc-800/50"
                 >
                   <div className="flex items-start justify-between">
                     <div>

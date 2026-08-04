@@ -39,7 +39,7 @@ const NotFound = () => {
           <p className="inline">
             This page seems to have run away to join the circus.
           </p>{" "}
-          <p className="decoration-greeen hover:decoration-linkHover inline underline decoration-wavy transition-all duration-300 hover:rounded-md hover:bg-blue-400">
+          <p className="decoration-greeen hover:decoration-linkHover inline underline decoration-wavy transition-[background-color,border-radius,text-decoration-color] duration-300 hover:rounded-md hover:bg-blue-400">
             <Link href="/">Go home!</Link>
           </p>
         </div>

@@ -163,7 +163,7 @@ export default function Hardware() {
                       {items.map((item) => (
                         <div
                           key={item.device}
-                          className="rounded-lg border border-zinc-200 bg-white/50 p-4 transition-all hover:border-zinc-300 hover:shadow-sm dark:border-zinc-700 dark:bg-zinc-800/20 dark:hover:border-zinc-600"
+                          className="rounded-lg border border-zinc-200 bg-white/50 p-4 transition-[border-color,box-shadow] hover:border-zinc-300 hover:shadow-sm dark:border-zinc-700 dark:bg-zinc-800/20 dark:hover:border-zinc-600"
                         >
                           <div className="font-medium text-zinc-800 dark:text-zinc-100">
                             {item.device}
