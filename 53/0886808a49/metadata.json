@@ -1,0 +1,25 @@
+{
+  "cli_version": "0.7.3",
+  "checkpoint_id": "530886808a49",
+  "strategy": "manual-commit",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "src/components/PaneraCard.tsx"
+  ],
+  "sessions": [
+    {
+      "metadata": "/53/0886808a49/0/metadata.json",
+      "transcript": "/53/0886808a49/0/full.jsonl",
+      "content_hash": "/53/0886808a49/0/content_hash.txt",
+      "prompt": "/53/0886808a49/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 6891,
+    "cache_creation_tokens": 168964,
+    "cache_read_tokens": 9602206,
+    "output_tokens": 73723,
+    "api_call_count": 85
+  }
+}
