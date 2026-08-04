@@ -12,7 +12,6 @@ import {
   SiHackerone,
   SiInstagram,
   SiLastdotfm,
-  SiLinkedin,
   SiMastodon,
   SiMatrix,
   SiObsidian,
@@ -26,6 +25,8 @@ import {
   SiYcombinator,
   SiYoutube,
 } from "react-icons/si";
+
+import { FaLinkedin } from "react-icons/fa6";
 
 import { EmailCard } from "@/components/EmailCard";
 import FOOTER from "@/components/FOOTER";
@@ -127,7 +128,7 @@ const VerifyPage = () => {
       case "github":
         return <SiGithub className="size-4" />;
       case "linkedin":
-        return <SiLinkedin className="size-4" />;
+        return <FaLinkedin className="size-4" />;
       case "instagram":
         return <SiInstagram className="size-4" />;
       case "youtube":

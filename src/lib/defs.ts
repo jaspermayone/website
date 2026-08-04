@@ -1,8 +1,8 @@
+import { FaLinkedin } from "react-icons/fa6";
 import {
   SiBluesky,
   SiGithub,
   SiInstagram,
-  SiLinkedin,
   SiThreads,
   SiX,
 } from "react-icons/si";
@@ -377,7 +377,7 @@ export const socialLinks = [
   {
     href: "/to/linkedin",
     label: "Linkedin",
-    Icon: SiLinkedin,
+    Icon: FaLinkedin,
   },
   {
     href: "/to/instagram",
