@@ -1,7 +1,6 @@
 import { generateOGImage } from "@/lib/og-image";
 import { getPageOGData } from "@/lib/og-utils";
 
-export const runtime = "edge";
 export const alt = "Jasper Mayone";
 export const size = {
   width: 1200,

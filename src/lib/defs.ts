@@ -341,22 +341,6 @@ export const links: RedirectItem[] = [
   },
 ];
 
-export const cryptoKeys = [
-  {
-    type: "GPG",
-    fingerprint: "00E6 43C2 1FAC 965F FB28 D3B7 14D0 D45A 1DAD AAFA",
-    publicKey: "https://keys.openpgp.org/search?q=me%40jaspermayone.com",
-    note: "Used for email signing and encryption. Download my public key from keys.openpgp.org.",
-  },
-  {
-    type: "SSH",
-    fingerprint: "SHA256:YdDj3JLvVy12zDrJLLDVl5OLsW4t0/20KoJbm6YGfzg",
-    publicKey:
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDxnv44DTFIO2cIiy4blF/UjJxDY+j8AJo9Wwq25inA2 jasper@jaspermayone.com",
-    note: "Used for Git authentication and server access",
-  },
-];
-
 export const emails = [
   { address: "me@jaspermayone.com", primary: true },
   { address: "jaspermayone@gmail.com" },
