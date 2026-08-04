@@ -43,6 +43,11 @@ interface NextRedirectItem {
   permanent: boolean;
 }
 
+/**
+ * @import {NextConfig} from "next"
+ */
+
+/** @type {NextConfig} */
 const nextConfig = {
   productionBrowserSourceMaps: false,
   experimental: {
@@ -257,6 +262,7 @@ const nextConfig = {
   reactStrictMode: true,
   // Additional Bun-friendly settings
   webpack: (config, { isServer }) => {
+    config.resolve.conditionNames?.unshift("bun");
     if (isServer) {
       // Use Bun for server-side code
       config.optimization = {
