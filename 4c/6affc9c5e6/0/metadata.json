@@ -1,0 +1,72 @@
+{
+  "cli_version": "0.7.3",
+  "checkpoint_id": "4c6affc9c5e6",
+  "session_id": "34d84374-ad19-445e-8f11-9e4b6f661568",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-04T19:30:11.382173Z",
+  "branch": "main",
+  "checkpoints_count": 1,
+  "files_touched": [
+    "src/components/PageNavigation.tsx",
+    "src/components/PostList.tsx"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-fable-5[1m]",
+  "turn_id": "f2a167f1cd8a",
+  "token_usage": {
+    "input_tokens": 6889,
+    "cache_creation_tokens": 168310,
+    "cache_read_tokens": 9412628,
+    "output_tokens": 73464,
+    "api_call_count": 84
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "claude-skill-toolu_01UDqF1pJPq2ZYNK1sNTV6pi",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "react-doctor"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "f2a167f1cd8a",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 13,
+        "end": 14,
+        "entry_ids": [
+          "1dbd12f9-7bcf-4233-a723-689e06cb382f"
+        ],
+        "tool_use_id": "toolu_01UDqF1pJPq2ZYNK1sNTV6pi"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01UDqF1pJPq2ZYNK1sNTV6pi"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: react-doctor",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 1
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-08-04T19:30:11.367399Z",
+    "agent_lines": 38,
+    "agent_removed": 38,
+    "human_added": 62,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 100,
+    "total_lines_changed": 200,
+    "agent_percentage": 38,
+    "metric_version": 2
+  }
+}
