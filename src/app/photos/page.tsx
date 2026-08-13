@@ -8,6 +8,9 @@ import { Metadata } from "next";
 import Script from "next/script";
 import { safeJsonLd } from "@/lib/jsonld";
 
+// Rendered per request so the gallery order is shuffled on every visit.
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Photos",
   description: "A gallery of photos taken by Jasper Mayone.",
@@ -70,7 +73,18 @@ const photosPageSchema = {
   ],
 };
 
+const shuffle = <T,>(items: T[]): T[] => {
+  const result = [...items];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+};
+
 export default function Photos() {
+  const shuffledPhotos = shuffle(photos);
+
   return (
     <>
       <Script
@@ -105,7 +119,7 @@ export default function Photos() {
             </p>
 
             <div className="columns-1 gap-4 sm:columns-2 lg:columns-3 2xl:columns-4">
-              {photos.map((photo, index) => (
+              {shuffledPhotos.map((photo, index) => (
                 <div
                   key={photo.image.src}
                   className="group relative mb-4 break-inside-avoid overflow-hidden rounded-lg bg-white/50 dark:bg-zinc-800/20"
