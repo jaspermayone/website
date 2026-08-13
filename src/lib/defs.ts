@@ -10,6 +10,7 @@ import {
   Appearance,
   Conference,
   Domain,
+  Friend,
   Hackathon,
   HardwareItem,
   HostedService,
@@ -79,6 +80,7 @@ export const pages: PageItem[] = [
   { text: "Conferences", slug: "conferences", showInNav: false, order: 99 },
   { text: "Hackathons", slug: "hackathons", showInNav: false, order: 99 },
   { text: "Elsewhere", slug: "elsewhere", showInNav: false, order: 99 },
+  { text: "Friends", slug: "friends", showInNav: false, order: 99 },
   { text: "Colophon", slug: "colophon", showInNav: false, order: 8 },
   { text: "Open Source", slug: "open-source", showInNav: false, order: 99 },
   { text: "Blank", slug: "blank", showInNav: false, order: 99 },
@@ -802,6 +804,69 @@ export const appearances: Appearance[] = [
   },
 ];
 
+export const friends: Friend[] = [
+  {
+    name: "Kieran Klukas",
+    image: "/images/friends/kieran_klukas.png",
+    link: "https://dunkirk.sh/",
+  },
+  {
+    name: "Ryan Di Lorenzo",
+    image: "/images/friends/ryan_di_lorenzo.png",
+    link: "https://github.com/LimesKey",
+  },
+  {
+    name: "Samantha Miel",
+    image: "/images/friends/samantha_miel.png",
+    link: "https://www.instagram.com/cirque_du_samantha/",
+  },
+  {
+    name: "Théo Reid",
+    image: "/images/friends/theo_reid.png",
+    link: "https://www.instagram.com/theointheair/",
+  },
+  {
+    name: "Maclean Dunkin",
+    image: "/images/friends/maclean_dunkin.png",
+    link: "https://www.morizuru.co/",
+  },
+  {
+    name: "Dominic Petrarca",
+    image: "/images/friends/dominic_petrarca.png",
+    link: "https://dominicpetrarca.com/",
+  },
+  {
+    name: "Logan Lambert",
+    image: "/images/friends/logan_lambert.png",
+    link: "https://cattn.dev/",
+  },
+  {
+    name: "Karl Wünsche",
+  },
+  {
+    name: "Clarissa Lambert",
+  },
+  {
+    name: "Tristan Gottshall",
+  },
+  {
+    name: "Jenn Johnsey",
+    image: "/images/friends/jenn_johnsey.png",
+    link: "https://www.linkedin.com/in/jennjohnsey/",
+  },
+  {
+    name: "Zoya Hussain",
+    link: "https://zoya.sh/",
+  },
+  {
+    name: "Heidi Liou",
+    link: "https://www.linkedin.com/in/heidiliou/",
+  },
+  {
+    name: "CJ Kanne",
+  },
+];
+
 export const podcasts: Podcast[] = [
   {
     name: "Mac Power Users",
@@ -1086,6 +1151,12 @@ export const slashPages: SlashPage[] = [
     slug: "elsewhere",
     name: "Elsewhere",
     description: "Find me on other platforms",
+  },
+  {
+    slug: "friends",
+    name: "Friends",
+    description:
+      "Some of the super cool people I have the privilege to call friends",
   },
   {
     slug: "podroll",
