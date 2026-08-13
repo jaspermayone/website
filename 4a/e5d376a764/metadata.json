@@ -1,0 +1,28 @@
+{
+  "cli_version": "0.7.3",
+  "checkpoint_id": "4ae5d376a764",
+  "strategy": "manual-commit",
+  "branch": "jaspermayone/og-redesign",
+  "checkpoints_count": 0,
+  "files_touched": [
+    "src/app/api/og/route.tsx",
+    "src/app/layout.tsx",
+    "src/lib/og-image.tsx",
+    "src/lib/og-utils.ts"
+  ],
+  "sessions": [
+    {
+      "metadata": "/4a/e5d376a764/0/metadata.json",
+      "transcript": "/4a/e5d376a764/0/full.jsonl",
+      "content_hash": "/4a/e5d376a764/0/content_hash.txt",
+      "prompt": ""
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 43,
+    "cache_creation_tokens": 97706,
+    "cache_read_tokens": 2387787,
+    "output_tokens": 11747,
+    "api_call_count": 23
+  }
+}
