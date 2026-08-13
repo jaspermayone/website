@@ -230,6 +230,11 @@ const nextConfig = {
         destination: "/elsewhere",
         permanent: true,
       },
+      {
+        source: "/opengraph-image.png",
+        destination: "/opengraph-image",
+        permanent: true,
+      },
     ];
 
     redirects.push(...someOtherRedirects);

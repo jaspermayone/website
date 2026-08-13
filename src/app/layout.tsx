@@ -63,7 +63,7 @@ export function generateMetadata(): Metadata {
       locale: "en_US",
       images: [
         {
-          url: "/opengraph-image.png",
+          url: "/opengraph-image",
           width: 1200,
           height: 630,
           alt: "Jasper Mayone",
@@ -81,7 +81,7 @@ export function generateMetadata(): Metadata {
       description: `A ${age}-year-old college student from rural Vermont, currently residing in Boston, while attending Wentworth Institute of Technology as a computer science major. When not in school or at work, Jasper's hobbies include reading, being in the great outdoors, photography, computer programming, cooking, and running away to join the circus.`,
       images: [
         {
-          url: "/opengraph-image.png",
+          url: "/opengraph-image",
           alt: "Jasper Mayone",
         },
       ],
