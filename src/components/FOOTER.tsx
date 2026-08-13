@@ -1,6 +1,10 @@
 // components/FOOTER.tsx
 "use client";
-import { socialLinks } from "@/lib/defs";
+import { pageHref, pages, socialLinks } from "@/lib/defs";
+import { PageItem } from "@/lib/types";
+import LilHeart from "@public/images/lil-heart.png";
+import { Link as TransitionLink } from "next-view-transitions";
+import Image from "next/image";
 import Link from "next/link";
 
 interface FooterProps {
@@ -8,85 +12,129 @@ interface FooterProps {
   addBackground?: boolean;
 }
 
+const sitemapGroups: {
+  key: PageItem["group"];
+  label: string;
+  rows: string;
+}[] = [
+  { key: "pages", label: "pages", rows: "grid-rows-3" },
+  { key: "work", label: "work", rows: "grid-rows-2" },
+  { key: "identity", label: "identity", rows: "grid-rows-3" },
+];
+
 export default function FOOTER({ color, addBackground }: FooterProps) {
   const textColor = addBackground ? "#1d4321" : color || "#4a5565";
   const currentYear = new Date().getFullYear().toString();
 
+  const sitemapPages = pages.filter((page: PageItem) => page.slug !== "home");
+
   return (
     <footer className="flex w-full justify-center">
-      {/* Constrain width and center content */}
+      {/* Center the footer content */}
       <div
-        className={`max-w-screen-md ${addBackground ? "rounded-full bg-[#e0eb60] px-8 py-4 shadow-md" : "px-4"}`}
+        className={
+          addBackground
+            ? "m-4 rounded-[28px] bg-[#e0eb60] px-8 py-4 shadow-md"
+            : "px-5"
+        }
         style={{ viewTransitionName: "footer" }}
       >
-        {/* Webring, copyright, and social icons */}
         <div
-          className="flex w-full flex-wrap items-center justify-center gap-2 py-2"
+          className="flex flex-wrap items-start justify-center gap-x-8 gap-y-3 py-2"
           style={{ color: textColor }}
         >
-          <div className="flex items-center gap-2">
-            <a
-              href="https://xn--sr8hvo.ws/previous"
-              rel="noopener noreferrer"
-              className="text-sm leading-none transition-colors duration-200 hover:!text-[#56ba8e]"
-              style={{ color: textColor }}
-              aria-label="Previous site in IndieWeb Webring"
-            >
-              &larr;
-            </a>
-            <a
-              href="https://xn--sr8hvo.ws"
-              rel="noopener noreferrer"
-              className="text-xs transition-colors duration-200 hover:!text-[#56ba8e]"
-              style={{ color: textColor, fontFamily: "var(--font-balgin)" }}
-              aria-label="IndieWeb Webring"
-            >
-              IndieWeb Webring
-            </a>
-            <span className="text-xs leading-none">🕸💍</span>
-            <a
-              href="https://xn--sr8hvo.ws/next"
-              rel="noopener noreferrer"
-              className="text-sm leading-none transition-colors duration-200 hover:!text-[#56ba8e]"
-              style={{ color: textColor }}
-              aria-label="Next site in IndieWeb Webring"
-            >
-              &rarr;
-            </a>
-          </div>
-          <span
-            className="hidden leading-none opacity-40 sm:inline"
-            style={{ color: textColor }}
-          >
-            |
-          </span>
-          <span
-            className="text-xs leading-none"
-            style={{ fontFamily: "var(--font-balgin)", color: textColor }}
-          >
-            ©{currentYear} Jasper Mayone. Made in <i>Boston, Massachusetts</i>.
-          </span>
-          <span
-            className="hidden leading-none opacity-40 sm:inline"
-            style={{ color: textColor }}
-          >
-            |
-          </span>
-          <div className="flex items-center gap-1.5">
-            {socialLinks.map(({ href, label, Icon }) => (
-              <Link
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={label}
-                prefetch={false}
-                className="inline-flex items-center justify-center transition-colors duration-200 hover:!text-[#56ba8e]"
-                style={{ color: textColor }}
-              >
-                <Icon size={14} />
-              </Link>
+          {/* Full site index, grouped; display:contents so groups and the
+              meta column align as siblings in the same flex row */}
+          <nav aria-label="all pages" className="contents">
+            {sitemapGroups.map(({ key, label, rows }) => (
+              <div key={label}>
+                <span
+                  className="text-[0.65rem] tracking-widest uppercase opacity-50"
+                  style={{ fontFamily: "var(--font-balgin)" }}
+                >
+                  {label}
+                </span>
+                <ul className={`mt-0.5 grid grid-flow-col gap-x-8 ${rows}`}>
+                  {sitemapPages
+                    .filter((page: PageItem) => page.group === key)
+                    .sort((a: PageItem, b: PageItem) =>
+                      a.slug.localeCompare(b.slug)
+                    )
+                    .map((page: PageItem) => (
+                      <li key={page.slug} className="py-px">
+                        <TransitionLink
+                          href={pageHref(page.slug)}
+                          className="text-xs transition-colors duration-200 hover:!text-[#56ba8e] hover:underline hover:decoration-wavy"
+                          style={{
+                            fontFamily: "var(--font-balgin)",
+                            color: textColor,
+                          }}
+                        >
+                          /{page.slug}
+                        </TransitionLink>
+                      </li>
+                    ))}
+                </ul>
+              </div>
             ))}
+          </nav>
+          {/* Copyright as its own column */}
+          <div>
+            <span
+              className="text-[0.65rem] tracking-widest uppercase opacity-50"
+              style={{ fontFamily: "var(--font-balgin)" }}
+            >
+              meta
+            </span>
+            <div
+              className="mt-0.5 flex flex-col gap-2 py-px text-xs leading-snug"
+              style={{ fontFamily: "var(--font-balgin)", color: textColor }}
+            >
+              <p>
+                © {currentYear}
+                <br />
+                Jasper Mayone
+              </p>
+              <p>
+                Made with{" "}
+                <Image
+                  src={LilHeart}
+                  alt="love"
+                  width={14}
+                  height={14}
+                  className="inline-block align-[-2px]"
+                />{" "}
+                in
+                <br />
+                <i>Boston, Massachusetts</i>
+              </p>
+            </div>
+          </div>
+          {/* Social icons as their own column */}
+          <div>
+            <span
+              className="text-[0.65rem] tracking-widest uppercase opacity-50"
+              style={{ fontFamily: "var(--font-balgin)" }}
+            >
+              socials
+            </span>
+            <ul className="mt-0.5 grid grid-flow-col grid-rows-3 gap-x-2.5 gap-y-1">
+              {socialLinks.map(({ href, label, Icon }) => (
+                <li key={label} className="py-px">
+                  <Link
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={label}
+                    prefetch={false}
+                    className="inline-flex items-center justify-center transition-colors duration-200 hover:!text-[#56ba8e]"
+                    style={{ color: textColor }}
+                  >
+                    <Icon size={14} />
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

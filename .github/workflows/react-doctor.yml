@@ -11,17 +11,17 @@ jobs:
     permissions:
       contents: read
       pull-requests: write
+      statuses: write
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # required for --diff
+          fetch-depth: 0 # required for diffing against the base branch
 
       - name: React Doctor (PR comment)
         uses: millionco/react-doctor@v2
         with:
-          diff: main
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          scope: changed
 
       - name: React Doctor (annotations)
         if: always()
-        run: npx -y react-doctor@latest . --diff main --annotations --verbose
+        run: npx -y react-doctor@latest . --scope changed --base origin/main --annotations --verbose

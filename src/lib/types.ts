@@ -11,6 +11,7 @@ export interface PageItem {
   slug: string;
   showInNav: boolean;
   order: number;
+  group?: "pages" | "work" | "identity";
 }
 
 export interface RedirectItem {

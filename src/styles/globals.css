@@ -43,6 +43,36 @@ body {
   }
 }
 
+/* Press feedback for nav buttons */
+.nav-press {
+  transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav-press:active {
+  transform: scale(0.97);
+}
+
+/* Entrance animation for the /more dropdown */
+.dropdown-pop {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transform-origin: top center;
+  transition:
+    opacity 180ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 180ms cubic-bezier(0.23, 1, 0.32, 1);
+
+  @starting-style {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.97);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dropdown-pop {
+    transition-duration: 1ms;
+  }
+}
+
 .lnk {
   color: #56ba8e;
   text-decoration: underline wavy;

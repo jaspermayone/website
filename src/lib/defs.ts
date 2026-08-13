@@ -45,6 +45,18 @@ export function getAge(): number {
   );
 }
 
+// Canonical hrefs for page slugs that don't map 1:1 to a route
+const pageRouteAliases: Record<string, string> = {
+  home: "/",
+  cv: "/to/cv",
+  gpg: "/keys/gpg",
+  ssh: "/keys/ssh",
+};
+
+export function pageHref(slug: string): string {
+  return pageRouteAliases[slug] ?? `/${slug}`;
+}
+
 /*
   "home",
   "cv",
@@ -63,31 +75,139 @@ export function getAge(): number {
 */
 export const pages: PageItem[] = [
   { text: "Home", slug: "home", showInNav: true, order: 1 },
-  { text: "CV", slug: "cv", showInNav: true, order: 2 },
-  { text: "Portfolio", slug: "portfolio", showInNav: true, order: 3 },
-  { text: "Verify", slug: "verify", showInNav: true, order: 99 },
-  { text: "Contact", slug: "contact", showInNav: true, order: 4 },
-  { text: "GPG Keys", slug: "gpg", showInNav: true, order: 5 },
-  { text: "SSH Keys", slug: "ssh", showInNav: true, order: 6 },
-  { text: "PFP", slug: "pfp", showInNav: false, order: 99 },
-  { text: "Now", slug: "now", showInNav: false, order: 99 },
-  { text: "Panera", slug: "panera", showInNav: false, order: 99 },
-  { text: "Uses", slug: "uses", showInNav: false, order: 7 },
-  { text: "Hardware", slug: "hardware", showInNav: false, order: 99 },
-  { text: "Podroll", slug: "podroll", showInNav: false, order: 99 },
-  { text: "Green", slug: "green", showInNav: false, order: 99 },
-  { text: "Concerts", slug: "concerts", showInNav: false, order: 99 },
-  { text: "Photos", slug: "photos", showInNav: false, order: 99 },
-  { text: "Conferences", slug: "conferences", showInNav: false, order: 99 },
-  { text: "Hackathons", slug: "hackathons", showInNav: false, order: 99 },
-  { text: "Elsewhere", slug: "elsewhere", showInNav: false, order: 99 },
-  { text: "Friends", slug: "friends", showInNav: false, order: 99 },
-  { text: "Colophon", slug: "colophon", showInNav: false, order: 8 },
-  { text: "Open Source", slug: "open-source", showInNav: false, order: 99 },
-  { text: "Blank", slug: "blank", showInNav: false, order: 99 },
-  { text: "Links", slug: "to", showInNav: false, order: 99 },
-  { text: "Slashes", slug: "slashes", showInNav: false, order: 99 },
-  { text: "Support Me", slug: "support-me", showInNav: false, order: 99 },
+  { text: "CV", slug: "cv", showInNav: true, order: 2, group: "work" },
+  {
+    text: "Portfolio",
+    slug: "portfolio",
+    showInNav: true,
+    order: 3,
+    group: "work",
+  },
+  {
+    text: "Verify",
+    slug: "verify",
+    showInNav: false,
+    order: 99,
+    group: "identity",
+  },
+  {
+    text: "Contact",
+    slug: "contact",
+    showInNav: true,
+    order: 4,
+    group: "identity",
+  },
+  {
+    text: "GPG Keys",
+    slug: "gpg",
+    showInNav: false,
+    order: 99,
+    group: "identity",
+  },
+  {
+    text: "SSH Keys",
+    slug: "ssh",
+    showInNav: false,
+    order: 99,
+    group: "identity",
+  },
+  { text: "PFP", slug: "pfp", showInNav: false, order: 99, group: "identity" },
+  { text: "Now", slug: "now", showInNav: true, order: 5, group: "pages" },
+  {
+    text: "Panera",
+    slug: "panera",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  { text: "Uses", slug: "uses", showInNav: true, order: 6, group: "pages" },
+  {
+    text: "Hardware",
+    slug: "hardware",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  {
+    text: "Podroll",
+    slug: "podroll",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  { text: "Green", slug: "green", showInNav: false, order: 99, group: "pages" },
+  {
+    text: "Concerts",
+    slug: "concerts",
+    showInNav: true,
+    order: 7,
+    group: "pages",
+  },
+  {
+    text: "Photos",
+    slug: "photos",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  {
+    text: "Conferences",
+    slug: "conferences",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  {
+    text: "Hackathons",
+    slug: "hackathons",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  {
+    text: "Elsewhere",
+    slug: "elsewhere",
+    showInNav: false,
+    order: 99,
+    group: "identity",
+  },
+  {
+    text: "Friends",
+    slug: "friends",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  {
+    text: "Colophon",
+    slug: "colophon",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  {
+    text: "Open Source",
+    slug: "open-source",
+    showInNav: false,
+    order: 99,
+    group: "work",
+  },
+  { text: "Blank", slug: "blank", showInNav: false, order: 99, group: "pages" },
+  { text: "Links", slug: "to", showInNav: false, order: 99, group: "pages" },
+  {
+    text: "Slashes",
+    slug: "slashes",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  {
+    text: "Support Me",
+    slug: "support-me",
+    showInNav: false,
+    order: 99,
+    group: "work",
+  },
 ];
 
 export const links: RedirectItem[] = [
