@@ -1,44 +1,53 @@
 import { ImageResponse } from "next/og";
+import { readFile } from "node:fs/promises";
+import { join } from "node:path";
 import { OGImageData } from "./og-utils";
 
-export function generateOGImage(data: OGImageData) {
-  const { title, subtitle, description, type = "default" } = data;
+// Matches the squiggly-line accent used by MENU / PageNavigation.
+const ACCENT = "#56ba8e";
+const INK = "#27272a"; // zinc-800, the site's heading color
+const MUTED = "#52525b"; // zinc-600, the site's body color
 
-  // Color schemes based on type
-  const getColors = (type: string) => {
-    switch (type) {
-      case "portfolio":
-        return {
-          bg: "#151922",
-          cardBg: "rgba(21, 25, 34, 0.8)",
-          accent: "#10b981", // emerald
-          border: "rgba(16, 185, 129, 0.2)",
-        };
-      case "project":
-        return {
-          bg: "#1a1a2e",
-          cardBg: "rgba(26, 26, 46, 0.8)",
-          accent: "#f59e0b", // amber
-          border: "rgba(245, 158, 11, 0.2)",
-        };
-      case "page":
-        return {
-          bg: "#0f172a",
-          cardBg: "rgba(15, 23, 42, 0.8)",
-          accent: "#8b5cf6", // violet
-          border: "rgba(139, 92, 246, 0.2)",
-        };
-      default:
-        return {
-          bg: "#151922",
-          cardBg: "rgba(21, 25, 34, 0.7)",
-          accent: "#56ba8e", // blue
-          border: "rgba(66, 153, 225, 0.2)",
-        };
-    }
-  };
+const loadFont = (relativePath: string) =>
+  readFile(join(process.cwd(), "public", "fonts", relativePath));
 
-  const colors = getColors(type);
+// A hand-drawn-style squiggle, like <SquigglyLine />, rendered as inline SVG.
+const Squiggle = ({ width }: { width: number }) => {
+  const wave = 28;
+  const waves = Math.max(3, Math.round(width / wave));
+  let d = "M 0 10";
+  for (let i = 0; i < waves; i++) {
+    const x = i * wave;
+    d += ` Q ${x + wave / 4} ${i % 2 === 0 ? 0 : 20}, ${x + wave / 2} 10 T ${x + wave} 10`;
+  }
+  return (
+    <svg
+      width={width}
+      height={20}
+      viewBox={`0 0 ${waves * wave} 20`}
+      fill="none"
+    >
+      <path
+        d={d}
+        stroke={ACCENT}
+        strokeWidth={4}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+
+export async function generateOGImage(data: OGImageData) {
+  const { title, subtitle, description } = data;
+
+  const [cuteNotes, balgin] = await Promise.all([
+    loadFont("CuteNotes/CuteNotes.ttf"),
+    loadFont("Balgin/BalginText-Light.otf"),
+  ]);
+
+  const titleSize = title.length > 16 ? 110 : 140;
+  const squiggleWidth = Math.min(900, Math.max(320, title.length * 44));
 
   return new ImageResponse(
     <div
@@ -49,10 +58,10 @@ export function generateOGImage(data: OGImageData) {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: colors.bg,
-        padding: "40px",
-        fontFamily:
-          'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        backgroundColor: "#ffffff",
+        backgroundImage:
+          "linear-gradient(180deg, #eef2f1 0%, #ffffff 55%, #ffffff 100%)",
+        padding: "60px 80px",
       }}
     >
       <div
@@ -61,41 +70,36 @@ export function generateOGImage(data: OGImageData) {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          border: `2px solid ${colors.border}`,
-          borderRadius: "16px",
-          padding: "50px",
-          backgroundColor: colors.cardBg,
-          boxShadow: "0 25px 50px rgba(0, 0, 0, 0.4)",
-          width: "90%",
-          height: "80%",
-          textAlign: "center",
+          flexGrow: 1,
         }}
       >
-        <h1
+        <div
           style={{
-            fontSize: title.length > 20 ? "64px" : "80px",
-            fontWeight: "bold",
-            color: "#ffffff",
-            marginBottom: "16px",
+            fontFamily: "CuteNotes",
+            fontSize: titleSize,
+            color: INK,
+            lineHeight: 1,
             textAlign: "center",
-            borderBottom: `4px solid ${colors.accent}`,
-            paddingBottom: "12px",
-            maxWidth: "100%",
-            lineHeight: 1.1,
+            maxWidth: "1040px",
           }}
         >
           {title}
-        </h1>
+        </div>
+
+        <div style={{ display: "flex", marginTop: 8 }}>
+          <Squiggle width={squiggleWidth} />
+        </div>
 
         {subtitle && (
           <div
             style={{
-              fontSize: "36px",
-              color: "#e2e8f0",
+              fontFamily: "Balgin",
+              fontSize: 38,
+              color: MUTED,
               textAlign: "center",
-              maxWidth: "800px",
+              maxWidth: "860px",
               lineHeight: 1.3,
-              marginBottom: description ? "16px" : "24px",
+              marginTop: 36,
             }}
           >
             {subtitle}
@@ -105,52 +109,56 @@ export function generateOGImage(data: OGImageData) {
         {description && (
           <div
             style={{
-              fontSize: "24px",
-              color: "#94a3b8",
+              fontFamily: "Balgin",
+              fontSize: 27,
+              color: "#71717a",
               textAlign: "center",
-              maxWidth: "700px",
+              maxWidth: "780px",
               lineHeight: 1.4,
-              marginBottom: "24px",
+              marginTop: 18,
             }}
           >
             {description}
           </div>
         )}
+      </div>
 
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 14,
+          fontFamily: "Balgin",
+          fontSize: 26,
+          color: ACCENT,
+        }}
+      >
         <div
           style={{
-            fontSize: "20px",
-            color: colors.accent,
-            marginTop: "auto",
-            textAlign: "center",
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
+            width: 9,
+            height: 9,
+            borderRadius: "50%",
+            backgroundColor: ACCENT,
           }}
-        >
-          <div
-            style={{
-              width: "8px",
-              height: "8px",
-              borderRadius: "50%",
-              backgroundColor: colors.accent,
-            }}
-          />
-          jaspermayone.com
-          <div
-            style={{
-              width: "8px",
-              height: "8px",
-              borderRadius: "50%",
-              backgroundColor: colors.accent,
-            }}
-          />
-        </div>
+        />
+        jaspermayone.com
+        <div
+          style={{
+            width: 9,
+            height: 9,
+            borderRadius: "50%",
+            backgroundColor: ACCENT,
+          }}
+        />
       </div>
     </div>,
     {
       width: 1200,
       height: 630,
+      fonts: [
+        { name: "CuteNotes", data: cuteNotes, style: "normal", weight: 400 },
+        { name: "Balgin", data: balgin, style: "normal", weight: 400 },
+      ],
     }
   );
 }
