@@ -6,6 +6,11 @@ module.exports = {
   exclude: ["/icon.png", "/robots.txt", "/blank", "/api/*"],
   priority: 0.7,
   changefreq: "weekly",
+  // Dynamically rendered routes are absent from the prerender manifest and
+  // must be listed here to appear in the sitemap.
+  additionalPaths: async (config) => [
+    await config.transform(config, "/photos"),
+  ],
   transform: async (config, path) => {
     // Higher priority for main pages
     const highPriority = ["/", "/portfolio", "/contact"];

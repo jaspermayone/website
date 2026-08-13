@@ -105,6 +105,12 @@ export interface Podcast {
   url: string;
 }
 
+export interface Friend {
+  name: string;
+  image?: string;
+  link?: string;
+}
+
 export interface Tool {
   emoji: string;
   name: string;
