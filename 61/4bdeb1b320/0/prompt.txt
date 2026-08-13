@@ -1,0 +1,33 @@
+can you search my email inboxes and add any concerts i forgot about? i know we need to add this onehttps://www.youtube.com/watch?v=x8CCEiXUwVQ
+
+---
+
+can you search my email inboxes and add any concerts i forgot about? i know we need to add this one[Image #1]
+
+---
+
+{
+    name: "NewHacks",
+    host: "University of Toronto",
+    location: "Toronto, ON",
+    date: "2025-10-24",
+    endDate: "2025-10-26",
+    role: "worked",
+    note: "MLH Coach",
+    url: "https://www.newhacks.ca",
+  },
+  {
+    name: "HackHarvard",
+    host: "Harvard University",
+    location: "Cambridge, MA",
+    date: "2025-10-03",
+    endDate: "2025-10-05",
+    role: "worked",
+    note: "MLH Coach",
+    url: "https://hackharvard.io",
+  }, i never made it to these two events
+
+remove the 2000s party
+
+I worked 2 see changes one as bookshop manager and one as something else (look at my resume repo here locally)
+the pop up was just a regular year i worked i think
