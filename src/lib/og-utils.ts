@@ -38,6 +38,12 @@ export const getPageOGData = (path: string): OGImageData => {
       description: "Current projects and focus areas",
       type: "page",
     },
+    "/photos": {
+      title: "Photos",
+      subtitle: "Photography by Jasper Mayone",
+      description: "A gallery of photos I've taken over the years",
+      type: "page",
+    },
     "/changelog": {
       title: "Changelog",
       subtitle: "Site Updates",

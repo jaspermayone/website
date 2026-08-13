@@ -170,7 +170,7 @@ export default function PageNavigation(props: PageNavigationProps) {
             >
               <button
                 type="button"
-                className={`${styles.menuItem} ${item.slug === selectedTab ? "lnk" : ""} flex cursor-pointer items-center border-0 bg-transparent p-0 hover:!text-[#56ba8e]`}
+                className={`${styles.menuItem} ${item.slug === selectedTab ? "lnk" : ""} nav-press flex cursor-pointer items-center border-0 bg-transparent p-0 hover:!text-[#56ba8e]`}
                 onClick={() => handleMenuClick(item.slug)}
                 title={`Go to ${item.slug}`}
                 style={
@@ -195,7 +195,7 @@ export default function PageNavigation(props: PageNavigationProps) {
         >
           <button
             type="button"
-            className={`${styles.menuItem} ${showMoreDropdown ? "lnk" : ""} flex cursor-pointer items-center border-0 bg-transparent p-0 hover:!text-[#56ba8e]`}
+            className={`${styles.menuItem} ${showMoreDropdown ? "lnk" : ""} nav-press flex cursor-pointer items-center border-0 bg-transparent p-0 hover:!text-[#56ba8e]`}
             onClick={() => setShowMoreDropdown(!showMoreDropdown)}
             title={`see more pages`}
             style={
@@ -212,7 +212,7 @@ export default function PageNavigation(props: PageNavigationProps) {
           </button>
           {showMoreDropdown && morePages.length > 0 && (
             <div
-              className="absolute top-full z-[9999] mt-2 min-w-[150px] rounded-[10px] border-2 border-dashed border-stone-950 px-3 py-2 backdrop-blur-[10px] dark:border-stone-50"
+              className="dropdown-pop absolute top-full z-[9999] mt-2 min-w-[150px] rounded-[10px] border-2 border-dashed border-stone-950 px-3 py-2 backdrop-blur-[10px] dark:border-stone-50"
               style={{
                 background: "light-dark(#f8fbf8, #151922)",
                 boxShadow:

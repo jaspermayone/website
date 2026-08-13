@@ -7,6 +7,7 @@ import RoundedImage from "@/components/RoundedImage";
 import { getAge } from "@/lib/defs";
 import JmDark from "@public/images/jmdark-min.webp";
 import JmLight from "@public/images/jmlite-min.webp";
+import { Link } from "next-view-transitions";
 import { useSyncExternalStore } from "react";
 
 // Subscribe function for useSyncExternalStore
@@ -68,8 +69,12 @@ export default function Home() {
                 </ExternalLink>{" "}
                 in Boston, Massachusetts. When not in school or at work,
                 Jasper&apos;s hobbies include reading, being in the great
-                outdoors, photography, computer programming, cooking, and
-                running away to join the circus.
+                outdoors,{" "}
+                <Link className="lnk" href="/photos">
+                  photography
+                </Link>
+                , computer programming, cooking, and running away to join the
+                circus.
               </p>
               <p className="text-sm text-zinc-600 dark:text-white/70">
                 An avid organizer and big picture thinker, you can often find
@@ -97,8 +102,11 @@ export default function Home() {
 
               <p className="text-sm text-zinc-600 dark:text-white/70">
                 Jasper is also passionate about making the internet a safer
-                place! They contrinbute to several open source projects focused
-                on web security and privacy, including{" "}
+                place! They contribute to several{" "}
+                <Link className="lnk" href="/open-source">
+                  open source projects
+                </Link>{" "}
+                focused on web security and privacy, including{" "}
                 <ExternalLink
                   className="lnk"
                   href="phish.directory"
@@ -120,8 +128,28 @@ export default function Home() {
                 for their fellow students&apos; films. They also played a key
                 role in the Waitsfield Elementary PTA&apos;s Annual Ski & Skate
                 sale, co-coordinated large scale climate conferences called “See
-                Change Sessions” with thousands of attendees, and enjoyed
-                concerts by AJR, Sammy Rae & the Friends, and Lake Street Dive.
+                Change Sessions” with thousands of attendees, and enjoyed{" "}
+                <Link className="lnk" href="/concerts">
+                  concerts
+                </Link>{" "}
+                by AJR, Sammy Rae & the Friends, and Lake Street Dive.
+              </p>
+
+              <p className="text-sm text-zinc-600 dark:text-white/70">
+                This site has more corners than the menu lets on. See what
+                Jasper is up to{" "}
+                <Link className="lnk" href="/now">
+                  right now
+                </Link>
+                , the{" "}
+                <Link className="lnk" href="/uses">
+                  tools they swear by
+                </Link>
+                , or their exact{" "}
+                <Link className="lnk" href="/panera">
+                  Panera order
+                </Link>
+                {" — "}the full map lives in the footer.
               </p>
             </div>
           </div>

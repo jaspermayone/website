@@ -11,6 +11,7 @@ export interface PageItem {
   slug: string;
   showInNav: boolean;
   order: number;
+  group?: "pages" | "work" | "identity";
 }
 
 export interface RedirectItem {
@@ -65,6 +66,30 @@ export interface YearGroup {
   concerts: Concert[];
 }
 
+export interface Conference {
+  name: string;
+  role?: "attended" | "worked" | "organized";
+  note?: string; // e.g., "Crew", "Expo Pass"
+  organizer?: string;
+  location?: string;
+  date?: string; // start date, YYYY-MM-DD (or YYYY-MM if unknown)
+  endDate?: string;
+  url?: string;
+  favorite?: boolean;
+}
+
+export interface Hackathon {
+  name: string;
+  role?: "attended" | "worked" | "organized";
+  note?: string; // e.g., "MLH Coach", "Founder & Event Director"
+  host?: string; // university or organization
+  location?: string;
+  date?: string; // start date, YYYY-MM-DD (or YYYY-MM if unknown)
+  endDate?: string;
+  url?: string;
+  favorite?: boolean;
+}
+
 export interface Appearance {
   title: string;
   date: string;
@@ -79,6 +104,12 @@ export interface Podcast {
   name: string;
   description: string;
   url: string;
+}
+
+export interface Friend {
+  name: string;
+  image?: string;
+  link?: string;
 }
 
 export interface Tool {
@@ -130,6 +161,15 @@ export interface SlashPage {
   slug: string;
   name: string;
   description: string;
+}
+
+export interface PhotoExif {
+  camera?: string;
+  focalLength?: string;
+  aperture?: string;
+  shutter?: string;
+  iso?: string;
+  date?: string;
 }
 
 export interface HardwareItem {

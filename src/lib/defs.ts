@@ -8,7 +8,10 @@ import {
 } from "react-icons/si";
 import {
   Appearance,
+  Conference,
   Domain,
+  Friend,
+  Hackathon,
   HardwareItem,
   HostedService,
   MaintainedProject,
@@ -42,6 +45,18 @@ export function getAge(): number {
   );
 }
 
+// Canonical hrefs for page slugs that don't map 1:1 to a route
+const pageRouteAliases: Record<string, string> = {
+  home: "/",
+  cv: "/to/cv",
+  gpg: "/keys/gpg",
+  ssh: "/keys/ssh",
+};
+
+export function pageHref(slug: string): string {
+  return pageRouteAliases[slug] ?? `/${slug}`;
+}
+
 /*
   "home",
   "cv",
@@ -60,27 +75,139 @@ export function getAge(): number {
 */
 export const pages: PageItem[] = [
   { text: "Home", slug: "home", showInNav: true, order: 1 },
-  { text: "CV", slug: "cv", showInNav: true, order: 2 },
-  { text: "Portfolio", slug: "portfolio", showInNav: true, order: 3 },
-  { text: "Verify", slug: "verify", showInNav: true, order: 99 },
-  { text: "Contact", slug: "contact", showInNav: true, order: 4 },
-  { text: "GPG Keys", slug: "gpg", showInNav: true, order: 5 },
-  { text: "SSH Keys", slug: "ssh", showInNav: true, order: 6 },
-  { text: "PFP", slug: "pfp", showInNav: false, order: 99 },
-  { text: "Now", slug: "now", showInNav: false, order: 99 },
-  { text: "Panera", slug: "panera", showInNav: false, order: 99 },
-  { text: "Uses", slug: "uses", showInNav: false, order: 7 },
-  { text: "Hardware", slug: "hardware", showInNav: false, order: 99 },
-  { text: "Podroll", slug: "podroll", showInNav: false, order: 99 },
-  { text: "Green", slug: "green", showInNav: false, order: 99 },
-  { text: "Concerts", slug: "concerts", showInNav: false, order: 99 },
-  { text: "Elsewhere", slug: "elsewhere", showInNav: false, order: 99 },
-  { text: "Colophon", slug: "colophon", showInNav: false, order: 8 },
-  { text: "Open Source", slug: "open-source", showInNav: false, order: 99 },
-  { text: "Blank", slug: "blank", showInNav: false, order: 99 },
-  { text: "Links", slug: "to", showInNav: false, order: 99 },
-  { text: "Slashes", slug: "slashes", showInNav: false, order: 99 },
-  { text: "Support Me", slug: "support-me", showInNav: false, order: 99 },
+  { text: "CV", slug: "cv", showInNav: true, order: 2, group: "work" },
+  {
+    text: "Portfolio",
+    slug: "portfolio",
+    showInNav: true,
+    order: 3,
+    group: "work",
+  },
+  {
+    text: "Verify",
+    slug: "verify",
+    showInNav: false,
+    order: 99,
+    group: "identity",
+  },
+  {
+    text: "Contact",
+    slug: "contact",
+    showInNav: true,
+    order: 4,
+    group: "identity",
+  },
+  {
+    text: "GPG Keys",
+    slug: "gpg",
+    showInNav: false,
+    order: 99,
+    group: "identity",
+  },
+  {
+    text: "SSH Keys",
+    slug: "ssh",
+    showInNav: false,
+    order: 99,
+    group: "identity",
+  },
+  { text: "PFP", slug: "pfp", showInNav: false, order: 99, group: "identity" },
+  { text: "Now", slug: "now", showInNav: true, order: 5, group: "pages" },
+  {
+    text: "Panera",
+    slug: "panera",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  { text: "Uses", slug: "uses", showInNav: true, order: 6, group: "pages" },
+  {
+    text: "Hardware",
+    slug: "hardware",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  {
+    text: "Podroll",
+    slug: "podroll",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  { text: "Green", slug: "green", showInNav: false, order: 99, group: "pages" },
+  {
+    text: "Concerts",
+    slug: "concerts",
+    showInNav: true,
+    order: 7,
+    group: "pages",
+  },
+  {
+    text: "Photos",
+    slug: "photos",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  {
+    text: "Conferences",
+    slug: "conferences",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  {
+    text: "Hackathons",
+    slug: "hackathons",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  {
+    text: "Elsewhere",
+    slug: "elsewhere",
+    showInNav: false,
+    order: 99,
+    group: "identity",
+  },
+  {
+    text: "Friends",
+    slug: "friends",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  {
+    text: "Colophon",
+    slug: "colophon",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  {
+    text: "Open Source",
+    slug: "open-source",
+    showInNav: false,
+    order: 99,
+    group: "work",
+  },
+  { text: "Blank", slug: "blank", showInNav: false, order: 99, group: "pages" },
+  { text: "Links", slug: "to", showInNav: false, order: 99, group: "pages" },
+  {
+    text: "Slashes",
+    slug: "slashes",
+    showInNav: false,
+    order: 99,
+    group: "pages",
+  },
+  {
+    text: "Support Me",
+    slug: "support-me",
+    showInNav: false,
+    order: 99,
+    group: "work",
+  },
 ];
 
 export const links: RedirectItem[] = [
@@ -550,6 +677,12 @@ export const concertsByYear: YearGroup[] = [
     year: 2026,
     concerts: [
       {
+        headliner: "Lake Street Dive",
+        openers: ["Couch"],
+        venue: "Shelburne Museum, Shelburne, VT",
+        date: "2026-08-11",
+      },
+      {
         headliner: "The Neighbourhood",
         setlist:
           "https://www.setlist.fm/setlist/the-neighbourhood/2026/td-garden-boston-ma-234f944b.html",
@@ -632,7 +765,110 @@ export const concertsByYear: YearGroup[] = [
   },
 ];
 
+export const conferences: Conference[] = [
+  {
+    name: "Actuate 26",
+    organizer: "Foxglove",
+    location: "Fort Mason Center, San Francisco, CA",
+    date: "2026-08-18",
+    endDate: "2026-08-19",
+    role: "attended",
+    url: "https://foxglove.dev/actuate",
+  },
+  {
+    name: "See Change Sessions",
+    organizer: "See Change Sessions",
+    location: "Burlington, VT",
+    date: "2024-09-17",
+    endDate: "2024-09-19",
+    role: "worked",
+    note: "Crew",
+    url: "https://www.seechangesessions.com",
+  },
+  {
+    name: "See Change Sessions Pop-Up",
+    organizer: "See Change Sessions",
+    location: "Hula, Burlington, VT",
+    date: "2024-02-20",
+    endDate: "2024-02-22",
+    role: "worked",
+    url: "https://www.seechangesessions.com",
+  },
+  {
+    name: "See Change Sessions",
+    organizer: "See Change Sessions",
+    location: "Burlington, VT",
+    date: "2023-09-12",
+    endDate: "2023-09-14",
+    role: "worked",
+    note: "Event Registration Coordinator & Bookshop Manager",
+    url: "https://www.seechangesessions.com",
+  },
+];
+
+export const hackathons: Hackathon[] = [
+  // TODO: HackWIT — confirm final event date & add once it happens
+  // {
+  //   name: "HackWIT",
+  //   host: "Wentworth Institute of Technology",
+  //   location: "Boston, MA",
+  //   date: "2026-03",
+  //   role: "organized",
+  //   note: "Founder & Event Director",
+  // },
+  {
+    name: "SteelHacks XII",
+    host: "University of Pittsburgh",
+    location: "Pittsburgh, PA",
+    date: "2025-09-20",
+    endDate: "2025-09-21",
+    role: "worked",
+    note: "MLH Coach",
+    url: "https://steelhacks.org",
+  },
+  {
+    name: "Apocalypse",
+    host: "Hack Club",
+    location: "Shopify, Toronto, ON",
+    date: "2024-05-17",
+    endDate: "2024-05-19",
+    role: "attended",
+    note: "Attendee & Hack Club staff",
+    url: "https://apocalypse.hackclub.com",
+  },
+  {
+    name: "The Summit",
+    host: "Hack Club",
+    location: "San Francisco, CA",
+    date: "2024-02-09",
+    endDate: "2024-02-11",
+    role: "organized",
+    note: "Logistics Lead",
+    url: "https://summit.hackclub.com",
+  },
+  {
+    name: "Harvest",
+    host: "Hack Club",
+    location: "Karma Bird House, Burlington, VT",
+    date: "2023-10-28",
+    role: "attended",
+    note: "My first hackathon!",
+    url: "https://harvest.hackclub.com",
+    favorite: true,
+  },
+];
+
 export const appearances: Appearance[] = [
+  {
+    title: "Building Communities around Tech",
+    date: "2025-07-07",
+    platform: "MLH Global Hack Week: Season Launch",
+    url: "https://events.mlh.com/events/12721",
+    type: "talk",
+    role: "speaker",
+    description:
+      "A session on building thriving tech communities, drawing on experience leading global programs at Hack Club and Major League Hacking.",
+  },
   {
     title: "Staff Writer",
     date: "2022-01-01",
@@ -686,6 +922,69 @@ export const appearances: Appearance[] = [
     platform: "New York Times",
     url: "https://archive.nytimes.com/query.nytimes.com/gst/fullpage-9F06E4DE153AF936A35750C0A96F9C8B63.html",
     type: "article",
+  },
+];
+
+export const friends: Friend[] = [
+  {
+    name: "Kieran Klukas",
+    image: "/images/friends/kieran_klukas.png",
+    link: "https://dunkirk.sh/",
+  },
+  {
+    name: "Ryan Di Lorenzo",
+    image: "/images/friends/ryan_di_lorenzo.png",
+    link: "https://github.com/LimesKey",
+  },
+  {
+    name: "Samantha Miel",
+    image: "/images/friends/samantha_miel.png",
+    link: "https://www.instagram.com/cirque_du_samantha/",
+  },
+  {
+    name: "Théo Reid",
+    image: "/images/friends/theo_reid.png",
+    link: "https://www.instagram.com/theointheair/",
+  },
+  {
+    name: "Maclean Dunkin",
+    image: "/images/friends/maclean_dunkin.png",
+    link: "https://www.morizuru.co/",
+  },
+  {
+    name: "Dominic Petrarca",
+    image: "/images/friends/dominic_petrarca.png",
+    link: "https://dominicpetrarca.com/",
+  },
+  {
+    name: "Logan Lambert",
+    image: "/images/friends/logan_lambert.png",
+    link: "https://cattn.dev/",
+  },
+  {
+    name: "Karl Wünsche",
+  },
+  {
+    name: "Clarissa Lambert",
+  },
+  {
+    name: "Tristan Gottshall",
+  },
+  {
+    name: "Jenn Johnsey",
+    image: "/images/friends/jenn_johnsey.png",
+    link: "https://www.linkedin.com/in/jennjohnsey/",
+  },
+  {
+    name: "Zoya Hussain",
+    link: "https://zoya.sh/",
+  },
+  {
+    name: "Heidi Liou",
+    link: "https://www.linkedin.com/in/heidiliou/",
+  },
+  {
+    name: "CJ Kanne",
   },
 ];
 
@@ -955,6 +1254,11 @@ export const hostedServices: HostedService[] = [
 // Inspired by https://slashpages.net/
 export const slashPages: SlashPage[] = [
   {
+    slug: "photos",
+    name: "Photos",
+    description: "A gallery of photos I've taken",
+  },
+  {
     slug: "now",
     name: "Now",
     description: "What I'm currently up to - auto-updating status",
@@ -975,6 +1279,12 @@ export const slashPages: SlashPage[] = [
     description: "Find me on other platforms",
   },
   {
+    slug: "friends",
+    name: "Friends",
+    description:
+      "Some of the super cool people I have the privilege to call friends",
+  },
+  {
     slug: "podroll",
     name: "Podroll",
     description: "Podcasts I listen to and recommend",
@@ -983,6 +1293,16 @@ export const slashPages: SlashPage[] = [
     slug: "concerts",
     name: "Concerts",
     description: "Live shows I've attended",
+  },
+  {
+    slug: "conferences",
+    name: "Conferences",
+    description: "Conferences I've attended and worked",
+  },
+  {
+    slug: "hackathons",
+    name: "Hackathons",
+    description: "Hackathons I've attended, worked, and organized",
   },
   {
     slug: "open-source",
