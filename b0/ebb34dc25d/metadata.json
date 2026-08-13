@@ -1,0 +1,25 @@
+{
+  "cli_version": "0.7.3",
+  "checkpoint_id": "b0ebb34dc25d",
+  "strategy": "manual-commit",
+  "branch": "jaspermayone/photo-protection",
+  "checkpoints_count": 0,
+  "files_touched": [
+    "src/app/icon.png"
+  ],
+  "sessions": [
+    {
+      "metadata": "/b0/ebb34dc25d/0/metadata.json",
+      "transcript": "/b0/ebb34dc25d/0/full.jsonl",
+      "content_hash": "/b0/ebb34dc25d/0/content_hash.txt",
+      "prompt": ""
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 0,
+    "cache_creation_tokens": 0,
+    "cache_read_tokens": 0,
+    "output_tokens": 0,
+    "api_call_count": 0
+  }
+}
