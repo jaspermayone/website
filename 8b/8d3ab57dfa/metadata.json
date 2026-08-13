@@ -1,0 +1,25 @@
+{
+  "cli_version": "0.7.3",
+  "checkpoint_id": "8b8d3ab57dfa",
+  "strategy": "manual-commit",
+  "branch": "jaspermayone/footer-sitemap-touchup",
+  "checkpoints_count": 0,
+  "files_touched": [
+    "vercel.json"
+  ],
+  "sessions": [
+    {
+      "metadata": "/8b/8d3ab57dfa/0/metadata.json",
+      "transcript": "/8b/8d3ab57dfa/0/full.jsonl",
+      "content_hash": "/8b/8d3ab57dfa/0/content_hash.txt",
+      "prompt": ""
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 37,
+    "cache_creation_tokens": 30980,
+    "cache_read_tokens": 1562529,
+    "output_tokens": 7113,
+    "api_call_count": 20
+  }
+}
