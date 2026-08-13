@@ -1,0 +1,23 @@
+{
+  "cli_version": "0.7.3",
+  "checkpoint_id": "87194c94bc97",
+  "strategy": "manual-commit",
+  "branch": "jaspermayone/102-photos-page",
+  "checkpoints_count": 1,
+  "files_touched": null,
+  "sessions": [
+    {
+      "metadata": "/87/194c94bc97/0/metadata.json",
+      "transcript": "/87/194c94bc97/0/full.jsonl",
+      "content_hash": "/87/194c94bc97/0/content_hash.txt",
+      "prompt": "/87/194c94bc97/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 283,
+    "cache_creation_tokens": 205170,
+    "cache_read_tokens": 13536069,
+    "output_tokens": 68418,
+    "api_call_count": 146
+  }
+}

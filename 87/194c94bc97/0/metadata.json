@@ -1,0 +1,23 @@
+{
+  "cli_version": "0.7.3",
+  "checkpoint_id": "87194c94bc97",
+  "session_id": "d181d447-fee9-48da-9517-7d9666a97907",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-13T01:08:55.86614Z",
+  "branch": "jaspermayone/102-photos-page",
+  "checkpoints_count": 1,
+  "files_touched": [],
+  "agent": "Claude Code",
+  "model": "claude-fable-5[1m]",
+  "turn_id": "227d4e98b068",
+  "token_usage": {
+    "input_tokens": 283,
+    "cache_creation_tokens": 205170,
+    "cache_read_tokens": 13536069,
+    "output_tokens": 68418,
+    "api_call_count": 146
+  },
+  "session_metrics": {
+    "turn_count": 1
+  }
+}
