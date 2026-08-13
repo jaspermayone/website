@@ -9,7 +9,13 @@ module.exports = {
   transform: async (config, path) => {
     // Higher priority for main pages
     const highPriority = ["/", "/portfolio", "/contact"];
-    const mediumPriority = ["/now", "/uses", "/elsewhere", "/colophon"];
+    const mediumPriority = [
+      "/now",
+      "/uses",
+      "/elsewhere",
+      "/colophon",
+      "/photos",
+    ];
 
     let priority = 0.5;
     let changefreq = "monthly";
