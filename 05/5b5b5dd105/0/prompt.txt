@@ -1,0 +1,83 @@
+I'm looking to possibly re-design my website, a lot of the pages are hard to discover rn, and it just feels like time for a refresh
+
+can you come up with like 3-5 options for redesigns and present them to me using html?
+
+---
+
+❯ after this skills reload, you should have new design skills to work with
+
+---
+
+I dont rly like any of those tbh
+
+---
+
+what if i just want to touch up the existing design
+
+---
+
+lets do the whole touch up
+
+---
+
+can i preview
+
+---
+
+[Image #1] i like the footer but the spacing is odd
+
+---
+
+[Image #2] better, i liked the vertical stacks tho....
+
+---
+
+[Image #3] better! but still need to scroll to see the rest of the footer
+
+---
+
+[Image #4] closer! still looks odd tho
+
+---
+
+[Image #5] better! i think it just looks odd bc it doesnt take up the whole bottom
+
+could we right align the whole thing?
+
+---
+
+can we ledft align
+
+---
+
+better, can we put the webring and stuff inline with the other stuff in a column tho?
+
+---
+
+[Image #6] i imagined it being in line not below
+
+---
+
+lets remove the webring i think thats causing stuff to be weird
+
+---
+
+[Image #7] anything we can do to make this better? and we should prob center align now
+
+---
+
+[Image #9] better! can we distribute out the meta line better and perhaps move the socials to their own column
+
+---
+
+[Image #10] for meta can it be 
+
+C 2026
+Jasper Mayone
+<spacer>
+Made with ❤️ in
+Boston, Massachusets
+
+---
+
+[Image #11] can we use this png from my desktop for the heart

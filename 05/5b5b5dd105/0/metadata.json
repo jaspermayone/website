@@ -1,0 +1,372 @@
+{
+  "cli_version": "0.7.3",
+  "checkpoint_id": "055b5b5dd105",
+  "session_id": "a0dbf914-47bc-488a-824b-71fe2aef6072",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-13T03:23:38.866132Z",
+  "branch": "jaspermayone/footer-sitemap-touchup",
+  "checkpoints_count": 15,
+  "files_touched": [
+    "public/images/friends/dominic_petrarca.png",
+    "public/images/friends/jenn_johnsey.png",
+    "public/images/friends/kieran_klukas.png",
+    "public/images/friends/logan_lambert.png",
+    "public/images/friends/maclean_dunkin.png",
+    "public/images/friends/ryan_di_lorenzo.png",
+    "public/images/friends/samantha_miel.png",
+    "public/images/friends/theo_reid.png",
+    "public/images/lil-heart.png",
+    "public/images/photography/001.webp",
+    "public/images/photography/002.webp",
+    "public/images/photography/003.webp",
+    "public/images/photography/004.webp",
+    "public/images/photography/005.webp",
+    "public/images/photography/006.webp",
+    "public/images/photography/007.webp",
+    "public/images/photography/008.webp",
+    "public/images/photography/009.webp",
+    "public/images/photography/010.webp",
+    "public/images/photography/011.webp",
+    "public/images/photography/012.webp",
+    "public/images/photography/013.webp",
+    "public/images/photography/014.webp",
+    "public/images/photography/015.webp",
+    "public/images/photography/016.webp",
+    "public/images/photography/017.webp",
+    "public/images/photography/018.webp",
+    "public/images/photography/019.webp",
+    "public/images/photography/020.webp",
+    "public/images/photography/021.webp",
+    "public/images/photography/022.webp",
+    "public/images/photography/023.webp",
+    "public/images/photography/024.webp",
+    "public/images/photography/025.webp",
+    "public/images/photography/026.webp",
+    "public/images/photography/027.webp",
+    "public/images/photography/028.webp",
+    "public/images/photography/029.webp",
+    "public/images/photography/030.webp",
+    "public/images/photography/031.webp",
+    "public/images/photography/032.webp",
+    "public/images/photography/033.webp",
+    "public/images/photography/034.webp",
+    "public/images/photography/035.webp",
+    "public/images/photography/036.webp",
+    "public/images/photography/037.webp",
+    "public/images/photography/038.webp",
+    "public/images/photography/039.webp",
+    "public/images/photography/040.webp",
+    "public/images/photography/041.webp",
+    "public/images/photography/042.webp",
+    "public/images/photography/043.webp",
+    "public/images/photography/044.webp",
+    "public/images/photography/045.webp",
+    "public/images/photography/046.webp",
+    "public/images/photography/047.webp",
+    "public/images/photography/048.webp",
+    "public/images/photography/049.webp",
+    "public/images/photography/050.webp",
+    "public/images/photography/051.webp",
+    "public/images/photography/052.webp",
+    "public/images/photography/053.webp",
+    "public/images/photography/054.webp",
+    "public/images/photography/055.webp",
+    "public/images/photography/056.webp",
+    "public/images/photography/057.webp",
+    "public/images/photography/058.webp",
+    "public/images/photography/059.webp",
+    "public/images/photography/060.webp",
+    "public/images/photography/061.webp",
+    "public/images/photography/062.webp",
+    "public/images/photography/063.webp",
+    "public/images/photography/064.webp",
+    "public/images/photography/065.webp",
+    "public/images/photography/066.webp",
+    "public/images/photography/067.webp",
+    "public/images/photography/068.webp",
+    "public/images/photography/069.webp",
+    "public/images/photography/070.webp",
+    "public/images/photography/071.webp",
+    "public/images/photography/072.webp",
+    "public/images/photography/073.webp",
+    "public/images/photography/074.webp",
+    "public/images/photography/075.webp",
+    "public/images/photography/076.webp",
+    "public/images/photography/077.webp",
+    "public/images/photography/078.webp",
+    "public/images/photography/079.webp",
+    "public/images/photography/080.webp",
+    "public/images/photography/081.webp",
+    "public/images/photography/082.webp",
+    "public/images/photography/083.webp",
+    "public/images/photography/084.webp",
+    "public/images/photography/085.webp",
+    "public/images/photography/086.webp",
+    "public/images/photography/087.webp",
+    "public/images/photography/088.webp",
+    "public/images/photography/089.webp",
+    "public/images/photography/090.webp",
+    "public/images/photography/091.webp",
+    "public/images/photography/092.webp",
+    "public/images/photography/093.webp",
+    "public/images/photography/094.webp",
+    "public/images/photography/095.webp",
+    "public/images/photography/096.webp",
+    "public/images/photography/097.webp",
+    "public/images/photography/098.webp",
+    "public/images/photography/099.webp",
+    "public/images/photography/100.webp",
+    "public/images/photography/101.webp",
+    "public/images/photography/102.webp",
+    "public/images/photography/103.webp",
+    "public/images/photography/104.webp",
+    "public/images/photography/105.webp",
+    "public/images/photography/106.webp",
+    "public/images/photography/107.webp",
+    "public/images/photography/108.webp",
+    "public/images/photography/109.webp",
+    "public/images/photography/110.webp",
+    "public/images/photography/111.webp",
+    "public/images/photography/112.webp",
+    "public/images/photography/113.webp",
+    "public/images/photography/114.webp",
+    "public/images/photography/115.webp",
+    "public/images/photography/116.webp",
+    "public/images/photography/117.webp",
+    "public/images/photography/118.webp",
+    "public/images/photography/119.webp",
+    "public/images/photography/120.webp",
+    "public/images/photography/121.webp",
+    "public/images/photography/122.webp",
+    "public/images/photography/123.webp",
+    "public/images/photography/124.webp",
+    "public/images/photography/125.webp",
+    "public/images/photography/126.webp",
+    "public/images/photography/127.webp",
+    "public/images/photography/128.webp",
+    "public/images/photography/129.webp",
+    "public/images/photography/130.webp",
+    "public/images/photography/131.webp",
+    "public/images/photography/132.webp",
+    "public/images/photography/133.webp",
+    "public/sitemap.xml",
+    "scripts/import-photos.ts",
+    "src/app/(home)/page.tsx",
+    "src/app/conferences/page.tsx",
+    "src/app/friends/page.tsx",
+    "src/app/hackathons/page.tsx",
+    "src/app/photos/page.tsx",
+    "src/components/FOOTER.tsx",
+    "src/components/PageNavigation.tsx",
+    "src/lib/defs.ts",
+    "src/lib/og-utils.ts",
+    "src/lib/photo-exif.json",
+    "src/lib/photos.ts",
+    "src/lib/types.ts",
+    "src/styles/globals.css"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-fable-5[1m]",
+  "turn_id": "a7cbe54a2f37",
+  "token_usage": {
+    "input_tokens": 203,
+    "cache_creation_tokens": 365301,
+    "cache_read_tokens": 11259234,
+    "output_tokens": 132091,
+    "api_call_count": 110
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "claude-skill-toolu_01QmjgxvT9zwiFjJH2YZZkXw",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "artifact-design"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "a7cbe54a2f37",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 51,
+        "end": 52,
+        "entry_ids": [
+          "6c615029-4e57-4551-9c8a-bdc0a92df701"
+        ],
+        "tool_use_id": "toolu_01QmjgxvT9zwiFjJH2YZZkXw"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01QmjgxvT9zwiFjJH2YZZkXw"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: artifact-design",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_012cGtDhVeKdtk61iC6pQQ6E",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "emil-design-eng"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "a7cbe54a2f37",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 83,
+        "end": 84,
+        "entry_ids": [
+          "e94ed68a-9f6c-4971-ba52-3658368771da"
+        ],
+        "tool_use_id": "toolu_012cGtDhVeKdtk61iC6pQQ6E"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_012cGtDhVeKdtk61iC6pQQ6E"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: emil-design-eng",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 17
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-08-13T03:23:38.768332Z",
+    "agent_lines": 4052,
+    "agent_removed": 115,
+    "human_added": 0,
+    "human_modified": 30,
+    "human_removed": 0,
+    "total_committed": 4082,
+    "total_lines_changed": 4197,
+    "agent_percentage": 99.28520371694067,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0
+    },
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 229,
+      "agent_lines_removed": 30
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 229,
+      "agent_lines_removed": 30
+    },
+    {
+      "checkpoint_number": 4,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 229,
+      "agent_lines_removed": 30
+    },
+    {
+      "checkpoint_number": 5,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 231,
+      "agent_lines_removed": 30
+    },
+    {
+      "checkpoint_number": 6,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 241,
+      "agent_lines_removed": 36
+    },
+    {
+      "checkpoint_number": 7,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 241,
+      "agent_lines_removed": 36
+    },
+    {
+      "checkpoint_number": 8,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 244,
+      "agent_lines_removed": 39
+    },
+    {
+      "checkpoint_number": 9,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 244,
+      "agent_lines_removed": 39
+    },
+    {
+      "checkpoint_number": 10,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 276,
+      "agent_lines_removed": 74
+    },
+    {
+      "checkpoint_number": 11,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 280,
+      "agent_lines_removed": 74
+    },
+    {
+      "checkpoint_number": 12,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 269,
+      "agent_lines_removed": 95
+    },
+    {
+      "checkpoint_number": 13,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 1107,
+      "agent_lines_removed": 114
+    },
+    {
+      "checkpoint_number": 14,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 1114,
+      "agent_lines_removed": 113
+    },
+    {
+      "checkpoint_number": 15,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 1121,
+      "agent_lines_removed": 113
+    },
+    {
+      "checkpoint_number": 16,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 4082,
+      "agent_lines_removed": 115
+    }
+  ]
+}
