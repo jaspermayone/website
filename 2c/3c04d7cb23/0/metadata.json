@@ -1,0 +1,176 @@
+{
+  "cli_version": "0.7.3",
+  "checkpoint_id": "2c3c04d7cb23",
+  "session_id": "8004b9ce-93fa-47f3-9f84-0a1361acb150",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-13T00:51:18.170306Z",
+  "branch": "jaspermayone/90-friends-page",
+  "checkpoints_count": 10,
+  "files_touched": [
+    "public/images/friends/dominic_petrarca.png",
+    "public/images/friends/jenn_johnsey.png",
+    "public/images/friends/kieran_klukas.png",
+    "public/images/friends/logan_lambert.png",
+    "public/images/friends/maclean_dunkin.png",
+    "public/images/friends/ryan_di_lorenzo.png",
+    "public/images/friends/samantha_miel.png",
+    "public/images/friends/theo_reid.png",
+    "public/sitemap.xml",
+    "src/app/friends/page.tsx",
+    "src/lib/defs.ts",
+    "src/lib/types.ts"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-fable-5[1m]",
+  "turn_id": "70cfecad48fc",
+  "token_usage": {
+    "input_tokens": 1832,
+    "cache_creation_tokens": 145116,
+    "cache_read_tokens": 11500349,
+    "output_tokens": 46366,
+    "api_call_count": 120
+  },
+  "session_metrics": {
+    "turn_count": 10
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-08-13T00:51:18.11398Z",
+    "agent_lines": 161,
+    "agent_removed": 0,
+    "human_added": 0,
+    "human_modified": 11,
+    "human_removed": 74,
+    "total_committed": 172,
+    "total_lines_changed": 246,
+    "agent_percentage": 65.4471544715447,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0
+    },
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 7,
+      "user_lines_removed": 0,
+      "agent_lines_added": 284,
+      "agent_lines_removed": 20,
+      "user_added_per_file": {
+        ".playwright-mcp/console-2026-08-13T00-18-48-897Z.log": 7
+      }
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0
+    },
+    {
+      "checkpoint_number": 4,
+      "user_lines_added": 18,
+      "user_lines_removed": 85,
+      "agent_lines_added": 284,
+      "agent_lines_removed": 20,
+      "user_added_per_file": {
+        ".playwright-mcp/console-2026-08-13T00-18-48-897Z.log": 7,
+        "src/lib/defs.ts": 11
+      },
+      "user_removed_per_file": {
+        "src/lib/defs.ts": 85
+      }
+    },
+    {
+      "checkpoint_number": 5,
+      "user_lines_added": 14,
+      "user_lines_removed": 0,
+      "agent_lines_added": 210,
+      "agent_lines_removed": 20,
+      "user_added_per_file": {
+        ".playwright-mcp/console-2026-08-13T00-18-48-897Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-32-34-700Z.log": 7
+      }
+    },
+    {
+      "checkpoint_number": 6,
+      "user_lines_added": 21,
+      "user_lines_removed": 0,
+      "agent_lines_added": 215,
+      "agent_lines_removed": 20,
+      "user_added_per_file": {
+        ".playwright-mcp/console-2026-08-13T00-18-48-897Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-32-34-700Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-35-13-802Z.log": 7
+      }
+    },
+    {
+      "checkpoint_number": 7,
+      "user_lines_added": 28,
+      "user_lines_removed": 0,
+      "agent_lines_added": 248,
+      "agent_lines_removed": 20,
+      "user_added_per_file": {
+        ".playwright-mcp/console-2026-08-13T00-18-48-897Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-32-34-700Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-35-13-802Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-42-53-195Z.log": 7
+      }
+    },
+    {
+      "checkpoint_number": 8,
+      "user_lines_added": 28,
+      "user_lines_removed": 0,
+      "agent_lines_added": 254,
+      "agent_lines_removed": 20,
+      "user_added_per_file": {
+        ".playwright-mcp/console-2026-08-13T00-18-48-897Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-32-34-700Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-35-13-802Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-42-53-195Z.log": 7
+      }
+    },
+    {
+      "checkpoint_number": 9,
+      "user_lines_added": 28,
+      "user_lines_removed": 0,
+      "agent_lines_added": 255,
+      "agent_lines_removed": 20,
+      "user_added_per_file": {
+        ".playwright-mcp/console-2026-08-13T00-18-48-897Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-32-34-700Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-35-13-802Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-42-53-195Z.log": 7
+      }
+    },
+    {
+      "checkpoint_number": 10,
+      "user_lines_added": 28,
+      "user_lines_removed": 0,
+      "agent_lines_added": 256,
+      "agent_lines_removed": 20,
+      "user_added_per_file": {
+        ".playwright-mcp/console-2026-08-13T00-18-48-897Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-32-34-700Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-35-13-802Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-42-53-195Z.log": 7
+      }
+    },
+    {
+      "checkpoint_number": 11,
+      "user_lines_added": 28,
+      "user_lines_removed": 0,
+      "agent_lines_added": 257,
+      "agent_lines_removed": 20,
+      "user_added_per_file": {
+        ".playwright-mcp/console-2026-08-13T00-18-48-897Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-32-34-700Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-35-13-802Z.log": 7,
+        ".playwright-mcp/console-2026-08-13T00-42-53-195Z.log": 7
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "cli_version": "0.7.3",
+  "checkpoint_id": "2c3c04d7cb23",
+  "strategy": "manual-commit",
+  "branch": "jaspermayone/90-friends-page",
+  "checkpoints_count": 10,
+  "files_touched": [
+    "public/images/friends/dominic_petrarca.png",
+    "public/images/friends/jenn_johnsey.png",
+    "public/images/friends/kieran_klukas.png",
+    "public/images/friends/logan_lambert.png",
+    "public/images/friends/maclean_dunkin.png",
+    "public/images/friends/ryan_di_lorenzo.png",
+    "public/images/friends/samantha_miel.png",
+    "public/images/friends/theo_reid.png",
+    "public/sitemap.xml",
+    "src/app/friends/page.tsx",
+    "src/lib/defs.ts",
+    "src/lib/types.ts"
+  ],
+  "sessions": [
+    {
+      "metadata": "/2c/3c04d7cb23/0/metadata.json",
+      "transcript": "/2c/3c04d7cb23/0/full.jsonl",
+      "content_hash": "/2c/3c04d7cb23/0/content_hash.txt",
+      "prompt": "/2c/3c04d7cb23/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 1832,
+    "cache_creation_tokens": 145116,
+    "cache_read_tokens": 11500349,
+    "output_tokens": 46366,
+    "api_call_count": 120
+  }
+}
