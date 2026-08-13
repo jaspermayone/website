@@ -65,6 +65,30 @@ export interface YearGroup {
   concerts: Concert[];
 }
 
+export interface Conference {
+  name: string;
+  role?: "attended" | "worked" | "organized";
+  note?: string; // e.g., "Crew", "Expo Pass"
+  organizer?: string;
+  location?: string;
+  date?: string; // start date, YYYY-MM-DD (or YYYY-MM if unknown)
+  endDate?: string;
+  url?: string;
+  favorite?: boolean;
+}
+
+export interface Hackathon {
+  name: string;
+  role?: "attended" | "worked" | "organized";
+  note?: string; // e.g., "MLH Coach", "Founder & Event Director"
+  host?: string; // university or organization
+  location?: string;
+  date?: string; // start date, YYYY-MM-DD (or YYYY-MM if unknown)
+  endDate?: string;
+  url?: string;
+  favorite?: boolean;
+}
+
 export interface Appearance {
   title: string;
   date: string;

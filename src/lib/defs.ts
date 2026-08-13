@@ -8,7 +8,9 @@ import {
 } from "react-icons/si";
 import {
   Appearance,
+  Conference,
   Domain,
+  Hackathon,
   HardwareItem,
   HostedService,
   MaintainedProject,
@@ -74,6 +76,8 @@ export const pages: PageItem[] = [
   { text: "Podroll", slug: "podroll", showInNav: false, order: 99 },
   { text: "Green", slug: "green", showInNav: false, order: 99 },
   { text: "Concerts", slug: "concerts", showInNav: false, order: 99 },
+  { text: "Conferences", slug: "conferences", showInNav: false, order: 99 },
+  { text: "Hackathons", slug: "hackathons", showInNav: false, order: 99 },
   { text: "Elsewhere", slug: "elsewhere", showInNav: false, order: 99 },
   { text: "Colophon", slug: "colophon", showInNav: false, order: 8 },
   { text: "Open Source", slug: "open-source", showInNav: false, order: 99 },
@@ -550,6 +554,12 @@ export const concertsByYear: YearGroup[] = [
     year: 2026,
     concerts: [
       {
+        headliner: "Lake Street Dive",
+        openers: ["Couch"],
+        venue: "Shelburne Museum, Shelburne, VT",
+        date: "2026-08-11",
+      },
+      {
         headliner: "The Neighbourhood",
         setlist:
           "https://www.setlist.fm/setlist/the-neighbourhood/2026/td-garden-boston-ma-234f944b.html",
@@ -632,7 +642,110 @@ export const concertsByYear: YearGroup[] = [
   },
 ];
 
+export const conferences: Conference[] = [
+  {
+    name: "Actuate 26",
+    organizer: "Foxglove",
+    location: "Fort Mason Center, San Francisco, CA",
+    date: "2026-08-18",
+    endDate: "2026-08-19",
+    role: "attended",
+    url: "https://foxglove.dev/actuate",
+  },
+  {
+    name: "See Change Sessions",
+    organizer: "See Change Sessions",
+    location: "Burlington, VT",
+    date: "2024-09-17",
+    endDate: "2024-09-19",
+    role: "worked",
+    note: "Crew",
+    url: "https://www.seechangesessions.com",
+  },
+  {
+    name: "See Change Sessions Pop-Up",
+    organizer: "See Change Sessions",
+    location: "Hula, Burlington, VT",
+    date: "2024-02-20",
+    endDate: "2024-02-22",
+    role: "worked",
+    url: "https://www.seechangesessions.com",
+  },
+  {
+    name: "See Change Sessions",
+    organizer: "See Change Sessions",
+    location: "Burlington, VT",
+    date: "2023-09-12",
+    endDate: "2023-09-14",
+    role: "worked",
+    note: "Event Registration Coordinator & Bookshop Manager",
+    url: "https://www.seechangesessions.com",
+  },
+];
+
+export const hackathons: Hackathon[] = [
+  // TODO: HackWIT — confirm final event date & add once it happens
+  // {
+  //   name: "HackWIT",
+  //   host: "Wentworth Institute of Technology",
+  //   location: "Boston, MA",
+  //   date: "2026-03",
+  //   role: "organized",
+  //   note: "Founder & Event Director",
+  // },
+  {
+    name: "SteelHacks XII",
+    host: "University of Pittsburgh",
+    location: "Pittsburgh, PA",
+    date: "2025-09-20",
+    endDate: "2025-09-21",
+    role: "worked",
+    note: "MLH Coach",
+    url: "https://steelhacks.org",
+  },
+  {
+    name: "Apocalypse",
+    host: "Hack Club",
+    location: "Shopify, Toronto, ON",
+    date: "2024-05-17",
+    endDate: "2024-05-19",
+    role: "attended",
+    note: "Attendee & Hack Club staff",
+    url: "https://apocalypse.hackclub.com",
+  },
+  {
+    name: "The Summit",
+    host: "Hack Club",
+    location: "San Francisco, CA",
+    date: "2024-02-09",
+    endDate: "2024-02-11",
+    role: "organized",
+    note: "Logistics Lead",
+    url: "https://summit.hackclub.com",
+  },
+  {
+    name: "Harvest",
+    host: "Hack Club",
+    location: "Karma Bird House, Burlington, VT",
+    date: "2023-10-28",
+    role: "attended",
+    note: "My first hackathon!",
+    url: "https://harvest.hackclub.com",
+    favorite: true,
+  },
+];
+
 export const appearances: Appearance[] = [
+  {
+    title: "Building Communities around Tech",
+    date: "2025-07-07",
+    platform: "MLH Global Hack Week: Season Launch",
+    url: "https://events.mlh.com/events/12721",
+    type: "talk",
+    role: "speaker",
+    description:
+      "A session on building thriving tech communities, drawing on experience leading global programs at Hack Club and Major League Hacking.",
+  },
   {
     title: "Staff Writer",
     date: "2022-01-01",
@@ -983,6 +1096,16 @@ export const slashPages: SlashPage[] = [
     slug: "concerts",
     name: "Concerts",
     description: "Live shows I've attended",
+  },
+  {
+    slug: "conferences",
+    name: "Conferences",
+    description: "Conferences I've attended and worked",
+  },
+  {
+    slug: "hackathons",
+    name: "Hackathons",
+    description: "Hackathons I've attended, worked, and organized",
   },
   {
     slug: "open-source",
