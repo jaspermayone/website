@@ -1,0 +1,104 @@
+{
+  "cli_version": "0.7.3",
+  "checkpoint_id": "cb5ff7f73380",
+  "session_id": "a0dbf914-47bc-488a-824b-71fe2aef6072",
+  "strategy": "manual-commit",
+  "created_at": "2026-08-13T04:04:03.68766Z",
+  "branch": "jaspermayone/footer-sitemap-touchup",
+  "checkpoints_count": 0,
+  "files_touched": [
+    ".github/workflows/react-doctor.yml"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-fable-5[1m]",
+  "turn_id": "a7cbe54a2f37",
+  "checkpoint_transcript_start": 898,
+  "transcript_lines_at_start": 898,
+  "token_usage": {
+    "input_tokens": 21,
+    "cache_creation_tokens": 7064,
+    "cache_read_tokens": 1104523,
+    "output_tokens": 3611,
+    "api_call_count": 11
+  },
+  "skill_events_version": 1,
+  "skill_events": [
+    {
+      "id": "claude-skill-toolu_01QmjgxvT9zwiFjJH2YZZkXw",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "artifact-design"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "a7cbe54a2f37",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 51,
+        "end": 52,
+        "entry_ids": [
+          "6c615029-4e57-4551-9c8a-bdc0a92df701"
+        ],
+        "tool_use_id": "toolu_01QmjgxvT9zwiFjJH2YZZkXw"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_01QmjgxvT9zwiFjJH2YZZkXw"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: artifact-design",
+        "default_collapsed": true
+      }
+    },
+    {
+      "id": "claude-skill-toolu_012cGtDhVeKdtk61iC6pQQ6E",
+      "event_type": "tool_invocation",
+      "skill": {
+        "name": "emil-design-eng"
+      },
+      "source": {
+        "agent": "claude-code",
+        "signal": "skill_tool_use",
+        "confidence": "explicit"
+      },
+      "turn_id": "a7cbe54a2f37",
+      "transcript_anchor": {
+        "unit": "line",
+        "start": 83,
+        "end": 84,
+        "entry_ids": [
+          "e94ed68a-9f6c-4971-ba52-3658368771da"
+        ],
+        "tool_use_id": "toolu_012cGtDhVeKdtk61iC6pQQ6E"
+      },
+      "native": {
+        "tool_name": "Skill",
+        "tool_use_id": "toolu_012cGtDhVeKdtk61iC6pQQ6E"
+      },
+      "collapse": {
+        "target": "tool_pair",
+        "label": "Skill: emil-design-eng",
+        "default_collapsed": true
+      }
+    }
+  ],
+  "session_metrics": {
+    "turn_count": 17
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-08-13T04:04:03.596607Z",
+    "agent_lines": 4,
+    "agent_removed": 3,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 4,
+    "total_lines_changed": 7,
+    "agent_percentage": 100,
+    "metric_version": 2
+  }
+}

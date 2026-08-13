@@ -1,0 +1,25 @@
+{
+  "cli_version": "0.7.3",
+  "checkpoint_id": "cb5ff7f73380",
+  "strategy": "manual-commit",
+  "branch": "jaspermayone/footer-sitemap-touchup",
+  "checkpoints_count": 0,
+  "files_touched": [
+    ".github/workflows/react-doctor.yml"
+  ],
+  "sessions": [
+    {
+      "metadata": "/cb/5ff7f73380/0/metadata.json",
+      "transcript": "/cb/5ff7f73380/0/full.jsonl",
+      "content_hash": "/cb/5ff7f73380/0/content_hash.txt",
+      "prompt": ""
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 21,
+    "cache_creation_tokens": 7064,
+    "cache_read_tokens": 1104523,
+    "output_tokens": 3611,
+    "api_call_count": 11
+  }
+}
