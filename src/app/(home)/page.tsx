@@ -7,6 +7,7 @@ import RoundedImage from "@/components/RoundedImage";
 import { getAge } from "@/lib/defs";
 import JmDark from "@public/images/jmdark-min.webp";
 import JmLight from "@public/images/jmlite-min.webp";
+import { Link } from "next-view-transitions";
 import { useSyncExternalStore } from "react";
 
 // Subscribe function for useSyncExternalStore
@@ -68,8 +69,12 @@ export default function Home() {
                 </ExternalLink>{" "}
                 in Boston, Massachusetts. When not in school or at work,
                 Jasper&apos;s hobbies include reading, being in the great
-                outdoors, photography, computer programming, cooking, and
-                running away to join the circus.
+                outdoors,{" "}
+                <Link className="lnk" href="/photos">
+                  photography
+                </Link>
+                , computer programming, cooking, and running away to join the
+                circus.
               </p>
               <p className="text-sm text-zinc-600 dark:text-white/70">
                 An avid organizer and big picture thinker, you can often find

@@ -77,6 +77,7 @@ export const pages: PageItem[] = [
   { text: "Podroll", slug: "podroll", showInNav: false, order: 99 },
   { text: "Green", slug: "green", showInNav: false, order: 99 },
   { text: "Concerts", slug: "concerts", showInNav: false, order: 99 },
+  { text: "Photos", slug: "photos", showInNav: false, order: 99 },
   { text: "Conferences", slug: "conferences", showInNav: false, order: 99 },
   { text: "Hackathons", slug: "hackathons", showInNav: false, order: 99 },
   { text: "Elsewhere", slug: "elsewhere", showInNav: false, order: 99 },
@@ -1132,6 +1133,11 @@ export const hostedServices: HostedService[] = [
 // Slash pages - top-level URL pages that may be of interest
 // Inspired by https://slashpages.net/
 export const slashPages: SlashPage[] = [
+  {
+    slug: "photos",
+    name: "Photos",
+    description: "A gallery of photos I've taken",
+  },
   {
     slug: "now",
     name: "Now",

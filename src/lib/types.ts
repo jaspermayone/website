@@ -162,6 +162,15 @@ export interface SlashPage {
   description: string;
 }
 
+export interface PhotoExif {
+  camera?: string;
+  focalLength?: string;
+  aperture?: string;
+  shutter?: string;
+  iso?: string;
+  date?: string;
+}
+
 export interface HardwareItem {
   name: string;
   device: string;
